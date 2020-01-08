@@ -1,6 +1,7 @@
     @extends('layouts.default')
+        <div class="main-wrapper">
     @section('content')
-    <div class="main-wrapper">
+
         <!-- Content Body Start -->
         <div class="content-body mt-30 mb-60">
 
