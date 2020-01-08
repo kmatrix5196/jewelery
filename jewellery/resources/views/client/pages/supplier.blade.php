@@ -71,7 +71,7 @@
                         <div class="col-lg-6">
                             <div class="about-thumb"><br><br><br>
                                 <a href="company_profile">
-                                    <img src="assets/img/images.jpeg" alt="about thumb">
+                                    <img src="{{asset('img/images.jpeg')}}" alt="about thumb">
                                 </a>
                             </div>
                         </div>

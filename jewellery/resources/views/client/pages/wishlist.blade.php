@@ -47,7 +47,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="assets/img/sample/product-sample.jpg" alt="Product" /></a></td>
+                                            <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="{{asset('img/sample/product-sample.jpg')}}" alt="Product" /></a></td>
                                             <td class="pro-title"><a href="#">Diamond Exclusive Ornament</a></td>
                                             <td class="pro-price"><span>$295.00</span></td>
                                             <td class="pro-quantity"><span class="text-success">In Stock</span></td>

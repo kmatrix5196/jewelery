@@ -22,7 +22,7 @@
                           <div class="product-item">
                               <figure class="product-thumb">
                                   <a href="">
-                                      <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                      <img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
                                       <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
                                   </a>
                                   <div class="product-badge">

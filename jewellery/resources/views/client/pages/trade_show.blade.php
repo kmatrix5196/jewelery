@@ -8,7 +8,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-5">
                         <div class="about-thumb"><br><br><br>
-                            <img src="assets/img/sample/blog-sample.jpg" alt="about thumb">
+                            <img src="{{asset('img/sample/blog-sample.jpg')}}" alt="about thumb">
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -50,7 +50,7 @@
                             <div class="blog-post-item">
                                 <figure class="blog-thumb">
                                     <a href="blog-details">
-                                        <img src="assets/img/sample/blog-sample.jpg" alt="blog image">
+                                        <img src="{{asset('img/sample/blog-sample.jpg" alt="blog image')}}">
                                     </a>
                                 </figure>
                                 <div class="blog-content">
