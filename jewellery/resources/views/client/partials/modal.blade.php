@@ -52,7 +52,7 @@
                             <div class="col-lg-7">
                                 <div class="product-details-des">
                                     <div class="manufacturer-name">
-                                        <a href="product-details.php">Company</a>
+                                        <a href="product-details">Company</a>
                                     </div>
                                     <h3 class="product-name">Caption</h3>
                                     <div class="ratings d-flex">

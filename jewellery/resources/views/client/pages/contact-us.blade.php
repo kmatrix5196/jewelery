@@ -1,4 +1,4 @@
-    @extends('layouts.default')
+    @extends('client.layouts.default')
     @section('content')
     <main>
         <!-- breadcrumb area start -->
@@ -9,7 +9,7 @@
                         <div class="breadcrumb-wrap">
                             <nav aria-label="breadcrumb">
                                 <ul class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.php">
+                                    <li class="breadcrumb-item"><a href="index">
                                       <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                       width="30" height="30"
                                       viewBox="0 0 172 172"

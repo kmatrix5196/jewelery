@@ -1,4 +1,4 @@
-    @extends('layouts.default')
+    @extends('client.layouts.default')
     @section('content')
     <main>
       <!-- featured product area start -->
@@ -29,7 +29,7 @@
 
                                   </div>
                                   <div class="button-group">
-                                    <a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                    <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                   </div>
 
                               </figure>
@@ -48,7 +48,7 @@
 
                                   </div>
                                   <div class="button-group">
-                                    <a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                    <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                   </div>
 
                               </figure>
@@ -67,7 +67,7 @@
 
                                   </div>
                                   <div class="button-group">
-                                    <a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                    <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                   </div>
 
                               </figure>
@@ -86,7 +86,7 @@
 
                                   </div>
                                   <div class="button-group">
-                                    <a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                    <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                   </div>
 
                               </figure>
@@ -105,7 +105,7 @@
 
                                   </div>
                                   <div class="button-group">
-                                    <a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                    <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                   </div>
 
                               </figure>
@@ -124,7 +124,7 @@
 
                                   </div>
                                   <div class="button-group">
-                                    <a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                    <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                   </div>
 
                               </figure>
@@ -143,7 +143,7 @@
 
                                   </div>
                                   <div class="button-group">
-                                    <a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                    <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                   </div>
 
                               </figure>
@@ -162,7 +162,7 @@
 
                                   </div>
                                   <div class="button-group">
-                                    <a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                    <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                   </div>
 
                               </figure>

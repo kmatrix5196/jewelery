@@ -1,4 +1,4 @@
-    @extends('layouts.default')
+    @extends('client.layouts.default')
     @section('content')
     <main>
         <!-- breadcrumb area start -->
@@ -9,7 +9,7 @@
                         <div class="breadcrumb-wrap">
                             <nav aria-label="breadcrumb">
                                 <ul class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.php">
+                                    <li class="breadcrumb-item"><a href="index">
                                       <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                       width="30" height="30"
                                       viewBox="0 0 172 172"
@@ -54,13 +54,13 @@
                                                     <h5>Dashboard</h5>
                                                     <div class="welcome">
                                                         <p>Hello, <strong>HEX Creative</strong> (If Not <strong>HEX Creative
-                                                            !</strong><a href="login-register.php" class="logout"> Logout</a>)</p>
+                                                            !</strong><a href="login-register" class="logout"> Logout</a>)</p>
                                                     </div>
                                                     <p class="mb-0">From your account dashboard. you can easily check &
                                                         view your recent orders, manage your shipping and billing addresses
                                                         and edit your password and account details.</p>
 
-                                                        <a href="admin.php"><button class="btn btn-hero">Go to Dashboard</button></a>
+                                                        <a href="admin"><button class="btn btn-hero">Go to Dashboard</button></a>
                                                 </div>
                                             </div>
                                             <!-- Single Tab Content End -->

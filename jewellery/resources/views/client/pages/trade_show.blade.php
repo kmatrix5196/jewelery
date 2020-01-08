@@ -1,4 +1,4 @@
-    @extends('layouts.default')
+    @extends('client.layouts.default')
     @section('content')
     <main>
         <!-- about us area start -->
@@ -48,7 +48,7 @@
                             <!-- blog post item start -->
                             <div class="blog-post-item">
                                 <figure class="blog-thumb">
-                                    <a href="blog-details.php">
+                                    <a href="blog-details">
                                         <img src="assets/img/sample/blog-sample.jpg" alt="blog image">
                                     </a>
                                 </figure>
@@ -57,7 +57,7 @@
                                         <p>25/03/2019 | <a href="#"></a></p>
                                     </div>
                                     <h5 class="blog-title">
-                                        <a href="blog-details.php">Celebrity Daughter Opens Up About Having Her Eye Color Changed</a>
+                                        <a href="blog-details">Celebrity Daughter Opens Up About Having Her Eye Color Changed</a>
                                     </h5>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                             <!-- blog post item start -->
                             <div class="blog-post-item">
                                 <figure class="blog-thumb">
-                                    <a href="blog-details.php">
+                                    <a href="blog-details">
                                         <img src="assets/img/sample/blog-sample.jpg" alt="blog image">
                                     </a>
                                 </figure>
@@ -75,7 +75,7 @@
                                         <p>25/03/2019 | <a href="#"></a></p>
                                     </div>
                                     <h5 class="blog-title">
-                                        <a href="blog-details.php">Children Left Home Alone For 4 Days In TV series Experiment</a>
+                                        <a href="blog-details">Children Left Home Alone For 4 Days In TV series Experiment</a>
                                     </h5>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                             <!-- blog post item start -->
                             <div class="blog-post-item">
                                 <figure class="blog-thumb">
-                                    <a href="blog-details.php">
+                                    <a href="blog-details">
                                         <img src="assets/img/sample/blog-sample.jpg" alt="blog image">
                                     </a>
                                 </figure>
@@ -93,7 +93,7 @@
                                         <p>25/03/2019 | <a href="#"></a></p>
                                     </div>
                                     <h5 class="blog-title">
-                                        <a href="blog-details.php">Lotto Winner Offering Up Money To Any Man That Will Date Her</a>
+                                        <a href="blog-details">Lotto Winner Offering Up Money To Any Man That Will Date Her</a>
                                     </h5>
                                 </div>
                             </div>
@@ -102,7 +102,7 @@
                             <!-- blog post item start -->
                             <div class="blog-post-item">
                                 <figure class="blog-thumb">
-                                    <a href="blog-details.php">
+                                    <a href="blog-details">
                                         <img src="assets/img/sample/blog-sample.jpg" alt="blog image">
                                     </a>
                                 </figure>
@@ -111,7 +111,7 @@
                                         <p>25/03/2019 | <a href="#"></a></p>
                                     </div>
                                     <h5 class="blog-title">
-                                        <a href="blog-details.php">People are Willing Lie When Comes Money, According to Research</a>
+                                        <a href="blog-details">People are Willing Lie When Comes Money, According to Research</a>
                                     </h5>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@
                             <!-- blog post item start -->
                             <div class="blog-post-item">
                                 <figure class="blog-thumb">
-                                    <a href="blog-details.php">
+                                    <a href="blog-details">
                                         <img src="assets/img/sample/blog-sample.jpg" alt="blog image">
                                     </a>
                                 </figure>
@@ -129,7 +129,7 @@
                                         <p>25/03/2019 | <a href="#"></a></p>
                                     </div>
                                     <h5 class="blog-title">
-                                        <a href="blog-details.php">romantic Love Stories Of Hollywood’s Biggest Celebrities</a>
+                                        <a href="blog-details">romantic Love Stories Of Hollywood’s Biggest Celebrities</a>
                                     </h5>
                                 </div>
                             </div>

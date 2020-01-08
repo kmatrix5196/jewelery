@@ -2,23 +2,23 @@
 <html class="no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-	@include('partials.head')
+	@include('client.partials.head')
 </head>
 
 <body>
 	<!-- preloader area start -->
-	@include('partials.preloader')
+	@include('client.partials.preloader')
 	<!-- preloader area end -->
 
 	<!-- header area start -->
-	@include('partials.header')
+	@include('client.partials.header')
 	<!-- header area end -->
 	<main>
 		@yield('content')
 	</main>
 
 	<!-- Quick view modal start -->
-	@include('partials.modal')
+	@include('client.partials.modal')
 	<!-- Quick view modal end -->
 	
 	<!-- Scroll to top start -->
@@ -28,16 +28,16 @@
 	<!-- Scroll to Top End -->
 
 	<!-- footer area start -->
-	@include('partials.footer')
+	@include('client.partials.footer')
 	<!-- footer area end -->
 
 	
 
 	<!-- offcanvas mini cart start -->
-	@include('partials.mini_cart')
+	@include('client.partials.mini_cart')
 	<!-- offcanvas mini cart end -->
 
-	@include('partials.js')
+	@include('client.partials.js')
 
 </body>
 </html>

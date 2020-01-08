@@ -1,4 +1,4 @@
-    @extends('layouts.default')
+    @extends('client.layouts.default')
     @section('content')
     <main>
         <!-- breadcrumb area start -->
@@ -69,7 +69,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="about-thumb"><br><br><br>
-                                <a href="company_profile.php">
+                                <a href="company_profile">
                                     <img src="assets/img/images.jpeg" alt="about thumb">
                                 </a>
                             </div>
@@ -173,10 +173,10 @@
                                 <div class="row">
                                     <ul class=" list-inline">
                                         <li class="list-inline-item">
-                                            <a href="supplier_company.php"><button class="btn btn-zg1">Start Order</button></a>
+                                            <a href="supplier_company"><button class="btn btn-zg1">Start Order</button></a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a href="chat.php"> <button class="btn btn-zg2">Chat Now</button></a>
+                                            <a href="chat"> <button class="btn btn-zg2">Chat Now</button></a>
                                         </li>
                                     </ul>
                                     

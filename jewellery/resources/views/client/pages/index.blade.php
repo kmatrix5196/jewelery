@@ -1,4 +1,4 @@
-	@extends('layouts.default')
+	@extends('client.layouts.default')
 	@section('content')
 		<!-- hero slider area start -->
 		<section class="slider-area">
@@ -12,7 +12,7 @@
 									<div class="hero-slider-content slide-1">
 										<h2 class="slide-title">Caption<span>Collection</span></h2>
 										<h4 class="slide-desc">Description</h4>
-										<a href="shop.php" class="btn btn-hero">Shop Now</a>
+										<a href="shop" class="btn btn-hero">Shop Now</a>
 									</div>
 								</div>
 							</div>
@@ -30,7 +30,7 @@
 									<div class="hero-slider-content slide-2 float-md-right float-none">
 										<h2 class="slide-title">Caption<span>Collection</span></h2>
 										<h4 class="slide-desc">Description</h4>
-										<a href="shop.php" class="btn btn-hero">Shop Now</a>
+										<a href="shop" class="btn btn-hero">Shop Now</a>
 									</div>
 								</div>
 							</div>
@@ -48,7 +48,7 @@
 									<div class="hero-slider-content slide-3">
 										<h2 class="slide-title">Caption<span>Collection</span></h2>
 										<h4 class="slide-desc">Description</h4>
-										<a href="shop.php" class="btn btn-hero">Shop Now</a>
+										<a href="shop" class="btn btn-hero">Shop Now</a>
 									</div>
 								</div>
 							</div>
@@ -81,49 +81,49 @@
 				<div class="row row-20 mtn-20">
 					<div class="col-sm-6">
 						<figure class="banner-statistics mt-20">
-							<a href="shop.php">
+							<a href="shop">
 								<img src="{{asset('img/sample/banner-top.jpg')}}" alt="product banner">
 							</a>
 							<div class="banner-content text-right">
 								<h5 class="banner-text1">Category</h5>
 								<h2 class="banner-text2">Caption<span>Title</span></h2>
-								<a href="shop.php" class="btn btn-text">Shop Now</a>
+								<a href="shop" class="btn btn-text">Shop Now</a>
 							</div>
 						</figure>
 					</div>
 					<div class="col-sm-6">
 						<figure class="banner-statistics mt-20">
-							<a href="shop.php">
+							<a href="shop">
 								<img src="{{asset('img/sample/banner-top.jpg')}}" alt="product banner">
 							</a>
 							<div class="banner-content text-right">
 								<h5 class="banner-text1">Category</h5>
 								<h2 class="banner-text2">Caption<span>Title</span></h2>
-								<a href="shop.php" class="btn btn-text">Shop Now</a>
+								<a href="shop" class="btn btn-text">Shop Now</a>
 							</div>
 						</figure>
 					</div>
 					<div class="col-sm-6">
 						<figure class="banner-statistics mt-20">
-							<a href="shop.php">
+							<a href="shop">
 								<img src="{{asset('img/sample/banner-top.jpg')}}" alt="product banner">
 							</a>
 							<div class="banner-content text-right">
 								<h5 class="banner-text1">Category</h5>
 								<h2 class="banner-text2">Caption<span>Title</span></h2>
-								<a href="shop.php" class="btn btn-text">Shop Now</a>
+								<a href="shop" class="btn btn-text">Shop Now</a>
 							</div>
 						</figure>
 					</div>
 					<div class="col-sm-6">
 						<figure class="banner-statistics mt-20">
-							<a href="shop.php">
+							<a href="shop">
 								<img src="{{asset('img/sample/banner-top.jpg')}}" alt="product banner">
 							</a>
 							<div class="banner-content text-right">
 								<h5 class="banner-text1">Category</h5>
 								<h2 class="banner-text2">Caption<span>Title</span></h2>
-								<a href="shop.php" class="btn btn-text">Shop Now</a>
+								<a href="shop" class="btn btn-text">Shop Now</a>
 							</div>
 						</figure>
 					</div>
@@ -161,16 +161,16 @@
 							<!-- product item start -->
 							<div class="product-item">
 								<figure class="product-thumb">
-									<a href="product-details.php">
+									<a href="product-details">
 										<img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 										<img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 									</a>
 									<div class="product-badge">
 									</div>
 									<div class="button-group">
-										<a href="wishlist.php" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										<a href="shop.php" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										<a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+										<a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+										<a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
+										<a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
 									</div>
 									<div class="cart-hover">
 										<button class="btn btn-cart">add to cart</button>
@@ -180,7 +180,7 @@
 
 
 									<h6 class="product-name">
-										<a href="product-details.php">Title</a>
+										<a href="product-details">Title</a>
 									</h6>
 									<div class="price-box">
 										<span class="price-regular">$60.00</span>
@@ -192,16 +192,16 @@
 							<!-- product item start -->
 							<div class="product-item">
 								<figure class="product-thumb">
-									<a href="product-details.php">
+									<a href="product-details">
 										<img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 										<img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 									</a>
 									<div class="product-badge">
 									</div>
 									<div class="button-group">
-										<a href="wishlist.php" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										<a href="shop.php" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										<a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+										<a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+										<a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
+										<a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
 									</div>
 									<div class="cart-hover">
 										<button class="btn btn-cart">add to cart</button>
@@ -211,7 +211,7 @@
 
 
 									<h6 class="product-name">
-										<a href="product-details.php">Title</a>
+										<a href="product-details">Title</a>
 									</h6>
 									<div class="price-box">
 										<span class="price-regular">$60.00</span>
@@ -223,16 +223,16 @@
 							<!-- product item start -->
 							<div class="product-item">
 								<figure class="product-thumb">
-									<a href="product-details.php">
+									<a href="product-details">
 										<img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 										<img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 									</a>
 									<div class="product-badge">
 									</div>
 									<div class="button-group">
-										<a href="wishlist.php" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										<a href="shop.php" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										<a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+										<a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+										<a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
+										<a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
 									</div>
 									<div class="cart-hover">
 										<button class="btn btn-cart">add to cart</button>
@@ -242,7 +242,7 @@
 
 
 									<h6 class="product-name">
-										<a href="product-details.php">Title</a>
+										<a href="product-details">Title</a>
 									</h6>
 									<div class="price-box">
 										<span class="price-regular">$60.00</span>
@@ -254,16 +254,16 @@
 							<!-- product item start -->
 							<div class="product-item">
 								<figure class="product-thumb">
-									<a href="product-details.php">
+									<a href="product-details">
 										<img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 										<img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 									</a>
 									<div class="product-badge">
 									</div>
 									<div class="button-group">
-										<a href="wishlist.php" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										<a href="shop.php" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										<a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+										<a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+										<a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
+										<a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
 									</div>
 									<div class="cart-hover">
 										<button class="btn btn-cart">add to cart</button>
@@ -273,7 +273,7 @@
 
 
 									<h6 class="product-name">
-										<a href="product-details.php">Title</a>
+										<a href="product-details">Title</a>
 									</h6>
 									<div class="price-box">
 										<span class="price-regular">$60.00</span>
@@ -285,16 +285,16 @@
 							<!-- product item start -->
 							<div class="product-item">
 								<figure class="product-thumb">
-									<a href="product-details.php">
+									<a href="product-details">
 										<img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 										<img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 									</a>
 									<div class="product-badge">
 									</div>
 									<div class="button-group">
-										<a href="wishlist.php" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										<a href="shop.php" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										<a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+										<a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+										<a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
+										<a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
 									</div>
 									<div class="cart-hover">
 										<button class="btn btn-cart">add to cart</button>
@@ -304,7 +304,7 @@
 
 
 									<h6 class="product-name">
-										<a href="product-details.php">Title</a>
+										<a href="product-details">Title</a>
 									</h6>
 									<div class="price-box">
 										<span class="price-regular">$60.00</span>
@@ -316,16 +316,16 @@
 							<!-- product item start -->
 							<div class="product-item">
 								<figure class="product-thumb">
-									<a href="product-details.php">
+									<a href="product-details">
 										<img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 										<img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 									</a>
 									<div class="product-badge">
 									</div>
 									<div class="button-group">
-										<a href="wishlist.php" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										<a href="shop.php" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										<a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+										<a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+										<a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
+										<a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
 									</div>
 									<div class="cart-hover">
 										<button class="btn btn-cart">add to cart</button>
@@ -335,7 +335,7 @@
 
 
 									<h6 class="product-name">
-										<a href="product-details.php">Title</a>
+										<a href="product-details">Title</a>
 									</h6>
 									<div class="price-box">
 										<span class="price-regular">$60.00</span>
@@ -347,16 +347,16 @@
 							<!-- product item start -->
 							<div class="product-item">
 								<figure class="product-thumb">
-									<a href="product-details.php">
+									<a href="product-details">
 										<img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 										<img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 									</a>
 									<div class="product-badge">
 									</div>
 									<div class="button-group">
-										<a href="wishlist.php" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										<a href="shop.php" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										<a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+										<a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+										<a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
+										<a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
 									</div>
 									<div class="cart-hover">
 										<button class="btn btn-cart">add to cart</button>
@@ -366,7 +366,7 @@
 
 
 									<h6 class="product-name">
-										<a href="product-details.php">Title</a>
+										<a href="product-details">Title</a>
 									</h6>
 									<div class="price-box">
 										<span class="price-regular">$60.00</span>
@@ -379,16 +379,16 @@
 							<!-- product item start -->
 							<div class="product-item">
 								<figure class="product-thumb">
-									<a href="product-details.php">
+									<a href="product-details">
 										<img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 										<img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 									</a>
 									<div class="product-badge">
 									</div>
 									<div class="button-group">
-										<a href="wishlist.php" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										<a href="shop.php" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										<a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+										<a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+										<a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
+										<a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
 									</div>
 									<div class="cart-hover">
 										<button class="btn btn-cart">add to cart</button>
@@ -398,7 +398,7 @@
 
 
 									<h6 class="product-name">
-										<a href="product-details.php">Title</a>
+										<a href="product-details">Title</a>
 									</h6>
 									<div class="price-box">
 										<span class="price-regular">$60.00</span>
@@ -409,16 +409,16 @@
 							<!-- product item end -->  <!-- product item start -->
 							  <div class="product-item">
 								  <figure class="product-thumb">
-									  <a href="product-details.php">
+									  <a href="product-details">
 										  <img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 										  <img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
 									  </a>
 									  <div class="product-badge">
 									  </div>
 									  <div class="button-group">
-										  <a href="wishlist.php" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										  <a href="shop.php" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										  <a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+										  <a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+										  <a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
+										  <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
 									  </div>
 									  <div class="cart-hover">
 										  <button class="btn btn-cart">add to cart</button>
@@ -428,7 +428,7 @@
 
 
 									  <h6 class="product-name">
-										  <a href="product-details.php">Title</a>
+										  <a href="product-details">Title</a>
 									  </h6>
 									  <div class="price-box">
 										  <span class="price-regular">$60.00</span>
@@ -456,12 +456,12 @@
 					<div class="col-lg-6">
 						<div class="group-product-banner">
 							<figure class="banner-statistics">
-								<a href="shop.php">
+								<a href="shop">
 									<img src="{{asset('img/sample/img-bottom-banner.jpg')}}" alt="product banner">
 								</a>
 								<div class="banner-content banner-content_style3 text-center">
 									<h2 class="banner-text2 bowly-font">Best Selling Companies</h2>
-									<a href="shop.php" class="btn btn-text">Shop Now</a>
+									<a href="shop" class="btn btn-text">Shop Now</a>
 								</div>
 							</figure>
 						</div>
@@ -482,12 +482,12 @@
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details.php">
+												<a href="product-details">
 													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details.php">
+												<h5 class="group-product-name"><a href="product-details">
 														Title</a></h5>
 												<div class="price-box">
 													<span class="price-regular">$50.00</span>
@@ -502,12 +502,12 @@
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details.php">
+												<a href="product-details">
 													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details.php">
+												<h5 class="group-product-name"><a href="product-details">
 													Title</a></h5>
 												<div class="price-box">
 													<span class="price-regular">$55.00</span>
@@ -522,12 +522,12 @@
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details.php">
+												<a href="product-details">
 													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details.php">
+												<h5 class="group-product-name"><a href="product-details">
 													Title</a></h5>
 												<div class="price-box">
 													<span class="price-regular">$45.00</span>
@@ -542,12 +542,12 @@
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details.php">
+												<a href="product-details">
 													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details.php">
+												<h5 class="group-product-name"><a href="product-details">
 														Title</a></h5>
 												<div class="price-box">
 													<span class="price-regular">$50.00</span>
@@ -562,12 +562,12 @@
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details.php">
+												<a href="product-details">
 													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details.php">
+												<h5 class="group-product-name"><a href="product-details">
 														Title</a></h5>
 												<div class="price-box">
 													<span class="price-regular">$90.00</span>
@@ -582,12 +582,12 @@
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details.php">
+												<a href="product-details">
 													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details.php">
+												<h5 class="group-product-name"><a href="product-details">
 													Title</a></h5>
 												<div class="price-box">
 													<span class="price-regular">$20.00</span>
@@ -602,12 +602,12 @@
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details.php">
+												<a href="product-details">
 													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details.php">
+												<h5 class="group-product-name"><a href="product-details">
 													Title</a></h5>
 												<div class="price-box">
 													<span class="price-regular">$55.00</span>
@@ -622,12 +622,12 @@
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details.php">
+												<a href="product-details">
 													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details.php">
+												<h5 class="group-product-name"><a href="product-details">
 														Title</a></h5>
 												<div class="price-box">
 													<span class="price-regular">$45.00</span>
@@ -658,12 +658,12 @@
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details.php">
+												<a href="product-details">
 													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details.php">
+												<h5 class="group-product-name"><a href="product-details">
 													Title</a></h5>
 												<div class="price-box">
 													<span class="price-regular">$50.00</span>
@@ -678,12 +678,12 @@
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details.php">
+												<a href="product-details">
 													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details.php">
+												<h5 class="group-product-name"><a href="product-details">
 														Title</a></h5>
 												<div class="price-box">
 													<span class="price-regular">$55.00</span>
@@ -698,12 +698,12 @@
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details.php">
+												<a href="product-details">
 													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details.php">
+												<h5 class="group-product-name"><a href="product-details">
 														Title</a></h5>
 												<div class="price-box">
 													<span class="price-regular">$45.00</span>
@@ -718,12 +718,12 @@
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details.php">
+												<a href="product-details">
 													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details.php">
+												<h5 class="group-product-name"><a href="product-details">
 													Title</a></h5>
 												<div class="price-box">
 													<span class="price-regular">$50.00</span>
@@ -738,12 +738,12 @@
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details.php">
+												<a href="product-details">
 													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details.php">
+												<h5 class="group-product-name"><a href="product-details">
 													Title</a></h5>
 												<div class="price-box">
 													<span class="price-regular">$90.00</span>
@@ -758,12 +758,12 @@
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details.php">
+												<a href="product-details">
 													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details.php">
+												<h5 class="group-product-name"><a href="product-details">
 													Title</a></h5>
 												<div class="price-box">
 													<span class="price-regular">$20.00</span>
@@ -778,12 +778,12 @@
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details.php">
+												<a href="product-details">
 													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details.php">
+												<h5 class="group-product-name"><a href="product-details">
 													Title</a></h5>
 												<div class="price-box">
 													<span class="price-regular">$55.00</span>
@@ -798,12 +798,12 @@
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details.php">
+												<a href="product-details">
 													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details.php">
+												<h5 class="group-product-name"><a href="product-details">
 													Title</a></h5>
 												<div class="price-box">
 													<span class="price-regular">$45.00</span>

@@ -10,13 +10,13 @@
                     <ul>
                         <li class="minicart-item">
                             <div class="minicart-thumb">
-                                <a href="product-details.php">
+                                <a href="product-details">
                                     <img src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
                                 </a>
                             </div>
                             <div class="minicart-content">
                                 <h3 class="product-name">
-                                    <a href="product-details.php">Dozen White Botanical Linen Dinner Napkins</a>
+                                    <a href="product-details">Dozen White Botanical Linen Dinner Napkins</a>
                                 </h3>
                                 <p>
                                     <span class="cart-quantity">1 <strong>&times;</strong></span>
@@ -27,13 +27,13 @@
                         </li>
                         <li class="minicart-item">
                             <div class="minicart-thumb">
-                                <a href="product-details.php">
+                                <a href="product-details">
                                     <img src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
                                 </a>
                             </div>
                             <div class="minicart-content">
                                 <h3 class="product-name">
-                                    <a href="product-details.php">Dozen White Botanical Linen Dinner Napkins</a>
+                                    <a href="product-details">Dozen White Botanical Linen Dinner Napkins</a>
                                 </h3>
                                 <p>
                                     <span class="cart-quantity">1 <strong>&times;</strong></span>
@@ -67,8 +67,8 @@
                 </div>
 
                 <div class="minicart-button">
-                    <a href="cart.php"><i class="fa fa-shopping-cart"></i> View Cart</a>
-                    <a href="cart.php"><i class="fa fa-share"></i> Checkout</a>
+                    <a href="cart"><i class="fa fa-shopping-cart"></i> View Cart</a>
+                    <a href="cart"><i class="fa fa-share"></i> Checkout</a>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-    @extends('layouts.default')
+    @extends('client.layouts.default')
         <div class="main-wrapper">
     @section('content')
 

@@ -15,7 +15,7 @@
                     <!-- start logo area -->
                     <div class="col-lg-1">
                         <div class="logo">
-                            <a href="index.php">                                
+                            <a href="index">                                
                                 <img src="{{asset('img/logo/logo.png')}}" alt="Brand Logo">                             
                             </a>
                         </div>
@@ -29,23 +29,23 @@
                                 <!-- main menu navbar start -->
                                 <nav class="desktop-menu">
                                     <ul>
-                                        <li><a href="index.php">Home </a>
+                                        <li><a href="index">Home </a>
 
                                         </li>
-                                        <li class="position-static"><a href="shop.php">Offers</a>
+                                        <li class="position-static"><a href="shop">Offers</a>
 
                                         </li>
-                                        <li><a href="premium_show.php">Premium Show </a>
+                                        <li><a href="premium_show">Premium Show </a>
 
                                         </li>
-                                        <li><a href="trade_show.php">Trade Show </a>
+                                        <li><a href="trade_show">Trade Show </a>
 
                                         </li>
-                                        <li><a href="supplier.php">Suppliers</a>
+                                        <li><a href="supplier">Suppliers</a>
 
                                         </li>
 
-                                        <li><a href="contact-us.php">Contact us</a></li>
+                                        <li><a href="contact-us">Contact us</a></li>
                                     </ul>
                                 </nav>
                                 <!-- main menu navbar end -->
@@ -67,7 +67,7 @@
                             <div class="header-configure-area">
                                 <ul class="nav justify-content-end">
                                     <li>
-                                        <a href="wishlist.php">
+                                        <a href="wishlist">
                                         <img src="https://img.icons8.com/dotty/30/000000/like.png">
                                             <div class="notification">0</div>
                                         </a>
@@ -91,9 +91,9 @@
                                         </a>
 
                                         <ul class="dropdown-list">
-                                            <li><a href="login-register.php">login / Register</a></li>
-                                            <li><a href="company_profile.php">Company Profile</a></li>
-                                              <li><a href="my_account.php">My Account</a></li>
+                                            <li><a href="login-register">login / Register</a></li>
+                                            <li><a href="company_profile">Company Profile</a></li>
+                                              <li><a href="my_account">My Account</a></li>
                                             <li><a href="#">logout</a></li>                                          
                                         </ul>
                                     </li>
@@ -124,7 +124,7 @@
                         <div class="mobile-menu-toggler">
                             
                             <div class="mini-cart-wrap">
-                                <a href="cart.php">
+                                <a href="cart">
                                     <i class="pe-7s-shopbag"></i>
                                     <div class="notification">0</div>
                                 </a>
@@ -169,23 +169,23 @@
                     <!-- mobile menu navigation start -->
                     <nav>
                         <ul class="mobile-menu">
-                            <li><a href="index.php">Home </a>
+                            <li><a href="index">Home </a>
 
                             </li>
-                            <li class="position-static"><a href="shop.php">Offers</a>
+                            <li class="position-static"><a href="shop">Offers</a>
 
                             </li>
-                            <li><a href="premium_show.php">Premium Show </a>
+                            <li><a href="premium_show">Premium Show </a>
 
                             </li>
-                            <li><a href="trade_show.php">Trade Show </a>
+                            <li><a href="trade_show">Trade Show </a>
 
                             </li>
-                            <li><a href="company_profile.php">Suppliers</a>
+                            <li><a href="company_profile">Suppliers</a>
 
                             </li>
 
-                            <li><a href="contact-us.php">Contact us</a></li>
+                            <li><a href="contact-us">Contact us</a></li>
                         </ul>
                     </nav>
                     <!-- mobile menu navigation end -->
@@ -213,8 +213,9 @@
                                     <i class="fa fa-angle-down"></i>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="myaccount">
-                                    <a class="dropdown-item" href="login-register.php">Login/Register</a>
-                                    <a class="dropdown-item" href="company_profile.php">Company Profile</a>
+                                    <a class="dropdown-item" href="login-register">Login/Register</a>
+                                    <a class="dropdo
+                                    wn-item" href="company_profile">Company Profile</a>
                                 </div>
                             </div>
                         </li>

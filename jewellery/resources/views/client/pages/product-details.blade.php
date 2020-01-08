@@ -1,8 +1,8 @@
-    @extends('layouts.default')
+    @extends('client.layouts.default')
     @section('content')
     <main>
         <!-- breadcrumb area start -->
-        <?php include'php/breadcrumb.php'; ?>
+        <?php include'php/breadcrumb'; ?>
         <!-- breadcrumb area end -->
 
         <!-- page main wrapper start -->
@@ -53,7 +53,7 @@
                                 <div class="col-lg-7">
                                     <div class="product-details-des">
                                         <div class="manufacturer-name">
-                                            <a href="product-details.php">Compay Name</a>
+                                            <a href="product-details">Compay Name</a>
                                         </div>
                                         <h3 class="product-name">Jewellery Title</h3>
                                         <div class="ratings d-flex">
@@ -226,7 +226,7 @@
                             <!-- product item start -->
                             <div class="product-item">
                                 <figure class="product-thumb">
-                                    <a href="product-details.php">
+                                    <a href="product-details">
                                         <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
                                         <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
                                     </a>
@@ -237,9 +237,9 @@
 
                                     </div>
                                     <div class="button-group">
-                                        <a href="wishlist.php" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+                                        <a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                         <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                        <a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                        <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                     </div>
                                     <div class="cart-hover">
                                         <button class="btn btn-cart">add to cart</button>
@@ -247,11 +247,11 @@
                                 </figure>
                                 <div class="product-caption text-center">
                                     <div class="product-identity">
-                                        <p class="manufacturer-name"><a href="product-details.php">Gold</a></p>
+                                        <p class="manufacturer-name"><a href="product-details">Gold</a></p>
                                     </div>
                                     
                                     <h6 class="product-name">
-                                        <a href="product-details.php">Title</a>
+                                        <a href="product-details">Title</a>
                                     </h6>
                                     <div class="price-box">
                                         <span class="price-regular">$60.00</span>
@@ -264,7 +264,7 @@
                             <!-- product item start -->
                             <div class="product-item">
                                 <figure class="product-thumb">
-                                    <a href="product-details.php">
+                                    <a href="product-details">
                                         <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
                                         <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
                                     </a>
@@ -275,9 +275,9 @@
 
                                     </div>
                                     <div class="button-group">
-                                        <a href="wishlist.php" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+                                        <a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                         <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                        <a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                        <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                     </div>
                                     <div class="cart-hover">
                                         <button class="btn btn-cart">add to cart</button>
@@ -285,11 +285,11 @@
                                 </figure>
                                 <div class="product-caption text-center">
                                     <div class="product-identity">
-                                        <p class="manufacturer-name"><a href="product-details.php">Gold</a></p>
+                                        <p class="manufacturer-name"><a href="product-details">Gold</a></p>
                                     </div>
                                     
                                     <h6 class="product-name">
-                                        <a href="product-details.php">Title</a>
+                                        <a href="product-details">Title</a>
                                     </h6>
                                     <div class="price-box">
                                         <span class="price-regular">$60.00</span>
@@ -302,7 +302,7 @@
                             <!-- product item start -->
                             <div class="product-item">
                                 <figure class="product-thumb">
-                                    <a href="product-details.php">
+                                    <a href="product-details">
                                         <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
                                         <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
                                     </a>
@@ -313,9 +313,9 @@
 
                                     </div>
                                     <div class="button-group">
-                                        <a href="wishlist.php" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+                                        <a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                         <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                        <a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                        <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                     </div>
                                     <div class="cart-hover">
                                         <button class="btn btn-cart">add to cart</button>
@@ -323,11 +323,11 @@
                                 </figure>
                                 <div class="product-caption text-center">
                                     <div class="product-identity">
-                                        <p class="manufacturer-name"><a href="product-details.php">Gold</a></p>
+                                        <p class="manufacturer-name"><a href="product-details">Gold</a></p>
                                     </div>
                                     
                                     <h6 class="product-name">
-                                        <a href="product-details.php">Title</a>
+                                        <a href="product-details">Title</a>
                                     </h6>
                                     <div class="price-box">
                                         <span class="price-regular">$60.00</span>
@@ -340,7 +340,7 @@
                             <!-- product item start -->
                             <div class="product-item">
                                 <figure class="product-thumb">
-                                    <a href="product-details.php">
+                                    <a href="product-details">
                                         <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
                                         <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
                                     </a>
@@ -351,9 +351,9 @@
 
                                     </div>
                                     <div class="button-group">
-                                        <a href="wishlist.php" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+                                        <a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                         <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                        <a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                        <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                     </div>
                                     <div class="cart-hover">
                                         <button class="btn btn-cart">add to cart</button>
@@ -361,11 +361,11 @@
                                 </figure>
                                 <div class="product-caption text-center">
                                     <div class="product-identity">
-                                        <p class="manufacturer-name"><a href="product-details.php">Gold</a></p>
+                                        <p class="manufacturer-name"><a href="product-details">Gold</a></p>
                                     </div>
                                     
                                     <h6 class="product-name">
-                                        <a href="product-details.php">Title</a>
+                                        <a href="product-details">Title</a>
                                     </h6>
                                     <div class="price-box">
                                         <span class="price-regular">$60.00</span>
@@ -378,7 +378,7 @@
                             <!-- product item start -->
                             <div class="product-item">
                                 <figure class="product-thumb">
-                                    <a href="product-details.php">
+                                    <a href="product-details">
                                         <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
                                         <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
                                     </a>
@@ -389,9 +389,9 @@
 
                                     </div>
                                     <div class="button-group">
-                                        <a href="wishlist.php" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+                                        <a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                         <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                        <a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                        <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                     </div>
                                     <div class="cart-hover">
                                         <button class="btn btn-cart">add to cart</button>
@@ -399,11 +399,11 @@
                                 </figure>
                                 <div class="product-caption text-center">
                                     <div class="product-identity">
-                                        <p class="manufacturer-name"><a href="product-details.php">Gold</a></p>
+                                        <p class="manufacturer-name"><a href="product-details">Gold</a></p>
                                     </div>
                                     
                                     <h6 class="product-name">
-                                        <a href="product-details.php">Title</a>
+                                        <a href="product-details">Title</a>
                                     </h6>
                                     <div class="price-box">
                                         <span class="price-regular">$60.00</span>
@@ -416,7 +416,7 @@
                             <!-- product item start -->
                             <div class="product-item">
                                 <figure class="product-thumb">
-                                    <a href="product-details.php">
+                                    <a href="product-details">
                                         <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
                                         <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
                                     </a>
@@ -427,9 +427,9 @@
 
                                     </div>
                                     <div class="button-group">
-                                        <a href="wishlist.php" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+                                        <a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                         <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                        <a href="chat.php" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                        <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                     </div>
                                     <div class="cart-hover">
                                         <button class="btn btn-cart">add to cart</button>
@@ -437,11 +437,11 @@
                                 </figure>
                                 <div class="product-caption text-center">
                                     <div class="product-identity">
-                                        <p class="manufacturer-name"><a href="product-details.php">Gold</a></p>
+                                        <p class="manufacturer-name"><a href="product-details">Gold</a></p>
                                     </div>
                                     
                                     <h6 class="product-name">
-                                        <a href="product-details.php">Title</a>
+                                        <a href="product-details">Title</a>
                                     </h6>
                                     <div class="price-box">
                                         <span class="price-regular">$60.00</span>

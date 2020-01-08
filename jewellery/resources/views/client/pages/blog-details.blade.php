@@ -9,7 +9,7 @@
                         <div class="breadcrumb-wrap">
                             <nav aria-label="breadcrumb">
                                 <ul class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.php">
+                                    <li class="breadcrumb-item"><a href="index">
                                       <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                                  width="30" height="30"
                                                                  viewBox="0 0 172 172"
@@ -66,39 +66,39 @@
                                 <div class="recent-post">
                                     <div class="recent-post-item">
                                         <figure class="product-thumb">
-                                            <a href="blog-details.php">
+                                            <a href="blog-details">
                                                 <img src="assets/img/sample/blog-sample.jpg" alt="blog image">
                                             </a>
                                         </figure>
                                         <div class="recent-post-description">
                                             <div class="product-name">
-                                                <h6><a href="blog-details.php">Auctor gravida enim</a></h6>
+                                                <h6><a href="blog-details">Auctor gravida enim</a></h6>
                                                 <p>march 10 2019</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="recent-post-item">
                                         <figure class="product-thumb">
-                                            <a href="blog-details.php">
+                                            <a href="blog-details">
                                                 <img src="assets/img/sample/blog-sample.jpg" alt="blog image">
                                             </a>
                                         </figure>
                                         <div class="recent-post-description">
                                             <div class="product-name">
-                                                <h6><a href="blog-details.php">gravida auctor dnim</a></h6>
+                                                <h6><a href="blog-details">gravida auctor dnim</a></h6>
                                                 <p>march 18 2019</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="recent-post-item">
                                         <figure class="product-thumb">
-                                            <a href="blog-details.php">
+                                            <a href="blog-details">
                                                 <img src="assets/img/sample/blog-sample.jpg" alt="blog image">
                                             </a>
                                         </figure>
                                         <div class="recent-post-description">
                                             <div class="product-name">
-                                                <h6><a href="blog-details.php">enim auctor gravida</a></h6>
+                                                <h6><a href="blog-details">enim auctor gravida</a></h6>
                                                 <p>march 14 2019</p>
                                             </div>
                                         </div>
