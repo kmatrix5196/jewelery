@@ -259,3 +259,4 @@
         </div><!-- Content Body End -->
 
          <!-- Scroll to top start -->
+        @endsection
