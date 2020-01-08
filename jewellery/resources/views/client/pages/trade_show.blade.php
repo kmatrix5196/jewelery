@@ -1,4 +1,5 @@
     @extends('client.layouts.default')
+    @section('title','Trade Show')
     @section('content')
     <main>
         <!-- about us area start -->

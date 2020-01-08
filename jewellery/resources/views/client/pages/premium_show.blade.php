@@ -1,4 +1,5 @@
     @extends('client.layouts.default')
+    @section('title','Premium Show')
     @section('content')
     <main>
       <!-- featured product area start -->

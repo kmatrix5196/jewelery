@@ -1,4 +1,5 @@
     @extends('client.layouts.default')
+    @section('title','Chat')
         <div class="main-wrapper">
     @section('content')
 
