@@ -73,7 +73,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="chat.php">
+                                        <a href="chat">
                                         <img src="https://img.icons8.com/ios/30/000000/speech-bubble-with-dots.png">
                                             <div class="notification">3</div>
                                         </a>

@@ -13,8 +13,9 @@
 	<!-- header area start -->
 	@include('partials.header')
 	<!-- header area end -->
-
-	@yield('content')
+	<main>
+		@yield('content')
+	</main>
 
 	<!-- Quick view modal start -->
 	@include('partials.modal')

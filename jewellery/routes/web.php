@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/{home?}', function () {
+Route::get('/home', function () {
     return View::make('pages.index');
+});
+Route::get('/', function () {
+    return View::make('pages.index');
+});
+Route::get('/chat', function () {
+    return View::make('pages.chat');
 });
