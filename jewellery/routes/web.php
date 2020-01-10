@@ -26,12 +26,7 @@ Route::get('/chat', function () {
 Route::get('/blog-details', function () {
     return View::make('client.pages.blog-details');
 });
-Route::get('/cart', function () {
-    return View::make('client.pages.cart');
-});
-Route::get('/checkout', function () {
-    return View::make('client.pages.checkout');
-});
+
 Route::get('/company_profile', function () {
     return View::make('client.pages.company_profile');
 });

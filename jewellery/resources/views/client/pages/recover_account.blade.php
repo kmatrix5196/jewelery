@@ -1,4 +1,5 @@
     @extends('client.layouts.default')
+    @section('title','Recover Account')
     @section('content')
     <main>
         <!-- hero slider area start -->

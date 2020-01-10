@@ -1,4 +1,5 @@
     @extends('client.layouts.default')
+    @section('title','Login-Register')
     @section('content')
     <main>
         <!-- breadcrumb area start -->

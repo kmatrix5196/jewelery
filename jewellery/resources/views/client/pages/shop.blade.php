@@ -1,4 +1,5 @@
     @extends('client.layouts.default')
+    @section('title','Shop')
     @section('content')
     <main>
         <!-- breadcrumb area start -->
@@ -31,7 +32,7 @@
                 <div class="row">
                     <!-- sidebar area start -->
                     <div class="col-lg-3 order-2 order-lg-1">
-                    <?php include'php/sidebar_area'; ?>
+                    @include ('client.partials.sidebar_area')
                     </div>
                     <!-- sidebar area end -->
 
@@ -76,8 +77,8 @@
                                     <div class="product-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                             </div>
@@ -108,8 +109,8 @@
                                     <div class="product-list-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                                 <div class="product-label new">
@@ -149,8 +150,8 @@
                                     <div class="product-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                             </div>
@@ -181,8 +182,8 @@
                                     <div class="product-list-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                                 <div class="product-label new">
@@ -222,8 +223,8 @@
                                     <div class="product-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                             </div>
@@ -254,8 +255,8 @@
                                     <div class="product-list-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                                 <div class="product-label new">
@@ -295,8 +296,8 @@
                                     <div class="product-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                             </div>
@@ -327,8 +328,8 @@
                                     <div class="product-list-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                                 <div class="product-label new">
@@ -368,8 +369,8 @@
                                     <div class="product-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                             </div>
@@ -400,8 +401,8 @@
                                     <div class="product-list-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                                 <div class="product-label new">
@@ -441,8 +442,8 @@
                                     <div class="product-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                             </div>
@@ -473,8 +474,8 @@
                                     <div class="product-list-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                                 <div class="product-label new">
@@ -514,8 +515,8 @@
                                     <div class="product-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                             </div>
@@ -546,8 +547,8 @@
                                     <div class="product-list-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                                 <div class="product-label new">
@@ -587,8 +588,8 @@
                                     <div class="product-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                             </div>
@@ -619,8 +620,8 @@
                                     <div class="product-list-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                                 <div class="product-label new">
@@ -660,8 +661,8 @@
                                     <div class="product-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                             </div>
@@ -692,8 +693,8 @@
                                     <div class="product-list-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                                 <div class="product-label new">
@@ -733,8 +734,8 @@
                                     <div class="product-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                             </div>
@@ -765,8 +766,8 @@
                                     <div class="product-list-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                                 <div class="product-label new">
@@ -806,8 +807,8 @@
                                     <div class="product-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                             </div>
@@ -838,8 +839,8 @@
                                     <div class="product-list-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                                 <div class="product-label new">
@@ -879,8 +880,8 @@
                                     <div class="product-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg')}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                             </div>
@@ -911,8 +912,8 @@
                                     <div class="product-list-item">
                                         <figure class="product-thumb">
                                             <a href="product-details">
-                                                <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                                <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
+                                                <img class="pri-img" src="{{asset('/img/sample/product-sample.jpg" alt="product">
+                                                <img class="sec-img" src="{{asset('/img/sample/product-sample.jpg" alt="product">
                                             </a>
                                             <div class="product-badge">
                                                 <div class="product-label new">

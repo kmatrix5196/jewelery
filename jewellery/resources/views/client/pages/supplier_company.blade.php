@@ -1,4 +1,5 @@
     @extends('client.layouts.default')
+    @section('title','Supplier Company')
     @section('content')
     <main>
 
