@@ -1,18 +1,13 @@
-    
-    @extends('client.layouts.default')
-    @section('title','Chat')
-        <div class="main-wrapper">
+    @extends('admin.layouts.default')
     @section('content')
-
         <!-- Content Body Start -->
-        <div class="content-body mt-30 mb-60">
+        <div class="content-body">
 
             <!-- Page Headings Start -->
             <div class="row justify-content-between align-items-center mb-10">
 
                 <!-- Page Heading Start -->
-                <div class="col-1"></div>
-                <div class="col-10 mb-20">
+                <div class="col-12 col-lg-auto mb-20">
                     <div class="page-heading">
                         <h3>App <span>/ Chat</span></h3>
                     </div>
@@ -45,7 +40,7 @@
                             <ul class="chat-contact-list custom-scroll">
                                 <li>
                                     <a href="#">
-                                        <div class="image"><img src="{{asset('img/sender.png')}}" alt=""><span class="status online"></span></div>
+                                        <div class="image"><img src="{{assets('images/sender.png')}}" alt=""><span class="status online"></span></div>
                                         <div class="content">
                                             <h5 class="name">Rebecca Mitchell</h5>
                                             <p class="last-message">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -54,7 +49,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <div class="image"><img src="{{asset('img/sender.png')}}" alt=""><span class="status online"></span></div>
+                                        <div class="image"><img src="{{assets('images/sender.png" alt=""><span class="status online"></span></div>
                                         <div class="content">
                                             <h5 class="name">Rebecca Mitchell</h5>
                                             <p class="last-message">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -63,7 +58,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <div class="image"><img src="{{asset('img/sender.png')}}" alt=""><span class="status online"></span></div>
+                                        <div class="image"><img src="{{assets('images/sender.png')}}" alt=""><span class="status online"></span></div>
                                         <div class="content">
                                             <h5 class="name">Rebecca Mitchell</h5>
                                             <p class="last-message">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -72,7 +67,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <div class="image"><img src="{{asset('img/sender.png')}}" alt=""><span class="status online"></span></div>
+                                        <div class="image"><img src="{{assets('images/sender.png')}}" alt=""><span class="status online"></span></div>
                                         <div class="content">
                                             <h5 class="name">Rebecca Mitchell</h5>
                                             <p class="last-message">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -81,7 +76,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <div class="image"><img src="{{asset('img/sender.png')}}" alt=""><span class="status online"></span></div>
+                                        <div class="image"><img src="{{assets('images/sender.png')}}" alt=""><span class="status online"></span></div>
                                         <div class="content">
                                             <h5 class="name">Rebecca Mitchell</h5>
                                             <p class="last-message">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -90,7 +85,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <div class="image"><img src="{{asset('img/sender.png')}}" alt=""><span class="status online"></span></div>
+                                        <div class="image"><img src="{{assets('images/sender.png')}}" alt=""><span class="status online"></span></div>
                                         <div class="content">
                                             <h5 class="name">Rebecca Mitchell</h5>
                                             <p class="last-message">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -99,7 +94,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <div class="image"><img src="{{asset('img/sender.png')}}" alt=""><span class="status online"></span></div>
+                                        <div class="image"><img src="{{assets('images/sender.png')}}" alt=""><span class="status online"></span></div>
                                         <div class="content">
                                             <h5 class="name">Rebecca Mitchell</h5>
                                             <p class="last-message">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -108,7 +103,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <div class="image"><img src="{{asset('img/sender.png')}}" alt=""><span class="status online"></span></div>
+                                        <div class="image"><img src="{{assets('images/sender.png')}}" alt=""><span class="status online"></span></div>
                                         <div class="content">
                                             <h5 class="name">Rebecca Mitchell</h5>
                                             <p class="last-message">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -117,7 +112,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <div class="image"><img src="{{asset('img/sender.png')}}" alt=""><span class="status online"></span></div>
+                                        <div class="image"><img src="{{assets('images/sender.png')}}" alt=""><span class="status online"></span></div>
                                         <div class="content">
                                             <h5 class="name">Rebecca Mitchell</h5>
                                             <p class="last-message">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -133,7 +128,7 @@
                         <!--Chat Active Contact Start-->
                         <div class="chat-active-contact">
                             <div class="chat-contact">
-                                <div class="image"><img src="{{asset('img/admin.png')}}" alt=""></div>
+                                <div class="image"><img src="{{assets('images/admin.png')}}" alt=""></div>
                                 <div class="info">
                                     <h5>Rebecca Mitchell</h5>
                                     <span>Last seen: 1 hour ago</span>
@@ -157,7 +152,7 @@
                                             <a href="#"><i class="zmdi zmdi-replay"></i></a>
                                         </div>
                                         <div class="body">
-                                            <div class="image"><img src="{{asset('img/receiver.png')}}" alt=""></div>
+                                            <div class="image"><img src="{{assets('images/receiver.png')}}" alt=""></div>
                                             <div class="content">
                                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
                                             </div>
@@ -172,7 +167,7 @@
                                             <a href="#"><i class="zmdi zmdi-replay"></i></a>
                                         </div>
                                         <div class="body">
-                                            <div class="image"><img src="{{asset('img/sender.png')}}" alt=""></div>
+                                            <div class="image"><img src="{{assets('images/sender.png')}}" alt=""></div>
                                             <div class="content">
                                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
                                             </div>
@@ -187,7 +182,7 @@
                                             <a href="#"><i class="zmdi zmdi-replay"></i></a>
                                         </div>
                                         <div class="body">
-                                            <div class="image"><img src="{{asset('img/receiver.png')}}" alt=""></div>
+                                            <div class="image"><img src="{{assets('images/receiver.png')}}" alt=""></div>
                                             <div class="content">
                                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                                             </div>
@@ -202,7 +197,7 @@
                                             <a href="#"><i class="zmdi zmdi-replay"></i></a>
                                         </div>
                                         <div class="body">
-                                            <div class="image"><img src="{{asset('img/sender.png')}}" alt=""></div>
+                                            <div class="image"><img src="{{assets('images/sender.png')}}" alt=""></div>
                                             <div class="content">
                                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
                                             </div>
@@ -217,7 +212,7 @@
                                             <a href="#"><i class="zmdi zmdi-replay"></i></a>
                                         </div>
                                         <div class="body">
-                                            <div class="image"><img src="{{asset('img/receiver.png')}}" alt=""></div>
+                                            <div class="image"><img src="{{assets('images/receiver.png')}}" alt=""></div>
                                             <div class="content">
                                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
                                             </div>
@@ -232,7 +227,7 @@
                                             <a href="#"><i class="zmdi zmdi-replay"></i></a>
                                         </div>
                                         <div class="body">
-                                            <div class="image"><img src="{{asset('img/receiver.png')}}" alt=""></div>
+                                            <div class="image"><img src="{{assets('images/receiver.png')}}" alt=""></div>
                                             <div class="content">
                                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                                             </div>
@@ -259,7 +254,5 @@
                 </div><!-- Chat End Start -->
             </div>
 
-        </div><!-- Content Body End -->
-
-         <!-- Scroll to top start -->
+        </div>
         @endsection
