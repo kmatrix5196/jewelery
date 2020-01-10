@@ -112,3 +112,7 @@ Route::get('/admin/user_lists', function () {
     return View::make('admin.pages.user_lists');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
