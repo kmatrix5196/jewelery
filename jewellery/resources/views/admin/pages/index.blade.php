@@ -171,7 +171,7 @@
                                     <tbody>
                                         <tr>
                                             <td class="selector"><label class="adomx-checkbox"><input type="checkbox"> <i class="icon"></i></label></td>
-                                            <td><img src="{{assets('images/sample/product-sample-60.jpg')}}" alt="" class="table-product-image rounded-circle"></td>
+                                            <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="table-product-image rounded-circle"></td>
                                             <td><a href="#">Product</a></td>
                                             <td>#MSP40022</td>
                                             <td>05 - Products</td>
@@ -181,7 +181,7 @@
                                         </tr>
                                         <tr class="selected">
                                             <td class="selector"><label class="adomx-checkbox"><input type="checkbox"> <i class="icon"></i></label></td>
-                                            <td><img src="{{assets('images/sample/product-sample-60.jpg')}}" alt="" class="table-product-image rounded-circle"></td>
+                                            <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="table-product-image rounded-circle"></td>
                                             <td><a href="#">Product</a></td>
                                             <td>#MSP40022</td>
                                             <td>05 - Products</td>
@@ -191,7 +191,7 @@
                                         </tr>
                                         <tr>
                                             <td class="selector"><label class="adomx-checkbox"><input type="checkbox"> <i class="icon"></i></label></td>
-                                          <td><img src="{{assets('images/sample/product-sample-60.jpg')}}" alt="" class="table-product-image rounded-circle"></td>
+                                          <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="table-product-image rounded-circle"></td>
                                             <td><a href="#">Product</a></td>
                                             <td>#MSP40022</td>
                                             <td>05 - Products</td>
@@ -201,7 +201,7 @@
                                         </tr>
                                         <tr>
                                             <td class="selector"><label class="adomx-checkbox"><input type="checkbox"> <i class="icon"></i></label></td>
-                                            <td><img src="{{assets('images/sample/product-sample-60.jpg')}}" alt="" class="table-product-image rounded-circle"></td>
+                                            <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="table-product-image rounded-circle"></td>
                                             <td><a href="#">Product</a></td>
                                             <td>#MSP40022</td>
                                             <td>05 - Products</td>
