@@ -39,7 +39,7 @@
                             <tbody>
                                 <tr>
                                     <td>#MSP40022</td>
-                                    <td><img src="assets/images/sample/product-sample-60.jpg" alt="" class="product-image rounded-circle"></td>
+                                    <td><img src="{{asset('images/sample/product-sample-60.jpg'}}" alt="" class="product-image rounded-circle"></td>
                                     <td><a href="#">Title Product</a></td>
                                     <td>$600.00</td>
                                     <td>03</td>
@@ -56,7 +56,7 @@
                                 </tr>
                                 <tr>
                                     <td>#MSP40023</td>
-                                    <td><img src="assets/images/sample/product-sample-60.jpg" alt="" class="product-image rounded-circle"></td>
+                                    <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
                                     <td><a href="#">Title Product</a></td>
                                     <td>$600.00</td>
                                     <td>03</td>
@@ -73,7 +73,7 @@
                                 </tr>
                                 <tr>
                                     <td>#MSP40024</td>
-                                  <td><img src="assets/images/sample/product-sample-60.jpg" alt="" class="product-image rounded-circle"></td>
+                                  <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
                                     <td><a href="#">Title Product</a></td>
                                     <td>$600.00</td>
                                     <td>03</td>
@@ -90,7 +90,7 @@
                                 </tr>
                                 <tr>
                                     <td>#MSP40025</td>
-                                    <td><img src="assets/images/sample/product-sample-60.jpg" alt="" class="product-image rounded-circle"></td>
+                                    <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
                                     <td><a href="#">Title Product</a></td>
                                     <td>$600.00</td>
                                     <td>03</td>
@@ -107,7 +107,7 @@
                                 </tr>
                                 <tr>
                                     <td>#MSP40026</td>
-                                  <td><img src="assets/images/sample/product-sample-60.jpg" alt="" class="product-image rounded-circle"></td>
+                                  <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
                                     <td><a href="#">Title Product</a></td>
                                     <td>$600.00</td>
                                     <td>03</td>

@@ -1,4 +1,5 @@
 <!-- Header Section Start -->
+
 <div class="header-section">
     <div class="container-fluid">
         <div class="row justify-content-between align-items-center">
@@ -6,7 +7,7 @@
             <!-- Header Logo (Header Left) Start -->
             <div class="header-logo col-auto">
                 <a href="index">                                
-                    <img src="{{asset('images/logo/logo.png')}}" alt="Brand Logo">                             
+                    <img src="{{asset('img/logo/logo.png')}}" alt="Brand Logo">                             
                 </a>
 
             </div><!-- Header Logo (Header Left) End -->

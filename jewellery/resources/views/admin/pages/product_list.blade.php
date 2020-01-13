@@ -39,7 +39,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><img src="{{assets('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
+                                    <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
                                     <td>#MSP40022</td>
                                     <td>Sean Oliver</td>
 
@@ -57,7 +57,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="{{assets('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
+                                    <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
                                     <td>#MSP40023</td>
                                     <td>Blanka Mokroš</td>
 
@@ -75,7 +75,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="{{assets('images/sample/product-sample-60.jpg" alt="" class="product-image rounded-circle"></td>
+                                    <td><img src="{{asset('images/sample/product-sample-60.jpg" alt="" class="product-image rounded-circle"></td>
                                     <td>#MSP40024</td>
                                     <td>Rostás Linda</td>
 
@@ -93,7 +93,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="{{assets('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
+                                    <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
                                     <td>#MSP40025</td>
                                     <td>Jana Valenta</td>
 
@@ -111,7 +111,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><img src="{{assets('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
+                                    <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
                                     <td>#MSP40026</td>
                                     <td>Tiêu Bích</td>
 
