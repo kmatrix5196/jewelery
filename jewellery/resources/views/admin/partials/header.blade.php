@@ -139,7 +139,7 @@
                                     <img src="{{asset('images/admin.png')}}" alt="">
                                     <span class="status"></span>
                                     </span>
-                                    <span class="name">MY PROFILE</span>
+                                    <span class="name">{{ Auth::user()->name }}</span>
                                     </span>
                                 </a>
 
@@ -204,7 +204,12 @@
 
                 <li><a href="/admin/table-data-table"><i class="ti-layout"></i> <span>Data Table</span></a></li>
                 <li><a href="/admin/profile"><i class="fa fa-user-circle"></i> <span>My Profile</span></a></li>
-
+                <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-lock-open">{{ __('Logout') }}</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                    </i></li>
+                                </div>
 
 
 

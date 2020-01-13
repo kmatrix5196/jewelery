@@ -1,6 +1,6 @@
     @extends('admin.layouts.default')
     @section('title','Jewelery Site Dashboard')
-    @section('content')
+    @section('login')
   
   
         <!-- Content Body Start -->
@@ -26,7 +26,7 @@
                                         <div class="col-12">
                                             <div class="row justify-content-between">
                                                 <div class="col-auto mb-15"><a href="#">Forgot Password?</a></div>
-                                                <div class="col-auto mb-15">Dont have account? <a href="register.php">Create Now.</a></div>
+                                                <div class="col-auto mb-15">Dont have account? <a href="register">Create Now.</a></div>
                                             </div>
                                         </div>
                                         <div class="col-12 mt-10"><button class="button button-primary button-outline">sign in</button></div>

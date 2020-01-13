@@ -12,7 +12,7 @@
 */
 // Routes for client site
 Route::get('/', function () {
-    return View::make('client.pages.index');
+    return View::make('home');
 });
 Route::get('/home', function () {
     return View::make('client.pages.index');
@@ -112,3 +112,7 @@ Route::get('/admin/user_lists', function () {
     return View::make('admin.pages.user_lists');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
