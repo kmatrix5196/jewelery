@@ -205,7 +205,6 @@
 
                 <li><a href="/admin/table-data-table"><i class="ti-layout"></i> <span>Data Table</span></a></li>
                 <li><a href="/admin/profile"><i class="fa fa-user-circle"></i> <span>My Profile</span></a></li>
-            </div>
 
 
 

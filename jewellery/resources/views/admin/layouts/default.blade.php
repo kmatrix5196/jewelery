@@ -18,7 +18,7 @@
 
 
         <!-- header area start -->
-        <!-- @include('admin.partials.header') -->
+        @include('admin.partials.header')
         <!-- header area end -->
 
         <!-- Content Body Start -->
