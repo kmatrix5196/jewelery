@@ -951,7 +951,7 @@
 											"top": 23,
 											"width": 111.2490234375,
 											"height": 13,
-											"text": "supplier company"
+											"text": "company"
 										},
 										{
 											"_type": "LabelView",
@@ -3165,7 +3165,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "supplier company",
+					"name": "company",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
