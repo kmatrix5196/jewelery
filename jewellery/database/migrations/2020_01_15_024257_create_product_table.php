@@ -26,7 +26,7 @@ class CreateProductTable extends Migration
             $table->string('additional_information');
             $table->decimal('instock',8,0);
             $table->integer('company_id');
-            $table->string('product_code');
+            $table->string('product_code')->unique();
             $table->timestamps();
         });
     }

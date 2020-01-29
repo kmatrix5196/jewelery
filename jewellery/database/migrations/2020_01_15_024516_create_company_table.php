@@ -22,6 +22,9 @@ class CreateCompanyTable extends Migration
             $table->date('year_established');
             $table->float('lat');
             $table->float('lng');
+            $table->string('email')->unique();;
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
             $table->timestamps();
         });
     }
