@@ -29,23 +29,23 @@
                                 <!-- main menu navbar start -->
                                 <nav class="desktop-menu">
                                     <ul>
-                                        <li><a href="index">Home </a>
+                                        <li><a href="/home">Home </a>
 
                                         </li>
-                                        <li class="position-static"><a href="shop">Offers</a>
+                                        <li class="position-static"><a href="/home/shop">Offers</a>
 
                                         </li>
-                                        <li><a href="premium_show">Premium Show </a>
+                                        <li><a href="/home/premium_show">Premium Show </a>
 
                                         </li>
-                                        <li><a href="trade_show">Trade Show </a>
+                                        <li><a href="/home/trade_show">Trade Show </a>
 
                                         </li>
-                                        <li><a href="supplier">Suppliers</a>
+                                        <li><a href="/home/supplier">Suppliers</a>
 
                                         </li>
 
-                                        <li><a href="contact-us">Contact us</a></li>
+                                        <li><a href="/home/contact-us">Contact us</a></li>
                                     </ul>
                                 </nav>
                                 <!-- main menu navbar end -->
@@ -67,13 +67,13 @@
                             <div class="header-configure-area">
                                 <ul class="nav justify-content-end">
                                     <li>
-                                        <a href="wishlist">
+                                        <a href="/home/wishlist">
                                         <img src="https://img.icons8.com/dotty/30/000000/like.png">
                                             <div class="notification">0</div>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="chat">
+                                        <a href="/home/chat">
                                         <img src="https://img.icons8.com/ios/30/000000/speech-bubble-with-dots.png">
                                             <div class="notification">3</div>
                                         </a>
@@ -91,9 +91,9 @@
                                         </a>
 
                                         <ul class="dropdown-list">
-                                            <li><a href="login-register">login / Register</a></li>
-                                            <li><a href="company_profile">Company Profile</a></li>
-                                              <li><a href="my_account">My Account</a></li>
+                                            <li><a href="/home/login-register">login / Register</a></li>
+                                            <li><a href="/home/company_profile">Company Profile</a></li>
+                                              <li><a href="/home/my_account">My Account</a></li>
                                             <li><a href="#">logout</a></li>                                          
                                         </ul>
                                     </li>
@@ -124,7 +124,7 @@
                         <div class="mobile-menu-toggler">
                             
                             <div class="mini-cart-wrap">
-                                <a href="cart">
+                                <a href="/home/cart">
                                     <i class="pe-7s-shopbag"></i>
                                     <div class="notification">0</div>
                                 </a>
@@ -169,23 +169,23 @@
                     <!-- mobile menu navigation start -->
                     <nav>
                         <ul class="mobile-menu">
-                            <li><a href="index">Home </a>
+                            <li><a href="/home/index">Home </a>
 
                             </li>
-                            <li class="position-static"><a href="shop">Offers</a>
+                            <li class="position-static"><a href="/home/shop">Offers</a>
 
                             </li>
-                            <li><a href="premium_show">Premium Show </a>
+                            <li><a href="/home/premium_show">Premium Show </a>
 
                             </li>
-                            <li><a href="trade_show">Trade Show </a>
+                            <li><a href="/home/trade_show">Trade Show </a>
 
                             </li>
-                            <li><a href="company_profile">Suppliers</a>
+                            <li><a href="/home/company_profile">Suppliers</a>
 
                             </li>
 
-                            <li><a href="contact-us">Contact us</a></li>
+                            <li><a href="/home/contact-us">Contact us</a></li>
                         </ul>
                     </nav>
                     <!-- mobile menu navigation end -->
@@ -213,9 +213,9 @@
                                     <i class="fa fa-angle-down"></i>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="myaccount">
-                                    <a class="dropdown-item" href="login-register">Login/Register</a>
+                                    <a class="dropdown-item" href="/home/login-register">Login/Register</a>
                                     <a class="dropdo
-                                    wn-item" href="company_profile">Company Profile</a>
+                                    wn-item" href="/home/company_profile">Company Profile</a>
                                 </div>
                             </div>
                         </li>

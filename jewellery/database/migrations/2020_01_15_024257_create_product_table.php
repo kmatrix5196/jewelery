@@ -19,14 +19,14 @@ class CreateProductTable extends Migration
             $table->string('subtitle');
             $table->float('price',16,2);
             $table->float('discount',16,2);
-            $table->string('description');
+            $table->longText('description')->nullable();
             $table->string('status');
-            $table->string('meta_title');
-            $table->decimal('thumbnail',8,0);
-            $table->string('additional_information');
-            $table->decimal('instock',8,0);
-            $table->integer('company_id');
-            $table->string('product_code')->unique();
+            $table->string('meta_title')->nullable();
+            $table->string('thumbnail')->nullable();
+            $table->longText('additional_information')->nullable();
+            $table->integer('instock');
+            $table->integer('company_id')->nullable();
+            $table->string('product_code')->nullable();
             $table->timestamps();
         });
     }

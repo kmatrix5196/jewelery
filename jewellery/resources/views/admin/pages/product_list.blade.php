@@ -1,5 +1,5 @@
     @extends('admin.layouts.default')
-    @section('title','Jewelery Site Dashboard')
+    @section('title','Jewelery Product List')
     @section('content')
         <!-- Content Body Start -->
         <div class="content-body">
@@ -25,109 +25,40 @@
                         <table class="table table-vertical-middle">
                             <thead>
                                 <tr>
+                                    <th>Product ID</th>
                                     <th>Image</th>
-                                    <th>Order ID</th>
-                                    <th>Customer</th>
-
                                     <th>Product Name</th>
                                     <th>Price</th>
-                                    <th>Quentity</th>
+                                    <th>Sales</th>
+                                    <th>In Stock</th>
                                     <th>Date</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @isset($temp_products)
+                                @foreach ($temp_products as $temp_product)
                                 <tr>
-                                    <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
-                                    <td>#MSP40022</td>
-                                    <td>Sean Oliver</td>
-
-                                    <td><a href="#">Jewelry Title 1</a></td>
-                                    <td>$600.00</td>
-                                    <td>03 pyc</td>
-                                    <td>13 Feb 2018</td>
-                                    <td><span class="badge badge-danger">Due</span></td>
-                                    <td class="action h4">
+                                    <td>{{$temp_product['id']}}</td>
+                                    <td><img src="{{asset($temp_product['thumbnail'])}}" alt="" class="product-image rounded-circle"></td>
+                                    <td><a href="#">{{$temp_product['name']}}</a></td>
+                                    <td>${{number_format($temp_product['price'],2)}}</td>
+                                    <td>??Ttl Sale??</td>
+                                    <td>{{$temp_product['instock']}}</td>
+                                    <td>{{$temp_product['created_at']->format('d M Y')}}</td>
+                                    <td><span class="badge badge-danger">{{$temp_product['status']}}</span></td>
+                                    <td>
                                         <div class="table-action-buttons">
-                                            <a class="view button button-box button-xs button-primary" href="product-details.php"><i class="zmdi zmdi-more"></i></a>
-                                            <a class="edit button button-box button-xs button-info" href="#"><i class="zmdi zmdi-edit"></i></a>
-                                            <a class="delete button button-box button-xs button-danger" href="#"><i class="zmdi zmdi-delete"></i></a>
+                                            <a class="view button button-box button-xs button-primary" href="invoice-details.php"><i class="zmdi zmdi-more"></i></a>
+                                            <a class="edit button button-box button-xs button-info" href="/admin/product/edit/{{$temp_product['id']}}"><i class="zmdi zmdi-edit"></i></a>
+                                            <a class="delete button button-box button-xs button-danger" href="{{route('delete_product', $temp_product['id'])}}"><i class="zmdi zmdi-delete"></i></a>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
-                                    <td>#MSP40023</td>
-                                    <td>Blanka Mokroš</td>
 
-                                    <td><a href="#">Jewelry Title 2</a></td>
-                                    <td>$600.00</td>
-                                    <td>03 pyc</td>
-                                    <td>13 Feb 2018</td>
-                                    <td><span class="badge badge-success">Paid</span></td>
-                                    <td class="action h4">
-                                        <div class="table-action-buttons">
-                                            <a class="view button button-box button-xs button-primary" href="product-details.php"><i class="zmdi zmdi-more"></i></a>
-                                            <a class="edit button button-box button-xs button-info" href="#"><i class="zmdi zmdi-edit"></i></a>
-                                            <a class="delete button button-box button-xs button-danger" href="#"><i class="zmdi zmdi-delete"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><img src="{{asset('images/sample/product-sample-60.jpg" alt="" class="product-image rounded-circle"></td>
-                                    <td>#MSP40024</td>
-                                    <td>Rostás Linda</td>
-
-                                    <td><a href="#">Jewelry Title 3</a></td>
-                                    <td>$600.00</td>
-                                    <td>03 pyc</td>
-                                    <td>13 Feb 2018</td>
-                                    <td><span class="badge badge-danger">Due</span></td>
-                                    <td class="action h4">
-                                        <div class="table-action-buttons">
-                                            <a class="view button button-box button-xs button-primary" href="product-details.php"><i class="zmdi zmdi-more"></i></a>
-                                            <a class="edit button button-box button-xs button-info" href="#"><i class="zmdi zmdi-edit"></i></a>
-                                            <a class="delete button button-box button-xs button-danger" href="#"><i class="zmdi zmdi-delete"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
-                                    <td>#MSP40025</td>
-                                    <td>Jana Valenta</td>
-
-                                    <td><a href="#">Jewelry Title 4</a></td>
-                                    <td>$600.00</td>
-                                    <td>03 pyc</td>
-                                    <td>13 Feb 2018</td>
-                                    <td><span class="badge badge-success">Paid</span></td>
-                                    <td class="action h4">
-                                        <div class="table-action-buttons">
-                                            <a class="view button button-box button-xs button-primary" href="product-details.php"><i class="zmdi zmdi-more"></i></a>
-                                            <a class="edit button button-box button-xs button-info" href="#"><i class="zmdi zmdi-edit"></i></a>
-                                            <a class="delete button button-box button-xs button-danger" href="#"><i class="zmdi zmdi-delete"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
-                                    <td>#MSP40026</td>
-                                    <td>Tiêu Bích</td>
-
-                                    <td><a href="#">Jewelry Title 5</a></td>
-                                    <td>$600.00</td>
-                                    <td>03 pyc</td>
-                                    <td>13 Feb 2018</td>
-                                    <td><span class="badge badge-success">Paid</span></td>
-                                    <td class="action h4">
-                                        <div class="table-action-buttons">
-                                            <a class="view button button-box button-xs button-primary" href="product-details.php"><i class="zmdi zmdi-more"></i></a>
-                                            <a class="edit button button-box button-xs button-info" href="#"><i class="zmdi zmdi-edit"></i></a>
-                                            <a class="delete button button-box button-xs button-danger" href="#"><i class="zmdi zmdi-delete"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @endforeach
+                                @endisset
                             </tbody>
                         </table>
                     </div>

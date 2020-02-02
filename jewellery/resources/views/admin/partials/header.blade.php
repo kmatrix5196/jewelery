@@ -189,12 +189,12 @@
                 </li>
                 <li class="has-sub-menu"><a href="#"><i class="ti-home"></i> <span>Manage Products</span><span class="menu-expand"><i class="zmdi zmdi-chevron-down"></i></span></a>
                     <ul class="side-header-sub-menu" style="display: none;">
-                        <li><a href="/admin/order_lists"><i class=" fa fa-th-list"></i> <span>Order Lists</span></a></li>                                
-                        <li><a href="/admin/product-list"><i class=" ti-list"></i> <span>Product Lists</span></a></li>
-                        <li><a href="/admin/add-product"><i class="fa fa-plus"></i><span>Add Product</span></a></li>
-                        <li><a href="/admin/edit_products"><i class="fa fa-edit"></i> <span>Edit Product</span></a></li>                              
+                        <li><a href="/admin/product/view"><i class=" ti-list"></i> <span>Product Lists</span></a></li>
+                        <li><a href="/admin/product/add"><i class="fa fa-plus"></i><span>Add Product</span></a></li>
+                        <li><a href="/admin/products/edit"><i class="fa fa-edit"></i> <span>Edit Product</span></a></li>
                     </ul>
                 </li>
+                <li><a href="/admin/order_lists"><i class="fa fa-th-list"></i> <span>Order Lists</span></a></li>
                 <li><a href="/admin/user_lists"><i class="fa fa-users"></i> <span>Users Lists</span></a></li>
                 <li><a href="/admin/company_lists"><i class="fa fa-building"></i> <span>Company Lists</span></a></li>
 

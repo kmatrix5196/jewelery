@@ -26,26 +26,29 @@
 
             <!-- Add or Edit Product Start -->
             <div class="add-edit-product-wrap col-12">
-
+                @isset($temp_product)
                 <div class="add-edit-product-form">
-                    <form action="#">
-
+                    <form action="{{route ('edit_product')}}" method="post">
+                        @csrf
+                        
                         <h4 class="title">About Product</h4>
 
                         <div class="row">
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Name / Title*"></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Sub-title"></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Price*"></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Discount"></div>
-                            <div class="col-12 mb-30"><textarea class="form-control" placeholder="Product Description*"></textarea></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Name / Title*" name="p_name" value="{{$temp_product['name']}}" required></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Sub-title" name="p_subtitle" value="{{$temp_product['subtitle']}}" required></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" step="any" placeholder="Product Price*" name="p_price" value="{{$temp_product['price']}}" required></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control"  type="number" min="0" placeholder="Product Discount" name="p_discount" value="{{$temp_product['discount']}}"></div>
+                            <div class="col-12 mb-30"><textarea class="form-control" placeholder="Product Description*" name="p_dscrp" required>{{$temp_product['description']}}</textarea></div>
                             <div class="col-lg-6 col-12 mb-30">
-                                <select class="form-control select2">
-                                    <option value="status">Status</option>
-                                    <option value="publish">Publish</option>
-                                    <option value="draft">Draft</option>
+                                <select class="form-control select2" name="p_status" required>
+                                    <option {{ ($temp_product['status'] == 'status') ? ' selected ' : '' }} value="status">Status</option>
+                                    <option {{ ($temp_product['status'] == 'publish') ? ' selected ' : '' }} value="publish">Publish</option>
+                                    <option {{ ($temp_product['status'] == 'draft') ? ' selected ' : '' }} value="draft">Draft</option>
                                 </select>
                             </div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Meta Title"></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Meta Title" name="p_meta_title" value="{{$temp_product['meta_title']}}" required></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" placeholder="Instock" value="{{$temp_product['instock']}}" name="p_instock" required></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Code" value="{{$temp_product['product_code']}}" name="p_code" required></div>
 
                         </div>
 
@@ -54,25 +57,28 @@
                         <div class="product-upload-gallery row flex-wrap">
                             <div class="col-12 mb-30">
                                 <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
-                                <input class="file-pond" type="file" multiple>
+                                <input class="file-pond" type="file" multiple name="p_thumbnail" accept="image/*" value="{{$temp_product['thumbnail']}}">
                             </div>
                         </div>
 
                         <h4 class="title">Additional Information</h4>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-lg-4 col-12 mb-30"><input class="form-control" type="text" placeholder="Information 1"></div>
                             <div class="col-lg-4 col-12 mb-30"><input class="form-control" type="text" placeholder="Information 2"></div>
                             <div class="col-lg-4 col-12 mb-30"><input class="form-control" type="text" placeholder="Information 3"></div>
                             <div class="col-lg-4 col-12 mb-30"><input class="form-control" type="text" placeholder="Information 4"></div>
                             <div class="col-lg-4 col-12 mb-30"><input class="form-control" type="text" placeholder="Information 5"></div>
                             <div class="col-lg-4 col-12 mb-30"><input class="form-control" type="text" placeholder="Information 6"></div>
+                        </div> -->
+                         <div class="row">
+                            <div class="col-12 mb-30"><textarea class="form-control" type="text" placeholder="Additional Information" name="p_add_info">{{$temp_product['additional_information']}}</textarea></div>
                         </div>
 
                         <!-- Button Group Start -->
                         <div class="row">
                             <div class="d-flex flex-wrap justify-content-end col mbn-10">
-                                <button class="button button-outline button-primary mb-10 ml-10 mr-0">Save & Publish</button>
+                                <button class="button button-outline button-primary mb-10 ml-10 mr-0"  value="{{$temp_product['id']}}" name="p_id" type="submit">Save & Publish</button>
                                 <button class="button button-outline button-info mb-10 ml-10 mr-0">Save to Draft</button>
                                 <button class="button button-outline button-danger mb-10 ml-10 mr-0">Delete Product</button>
                             </div>
@@ -80,6 +86,7 @@
 
                     </form>
                 </div>
+                @endisset
 
             </div><!-- Add or Edit Product End -->
 

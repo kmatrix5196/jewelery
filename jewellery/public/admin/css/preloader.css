@@ -1,0 +1,7 @@
+.loading{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #fff no-repeat  url('../images/loader/Balls-0.3s-100px.gif') center;
+  z-index: 99999;
+}
