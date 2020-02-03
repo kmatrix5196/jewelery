@@ -55,7 +55,7 @@ class ProductController extends Controller
 		$product->description = $request->p_dscrp;
 		$product->status = $request->p_status;
 		$product->meta_title = $request->p_meta_title;
-		$product->thumbnail = "/img/product/".$request->p_thumbnail;
+		$product->thumbnail = 0;
 		$product->additional_information = $request->p_add_info;
 		$product->instock = $request->p_instock;
 		$product->company_id = 123;

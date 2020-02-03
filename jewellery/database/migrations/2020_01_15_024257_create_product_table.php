@@ -22,7 +22,7 @@ class CreateProductTable extends Migration
             $table->longText('description')->nullable();
             $table->string('status');
             $table->string('meta_title')->nullable();
-            $table->string('thumbnail')->nullable();
+            $table->integer('thumbnail');
             $table->longText('additional_information')->nullable();
             $table->integer('instock');
             $table->integer('company_id')->nullable();
