@@ -16,9 +16,9 @@
                 <!-- Page Button Group Start -->
                 <div class="col-12 col-lg-auto mb-20">
                     <div class="buttons-group">
-                        <button class="button button-outline button-primary">Save & Publish</button>
-                        <button class="button button-outline button-info">Save to Draft</button>
-                        <button class="button button-outline button-danger">Delete Product</button>
+                        <button class="button button-outline button-primary">Save</button>
+                        
+                        <button class="button button-outline button-danger">Cancel</button>
                     </div>
                 </div><!-- Page Button Group End -->
 
@@ -77,9 +77,9 @@
                         <!-- Button Group Start -->
                         <div class="row">
                             <div class="d-flex flex-wrap justify-content-end col mbn-10">
-                                <button class="button button-outline button-primary mb-10 ml-10 mr-0" type="submit">Save & Publish</button>
-                                <button class="button button-outline button-info mb-10 ml-10 mr-0">Save to Draft</button>
-                                <button class="button button-outline button-danger mb-10 ml-10 mr-0">Delete Product</button>
+                                <button class="button button-outline button-primary mb-10 ml-10 mr-0" type="submit">Save</button>
+                                
+                                <button class="button button-outline button-danger mb-10 ml-10 mr-0">Cancel</button>
                             </div>
                         </div><!-- Button Group End -->
 
