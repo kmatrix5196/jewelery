@@ -42,7 +42,7 @@ class ProductController extends Controller
 			return view('client.pages.product-details',['temp_product' => $product_rst,'temp_products' => $temp_products]);
 		}
 	}
-
+	
 	public function add_product(Request $request)
 	{
 		// Validate the request...
