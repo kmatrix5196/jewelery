@@ -1,6 +1,7 @@
     @extends('admin.layouts.default')
     @section('title','Jewelery Product List')
     @section('content')
+    use Illuminate\Support\Facades\DB;
         <!-- Content Body Start -->
         <div class="content-body">
 
@@ -28,23 +29,28 @@
                                     <th>Product ID</th>
                                     <th>Image</th>
                                     <th>Product Name</th>
+                                    <th>Company Name</th>
                                     <th>Price</th>
-                                    <th>Sales</th>
+                                    
                                     <th>In Stock</th>
-                                    <th>Date</th>
-                                    <th>Status</th>
+                                    <th>Date</th>                                    
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @isset($temp_products)
                                 @foreach ($temp_products as $temp_product)
+                                @php
+                                $company_id=$temp_product['company_id'];
+                                $company_name = DB::table('company')->where('id',$company_id)->value('name');
+                                @endphp
                                 <tr>
                                     <td>{{$temp_product['id']}}</td>
                                     <td><img src="{{asset($temp_product['thumbnail'])}}" alt="" class="product-image rounded-circle"></td>
                                     <td><a href="#">{{$temp_product['name']}}</a></td>
+                                    <td><a href="#">{{$company_name}}</a></td>
                                     <td>${{number_format($temp_product['price'],2)}}</td>
-                                    <td>??Ttl Sale??</td>
+                                    
                                     <td>{{$temp_product['instock']}}</td>
                                     <td>{{$temp_product['created_at']->format('d M Y')}}</td>
                                     <td><span class="badge badge-danger">{{$temp_product['status']}}</span></td>
