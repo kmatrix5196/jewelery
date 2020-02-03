@@ -200,7 +200,7 @@
 
                
 
-                <li><a href="/admin/add_blogs"><i class="fa fa-plus-square-o"></i> <span>Add Blogs</span></a></li>
+                <li><a href="/admin/blog/add"><i class="fa fa-plus-square-o"></i> <span>Add Blogs</span></a></li>
                 <li><a href="/admin/chat"><i class="fa fa-comments-o"></i> <span>ChatBox</span></a></li>
 
                 <li><a href="/admin/table-data-table"><i class="ti-layout"></i> <span>Data Table</span></a></li>

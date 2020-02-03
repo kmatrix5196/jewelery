@@ -28,24 +28,24 @@
             <div class="add-edit-product-wrap col-12">
 
                 <div class="add-edit-product-form">
-                    <form action="#">
-
+                    <form action="{{route ('add_blog')}}" enctype="multipart/form-data" method="post">
+                        @csrf
                         <h4 class="title">Blog Image</h4>
 
                         <div class="product-upload-gallery row flex-wrap">
                             <div class="col-12 mb-30">
                                 <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
-                                <input class="file-pond" type="file" multiple>
+                                <input class="file-pond" type="file" multiple name="b_img" accept="image/*">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder=" Title*"></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Blog Sub-title*"></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Description*"></div>
-                            <div class="col-lg-6 col-12 mb-30"><input type="text" class="form-control input-date-single"><span class="form-help-text">Date : e.g "12/02/2013"</span></div>
-                            <div class="col-12 mb-30"><textarea class="form-control" placeholder="Paragraph*"></textarea></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder=" Title*" name="b_title" required></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Blog Sub-title*" name="b_subtitle" required></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Description*"  name="b_dscrp" required></div>
+                            <div class="col-lg-6 col-12 mb-30"><input type="text" class="form-control input-date-single" name="b_date" required><span class="form-help-text">Date : e.g "12/02/2013"</span></div>
+                            <div class="col-12 mb-30"><textarea class="form-control" placeholder="Paragraph*" name="b_paragraph" required></textarea></div>
                             <div class="col-lg-6 col-12 mb-30">
-                                <select class="form-control select2">
+                                <select class="form-control select2"  name="b_status" required>
                                     <option value="status">Status</option>
                                     <option value="publish">Publish</option>
                                     <option value="draft">Draft</option>
@@ -58,7 +58,7 @@
                         <!-- Button Group Start -->
                         <div class="row">
                             <div class="d-flex flex-wrap justify-content-end col mbn-10">
-                                <button class="button button-outline button-primary mb-10 ml-10 mr-0">Save & Publish</button>
+                                <button class="button button-outline button-primary mb-10 ml-10 mr-0" type="submit">Save & Publish</button>
                                 <button class="button button-outline button-info mb-10 ml-10 mr-0">Save to Draft</button>
                                 <button class="button button-outline button-danger mb-10 ml-10 mr-0">Delete Product</button>
                             </div>
