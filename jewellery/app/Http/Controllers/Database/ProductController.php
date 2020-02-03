@@ -82,6 +82,8 @@ class ProductController extends Controller
 
 	public function update_product(Request $request)
 	{
+		$company_name = $request->p_company_name;
+		$company_id = DB::table('company')->where('name',$company_name)->value('id');
 		// Validate the request...
 		$product = Product::where('id','=', $request->p_id)->first();
 		$product->name = $request->p_name;
@@ -89,12 +91,12 @@ class ProductController extends Controller
 		$product->price = $request->p_price;
 		$product->discount = $request->p_discount;
 		$product->description = $request->p_dscrp;
-		$product->status = $request->p_status;
+		
 		$product->meta_title = $request->p_meta_title;
-		$product->thumbnail = "/img/product/".$request->p_thumbnail;
+		$product->thumbnail = 0;
 		$product->additional_information = $request->p_add_info;
 		$product->instock = $request->p_instock;
-		$product->company_id = 123;
+		$product->company_id = $company_id;
 		$product->product_code = $request->p_code;
 		$product->save();
 		return redirect()->route('view_product');

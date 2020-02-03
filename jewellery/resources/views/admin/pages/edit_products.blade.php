@@ -1,5 +1,6 @@
     @extends('admin.layouts.default')
     @section('content')
+    use Illuminate\Support\Facades\DB;
         <!-- Content Body Start -->
         <div class="content-body">
 
@@ -16,9 +17,9 @@
                 <!-- Page Button Group Start -->
                 <div class="col-12 col-lg-auto mb-20">
                     <div class="buttons-group">
-                        <button class="button button-outline button-primary">Save & Publish</button>
-                        <button class="button button-outline button-info">Save to Draft</button>
-                        <button class="button button-outline button-danger">Delete Product</button>
+                        <button class="button button-outline button-primary">Save</button>
+                        
+                        <button class="button button-outline button-danger">Cancel</button>
                     </div>
                 </div><!-- Page Button Group End -->
 
@@ -39,12 +40,27 @@
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" step="any" placeholder="Product Price*" name="p_price" value="{{$temp_product['price']}}" required></div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control"  type="number" min="0" placeholder="Product Discount" name="p_discount" value="{{$temp_product['discount']}}"></div>
                             <div class="col-12 mb-30"><textarea class="form-control" placeholder="Product Description*" name="p_dscrp" required>{{$temp_product['description']}}</textarea></div>
+                            @php
+                                $company_id=$temp_product['company_id'];
+                                $company_name = DB::table('company')->where('id',$company_id)->value('name');
+                            @endphp
                             <div class="col-lg-6 col-12 mb-30">
-                                <select class="form-control select2" name="p_status" required>
-                                    <option {{ ($temp_product['status'] == 'status') ? ' selected ' : '' }} value="status">Status</option>
-                                    <option {{ ($temp_product['status'] == 'publish') ? ' selected ' : '' }} value="publish">Publish</option>
-                                    <option {{ ($temp_product['status'] == 'draft') ? ' selected ' : '' }} value="draft">Draft</option>
-                                </select>
+                                <input list="company" class="form-control" name="p_company_name" value="{{$company_name}}">
+                                <datalist id="company">
+                                   @php
+                                    $company_name = DB::table('company')->pluck('name');
+                                    foreach ($company_name as $cn) {
+                                        
+                                    @endphp
+                                    <option value='{{ $cn }}'></option>
+                                    @php                                    
+                                    }
+                                    @endphp 
+                                </datalist>
+                                
+                                    <!-- <datalist id="company">
+                                    
+                                    </datalist> -->
                             </div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Meta Title" name="p_meta_title" value="{{$temp_product['meta_title']}}" required></div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" placeholder="Instock" value="{{$temp_product['instock']}}" name="p_instock" required></div>
@@ -78,9 +94,9 @@
                         <!-- Button Group Start -->
                         <div class="row">
                             <div class="d-flex flex-wrap justify-content-end col mbn-10">
-                                <button class="button button-outline button-primary mb-10 ml-10 mr-0"  value="{{$temp_product['id']}}" name="p_id" type="submit">Save & Publish</button>
-                                <button class="button button-outline button-info mb-10 ml-10 mr-0">Save to Draft</button>
-                                <button class="button button-outline button-danger mb-10 ml-10 mr-0">Delete Product</button>
+                                <button class="button button-outline button-primary mb-10 ml-10 mr-0"  value="{{$temp_product['id']}}" name="p_id" type="submit">Save</button>
+                                
+                                <button class="button button-outline button-danger mb-10 ml-10 mr-0">Cancel</button>
                             </div>
                         </div><!-- Button Group End -->
 
