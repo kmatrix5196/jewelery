@@ -15,10 +15,10 @@ class CreateBlogImageTable extends Migration
     {
           Schema::create('blog_image', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('blog_id')->unsigned();
+            $table->bigInteger('blog_id')->unsigned()->nullable();
             $table->foreign('blog_id')->references('id')->on('blog')->onDelete('cascade');
-            $table->string('url');
-            $table->string('type');
+            $table->string('url')->nullable();
+            $table->string('type')->nullable();
             $table->timestamps();
         });
     }

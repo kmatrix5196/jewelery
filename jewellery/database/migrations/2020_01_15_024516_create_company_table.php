@@ -15,17 +15,17 @@ class CreateCompanyTable extends Migration
     {
         Schema::create('company', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('business_type');
-            $table->string('main_product');
-            $table->string('location');
-            $table->date('year_established');
-            $table->float('lat');
-            $table->float('lng');
-            $table->string('email')->unique();;
+            $table->string('name')->nullable();
+            $table->string('business_type')->nullable();
+            $table->string('main_product')->nullable();
+            $table->string('location')->nullable();
+            $table->date('year_established')->nullable();
+            $table->float('lat')->nullable();
+            $table->float('lng')->nullable();
+            $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('phone');
+            $table->string('password')->nullable();
+            $table->string('phone')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -15,10 +15,10 @@ class CreateWriterTable extends Migration
     {
         Schema::create('writer', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('user_name')->unique();;
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->string('name')->nullable();
+            $table->string('user_name')->unique()->nullable();
+            $table->string('email')->unique()->nullable();
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

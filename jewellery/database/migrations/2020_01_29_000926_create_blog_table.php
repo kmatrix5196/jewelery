@@ -15,11 +15,11 @@ class CreateBlogTable extends Migration
     {
           Schema::create('blog', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('subtitle');
-            $table->longText('description');
-            $table->date('date');
-            $table->longText('paragraph');
+            $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->longText('description')->nullable();
+            $table->date('date')->nullable();
+            $table->longText('paragraph')->nullable();
             $table->bigInteger('admin_id')->unsigned()->nullable();
             $table->bigInteger('writer_id')->unsigned()->nullable();
             $table->timestamps();
