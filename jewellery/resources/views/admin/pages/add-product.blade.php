@@ -66,9 +66,20 @@
                         <h4 class="title">Product Gallery</h4>
 
                         <div class="product-upload-gallery row flex-wrap">
-                            <div class="col-12 mb-30">
+                            <div class="col-6 mb-30">
                                 <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
-                                <input class="file-pond" type="file" multiple name="p_thumbnail" accept="image/*">
+                                <p class="form-help-text mt-0" style="font-weight: bold">Main Picture</p>
+                                <input class="file-pond" type="file" multiple name="p_image_typemain" accept="image/*" required>
+                            </div>
+                            <div class="col-6 mb-30">
+                                <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
+                                <p class="form-help-text mt-0" style="font-weight: bold">Other Picture</p>
+                                <input class="file-pond" type="file" multiple name="p_image_type1" accept="image/*" required>
+                            </div>
+                            <div class="col-6 mb-30">
+                                <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
+                                <p class="form-help-text mt-0" style="font-weight: bold">Other Picture</p>
+                                <input class="file-pond" type="file" multiple name="p_image_type2" accept="image/*" required>
                             </div>
                         </div>
 
