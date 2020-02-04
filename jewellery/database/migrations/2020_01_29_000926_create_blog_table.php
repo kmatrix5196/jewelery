@@ -20,9 +20,8 @@ class CreateBlogTable extends Migration
             $table->longText('description');
             $table->date('date');
             $table->longText('paragraph');
-            $table->longText('status');
-            $table->bigInteger('admin_id')->unsigned();
-            $table->bigInteger('writer_id')->unsigned();
+            $table->bigInteger('admin_id')->unsigned()->nullable();
+            $table->bigInteger('writer_id')->unsigned()->nullable();
             $table->timestamps();
             $table->foreign('admin_id')->references('id')->on('admin')->onDelete('cascade');
             $table->foreign('writer_id')->references('id')->on('writer')->onDelete('cascade');
