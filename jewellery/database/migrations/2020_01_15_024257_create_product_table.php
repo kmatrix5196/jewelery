@@ -20,7 +20,6 @@ class CreateProductTable extends Migration
             $table->float('price',16,2);
             $table->float('discount',16,2);
             $table->longText('description')->nullable();
-            $table->string('status');
             $table->string('meta_title')->nullable();
             $table->integer('thumbnail');
             $table->longText('additional_information')->nullable();
