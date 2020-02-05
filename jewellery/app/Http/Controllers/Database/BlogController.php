@@ -48,18 +48,19 @@ class BlogController extends Controller
 				$file = "";
 			}
 			else{
-				$imageName = strval($blog->id).'.'.$request->file('b_img')->getClientOriginalExtension();
-				$request->file('b_img')->move(public_path('/img/blog'), $imageName);
 				$blog_img = new Blog_Image;
 				$blog_img->blog_id = $blog->id;
-				$blog_img->url = $request->$imageName;
+				$blog_img->url = "/img/blog/".strval($blog->id).".".$request->file('b_img')->extension();
+				
+				$imageName = strval($blog->id).'.'.$request->file('b_img')->getClientOriginalExtension();
+				$request->file('b_img')->move(public_path('/img/blog'), $imageName);
 				$blog_img->save();
 			};
 		};
 		// 	return redirect('/admin/blog/view/'.$blog->id);
 		
 		// }
-		return redirect()->route('view_blog');
+		// return redirect()->route('view_blog');
 	}
 	public function edit_blog($id)
 	{
