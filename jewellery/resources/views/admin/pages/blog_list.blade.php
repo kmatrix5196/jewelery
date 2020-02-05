@@ -30,9 +30,8 @@
                                     <th>Blog Title</th>
                                     <th>Blog Subtitle</th>
                                     <th>Description</th>
-                                    
-                                    <th>Date</th>
-                                    <th>Paragraph</th>                                    
+                                    <th>Paragraph</th>
+                                    <th>Date</th>                
                                     <th>Action</th>
                                 </tr>
                             </thead>

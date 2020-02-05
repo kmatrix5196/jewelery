@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Database;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Blog_Image;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -40,26 +41,26 @@ class BlogController extends Controller
 		$blog->date = date('Y-m-d', strtotime($request->b_date));
 		$blog->paragraph = $request->b_paragraph;
 	//	$blog->admin_id = 1;
-	//	$blog->writer_id = 1;
-
-		
-		
+	//	$blog->writer_id = 1;		
 		$blog->save();
-		// if ($blog->save()) {
-		// if ($request->file('b_img') == null) {
-		// 	$file = "";
-		// }
-		// else{
-		// 	$imageName = strval($blog->id).'.'.$request->file('b_img')->getClientOriginalExtension();
-		// 	$request->file('b_img')->move(public_path('/img/blog'), $imageName);
-		// };
+		if ($blog->save()) {
+			if ($request->file('b_img') == null) {
+				$file = "";
+			}
+			else{
+				$imageName = strval($blog->id).'.'.$request->file('b_img')->getClientOriginalExtension();
+				$request->file('b_img')->move(public_path('/img/blog'), $imageName);
+				$blog_img = new Blog_Image;
+				$blog_img->blog_id = $blog->id;
+				$blog_img->url = $request->$imageName;
+				$blog_img->save();
+			};
+		};
 		// 	return redirect('/admin/blog/view/'.$blog->id);
 		
 		// }
-
 		return redirect()->route('view_blog');
 	}
-
 	public function edit_blog($id)
 	{
 		// Validate the request...
