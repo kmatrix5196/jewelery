@@ -1,4 +1,4 @@
-    @extends('client.layouts.default')
+    @extends('company.layouts.default')
     @section('title','Login-Register')
     @section('content')
     <main>
@@ -69,12 +69,12 @@
                                   <div class="row">
                                       <div class="col-lg-6">
                                           <div class="single-input-item">
-                                              <input type="text" placeholder="First Name" required />
+                                              <input type="text" placeholder="Name" required />
                                           </div>
                                       </div>
                                       <div class="col-lg-6">
                                           <div class="single-input-item">
-                                              <input type="text" placeholder="Last Name" required />
+                                              <input type="text" placeholder="Business Type" required />
                                           </div>
                                       </div>
                                   </div>
@@ -84,12 +84,15 @@
 
                         <div class="product-upload-gallery row flex-wrap">
                             <div class="col-12 mb-30">
-                                <p class="form-help-text mt-0">Upload your profile picture.</p>
+                                <p class="form-help-text mt-0">Upload your company profile picture.</p>
                                 <input class="file-pond" type="file" multiple name="b_img" accept="image/*">
                             </div>
-                        </div>
+                        </div> 
                                     <div class="single-input-item">
-                                        <input type="text" placeholder="Address" required />
+                                        <input type="text" placeholder="Main Product" required />
+                                    </div>
+                                    <div class="single-input-item">
+                                        <input type="date" placeholder="Year Established" required />
                                     </div>
                                     <div class="single-input-item">
                                         <input type="tel" placeholder="Tel :" required />
@@ -97,6 +100,7 @@
                                     <div class="single-input-item">
                                         <input type="email" placeholder="Email : " required />
                                     </div>
+
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="single-input-item">
