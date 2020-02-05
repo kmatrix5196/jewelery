@@ -12,7 +12,7 @@
 */
 // Routes for client site
 Route::get('/', function () {
-    return redirect('home/');
+    return redirect('/home');
 });
 
 Route::prefix('/home')->group(function () {
@@ -71,8 +71,8 @@ Route::prefix('admin')->group(function () {
     Route::get('index', function () {
         return View::make('admin.pages.index');
     });
-    Route::get('add_blogs', function () {
-        return View::make('admin.pages.add_blogs');
+    Route::get('home', function () {
+        return View::make('admin.pages.index');
     });
     Route::get('chat', function () {
         return View::make('admin.pages.chat');
@@ -129,20 +129,20 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::prefix('blog')->group(function () {
-        // Route::get('', function () {
-        //     return redirect()->route('view_blog');
-        // });
-        // Route::get('view', 'Database\BlogController@view_blog')->name('view_blog');
+        Route::get('', function () {
+            return redirect()->route('view_blog');
+        });
+        Route::get('view', 'Database\BlogController@view_blog')->name('view_blog');
         // Route::get('view/{id}', 'Database\BlogController@view_blog_dtl');
         Route::get('add', function () {
             return View::make('admin.pages.add-blog');
         })->name('add_blog');
         Route::post('add', "Database\BlogController@add_blog");
 
-        // Route::get('edit/{id}',"Database\BlogController@edit_blog");
-        // Route::post('edit', "Database\BlogController@update_blog")->name('edit_blog');
+        Route::get('edit/{id}',"Database\BlogController@edit_blog");
+        Route::post('edit', "Database\BlogController@update_blog")->name('edit_blog');
 
-        // Route::get('delete/{id}', "Database\BlogController@delete_blog")->name('delete_blog');
+        Route::get('delete/{id}', "Database\BlogController@delete_blog")->name('delete_blog');
     });
        
 });

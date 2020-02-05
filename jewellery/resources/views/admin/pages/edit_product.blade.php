@@ -94,7 +94,7 @@
                         <!-- Button Group Start -->
                         <div class="row">
                             <div class="d-flex flex-wrap justify-content-end col mbn-10">
-                                <button class="button button-outline button-primary mb-10 ml-10 mr-0"  value="{{$temp_product['id']}}" name="p_id" type="submit">Save</button>
+                                <button class="button button-outline button-primary mb-10 ml-10 mr-0" value="{{$temp_product['id']}}" name="p_id" type="submit">Save</button>
                                 
                                 <button class="button button-outline button-danger mb-10 ml-10 mr-0">Cancel</button>
                             </div>

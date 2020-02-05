@@ -38,7 +38,7 @@ class ProductController extends Controller
 		
 		if (\Request::is('admin/*'))
 		{
-			return view('admin.pages.edit_products',['temp_product' => $product_rst]);
+			return view('admin.pages.edit_product',['temp_product' => $product_rst]);
 		}
 		else { 
 			return view('client.pages.product-details',['temp_product' => $product_rst,'temp_products' => $temp_products]);
@@ -77,7 +77,7 @@ class ProductController extends Controller
 		// Validate the request...
 
 		$product_rst = Product::where('id', '=', $id)->first();
-		return view('admin.pages.edit_products',['temp_product' => $product_rst]);
+		return view('admin.pages.edit_product',['temp_product' => $product_rst]);
 	}
 
 	public function update_product(Request $request)
