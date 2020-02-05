@@ -191,7 +191,7 @@
                     <ul class="side-header-sub-menu" style="display: none;">
                         <li><a href="/admin/product/view"><i class=" ti-list"></i> <span>Product Lists</span></a></li>
                         <li><a href="/admin/product/add"><i class="fa fa-plus"></i><span>Add Product</span></a></li>
-                        <li><a href="/admin/products/edit"><i class="fa fa-edit"></i> <span>Edit Product</span></a></li>
+                      <!--   <li><a href="/admin/products/edit"><i class="fa fa-edit"></i> <span>Edit Product</span></a></li> -->
                     </ul>
                 </li>
                 <li><a href="/admin/order_lists"><i class="fa fa-th-list"></i> <span>Order Lists</span></a></li>
@@ -200,7 +200,7 @@
 
                
 
-                <li><a href="/admin/add_blogs"><i class="fa fa-plus-square-o"></i> <span>Add Blogs</span></a></li>
+                <li><a href="/admin/blog/add"><i class="fa fa-plus-square-o"></i> <span>Add Blogs</span></a></li>
                 <li><a href="/admin/chat"><i class="fa fa-comments-o"></i> <span>ChatBox</span></a></li>
 
                 <li><a href="/admin/table-data-table"><i class="ti-layout"></i> <span>Data Table</span></a></li>

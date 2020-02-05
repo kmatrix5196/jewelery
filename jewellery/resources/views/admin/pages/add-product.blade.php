@@ -1,5 +1,6 @@
     @extends('admin.layouts.default')
     @section('content')
+    use Illuminate\Support\Facades\DB;
         <!-- Content Body Start -->
         <div class="content-body">
 
@@ -39,11 +40,22 @@
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" placeholder="Product Discount" name="p_discount"></div>
                             <div class="col-12 mb-30"><textarea class="form-control" placeholder="Product Description*" name="p_dscrp" required></textarea></div>
                             <div class="col-lg-6 col-12 mb-30">
-                                <select class="form-control select2" name="p_status" required>
-                                    <option value="status">Status</option>
-                                    <option value="publish">Publish</option>
-                                    <option value="draft">Draft</option>
-                                </select>
+                                <input list="company" class="form-control" name="p_company_name">
+                                <datalist id="company">
+                                   @php
+                                    $company_name = DB::table('company')->pluck('name');
+                                    foreach ($company_name as $cn) {
+                                        
+                                    @endphp
+                                    <option value='{{ $cn }}'></option>
+                                    @php                                    
+                                    }
+                                    @endphp 
+                                </datalist>
+                                
+                                    <!-- <datalist id="company">
+                                    
+                                    </datalist> -->
                             </div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Meta Title" name="p_meta_title" required></div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" placeholder="Instock" name="p_instock" required></div>
@@ -54,9 +66,20 @@
                         <h4 class="title">Product Gallery</h4>
 
                         <div class="product-upload-gallery row flex-wrap">
-                            <div class="col-12 mb-30">
+                            <div class="col-6 mb-30">
                                 <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
-                                <input class="file-pond" type="file" multiple name="p_thumbnail" accept="image/*">
+                                <p class="form-help-text mt-0" style="font-weight: bold">Main Picture</p>
+                                <input class="file-pond" type="file" multiple name="p_image_typemain" accept="image/*" required>
+                            </div>
+                            <div class="col-6 mb-30">
+                                <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
+                                <p class="form-help-text mt-0" style="font-weight: bold">Other Picture</p>
+                                <input class="file-pond" type="file" multiple name="p_image_type1" accept="image/*" required>
+                            </div>
+                            <div class="col-6 mb-30">
+                                <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
+                                <p class="form-help-text mt-0" style="font-weight: bold">Other Picture</p>
+                                <input class="file-pond" type="file" multiple name="p_image_type2" accept="image/*" required>
                             </div>
                         </div>
 
