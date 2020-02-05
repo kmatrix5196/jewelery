@@ -14,13 +14,7 @@
                 </div><!-- Page Heading End -->
 
                 <!-- Page Button Group Start -->
-                <div class="col-12 col-lg-auto mb-20">
-                    <div class="buttons-group">
-                        <button class="button button-outline button-primary">Save & Publish</button>
-                        <button class="button button-outline button-info">Save to Draft</button>
-                        <button class="button button-outline button-danger">Delete Product</button>
-                    </div>
-                </div><!-- Page Button Group End -->
+            
 
             </div><!-- Page Headings End -->
 
@@ -44,13 +38,7 @@
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Description*"  name="b_dscrp" required></div>
                             <div class="col-lg-6 col-12 mb-30"><input type="text" class="form-control input-date-single" name="b_date" required><span class="form-help-text">Date : e.g "12/02/2013"</span></div>
                             <div class="col-12 mb-30"><textarea class="form-control" placeholder="Paragraph*" name="b_paragraph" required></textarea></div>
-                            <div class="col-lg-6 col-12 mb-30">
-                                <select class="form-control select2"  name="b_status" required>
-                                    <option value="status">Status</option>
-                                    <option value="publish">Publish</option>
-                                    <option value="draft">Draft</option>
-                                </select>
-                            </div>
+                          
 
                         </div>
 
@@ -59,8 +47,8 @@
                         <div class="row">
                             <div class="d-flex flex-wrap justify-content-end col mbn-10">
                                 <button class="button button-outline button-primary mb-10 ml-10 mr-0" type="submit">Save & Publish</button>
-                                <button class="button button-outline button-info mb-10 ml-10 mr-0">Save to Draft</button>
-                                <button class="button button-outline button-danger mb-10 ml-10 mr-0">Delete Product</button>
+                               
+                                <button class="button button-outline button-danger mb-10 ml-10 mr-0">Cancel</button>
                             </div>
                         </div><!-- Button Group End -->
 

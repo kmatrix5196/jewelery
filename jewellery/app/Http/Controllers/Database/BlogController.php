@@ -26,9 +26,8 @@ class BlogController extends Controller
 		$blog->description = $request->b_dscrp;
 		$blog->date = date('Y-m-d', strtotime($request->b_date));
 		$blog->paragraph = $request->b_paragraph;
-		$blog->status = $request->b_status;
-		$blog->admin_id = 1;
-		$blog->writer_id = 1;
+	//	$blog->admin_id = 1;
+	//	$blog->writer_id = 1;
 
 		
 		
