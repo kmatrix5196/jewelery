@@ -21,7 +21,6 @@ class CreateProductTable extends Migration
             $table->float('discount',16,2)->nullable();
             $table->longText('description')->nullable();
             $table->string('meta_title')->nullable();
-            $table->integer('thumbnail')->nullable();
             $table->longText('additional_information')->nullable();
             $table->integer('instock')->nullable();
             $table->integer('company_id')->nullable();
