@@ -21,21 +21,21 @@ class UserController extends Controller
 		$user->address=$request->address;	
 		$user->save();
 		if ($user->save()) {
-			if ($request->file('profile') == null) {
+			if ($request->file('b_img') == null) {
 				$file = "";
 			}
 			else{
 			$user
-            ->where(max('id'))
-            ->update(['profile_pic' => "/img/profile/".strval($user->max(id)).".".$request->file('profile')->extension()]);
+            ->where('id',$user->max('id'))
+            ->update(['profile_pic' => "/img/profile/".strval($user->id).".".$request->file('b_img')->extension()]);
 
-				$imageName = strval($user->max(id)).'.'.$request->file('profile')->getClientOriginalExtension();
-				$request->file('profile')->move(public_path('/img/profile'), $imageName);
-				$blog_img->save();
+				$imageName = strval($user->id).'.'.$request->file('b_img')->getClientOriginalExtension();
+				$request->file('b_img')->move(public_path('/img/profile'), $imageName);
+				$user->save();
 			};
 		};
 		
-		 return redirect()->route('home');
+		 return redirect('/home');
 		
 	}
 }
