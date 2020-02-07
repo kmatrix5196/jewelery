@@ -1,7 +1,6 @@
-    @extends('admin.layouts.default')
+   @extends('admin.layouts.default')
     @section('title','Jewelery Site Dashboard')
-    @section('login')
-  
+        @section('login')
   
         <!-- Content Body Start -->
         <div class="content-body m-0 p-0">

@@ -64,17 +64,17 @@
                             <div class="login-reg-form-wrap sign-up-form">
                                 <h5 class="Royal_Crescent_Bold">Regristation Form</h5>
                                 <br>
-                                <form action="#" method="post">
-                                 
+                                 <form action="{{route ('add_user')}}" enctype="multipart/form-data" method="post">
+                        @csrf
                                   <div class="row">
                                       <div class="col-lg-6">
                                           <div class="single-input-item">
-                                              <input type="text" placeholder="First Name" required />
+                                              <input type="text" placeholder="First Name" name="fname" required />
                                           </div>
                                       </div>
                                       <div class="col-lg-6">
                                           <div class="single-input-item">
-                                              <input type="text" placeholder="Last Name" required />
+                                              <input type="text" placeholder="Last Name" name="lname" required />
                                           </div>
                                       </div>
                                   </div>
@@ -85,22 +85,22 @@
                         <div class="product-upload-gallery row flex-wrap">
                             <div class="col-12 mb-30">
                                 <p class="form-help-text mt-0">Upload your profile picture.</p>
-                                <input class="file-pond" type="file" multiple name="b_img" accept="image/*">
+                                <input class="file-pond" type="file" multiple name="b_img" name="profile" accept="image/*">
                             </div>
                         </div>
                                     <div class="single-input-item">
-                                        <input type="text" placeholder="Address" required />
+                                        <input type="text" placeholder="Address" required name="address" />
                                     </div>
                                     <div class="single-input-item">
-                                        <input type="tel" placeholder="Tel :" required />
+                                        <input type="tel" placeholder="Tel :" required name="tel" />
                                     </div>
                                     <div class="single-input-item">
-                                        <input type="email" placeholder="Email : " required />
+                                        <input type="email" placeholder="Email : " name="email" required />
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="single-input-item">
-                                                <input type="password" placeholder="Create Password" required />
+                                                <input type="password" placeholder="Create Password" name="password" required />
                                             </div>
                                         </div>
                                         <div class="col-lg-6">

@@ -32,9 +32,9 @@ Route::prefix('/home')->group(function () {
     Route::get('contact-us', function () {
         return View::make('client.pages.contact-us');
     });
-    Route::get('login-register', function () {
+   /* Route::get('login-register', function () {
         return View::make('client.pages.login-register');
-    });
+    });*/
     Route::get('my_account', function () {
         return View::make('client.pages.my_account');
     });
@@ -61,6 +61,14 @@ Route::prefix('/home')->group(function () {
         Route::get('', 'Database\ProductController@view_product');
         Route::get('/{id}','Database\ProductController@view_product_dtl');
     });
+    Route::prefix('login-register')->group(function () {
+        
+        Route::get('', function () {
+            return View::make('client.pages.login-register');
+        })->name('add_user');
+     
+        Route::post('', "Database\UserController@add_user");
+    });
 });
 // Routes for admin
 
@@ -86,6 +94,10 @@ Route::prefix('admin')->group(function () {
     Route::get('login', function () {
         return View::make('admin.pages.login');
     });
+      //Route::get('/admin/login', 'Auth\LoginController@showAdminLoginForm');
+    //Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
+  //  Route::post('/login/admin', 'Auth\LoginController@adminLogin');
+    //Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
     Route::get('my_account', function () {
         return View::make('admin.pages.my_account');
     });
@@ -166,6 +178,23 @@ Route::prefix('admin')->group(function () {
 
         // Route::get('delete/{id}', "Database\BlogController@delete_blog")->name('delete_blog');
     });
+
+
+ 
+    //Route::get('/writer/login', 'Auth\LoginController@showWriterLoginForm');
+    //Route::get('/register/writer', 'Auth\RegisterController@showWriterRegisterForm');
+    //Route::post('/register/writer', 'Auth\RegisterController@createWriter');
+    //Route::post('/login/writer', 'Auth\LoginController@writerLogin');
+
+
+  
+    
+
+  //  Route::view('/home', 'home')->middleware('auth');
+    //Route::view('/admin', 'admin');
+    //Route::view('/writer', 'writer');
+
+
 
 // Auth::routes();
 
