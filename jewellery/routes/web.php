@@ -163,9 +163,17 @@ Route::prefix('admin')->group(function () {
          Route::get('', function () {
         return View::make('client.pages.index');
     });
-          Route::get('login', function () {
-        return View::make('company.pages.company_login-register');
+       
+ Route::prefix('login-register')->group(function () {
+        
+        Route::get('', function () {
+            return View::make('company.pages.company_login-register');
+        })->name('add_company');
+     
+        Route::post('', "Database\CompanyController@add_company");
     });
+
+
         // Route::get('view', 'Database\BlogController@view_blog')->name('view_blog');
         // Route::get('view/{id}', 'Database\BlogController@view_blog_dtl');
        // Route::get('add', function () {

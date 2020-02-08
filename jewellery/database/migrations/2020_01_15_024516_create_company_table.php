@@ -17,6 +17,7 @@ class CreateCompanyTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->nullable();
             $table->string('business_type')->nullable();
+            $table->string('profile_pic')->nullable();
             $table->string('main_product')->nullable();
             $table->string('location')->nullable();
             $table->date('year_established')->nullable();

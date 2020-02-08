@@ -64,17 +64,17 @@
                             <div class="login-reg-form-wrap sign-up-form">
                                 <h5 class="Royal_Crescent_Bold">Regristation Form</h5>
                                 <br>
-                                <form action="#" method="post">
-                                 
+                                <form action="{{route ('add_company')}}" enctype="multipart/form-data" method="post">
+                        @csrf
                                   <div class="row">
                                       <div class="col-lg-6">
                                           <div class="single-input-item">
-                                              <input type="text" placeholder="Name" required />
+                                              <input type="text" placeholder="Name" name="name" required />
                                           </div>
                                       </div>
                                       <div class="col-lg-6">
                                           <div class="single-input-item">
-                                              <input type="text" placeholder="Business Type" required />
+                                              <input type="text" placeholder="Business Type" name="business" required />
                                           </div>
                                       </div>
                                   </div>
@@ -89,22 +89,24 @@
                             </div>
                         </div> 
                                     <div class="single-input-item">
-                                        <input type="text" placeholder="Main Product" required />
+                                        <input type="text" placeholder="Main Product" name="product" required />
                                     </div>
                                     <div class="single-input-item">
-                                        <input type="date" placeholder="Year Established" required />
+                                        <input type="date" placeholder="Year Established" date="date" required />
                                     </div>
                                     <div class="single-input-item">
-                                        <input type="tel" placeholder="Tel :" required />
+                                        <input type="tel" placeholder="Tel :" name="tel" required />
                                     </div>
                                     <div class="single-input-item">
-                                        <input type="email" placeholder="Email : " required />
+                                        <input type="email" placeholder="Email : " name="email" required />
                                     </div>
-
+                                    <div class="single-input-item">
+                                        <input type="text" placeholder="Address : " name="address" required />
+                                    </div>
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="single-input-item">
-                                                <input type="password" placeholder="Create Password" required />
+                                                <input type="password" placeholder="Create Password" name="password" required />
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
