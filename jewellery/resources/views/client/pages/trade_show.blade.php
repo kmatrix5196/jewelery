@@ -1,7 +1,9 @@
     @extends('client.layouts.default')
     @section('title','Trade Show')
     @section('content')
+
     <main>
+        
         <!-- about us area start -->
         <section class="about-us section-padding pb-0">
             <div class="container">
@@ -26,7 +28,7 @@
         </section>
         <br><br><br><br><br><br>
         <!-- about us area end -->
-
+        
 
 
 
@@ -46,95 +48,27 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="blog-carousel-active slick-row-10 slick-arrow-style">
+                            @isset($temp_blogs)
+                            @foreach ($temp_blogs as $temp_blog)
                             <!-- blog post item start -->
                             <div class="blog-post-item">
                                 <figure class="blog-thumb">
                                     <a href="blog-details">
-                                        <img src="{{asset('img/sample/blog-sample.jpg" alt="blog image')}}">
+                                        <img src="{{asset($temp_blog['url'])}}" alt="blog image')}}">
                                     </a>
                                 </figure>
                                 <div class="blog-content">
                                     <div class="blog-meta">
-                                        <p>25/03/2019 | <a href="#"></a></p>
+                                        <p>{{$temp_blog['date']}} | <a href="{{route('blog_detail', $temp_blog['blog_id'])}}"></a></p>
                                     </div>
                                     <h5 class="blog-title">
-                                        <a href="blog-details">Celebrity Daughter Opens Up About Having Her Eye Color Changed</a>
+                                        <a href="{{route('blog_detail', $temp_blog['blog_id'])}}">{{$temp_blog['description']}}</a>
                                     </h5>
                                 </div>
                             </div>
                             <!-- blog post item end -->
-
-                            <!-- blog post item start -->
-                            <div class="blog-post-item">
-                                <figure class="blog-thumb">
-                                    <a href="blog-details">
-                                        <img src="assets/img/sample/blog-sample.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <p>25/03/2019 | <a href="#"></a></p>
-                                    </div>
-                                    <h5 class="blog-title">
-                                        <a href="blog-details">Children Left Home Alone For 4 Days In TV series Experiment</a>
-                                    </h5>
-                                </div>
-                            </div>
-                            <!-- blog post item end -->
-
-                            <!-- blog post item start -->
-                            <div class="blog-post-item">
-                                <figure class="blog-thumb">
-                                    <a href="blog-details">
-                                        <img src="assets/img/sample/blog-sample.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <p>25/03/2019 | <a href="#"></a></p>
-                                    </div>
-                                    <h5 class="blog-title">
-                                        <a href="blog-details">Lotto Winner Offering Up Money To Any Man That Will Date Her</a>
-                                    </h5>
-                                </div>
-                            </div>
-                            <!-- blog post item end -->
-
-                            <!-- blog post item start -->
-                            <div class="blog-post-item">
-                                <figure class="blog-thumb">
-                                    <a href="blog-details">
-                                        <img src="assets/img/sample/blog-sample.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <p>25/03/2019 | <a href="#"></a></p>
-                                    </div>
-                                    <h5 class="blog-title">
-                                        <a href="blog-details">People are Willing Lie When Comes Money, According to Research</a>
-                                    </h5>
-                                </div>
-                            </div>
-                            <!-- blog post item end -->
-
-                            <!-- blog post item start -->
-                            <div class="blog-post-item">
-                                <figure class="blog-thumb">
-                                    <a href="blog-details">
-                                        <img src="assets/img/sample/blog-sample.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <p>25/03/2019 | <a href="#"></a></p>
-                                    </div>
-                                    <h5 class="blog-title">
-                                        <a href="blog-details">romantic Love Stories Of Hollywood’s Biggest Celebrities</a>
-                                    </h5>
-                                </div>
-                            </div>
-                            <!-- blog post item end -->
+                            @endforeach
+                            @endisset
                         </div>
                     </div>
                 </div>

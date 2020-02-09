@@ -27,4 +27,9 @@ class Blog extends Model
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+
+    public function BlogImage()
+    {
+        return $this->hasOneThrough('App\Models\Blog', 'App\Models\Blog_Image');
+    }
 }

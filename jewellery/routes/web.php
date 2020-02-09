@@ -51,11 +51,9 @@ Route::prefix('/home')->group(function () {
     Route::get('supplier_company', function () {
         return View::make('client.pages.supplier_company');
     });
-    Route::get('trade_show', function () {
-        return View::make('client.pages.trade_show');
-    });
-    Route::get('wishlist', function () {
-        return View::make('client.pages.wishlist');
+    Route::prefix('trade_show')->group(function () {
+        Route::get('/', "Database\BlogController@view_blog");
+        Route::get('/blog_detail/{id}', "Database\BlogController@view_blog_dtl")->name('blog_detail');
     });
     Route::prefix('shop')->group(function () {
         Route::get('', 'Database\ProductController@view_product');
@@ -73,7 +71,7 @@ Route::prefix('/home')->group(function () {
 // Routes for admin
 
 Route::prefix('admin')->group(function () {
-    Route::get('', function () {
+    Route::get('/', function () {
         return View::make('admin.pages.index');
     });
     Route::get('index', function () {

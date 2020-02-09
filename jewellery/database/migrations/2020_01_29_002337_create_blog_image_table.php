@@ -14,9 +14,9 @@ class CreateBlogImageTable extends Migration
     public function up()
     {
           Schema::create('blog_image', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('blog_image_id');
             $table->bigInteger('blog_id')->unsigned()->nullable();
-            $table->foreign('blog_id')->references('id')->on('blog')->onDelete('cascade');
+            $table->foreign('blog_id')->references('blog_id')->on('blog')->onDelete('cascade');
             $table->string('url')->nullable();
             $table->string('type')->nullable();
             $table->timestamps();

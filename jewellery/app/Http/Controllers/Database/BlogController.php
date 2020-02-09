@@ -20,14 +20,30 @@ class BlogController extends Controller
 	{		
 		if (\Request::is('admin/*'))
 		{
-			$temp_blogs = Blog::orderBy('id','ASC')->paginate(12);
+			$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.blog_id','ASC')->paginate(12);
 			return view('admin.pages.blog_list',['temp_blogs' => $temp_blogs]);
 		}
-		else { 
-			$temp_blogs = Blog::orderBy('created_at','DESC')->paginate(12);
-			return view('client.pages.shop',['temp_blogs' => $temp_blogs]);
+		else {
+			$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.blog_id','ASC')->paginate(12);
+						// $temp_blogs = Blog::leftJoin('blog_image', function($join) {
+      // $join->on('blog.id', '=', 'blog_image.blog_id')->orderBy('created_at','DESC')->paginate(12);
+			// $temp_blogs = Blog_Image::orderBy('blog_id','DESC')->get();
+			return view('client.pages.trade_show',['temp_blogs' => $temp_blogs]);
 		}
+	}
+	public function view_blog_dtl($id)
+	{
+		// Validate the request...
+		$blog_rst = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->where('blog.blog_id','=', $id)->first();
+		$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.blog_id','ASC')->paginate(5);
 		
+		if (\Request::is('admin/*'))
+		{
+			return view('admin.pages.edit_blog',['temp_blog' => $blog_rst]);
+		}
+		else { 
+			return view('client.pages.blog-details',['temp_blog' => $blog_rst,'temp_blogs' => $temp_blogs]);
+		}
 	}
     public function add_blog(Request $request)
 	{
@@ -44,23 +60,25 @@ class BlogController extends Controller
 	//	$blog->writer_id = 1;		
 		$blog->save();
 		if ($blog->save()) {
+			$blog_img = new Blog_Image;
+			$blog_img->blog_id = $blog->id;
 			if ($request->file('b_img') == null) {
-				$file = "";
+				$blog_img->url = "img/blog/unavaliable.png";
 			}
 			else{
-				$blog_img = new Blog_Image;
-				$blog_img->blog_id = $blog->id;
-				$blog_img->url = "/img/blog/".strval($blog->id).".".$request->file('b_img')->extension();
 				
 				$imageName = strval($blog->id).'.'.$request->file('b_img')->getClientOriginalExtension();
 				$request->file('b_img')->move(public_path('/img/blog'), $imageName);
-				$blog_img->save();
+				$blog_img->url = "img/blog/".$imageName;
+				// $request->file('b_img')->storeAs('blog',$blog->id.".".$request->file('b_img')->getClientOriginalExtension());
+				 //
 			};
+			$blog_img->save();
+			return redirect()->route('view_blog');
 		};
 		// 	return redirect('/admin/blog/view/'.$blog->id);
 		
 		// }
-		// return redirect()->route('view_blog');
 	}
 	public function edit_blog($id)
 	{

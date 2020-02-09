@@ -13,9 +13,7 @@
 	<!-- header area start -->
 	@include('client.partials.header')
 	<!-- header area end -->
-	<main>
 		@yield('content')
-	</main>
 
 	<!-- Quick view modal start -->
 	@include('client.partials.modal')
