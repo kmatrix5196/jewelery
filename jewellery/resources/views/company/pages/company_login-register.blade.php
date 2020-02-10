@@ -2,6 +2,10 @@
     @section('title','Login-Register')
     @section('content')
     <main>
+         <style type="text/css">
+              #map{ width:460px; height: 300px; }
+            </style>
+        
         <!-- breadcrumb area start -->
         <div class="breadcrumb-area">
             <div class="container">
@@ -103,6 +107,12 @@
                                     <div class="single-input-item">
                                         <input type="text" placeholder="Address : " name="address" required />
                                     </div>
+                                    <div class="single-input-item">
+                                        
+                                        <div id="map"></div>
+                                    </div>
+                                    <input type="hidden" id="lat" name="lat">
+                                    <input type="hidden" id="lng" name="lng">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="single-input-item">
@@ -127,6 +137,79 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+        <script type="text/javascript">
+            //map.js
+ 
+//Set up some of our variables.
+var map; //Will contain map object.
+var marker = false; ////Has the user plotted their location marker? 
+        
+//Function called to initialize / create the map.
+//This is called when the page has loaded.
+function initMap() {
+    
+    if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+  function showPosition(position) {
+  /*x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;*/
+    var uluru = {lat: position.coords.latitude, lng: position.coords.longitude};
+    //The center location of our map.
+    var centerOfMap = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    
+    //Map options.
+    var options = {
+      center: centerOfMap, //Set center.
+      zoom: 18 //The zoom value.
+    };
+ 
+    //Create the map object.
+    map = new google.maps.Map(document.getElementById('map'), options);
+    var marker = new google.maps.Marker({position: uluru, map: map});
+    //Listen for any clicks on the map.
+    google.maps.event.addListener(map, 'click', function(event) {                
+        //Get the location that the user clicked.
+        var clickedLocation = event.latLng;
+        //If the marker hasn't been added.
+        if(marker === false){
+            //Create the marker.
+            marker = new google.maps.Marker({
+                position: clickedLocation,
+                map: map,
+                draggable: true //make it draggable
+            });
+            //Listen for drag events!
+            google.maps.event.addListener(marker, 'dragend', function(event){
+                markerLocation();
+            });
+        } else{
+            //Marker has already been added, so just change its location.
+            marker.setPosition(clickedLocation);
+        }
+        //Get the marker's location.
+        markerLocation();
+    });
+
+        
+//This function will get the marker's current location and then add the lat/long
+//values to our textfields so that we can save the location.
+function markerLocation(){
+    //Get location.
+    var currentLocation = marker.getPosition();
+    //Add lat and lng values to a field that we can save.
+    document.getElementById('lat').value = currentLocation.lat(); //latitude
+    document.getElementById('lng').value = currentLocation.lng(); //longitude
+}
+   }
+}     
+        
+//Load the map when the page has finished loading.
+google.maps.event.addDomListener(window, 'load', initMap);
+        </script>
         <!-- login register wrapper end -->
          <script type="text/javascript">
         function myFunction() {
@@ -146,6 +229,78 @@
             document.getElementById("Register").disabled=true;
           }
         }
+
+        //map.js
+ 
+//Set up some of our variables.
+var map; //Will contain map object.
+var marker = false; ////Has the user plotted their location marker? 
+        
+//Function called to initialize / create the map.
+//This is called when the page has loaded.
+function initMap() {
+    var x = document.getElementById("map");
+        if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+  function showPosition(position) {
+  /*x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;*/
+    var uluru = {lat: position.coords.latitude, lng: position.coords.longitude};
+    //The center location of our map.
+    var centerOfMap = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    
+    //Map options.
+    var options = {
+      center: centerOfMap, //Set center.
+      zoom: 25 //The zoom value.
+    };
+ 
+    //Create the map object.
+    map = new google.maps.Map(document.getElementById('map'), options);
+    x.innerHTML=map;
+    var marker = new google.maps.Marker({position: uluru, map: map});
+    //Listen for any clicks on the map.
+    google.maps.event.addListener(map, 'click', function(event) {                
+        //Get the location that the user clicked.
+        var clickedLocation = event.latLng;
+        //If the marker hasn't been added.
+        if(marker === false){
+            //Create the marker.
+            marker = new google.maps.Marker({
+                position: clickedLocation,
+                map: map,
+                draggable: true //make it draggable
+            });
+            //Listen for drag events!
+            google.maps.event.addListener(marker, 'dragend', function(event){
+                markerLocation();
+            });
+        } else{
+            //Marker has already been added, so just change its location.
+            marker.setPosition(clickedLocation);
+        }
+        //Get the marker's location.
+        markerLocation();
+    });
+
+        
+//This function will get the marker's current location and then add the lat/long
+//values to our textfields so that we can save the location.
+function markerLocation(){
+    //Get location.
+    var currentLocation = marker.getPosition();
+    //Add lat and lng values to a field that we can save.
+    document.getElementById('lat').value = currentLocation.lat(); //latitude
+    document.getElementById('lng').value = currentLocation.lng(); //longitude
+}
+   }
+}     
+        
+//Load the map when the page has finished loading.
+google.maps.event.addDomListener(window, 'load', initMap);
     </script>  
     </main>
     @endsection

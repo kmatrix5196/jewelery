@@ -23,6 +23,8 @@ class CompanyController extends Controller
 		$company->phone=$request->tel;
 		$company->email=$request->email;
 		$company->location=$request->address;
+		$company->lat=$request->lat;
+		$company->lng=$request->lng;
 		$company->password=Hash::make($request->password);
 		$company->save();
 		if ($company->save()) {
