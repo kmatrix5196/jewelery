@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="{{asset('favicon.ico')}}">
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!-- Icon Font CSS -->
     <link rel="stylesheet" href="{{asset('client/css/vendor/material-design-iconic-font.min.css')}}">
@@ -46,7 +46,7 @@
 	
 	
 	<link rel="stylesheet" href="{{asset('client/css/preloader.css')}}">
-
+	
 
 	<!-- Rating -->
 	<link rel="“image/gif" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.rateit/1.1.2/rateit.css">

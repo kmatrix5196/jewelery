@@ -11,6 +11,7 @@ class UserController extends Controller
 {
     public function add_user(Request $request)
 	{
+		
 		// Validate the request...
 
 		$user = new User;
