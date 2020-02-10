@@ -106,18 +106,18 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="single-input-item">
-                                                <input type="password" placeholder="Create Password" name="password" required />
+                                                <input type="password" id="password" placeholder="Create Password" name="password" required />
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="single-input-item">
-                                                <input type="password" placeholder="Re-enter Password" required />
+                                                <input type="password" placeholder="Re-enter Password" id="re_password" name="re_password" required onkeyup="myFunction()" />
                                             </div>
                                         </div>
                                     </div>
                                    
                                     <div class="single-input-item">
-                                        <button class="btn btn-sqr">Register</button>
+                                        <button class="btn btn-sqr" id="Register" disabled="disabled">Register</button>
                                     </div>
                                 </form>
                             </div>
@@ -128,5 +128,24 @@
             </div>
         </div>
         <!-- login register wrapper end -->
+         <script type="text/javascript">
+        function myFunction() {
+          var password = document.getElementById("password").value;
+          var y=document.getElementById("re_password");
+          var re_password=document.getElementById("re_password").value;
+          if(password==re_password)
+          {
+            y.style.color="green";
+            //document.getElementById("check").style.display="block";
+            document.getElementById("Register").disabled=false;
+          }
+          else{
+           
+            y.style.color="red";
+            //document.getElementById("check").style.display="none";
+            document.getElementById("Register").disabled=true;
+          }
+        }
+    </script>  
     </main>
     @endsection
