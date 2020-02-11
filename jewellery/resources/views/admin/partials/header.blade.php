@@ -158,7 +158,7 @@
                                         </ul>
                                         <ul>
                                             <li><a href="#"><i class="zmdi zmdi-settings"></i>Setting</a></li>
-                                            <li><a href="#"><i class="zmdi zmdi-lock-open"></i>Sign out</a></li>
+                                            <li><a href="{{ route('admin_logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="zmdi zmdi-lock-open"></i><span>{{ __('Sign Out') }}</span></a><form id="logout-form" action="{{ route('admin_logout') }}" method="POST" style="display: none;">@csrf</form></li>
                                         </ul>
 
                                     </div>

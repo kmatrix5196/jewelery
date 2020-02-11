@@ -54,11 +54,11 @@ class LoginController extends Controller
 
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
-            return redirect()->intended('/admin');
+            return redirect()->intended('/admin/index');
         }
         return back()->withInput($request->only('email', 'remember'));
     }
-      public function showWriterLoginForm()
+    public function showWriterLoginForm()
     {
         return view('auth.login', ['url' => 'writer']);
     }

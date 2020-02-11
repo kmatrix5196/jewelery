@@ -7,22 +7,13 @@
 </head>
 
 <body>
-    <!-- preloader area start -->
-    @include('admin.partials.preloader')
-    <!-- preloader area end -->
+   
 
 
     <div class="main-wrapper">
-
-
-      
-
         <!-- Content Body Start -->
         @yield('content')
         <!-- Content Body End -->
-
-      @include('admin.partials.footer')
-
     </div>
 
     

@@ -68,7 +68,7 @@ Route::get('/checkout', function () {
     Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
     Route::post('/register/writer', 'Auth\RegisterController@createWriter');
 
-    Route::view('/home', 'client.pages.index')->middleware('auth');\
+    Route::view('/home', 'client.pages.index')->middleware('auth');
     Route::view('/writer', 'writer');
 
     Route::prefix('admin')->group(function () {

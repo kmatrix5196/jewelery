@@ -34,14 +34,13 @@ class LoginController extends Controller
      *
      * @return void
      */
-  
-     public function __construct()
-        {
-            $this->middleware('guest')->except('logout');
-            $this->middleware('guest:admin')->except('logout');
-            $this->middleware('guest:writer')->except('logout');
-        }
-        public function showAdminLoginForm()
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:admin')->except('logout');
+        $this->middleware('guest:writer')->except('logout');
+    }
+    public function showAdminLoginForm()
     {
         return view('admin.pages.login', ['url' => 'admin']);
     }
@@ -58,6 +57,11 @@ class LoginController extends Controller
             return redirect()->intended('/admin');
         }
         return back()->withInput($request->only('email', 'remember'));
+    }
+    public function adminLogout()
+    {
+        Auth::logout();
+        return redirect()->intended($this->redirectPath());
     }
       public function showWriterLoginForm()
     {

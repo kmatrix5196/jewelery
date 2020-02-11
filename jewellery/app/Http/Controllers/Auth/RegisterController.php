@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-use App\Admin;
-use App\Writer;
+use App\Models\Admin;
+use App\Models\Writer;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -40,8 +39,8 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-         $this->middleware('guest:admin');
-            $this->middleware('guest:writer');
+        $this->middleware('guest:admin');
+        $this->middleware('guest:writer');
     }
 
     /**
@@ -50,11 +49,11 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validatorAdmin(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:user'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -67,29 +66,29 @@ class RegisterController extends Controller
     {
         return view('auth.register', ['url' => 'writer']);
     }
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-    }
+    // /**
+    //  * Create a new user instance after a valid registration.
+    //  *
+    //  * @param  array  $data
+    //  * @return \App\Admin
+    //  */
+    // protected function create(array $data)
+    // {
+    //     return User::create([
+    //         'name' => $data['name'],
+    //         'email' => $data['email'],
+    //         'password' => Hash::make($data['password']),
+    //     ]);
+    // }
     protected function createAdmin(Request $request)
     {
-        $this->validator($request->all())->validate();
+        $this->validatorAdmin($request->all())->validate();
         $admin = Admin::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-        return redirect()->intended('login/admin');
+        return redirect()->intended('/admin/login');
     }
     protected function createWriter(Request $request)
     {
@@ -99,6 +98,6 @@ class RegisterController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-        return redirect()->intended('login/writer');
+        return redirect()->intended('/writer/login');
     }
 }

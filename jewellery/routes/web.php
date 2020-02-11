@@ -22,9 +22,9 @@ Route::prefix('/home')->group(function () {
     Route::get('chat', function () {
         return View::make('client.pages.chat');
     });
-    Route::get('blog-details', function () {
-        return View::make('client.pages.blog-details');
-    });
+    // Route::get('blog-details', function () {
+    //     return View::make('client.pages.blog-details');
+    // });
 
     Route::get('company_profile', function () {
         return View::make('client.pages.company_profile');
@@ -70,10 +70,16 @@ Route::prefix('/home')->group(function () {
 });
 // Routes for admin
 
+
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {
         return View::make('admin.pages.index');
-    });
+    });    
+    Route::get('login', 'Auth\LoginController@showAdminLoginForm')->name('admin_login');
+    Route::post('login', 'Auth\LoginController@adminLogin');
+    Route::get('register', 'Auth\RegisterController@showAdminRegisterForm');
+    Route::post('register', 'Auth\RegisterController@createAdmin')->name('admin_register');
+    Route::post('logout','Auth\LoginController@adminLogout')->name('admin_logout');
     Route::get('index', function () {
         return View::make('admin.pages.index');
     });
@@ -89,13 +95,7 @@ Route::prefix('admin')->group(function () {
     Route::get('edit_products', function () {
         return View::make('admin.pages.edit_products');
     });
-    Route::get('login', function () {
-        return View::make('admin.pages.login');
-    });
-      //Route::get('/admin/login', 'Auth\LoginController@showAdminLoginForm');
-    //Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
-  //  Route::post('/login/admin', 'Auth\LoginController@adminLogin');
-    //Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
+    
     Route::get('my_account', function () {
         return View::make('admin.pages.my_account');
     });
@@ -137,7 +137,7 @@ Route::prefix('admin')->group(function () {
 
         Route::get('delete/{id}', "Database\ProductController@delete_product")->name('delete_product');
     });
-   Route::get('company_lists',"Database\CompanyController@view_company");
+    Route::get('company_lists',"Database\CompanyController@view_company");
     Route::prefix('blog')->group(function () {
         Route::get('', function () {
             return redirect()->route('view_blog');
@@ -154,20 +154,16 @@ Route::prefix('admin')->group(function () {
 
         Route::get('delete/{id}', "Database\BlogController@delete_blog")->name('delete_blog');
     });
-       
 });
-
- Route::prefix('company')->group(function () {
-         Route::get('', function () {
+Route::prefix('company')->group(function () {
+    Route::get('', function () {
         return View::make('client.pages.index');
     });
        
- Route::prefix('login-register')->group(function () {
-        
+       Route::prefix('login-register')->group(function () {
         Route::get('', function () {
             return View::make('company.pages.company_login-register');
         })->name('add_company');
-     
         Route::post('', "Database\CompanyController@add_company");
     });
 
