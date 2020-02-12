@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Database;
 use App\Http\Controllers\Controller;
 use App\Models\Company;
 use Illuminate\Support\Facades\Hash;
-
+use DB;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -34,7 +34,7 @@ class CompanyController extends Controller
 			else{
 			$company
             ->where('id',$company->max('id'))
-            ->update(['profile_pic' => "/img/profile/".strval($company->id).".".$request->file('b_img')->extension()]);
+            ->update(['profile_pic' => "/img/company_profile/".strval($company->id).".".$request->file('b_img')->getClientOriginalExtension()]);
 
 				$imageName = strval($company->id).'.'.$request->file('b_img')->getClientOriginalExtension();
 				$request->file('b_img')->move(public_path('/img/company_profile'), $imageName);
@@ -43,5 +43,13 @@ class CompanyController extends Controller
 		};
 		
 		 return redirect('/home');
+	}
+	  public function view_company()
+	{		
+		
+			$companies = DB::table('company')->get();
+			return view('admin.pages.company_lists',['companies' => $companies]);
+		
+	
 	}
 }

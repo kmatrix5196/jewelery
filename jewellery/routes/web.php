@@ -137,7 +137,7 @@ Route::prefix('admin')->group(function () {
 
         Route::get('delete/{id}', "Database\ProductController@delete_product")->name('delete_product');
     });
-
+   Route::get('company_lists',"Database\CompanyController@view_company");
     Route::prefix('blog')->group(function () {
         Route::get('', function () {
             return redirect()->route('view_blog');
