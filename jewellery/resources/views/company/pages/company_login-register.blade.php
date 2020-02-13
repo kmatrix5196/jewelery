@@ -96,7 +96,7 @@
                                         <input type="text" placeholder="Main Product" name="product" required />
                                     </div>
                                     <div class="single-input-item">
-                                        <input type="date" placeholder="Year Established" date="date" required />
+                                        <input type="date" placeholder="Year Established" name="date" required />
                                     </div>
                                     <div class="single-input-item">
                                         <input type="tel" placeholder="Tel :" name="tel" required />

@@ -44,7 +44,7 @@
                                   <td>{{$premi->product_code}}</td>
                                     <td>{{$premi->name}}</td>
                                     <td>{{$premi->price}}</td>
-                                    <td>{{$premi->description}}</td>
+                                    <td>{{substr($premi->description,0,50)}}.....</td>
                                     <td>{{$premi->instock}}</td>
                                     <td>{{$premi->company_id}}</td>
                                    
@@ -56,7 +56,7 @@
                                         </div>
                                     </td>
                                 </tr>
-
+                                
                                 @endforeach
                                 @endisset
                             </tbody>

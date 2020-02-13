@@ -46,7 +46,7 @@
                                         <li> <span>Year Estsblished</span> <span>{{$company->year_established}}</span> </li>
                                         <li> <span>Email</span> <span>{{$company->email}}</span> </li>
                                         <li> <span>Tel </span> <span>{{$company->phone}}</span> </li>
-                                        <li> <span>Year Estsblished</span> <span>{{$company->email_verified_at===null ? "Not Verified":"Verified" }}</span> </li>
+                                        <li> <span>Email Verification</span> <span>{{$company->email_verified_at===null ? "Not Verified":"Verified" }}</span> </li>
                                         <li> <span>Created Date</span> <span>{{$company->created_at}}</span> </li>
                                         <li> <span>Last Updated at</span> <span>{{$company->updated_at}}</span> </li>
                                     </ul>

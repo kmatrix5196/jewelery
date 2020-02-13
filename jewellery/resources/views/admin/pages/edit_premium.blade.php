@@ -58,9 +58,10 @@
                          <h4 class="title">Premium Show Image</h4>
 
                         <div class="product-upload-gallery row flex-wrap">
+                            <img src="{{asset($premi->photo)}}" alt="">
                             <div class="col-12 mb-30">
                                 <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
-                                <input class="file-pond" type="file" multiple name="b_img" accept="image/*" value="{{$premi->photo}}">
+                                <input class="file-pond" type="file" multiple name="b_img" accept="image/*">
                             </div>
                         </div>
                        
@@ -68,7 +69,7 @@
                         <h4 class="title">Additional Information</h4>
 
                          <div class="row">
-                            <div class="col-12 mb-30"><textarea class="form-control" type="text" placeholder="Additional Information" name="info">value="{{$premi->additional_information}}"</textarea></div>
+                            <div class="col-12 mb-30"><textarea class="form-control" type="text" placeholder="Additional Information" name="info">{{$premi->additional_information}}</textarea></div>
                         </div>
 
                         <!-- Button Group Start -->

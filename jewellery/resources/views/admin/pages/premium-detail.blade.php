@@ -1,6 +1,7 @@
     @extends('admin.layouts.default')
     @section('content')
         <!-- Content Body Start -->
+
         <div class="content-body">
 
             <!-- Page Headings Start -->
@@ -37,18 +38,65 @@
                                 <!--Shipping Info Start-->
                                 <div class="col-lg-6 col-md-6 col-12 mb-20">
                                     <h4 class="mb-25">Premium Product Info</h4>
-                                    <ul>
+                                    <!-- <ul>
                                         <li> <span>Product Name</span> <span>{{$premi->name}}</span> </li>
                                         <li> <span>Product Code</span> <span>{{$premi->product_code}}</span> </li>
                                         <li> <span>Price</span> <span>{{$premi->price}}</span> </li>
                                         <li> <span>Description</span> <span>{{$premi->description}}</span> </li>
                                         
-                                        <li> <span>Information</span> <span>{{$premi->additional_information}}</span> </li>
+                                        <li> <span>Additional   Information</span> <span>{{$premi->additional_information}}</span> </li>
                                         <li> <span>Instock</span> <span>{{$premi->instock}}</span> </li>
                                         <li> <span>Company</span> <span>{{$premi->company_id}}</span> </li>
                                         <li> <span>Created Date</span> <span>{{$premi->created_at}}</span> </li>
                                         <li> <span>Last Updated at</span> <span>{{$premi->updated_at}}</span> </li>
-                                    </ul>
+                                    </ul> -->
+                                    <table>
+                                        <tr>
+                                            <td style="width: 130px">Product Name</td>
+                                            <td style="width: 30px">:</td>
+                                            <td>{{$premi->name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Product Code</td>
+                                            <td>:</td>
+                                            <td>{{$premi->product_code}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td>:</td>
+                                            <td>{{$premi->price}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="vertical-align: top">Description</td>
+                                            <td style="vertical-align: top">:</td>
+                                            <td>{{$premi->description}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="vertical-align: top">Additional Info</td>
+                                            <td style="vertical-align: top">:</td>
+                                            <td>{{$premi->additional_information}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Instock</td>
+                                            <td>:</td>
+                                            <td>{{$premi->instock}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Company</td>
+                                            <td>:</td>
+                                            <td>{{$premi->company_id}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Created Date</td>
+                                            <td>:</td>
+                                            <td>{{$premi->created_at}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Last Updated at</td>
+                                            <td>:</td>
+                                            <td>{{$premi->updated_at}}</td>
+                                        </tr>
+                                    </table>
                                 </div>
                                 <!--Shipping Info End-->
                             </div>
