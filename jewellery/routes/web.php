@@ -38,9 +38,7 @@ Route::prefix('/home')->group(function () {
     Route::get('my_account', function () {
         return View::make('client.pages.my_account');
     });
-    Route::get('premium_show', function () {
-        return View::make('client.pages.premium_show');
-    });
+    Route::get('premium_show',"Database\PremiumController@view_premium_c");
     Route::get('recover_account', function () {
         return View::make('client.pages.recover_account');
     });
@@ -165,7 +163,7 @@ Route::prefix('admin')->group(function () {
         Route::post('add', "Database\PremiumController@add_premium");
         Route::get('detail/{id}',"Database\PremiumController@premium_detail");
         Route::get('edit/{id}',"Database\PremiumController@edit_premium");
-        Route::post('edit', "Database\PremiumController@update_premium")->name('edit_premium');
+        Route::post('edit', "Database\PremiumController@update_premium")->name('update_premium');
 
         Route::get('delete/{id}', "Database\PremiumController@delete_premium")->name('delete_premium');
     });

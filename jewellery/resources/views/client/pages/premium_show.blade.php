@@ -18,156 +18,28 @@
               <div class="row">
                   <div class="col-12">
                       <div class="product-carousel-4_2 slick-row-10 slick-arrow-style">
+                       
                           <!-- product item start -->
+                          @isset($premium)
+                    @foreach ($premium as $premi)
                           <div class="product-item">
                               <figure class="product-thumb">
                                   <a href="">
-                                      <img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-                                      <img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
+                                      <img class="pri-img" src="{{$premi->photo}}" alt="product">
+                                      
                                   </a>
                                   <div class="product-badge">
 
 
                                   </div>
                                   <div class="button-group">
-                                    <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                    <a href="chat\{{$premi->id}}" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                   </div>
 
                               </figure>
                           </div>
-                          <!-- product item end -->
-
-                          <!-- product item start -->
-                          <div class="product-item">
-                              <figure class="product-thumb">
-                                  <a href="">
-                                      <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                      <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                  </a>
-                                  <div class="product-badge">
-
-
-                                  </div>
-                                  <div class="button-group">
-                                    <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
-                                  </div>
-
-                              </figure>
-                          </div>
-                          <!-- product item end -->
-
-                          <!-- product item start -->
-                          <div class="product-item">
-                              <figure class="product-thumb">
-                                  <a href="">
-                                      <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                      <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                  </a>
-                                  <div class="product-badge">
-
-
-                                  </div>
-                                  <div class="button-group">
-                                    <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
-                                  </div>
-
-                              </figure>
-                          </div>
-                          <!-- product item end -->
-
-                          <!-- product item start -->
-                          <div class="product-item">
-                              <figure class="product-thumb">
-                                  <a href="">
-                                      <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                      <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                  </a>
-                                  <div class="product-badge">
-
-
-                                  </div>
-                                  <div class="button-group">
-                                    <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
-                                  </div>
-
-                              </figure>
-                          </div>
-                          <!-- product item end -->
-
-                          <!-- product item start -->
-                          <div class="product-item">
-                              <figure class="product-thumb">
-                                  <a href="">
-                                      <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                      <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                  </a>
-                                  <div class="product-badge">
-
-
-                                  </div>
-                                  <div class="button-group">
-                                    <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
-                                  </div>
-
-                              </figure>
-                          </div>
-                          <!-- product item end -->
-
-                          <!-- product item start -->
-                          <div class="product-item">
-                              <figure class="product-thumb">
-                                  <a href="">
-                                      <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                      <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                  </a>
-                                  <div class="product-badge">
-
-
-                                  </div>
-                                  <div class="button-group">
-                                    <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
-                                  </div>
-
-                              </figure>
-                          </div>
-                          <!-- product item end -->
-
-                          <!-- product item start -->
-                          <div class="product-item">
-                              <figure class="product-thumb">
-                                  <a href="">
-                                      <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                      <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                  </a>
-                                  <div class="product-badge">
-
-
-                                  </div>
-                                  <div class="button-group">
-                                    <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
-                                  </div>
-
-                              </figure>
-                          </div>
-                          <!-- product item end -->
-
-                          <!-- product item start -->
-                          <div class="product-item">
-                              <figure class="product-thumb">
-                                  <a href="">
-                                      <img class="pri-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                      <img class="sec-img" src="assets/img/sample/product-sample.jpg" alt="product">
-                                  </a>
-                                  <div class="product-badge">
-
-
-                                  </div>
-                                  <div class="button-group">
-                                    <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
-                                  </div>
-
-                              </figure>
-                          </div>
+                          @endforeach
+                                @endisset
                           <!-- product item end -->
 
                           
