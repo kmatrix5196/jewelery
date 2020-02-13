@@ -154,6 +154,21 @@ Route::prefix('admin')->group(function () {
 
         Route::get('delete/{id}', "Database\BlogController@delete_blog")->name('delete_blog');
     });
+       Route::prefix('premium')->group(function () {
+        Route::get('', function () {
+            return redirect()->route('view_premium');
+        });
+        Route::get('view', 'Database\PremiumController@view_premium')->name('view_premium');
+        Route::get('add', function () {
+            return View::make('admin.pages.add-premium');
+        })->name('add_premium');
+        Route::post('add', "Database\PremiumController@add_premium");
+        Route::get('detail/{id}',"Database\PremiumController@premium_detail");
+        Route::get('edit/{id}',"Database\PremiumController@edit_premium");
+        Route::post('edit', "Database\PremiumController@update_premium")->name('edit_premium');
+
+        Route::get('delete/{id}', "Database\PremiumController@delete_premium")->name('delete_premium');
+    });
 });
 Route::prefix('company')->group(function () {
     Route::get('', function () {
