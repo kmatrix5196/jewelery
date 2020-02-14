@@ -21,8 +21,8 @@ class CreateCompanyTable extends Migration
             $table->string('main_product')->nullable();
             $table->string('location')->nullable();
             $table->date('year_established')->nullable();
-            $table->float('lat')->nullable();
-            $table->float('lng')->nullable();
+            $table->double('lat')->nullable();
+            $table->double('lng')->nullable();
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();

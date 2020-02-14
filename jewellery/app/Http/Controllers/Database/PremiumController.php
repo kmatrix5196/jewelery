@@ -76,6 +76,7 @@ class PremiumController extends Controller
 	public function update_premium(Request $request)
 	{
 		$premium = new Premium;
+
 		DB::table('premium')
             ->where('id', $request->id)
             ->update(['name' => $request->name,'price'=>$request->price,'description'=>$request->dscrp,'additional_information'=>$request->info,'instock'=>$request->instock,'company_id'=>1,'product_code'=>$request->code]);
@@ -91,6 +92,7 @@ class PremiumController extends Controller
 				$request->file('b_img')->move(public_path('/img/premium'), $imageName);
 				
 			};
+			
             return redirect('/admin/premium/view');
 	}
 	public function delete_premium($id)
