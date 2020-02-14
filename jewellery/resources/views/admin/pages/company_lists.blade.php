@@ -1,6 +1,7 @@
     @extends('admin.layouts.default')
     @section('content')
         <!-- Content Body Start -->
+        
         <div class="content-body">
 
             <!-- Page Headings Start -->
@@ -43,6 +44,8 @@
                                         <li> <span>Main Products</span> <span>{{$company->main_product}}</span> </li>
                                         
                                         <li> <span>Location</span> <span>{{$company->location}}</span> </li>
+                                        <div  id="map" style="width: 300px;height: 200px">
+                                            </div>
                                         <li> <span>Year Estsblished</span> <span>{{$company->year_established}}</span> </li>
                                         <li> <span>Email</span> <span>{{$company->email}}</span> </li>
                                         <li> <span>Tel </span> <span>{{$company->phone}}</span> </li>
@@ -50,16 +53,45 @@
                                         <li> <span>Created Date</span> <span>{{$company->created_at}}</span> </li>
                                         <li> <span>Last Updated at</span> <span>{{$company->updated_at}}</span> </li>
                                     </ul>
+                                
+                                
                                 </div>
                                 <!--Shipping Info End-->
                             </div>
                         </div>
                         <!--Order Details Customer Information Start-->
                       </div><hr>
+                     
+                      <script type="text/javascript">
+                        var map; //Will contain map object.
+                        
+                       function initMap() {
+                          // The location of Uluru
+                          var lat={!! $company->lat !!};
+
+                          var lng= {!! $company->lng !!};
+                          var uluru = {lat: lat, lng: lng};
+                          // The map, centered at Uluru
+                          var map = new google.maps.Map(
+                              document.getElementById('map'), {zoom: 18, center: uluru});
+                          // The marker, positioned at Uluru
+                          var marker = new google.maps.Marker({position: uluru, map: map});
+                        }
+                      </script>
+                      </script>
+                        <!--Load the API from the specified URL
+                        * The async attribute allows the browser to render the page while the API loads
+                        * The key parameter will contain your own API key (which is not needed for this tutorial)
+                        * The callback parameter executes the initMap() function
+                        -->
+                        <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJ1_vh_j49oUHy3T2o4N6R8FJH-zzTvu0&callback=initMap">
+                        </script>
                       @endforeach
-                                @endisset
+                @endisset
 
             </div>
 
         </div><!-- Content Body End -->
+
         @endsection
