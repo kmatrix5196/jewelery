@@ -16,11 +16,12 @@ class CreateProductTable extends Migration
         Schema::create('product', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable();
-            $table->string('subtitle')->nullable();
+            $table->string('category')->nullable();
             $table->float('price',16,2)->nullable();
             $table->float('discount',16,2)->nullable();
             $table->longText('description')->nullable();
-            $table->string('meta_title')->nullable();
+            $table->string('jewellery')->nullable();
+            $table->string('highlight')->nullable();
             $table->longText('additional_information')->nullable();
             $table->integer('instock')->nullable();
             $table->integer('company_id')->nullable();

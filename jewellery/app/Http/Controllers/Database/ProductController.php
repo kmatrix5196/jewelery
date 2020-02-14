@@ -54,13 +54,12 @@ class ProductController extends Controller
 
 		$product = new Product;
 		$product->name = $request->p_name;
-		$product->subtitle = $request->p_subtitle;
+		$product->category = $request->p_category;
 		$product->price = $request->p_price;
 		$product->discount = $request->p_discount;
 		$product->description = $request->p_dscrp;
-		
-		$product->meta_title = $request->p_meta_title;
-		$product->thumbnail = 0;
+		$product->jewellery=$request->p_jewellery;
+		$product->highlight = $request->p_highlight;
 		$product->additional_information = $request->p_add_info;
 		$product->instock = $request->p_instock;
 		$product->company_id = $company_id;

@@ -35,7 +35,7 @@
 
                         <div class="row">
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Name / Title*" name="p_name" required></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Sub-title" name="p_subtitle" required></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Category*" name="p_category" required></div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" step="any" placeholder="Product Price*" name="p_price" required></div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" placeholder="Product Discount" name="p_discount"></div>
                             <div class="col-12 mb-30"><textarea class="form-control" placeholder="Product Description*" name="p_dscrp" required></textarea></div>
@@ -57,9 +57,18 @@
                                     
                                     </datalist> -->
                             </div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Meta Title" name="p_meta_title" required></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Jewellery" name="p_jewellery" required></div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" placeholder="Instock" name="p_instock" required></div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Code"  name="p_code" required></div>
+                            <div class="col-lg-6 col-12 mb-30">
+                                <select class="form-control" name="p_highlight">
+                                    <option value="Design">Design</option>
+                                    <option value="Gems">Gems</option>
+                                    <option value="Value">Value</option>
+                                    <option value="Limited">Limited</option>
+                                    <option value="Small Value">Small Value</option>
+                                </select>
+                              </div>
 
                         </div>
 
