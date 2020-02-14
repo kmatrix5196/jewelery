@@ -112,12 +112,16 @@ Route::prefix('admin')->group(function () {
     Route::get('table-data-table', function () {
         return View::make('admin.pages.table-data-table');
     });
-    Route::get('user_lists', function () {
-        return View::make('admin.pages.user_lists');
-    });
+  
+       Route::prefix('user_lists')->group(function () {
+        Route::get('', function () {
+            return redirect()->route('view_users');
+        });
+        Route::get('view', 'Database\UserController@view_users')->name('view_users');
+        Route::get('view/{id}', 'Database\UserController@view_user');
+       
 
-    Route::get('users', function () {
-        // Matches The "/admin/users" URL
+        Route::get('delete/{id}', "Database\UserController@delete_user")->name('delete_user');
     });
     Route::prefix('product')->group(function () {
         Route::get('', function () {
