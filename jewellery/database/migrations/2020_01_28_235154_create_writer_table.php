@@ -16,7 +16,6 @@ class CreateWriterTable extends Migration
         Schema::create('writer', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable();
-            $table->string('user_name')->unique()->nullable();
             $table->string('email')->unique()->nullable();
             $table->string('password')->nullable();
             $table->rememberToken();

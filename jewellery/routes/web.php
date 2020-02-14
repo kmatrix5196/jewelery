@@ -167,6 +167,20 @@ Route::prefix('admin')->group(function () {
 
         Route::get('delete/{id}', "Database\PremiumController@delete_premium")->name('delete_premium');
     });
+       Route::prefix('writer')->group(function () {
+        Route::get('', function () {
+            return redirect()->route('view_writer');
+        });
+        Route::get('view', 'Database\WriterController@view_writer')->name('view_writer');
+        Route::get('add', function () {
+            return View::make('admin.pages.add-writer');
+        })->name('add_writer');
+        Route::post('add', "Database\WriterController@add_writer");
+        Route::get('edit/{id}',"Database\WriterController@edit_writer");
+        Route::post('edit', "Database\WriterController@update_writer")->name('update_writer');
+
+        Route::get('delete/{id}', "Database\WriterController@delete_writer")->name('delete_writer');
+    });
 });
 Route::prefix('company')->group(function () {
     Route::get('', function () {
