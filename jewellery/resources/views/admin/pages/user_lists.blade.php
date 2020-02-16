@@ -11,7 +11,7 @@
                 <!-- Page Heading Start -->
                 <div class="col-12 col-lg-auto mb-20">
                     <div class="page-heading">
-                        <h3>eCommerce <span>/ Order Lists </span></h3>
+                        <h3>Jewellery <span>/ Users List </span></h3>
                     </div>
                 </div><!-- Page Heading End -->
 
@@ -25,103 +25,37 @@
                         <table class="table table-vertical-middle">
                             <thead>
                                 <tr>
-                                    <th>Product ID</th>
-                                    <th>Image</th>
-                                    <th>Product Name</th>
-                                    <th>Price</th>
-                                    <th>Sales</th>
-                                    <th>In Stock</th>
-                                    <th>Date</th>
-                                    <th>Status</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Address</th>
+                                    <th>Email Verified</th>
+                               
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @isset($users)
+                                @foreach($users as $user)
                                 <tr>
-                                    <td>#MSP40022</td>
-                                    <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
-                                    <td><a href="#">Title Product</a></td>
-                                    <td>$600.00</td>
-                                    <td>03</td>
-                                    <td>12</td>
-                                    <td>13 Feb 2018</td>
-                                    <td><span class="badge badge-danger">Out of stock</span></td>
+                                    <td>{{$user->first_name}}</td>
+                                    <td>{{$user->last_name}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->phone}}</td>
+                                    <td>{{$user->address}}</td>
+                                    <td>{{$user->email_verified_at===null ? "Not Verified":"Verified" }}</td>
+                                    
                                     <td>
                                         <div class="table-action-buttons">
-                                            <a class="view button button-box button-xs button-primary" href="invoice-details.php"><i class="zmdi zmdi-more"></i></a>
-                                            <a class="edit button button-box button-xs button-info" href="#"><i class="zmdi zmdi-edit"></i></a>
-                                            <a class="delete button button-box button-xs button-danger" href="#"><i class="zmdi zmdi-delete"></i></a>
+                                            <a class="view button button-box button-xs button-primary" href="/admin/user_lists/view/{{$user->id}}"><i class="zmdi zmdi-more"></i></a>
+                                            <a class="delete button button-box button-xs button-danger" href="{{route('delete_user', $user->id)}}"><i class="zmdi zmdi-delete"></i></a>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>#MSP40023</td>
-                                    <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
-                                    <td><a href="#">Title Product</a></td>
-                                    <td>$600.00</td>
-                                    <td>03</td>
-                                    <td>12</td>
-                                    <td>13 Feb 2018</td>
-                                    <td><span class="badge badge-success">Published</span></td>
-                                    <td>
-                                        <div class="table-action-buttons">
-                                            <a class="view button button-box button-xs button-primary" href="invoice-details.php"><i class="zmdi zmdi-more"></i></a>
-                                            <a class="edit button button-box button-xs button-info" href="#"><i class="zmdi zmdi-edit"></i></a>
-                                            <a class="delete button button-box button-xs button-danger" href="#"><i class="zmdi zmdi-delete"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#MSP40024</td>
-                                  <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
-                                    <td><a href="#">Title Product</a></td>
-                                    <td>$600.00</td>
-                                    <td>03</td>
-                                    <td>12</td>
-                                    <td>13 Feb 2018</td>
-                                    <td><span class="badge badge-danger">Out of stock</span></td>
-                                    <td>
-                                        <div class="table-action-buttons">
-                                            <a class="view button button-box button-xs button-primary" href="invoice-details.php"><i class="zmdi zmdi-more"></i></a>
-                                            <a class="edit button button-box button-xs button-info" href="#"><i class="zmdi zmdi-edit"></i></a>
-                                            <a class="delete button button-box button-xs button-danger" href="#"><i class="zmdi zmdi-delete"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#MSP40025</td>
-                                    <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
-                                    <td><a href="#">Title Product</a></td>
-                                    <td>$600.00</td>
-                                    <td>03</td>
-                                    <td>12</td>
-                                    <td>13 Feb 2018</td>
-                                    <td><span class="badge badge-success">Published</span></td>
-                                    <td>
-                                        <div class="table-action-buttons">
-                                            <a class="view button button-box button-xs button-primary" href="invoice-details.php"><i class="zmdi zmdi-more"></i></a>
-                                            <a class="edit button button-box button-xs button-info" href="#"><i class="zmdi zmdi-edit"></i></a>
-                                            <a class="delete button button-box button-xs button-danger" href="#"><i class="zmdi zmdi-delete"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#MSP40026</td>
-                                  <td><img src="{{asset('images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
-                                    <td><a href="#">Title Product</a></td>
-                                    <td>$600.00</td>
-                                    <td>03</td>
-                                    <td>12</td>
-                                    <td>13 Feb 2018</td>
-                                    <td><span class="badge badge-success">Published</span></td>
-                                    <td>
-                                        <div class="table-action-buttons">
-                                            <a class="view button button-box button-xs button-primary" href="invoice-details.php"><i class="zmdi zmdi-more"></i></a>
-                                            <a class="edit button button-box button-xs button-info" href="#"><i class="zmdi zmdi-edit"></i></a>
-                                            <a class="delete button button-box button-xs button-danger" href="#"><i class="zmdi zmdi-delete"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                
+                                @endforeach
+                                @endisset
                             </tbody>
                         </table>
                     </div>

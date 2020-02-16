@@ -29,18 +29,18 @@
             <div class="add-edit-product-wrap col-12">
 
                 <div class="add-edit-product-form">
-                    <form action="{{route ('add_product')}}" method="post">
+                    <form action="{{route ('add_product')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <h4 class="title">About Product</h4>
 
                         <div class="row">
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Name / Title*" name="p_name" required></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Sub-title" name="p_subtitle" required></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Category*" name="p_category" required></div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" step="any" placeholder="Product Price*" name="p_price" required></div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" placeholder="Product Discount" name="p_discount"></div>
                             <div class="col-12 mb-30"><textarea class="form-control" placeholder="Product Description*" name="p_dscrp" required></textarea></div>
                             <div class="col-lg-6 col-12 mb-30">
-                                <input list="company" class="form-control" name="p_company_name">
+                                <input list="company" class="form-control" name="p_company_name" placeholder="Company*" required="">
                                 <datalist id="company">
                                    @php
                                     $company_name = DB::table('company')->pluck('name');
@@ -57,9 +57,28 @@
                                     
                                     </datalist> -->
                             </div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Meta Title" name="p_meta_title" required></div>
+                            <div class="col-lg-6 col-12 mb-30">
+                                <input class="form-control" type="text" placeholder="Jewellery" name="p_jewellery" list="jewellery" required>
+                                <datalist id="jewellery">
+                                    <option value="Diamond"></option>
+                                    <option value="Ruby"></option>
+                                    <option value="Pearl"></option>
+                                    <option value="Jade"></option>
+                                    <option value="Sapphires"></option>
+                                    <option value="Loose Stone"></option>
+                                </datalist>
+                            </div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" placeholder="Instock" name="p_instock" required></div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Code"  name="p_code" required></div>
+                            <div class="col-lg-6 col-12 mb-30">
+                                <select class="form-control" name="p_highlight">
+                                    <option value="Design">Design</option>
+                                    <option value="Gems">Gems</option>
+                                    <option value="Value">Value</option>
+                                    <option value="Limited">Limited</option>
+                                    <option value="Small Value">Small Value</option>
+                                </select>
+                              </div>
 
                         </div>
 
@@ -68,8 +87,8 @@
                         <div class="product-upload-gallery row flex-wrap">
                             <div class="col-6 mb-30">
                                 <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
-                                <p class="form-help-text mt-0" style="font-weight: bold">Main Picture</p>
-                                <input class="file-pond" type="file" multiple name="p_image_typemain" accept="image/*" required>
+                                <p class="form-help-text mt-0" style="font-weight: bold">Main Picture</p>                                
+                                <input class="file-pond" type="file" multiple name="p_image_typemain" accept="image/*">
                             </div>
                             <div class="col-6 mb-30">
                                 <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
@@ -80,6 +99,7 @@
                                 <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
                                 <p class="form-help-text mt-0" style="font-weight: bold">Other Picture</p>
                                 <input class="file-pond" type="file" multiple name="p_image_type2" accept="image/*" required>
+
                             </div>
                         </div>
 

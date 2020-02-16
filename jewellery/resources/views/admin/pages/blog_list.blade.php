@@ -40,7 +40,7 @@
                                 @foreach ($temp_blogs as $temp_blog)
                                 <tr>
                                     <td>{{$temp_blog['blog_id']}}</td>
-                                    <td><img src="{{asset($temp_blog['url'])}}" alt="" class="blog-image rounded-circle"></td>
+                                    <td><img src="{{asset($temp_blog['url'])}}" alt="" class="blog-image rounded-circle" style="width: 50px;height: 50px;"></td>
                                     <td>{{$temp_blog['title']}}</td>
                                     
                                     <td>{{$temp_blog['subtitle']}}</td>

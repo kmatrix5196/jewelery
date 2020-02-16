@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Database;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Gallery;
 use App\Models\Company;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -53,19 +55,68 @@ class ProductController extends Controller
 		// Validate the request...
 
 		$product = new Product;
+		$gallery=new Gallery;
+		$gallery1=new Gallery;
+		$gallery2=new Gallery;
 		$product->name = $request->p_name;
-		$product->subtitle = $request->p_subtitle;
+		$product->category = $request->p_category;
 		$product->price = $request->p_price;
 		$product->discount = $request->p_discount;
 		$product->description = $request->p_dscrp;
-		
-		$product->meta_title = $request->p_meta_title;
-		$product->thumbnail = 0;
+		$product->jewellery=$request->p_jewellery;
+		$product->highlight = $request->p_highlight;
 		$product->additional_information = $request->p_add_info;
 		$product->instock = $request->p_instock;
 		$product->company_id = $company_id;
 		$product->product_code = $request->p_code;
 		$product->save();
+
+		if ($product->save()) {
+			$product_id=$product->max('id');
+			if ($request->file('p_image_typemain') == null) {
+				$file = "";
+			}
+			else{
+			$gallery->product_id=$product_id;
+			$gallery->url="/img/product/".strval($product_id)."typemain.".$request->file('p_image_typemain')->getClientOriginalExtension();
+			$gallery->type='typemain';
+			$gallery->save();
+			$imageName = strval($product_id).'typemain.'.$request->file('p_image_typemain')->getClientOriginalExtension();
+			$request->file('p_image_typemain')->move(public_path('/img/product'), $imageName);
+			};
+
+
+
+			if ($request->file('p_image_type1') == null) {
+				$file = "";
+			}
+			else{
+			$product_id=$product->max('id');
+			
+			$gallery1->product_id=$product_id;
+			$gallery1->url="/img/product/".strval($product_id)."type1.".$request->file('p_image_type1')->getClientOriginalExtension();
+			$gallery1->type='typemain';
+			$gallery1->save();
+						
+			$imageName = strval($product_id).'type1.'.$request->file('p_image_type1')->getClientOriginalExtension();
+			$request->file('p_image_type1')->move(public_path('/img/product'), $imageName);
+			};
+
+
+			if ($request->file('p_image_type2') == null) {
+				$file = "";
+			}
+			else{
+			$gallery2->product_id=$product_id;
+			$gallery2->url="/img/product/".strval($product_id)."type2.".$request->file('p_image_type2')->getClientOriginalExtension();
+			$gallery2->type='typemain';
+			$gallery2->save();
+			
+			$imageName = strval($product_id).'type2.'.$request->file('p_image_type2')->getClientOriginalExtension();
+			$request->file('p_image_type2')->move(public_path('/img/product'), $imageName);
+			};
+		};
+		
 		// if ($product->save()) {
 		// 	return redirect('/admin/product/view/'.$product->id);
 		// }

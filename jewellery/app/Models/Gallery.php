@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Gallery extends Model
 {
 	/**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'product';
+    protected $table = 'gallery';
     /**
      * The primary key associated with the table.
      *
@@ -25,8 +25,6 @@ class Product extends Model
      */
     public $incrementing = true;
     
-   
-
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 }
