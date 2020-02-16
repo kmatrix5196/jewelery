@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     /*
@@ -27,58 +27,63 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->middleware('guest:admin')->except('logout');
-        $this->middleware('guest:writer')->except('logout');
-    }
-    public function showAdminLoginForm()
-    {
-        return view('admin.pages.login', ['url' => 'admin']);
+        $this->middleware('guest:company')->except('logout');
+        $this->middleware('guest:user')->except('logout');
     }
 
-    public function adminLogin(Request $request)
+    public function showUserLoginForm()
     {
-        $this->validate($request, [
-            'email'   => 'required|email',
-            'password' => 'required|min:6'
-        ]);
-
-        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
-            return redirect()->intended('/admin');
-        }
-        return back()->withInput($request->only('email', 'remember'));
-    }
-    public function adminLogout()
-    {
-        Auth::logout();
-        return redirect()->intended($this->redirectPath());
-    }
-      public function showWriterLoginForm()
-    {
-        return view('auth.login', ['url' => 'writer']);
+        return view('client.pages.login', ['url' => 'user']);
     }
 
-    public function writerLogin(Request $request)
+    public function userLogin(Request $request)
     {
         $this->validate($request, [
             'email'   => 'required|email',
             'password' => 'required|min:6'
         ]);
 
-        if (Auth::guard('writer')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+        if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
-            return redirect()->intended('/writer');
+            return redirect()->intended('/my_account');
         }
         return back()->withInput($request->only('email', 'remember'));
     }
+
+    public function showCompanyLoginForm()
+    {
+        return view('client.pages.login', ['url' => 'company']);
+    }
+
+    public function CompanyLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+        if (Auth::guard('company')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+
+            return redirect()->intended('/home');
+        }
+        return back()->withInput($request->only('email', 'remember'));
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::guard()->logout();
+        return redirect('/home');
+    }
+   
 }

@@ -7,18 +7,21 @@
 
 			<div class="login-register-wrap">
 				<div class="row">
-
 					<div class="d-flex align-self-center justify-content-center order-2 order-lg-1 col-lg-5 col-12">
 						<div class="login-register-form-wrap">
 
 							<div class="content">
-								<h1>Sign up</h1>
+								<h1>{{ isset($url) ? ucwords($url) : ""}} {{ __('Register') }}</h1>
 								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 							</div>
 
 							<div class="login-register-form">
-								<form action="{{ route('admin_register') }}" method="POST">
-									@csrf
+								@isset($url)
+								<form method="POST" action='{{ url("$url/register") }}' aria-label="{{ __('Register') }}">
+								@else
+								<form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
+								@endisset
+								@csrf
 									<div class="row">
 										
 										<div class="col-12 mb-20">
@@ -30,7 +33,7 @@
 											@enderror
 										</div>
 										<div class="col-12 mb-20"><input id="email" class="form-control @error('email') is-invalid @enderror" type="email" placeholder="User ID / Email"  name="email" value="{{ old('email') }}" required autocomplete="email">
-										 @error('email')
+										@error('email')
 											<span class="invalid-feedback" role="alert">
 												<strong>{{ $message }}</strong>
 											</span>
@@ -38,11 +41,11 @@
 									</div>
 
 									<div class="col-12 mb-20"><input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="New Password">
-		                                @error('password')
-		                                    <span class="invalid-feedback" role="alert">
-		                                        <strong>{{ $message }}</strong>
-		                                    </span>
-		                                @enderror
+										@error('password')
+											<span class="invalid-feedback" role="alert">
+												<strong>{{ $message }}</strong>
+											</span>
+										@enderror
 									</div>
 										<div class="col-12 mb-20"><input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="{{ __('Confirm Password') }}">
 										</div>

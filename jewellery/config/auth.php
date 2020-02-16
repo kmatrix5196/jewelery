@@ -54,6 +54,14 @@ return [
             'driver' => 'session',
             'provider' => 'writers',
         ],
+        'company' => [
+            'driver' => 'session',
+            'provider' => 'companies',
+        ],
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
     ],
 
     /*
@@ -76,7 +84,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\User::class,
         ],
          'admins' => [
             'driver' => 'eloquent',
@@ -85,6 +93,10 @@ return [
         'writers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Writer::class,
+        ],
+        'companies' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Company::class,
         ],
 
         // 'users' => [
@@ -117,6 +129,18 @@ return [
         ],
         'admins' => [
             'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'writers' => [
+            'provider' => 'writers',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'companies' => [
+            'provider' => 'companies',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

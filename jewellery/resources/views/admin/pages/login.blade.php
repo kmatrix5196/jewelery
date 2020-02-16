@@ -18,13 +18,13 @@
                             
                             <div class="login-register-form">
                                 @isset($url)
-                                <form method="POST" action='{{ url("$url/login") }}' aria-label="{{ __('Login') }}">
+                                <form method="POST" action='{{ url("/$url/login") }}' aria-label="{{ __('Login') }}">
                                 @else
-                                <form method="POST" action='{{ url("$url/login") }}' aria-label="{{ __('Login') }}">
+                                <form method="POST" action='{{ url("/$url/login") }}' aria-label="{{ __('Login') }}">
                                 @endisset
                                 @csrf
                                     <div class="row">
-                                        <div class="col-12 mb-20"><input class="form-control @error('email') is-invalid @enderror" name="email" type="text" placeholder="User ID / Email" autocomplete="email" required autofocus>
+                                        <div class="col-12 mb-20"><input class="form-control @error('email') is-invalid @enderror" name="email" type="text" placeholder="User ID / Email" value="{{ old('email') }}" autocomplete="email" required autofocus>
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -32,7 +32,6 @@
                                         @enderror
                                         </div>
                                         <div class="col-12 mb-20"><input class="form-control @error('password') is-invalid @enderror" name="password" type="password" placeholder="Password"  autocomplete="current-password">
-
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -43,7 +42,7 @@
                                         <div class="col-12">
                                             <div class="row justify-content-between">
                                                 <div class="col-auto mb-15"><a href="#">Forgot Password?</a></div>
-                                                <div class="col-auto mb-15">Dont have account? <a href="register">Create Now.</a></div>
+                                                <div class="col-auto mb-15">Dont have account? <a href="/{{$url}}/register">Create Now.</a></div>
                                             </div>
                                         </div>
                                         <div class="col-12 mt-10"><button class="button button-primary button-outline">sign in</button></div>
