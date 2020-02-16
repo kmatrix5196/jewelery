@@ -145,8 +145,6 @@ Route::prefix('/admin')->group(function(){
         });
         Route::get('view', 'Database\UserController@view_users')->name('view_users');
         Route::get('view/{id}', 'Database\UserController@view_user');
-       
-
         Route::get('delete/{id}', "Database\UserController@delete_user")->name('delete_user');
     });
     Route::prefix('product')->group(function () {
