@@ -116,9 +116,14 @@ Route::prefix('/admin')->group(function(){
 	Route::get('chat', function () {
 		return View::make('admin.pages.chat');
 	});
+	
 	Route::get('company_lists', function () {
-		return View::make('admin.pages.company_lists');
-	});
+        return View::make('admin.pages.company_lists');
+    });
+    Route::get('company_lists',"Database\CompanyController@view_company");
+    Route::get('delete/{id}', "Database\CompanyController@delete_company")->name('delete_company');
+    Route::get('company_detail/{id}',"Database\CompanyController@company_detail");
+    
 	Route::get('edit_products', function () {
 		return View::make('admin.pages.edit_products');
 	});
