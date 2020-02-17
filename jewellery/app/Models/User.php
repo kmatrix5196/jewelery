@@ -2,31 +2,41 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class User extends Model
+class User extends Authenticatable
 {
-     //use Notifiable;
-
-
-    protected $table='user';
-
+     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    use Notifiable;
+    protected $guard = 'user';
+    protected $table = 'user';
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
     protected $primaryKey = 'id';
-
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
     public $incrementing = true;
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-
- /*   protected $fillable = [
-        'name', 'email', 'password',
+    
+    protected $fillable = [
+        'first_name','last_name', 'email', 'password', 'phone', 'address',
     ];
 
     protected $hidden = [
         'password', 'remember_token',
     ];
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-    */
 }

@@ -30,7 +30,6 @@ class WriterController extends Controller
 		
 	
 	}
-
 	public function edit_writer($id)
 	{		
 		

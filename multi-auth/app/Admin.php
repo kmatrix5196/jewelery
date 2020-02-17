@@ -10,6 +10,7 @@
         use Notifiable;
 
         protected $guard = 'admin';
+        protected $table = 'admin';
 
         protected $fillable = [
             'name', 'email', 'password',

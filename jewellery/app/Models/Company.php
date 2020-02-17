@@ -2,16 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Company extends Model
+class Company extends Authenticatable
 {
-    //
     /**
      * The table associated with the model.
      *
      * @var string
      */
+    use Notifiable;
+    protected $guard = 'company';
     protected $table = 'company';
     /**
      * The primary key associated with the table.
@@ -28,4 +31,12 @@ class Company extends Model
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+    
+    protected $fillable = [
+        'name', 'email', 'password',
+    ];
+
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 }

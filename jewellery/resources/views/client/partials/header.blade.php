@@ -1,4 +1,10 @@
-
+@if (Request::is('/user/*'))
+    @php ($url = 'user')
+@elseif (Request::is('/company/*'))
+    @php ($url = 'company')s
+@else
+    @php ($url = 'guest')
+@endif
 <!-- Start Header Area -->
 <header class="header-area header-wide">
     <!-- main header start -->
@@ -91,10 +97,27 @@
                                         </a>
 
                                         <ul class="dropdown-list">
-                                            <li><a href="/home/login-register">login / Register</a></li>
-                                            <li><a href="/home/company_profile">Company Profile</a></li>
-                                              <li><a href="/home/my_account">My Account</a></li>
-                                            <li><a href="#">logout</a></li>                                          
+                                            @guest
+                                            <li>
+                                                <a href="/user/login">User Login /</a>
+                                                <a href="/user/register">Register</a>
+                                            </li>
+                                            <li>
+                                                <a href="/company/login">Company Login /</a>
+                                                <a href="company/register">Register</a>
+                                            </li>
+                                            @endguest
+                                            @auth("company")
+                                            <li><a href="/company/company_profile">Company Profile</a></li>
+                                            @endauth
+                                            @auth("user")
+                                            <li><a href="/user/my_account">My Account</a></li>
+                                            @endauth
+                                            @auth
+                                            <li><a href="@auth('user'){{ route('user.logout') }}@endauth
+                @auth('company'){{ route('company.logout') }}@endauth">logout</a></li>
+                                            @endauth
+
                                         </ul>
                                     </li>
                                 </ul>
@@ -208,14 +231,23 @@
                         </li>
                         <li>
                             <div class="dropdown mobile-top-dropdown">
-                                <a href="#" class="dropdown-toggle" id="myaccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                
+                                @auth("user")
+                                <a href="/user/my_account" class="dropdown-toggle" id="myaccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     My Account
                                     <i class="fa fa-angle-down"></i>
                                 </a>
+                                @endauth
+                                
                                 <div class="dropdown-menu" aria-labelledby="myaccount">
-                                    <a class="dropdown-item" href="/home/login-register">Login/Register</a>
+                                    <a class="dropdown-item" href="/user/login">Login User</a>
+                                    <a class="dropdown-item" href="/company/login">Login Company</a>
+                                    <a class="dropdown-item" href="/user/register">Register User</a>
+                                    <a class="dropdown-item" href="/company/register">Register Company</a>
+                                    @auth("company")
                                     <a class="dropdo
-                                    wn-item" href="/home/company_profile">Company Profile</a>
+                                    wn-item" href="/company/company_profile">Company Profile</a>
+                                    @endauth
                                 </div>
                             </div>
                         </li>

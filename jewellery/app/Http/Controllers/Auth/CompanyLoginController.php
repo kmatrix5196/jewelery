@@ -7,7 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-class LoginController extends Controller
+class CompanyLoginController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/company';
 
     /**
      * Create a new controller instance.
@@ -37,36 +37,16 @@ class LoginController extends Controller
 
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
         $this->middleware('guest:company')->except('logout');
-        $this->middleware('guest:user')->except('logout');
     }
 
-    public function showUserLoginForm()
-    {
-        return view('client.pages.login', ['url' => 'user']);
-    }
-
-    public function userLogin(Request $request)
-    {
-        $this->validate($request, [
-            'email'   => 'required|email',
-            'password' => 'required|min:6'
-        ]);
-
-        if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
-            return redirect()->intended('/my_account');
-        }
-        return back()->withInput($request->only('email', 'remember'));
-    }
 
     public function showCompanyLoginForm()
     {
         return view('client.pages.login', ['url' => 'company']);
     }
 
-    public function CompanyLogin(Request $request)
+    public function companyLogin(Request $request)
     {
         $this->validate($request, [
             'email'   => 'required|email',
@@ -75,14 +55,14 @@ class LoginController extends Controller
 
         if (Auth::guard('company')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
-            return redirect()->intended('/home');
+            return redirect()->intended('/company/my_account');
         }
         return back()->withInput($request->only('email', 'remember'));
     }
 
     public function logout(Request $request)
     {
-        Auth::guard()->logout();
+        Auth::guard('company')->logout();
         return redirect('/home');
     }
    

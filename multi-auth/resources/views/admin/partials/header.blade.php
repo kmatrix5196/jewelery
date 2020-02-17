@@ -198,7 +198,7 @@
                 <li><a href="/admin/user_lists"><i class="fa fa-users"></i> <span>Users Lists</span></a></li>
                 <li><a href="/admin/company_lists"><i class="fa fa-building"></i> <span>Company Lists</span></a></li>
 
-               
+               <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i><span>{{ __('Logout') }}</span></a><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form></li>
 
                 <li><a href="/admin/add_blogs"><i class="fa fa-plus-square-o"></i> <span>Add Blogs</span></a></li>
                 <li><a href="/admin/chat"><i class="fa fa-comments-o"></i> <span>ChatBox</span></a></li>
@@ -206,6 +206,7 @@
                 <li><a href="/admin/table-data-table"><i class="ti-layout"></i> <span>Data Table</span></a></li>
                 <li><a href="/admin/profile"><i class="fa fa-user-circle"></i> <span>My Profile</span></a></li>
                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i><span>{{ __('Logout') }}</span></a><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form></li>
+                
 
 
             </ul>
