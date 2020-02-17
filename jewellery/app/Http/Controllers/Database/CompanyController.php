@@ -52,4 +52,17 @@ class CompanyController extends Controller
 		
 	
 	}
+	public function company_detail($id)
+	{		
+		
+			$company = DB::table('company')->where('id',$id)->get();
+			return view('admin.pages.company_detail',['company' => $company]);
+		
+	
+	}
+	public function delete_company($id)
+	{
+		DB::table('company')->where('id', '=', $id)->delete();
+		    return redirect('/admin/company_lists');
+	}
 }
