@@ -90,6 +90,10 @@ Route::prefix('admin')->group(function () {
     Route::get('company_lists', function () {
         return View::make('admin.pages.company_lists');
     });
+    Route::get('company_lists',"Database\CompanyController@view_company");
+    Route::get('delete/{id}', "Database\CompanyController@delete_company")->name('delete_company');
+    Route::get('company_detail/{id}',"Database\CompanyController@company_detail");
+
     Route::get('edit_products', function () {
         return View::make('admin.pages.edit_products');
     });
@@ -112,6 +116,8 @@ Route::prefix('admin')->group(function () {
     Route::get('table-data-table', function () {
         return View::make('admin.pages.table-data-table');
     });
+
+    
   
        Route::prefix('user_lists')->group(function () {
         Route::get('', function () {
@@ -139,7 +145,9 @@ Route::prefix('admin')->group(function () {
 
         Route::get('delete/{id}', "Database\ProductController@delete_product")->name('delete_product');
     });
-    Route::get('company_lists',"Database\CompanyController@view_company");
+    
+    
+
     Route::prefix('blog')->group(function () {
         Route::get('', function () {
             return redirect()->route('view_blog');
