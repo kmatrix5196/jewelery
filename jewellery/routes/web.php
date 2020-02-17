@@ -36,7 +36,7 @@ Route::prefix('/user')->group(function () {
 	Route::get('/', function () {
 		return redirect()->route('user.profile');
 	});
-
+   //
 
 });
 
