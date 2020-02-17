@@ -25,7 +25,6 @@
                         <table class="table table-vertical-middle">
                             <thead>
                                 <tr>
-                                    <th>Blog ID</th>
                                     <th>Image</th>
                                     <th>Blog Title</th>
                                     <th>Blog Subtitle</th>
@@ -39,7 +38,6 @@
                                 @isset($temp_blogs)
                                 @foreach ($temp_blogs as $temp_blog)
                                 <tr>
-                                    <td>{{$temp_blog['blog_id']}}</td>
                                     <td><img src="{{asset($temp_blog['url'])}}" alt="" class="blog-image rounded-circle" style="width: 50px;height: 50px;"></td>
                                     <td>{{$temp_blog['title']}}</td>
                                     

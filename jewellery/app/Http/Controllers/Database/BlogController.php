@@ -84,14 +84,14 @@ class BlogController extends Controller
 	{
 		// Validate the request...
 
-		$blog_rst = Blog::where('id', '=', $id)->first();
+		$blog_rst = Blog::where('blog_id', '=', $id)->first();
 		return view('admin.pages.edit_blog',['temp_blog' => $blog_rst]);
 	}
 
 	public function update_blog(Request $request)
 	{
 		// Validate the request...
-		$blog = Blog::where('id','=', $request->b_id)->first();
+		$blog = Blog::where('blog_id','=', $request->b_id)->first();
 		echo $blog;
 		$blog->title = $request->b_title;
 		$blog->subtitle = $request->b_subtitle;
@@ -106,7 +106,7 @@ class BlogController extends Controller
 	{
 		// Validate the request...
 
-		Blog::where('id', '=', $id)->delete();
+		Blog::where('blog_id', '=', $id)->delete();
 		return redirect()->route('view_blog');
 	}
 }

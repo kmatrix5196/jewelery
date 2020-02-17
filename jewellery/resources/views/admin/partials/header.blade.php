@@ -1,9 +1,10 @@
 <!-- Header Section Start -->
-@if (Request::is('/admin/*'))
+@auth("admin")
 	@php ($url = 'admin')
-@else
+@endauth
+@auth("writer")
 	@php ($url = 'writer')
-@endif
+@endauth
 
 <div class="header-section">
 	<div class="container-fluid">
