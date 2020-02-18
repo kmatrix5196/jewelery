@@ -158,9 +158,11 @@ Route::prefix('/admin')->group(function(){
         });
         Route::get('view', 'Database\ProductController@view_product')->name('view_product');
         Route::get('view/{id}', 'Database\ProductController@view_product_dtl');
-        Route::get('add', function () {
-            return View::make('admin.pages.add-product');
-        })->name('add_product');
+        /*Route::get('add', function () {
+            //return View::make('admin.pages.add-product');
+            return view('admin.pages.add-product');
+        })->name('add_product');*/
+        Route::get('add', "Database\ProductController@add")->name('add_product');
         Route::post('add', "Database\ProductController@add_product");
 
         Route::get('edit/{id}',"Database\ProductController@edit_product");
