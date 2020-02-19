@@ -46,14 +46,7 @@ class WriterRegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validatorAdmin(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:admin'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
+    
     protected function validatorWriter(array $data)
     {
         return Validator::make($data, [

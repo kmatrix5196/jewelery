@@ -24,4 +24,5 @@ class CompanyController extends Controller
     public function profile()
     {
         return view('client.pages.company_profile');
-    }}
+    }
+}
