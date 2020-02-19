@@ -116,14 +116,9 @@ Route::prefix('/admin')->group(function(){
 	Route::get('chat', function () {
 		return View::make('admin.pages.chat');
 	});
-	
 	Route::get('company_lists', function () {
-        return View::make('admin.pages.company_lists');
-    });
-    Route::get('company_lists',"Database\CompanyController@view_company");
-    Route::get('delete/{id}', "Database\CompanyController@delete_company")->name('delete_company');
-    Route::get('company_detail/{id}',"Database\CompanyController@company_detail");
-    
+		return View::make('admin.pages.company_lists');
+	});
 	Route::get('edit_products', function () {
 		return View::make('admin.pages.edit_products');
 	});
@@ -158,11 +153,9 @@ Route::prefix('/admin')->group(function(){
         });
         Route::get('view', 'Database\ProductController@view_product')->name('view_product');
         Route::get('view/{id}', 'Database\ProductController@view_product_dtl');
-        /*Route::get('add', function () {
-            //return View::make('admin.pages.add-product');
-            return view('admin.pages.add-product');
-        })->name('add_product');*/
-        Route::get('add', "Database\ProductController@add")->name('add_product');
+        Route::get('add', function () {
+            return View::make('admin.pages.add-product');
+        })->name('add_product');
         Route::post('add', "Database\ProductController@add_product");
 
         Route::get('edit/{id}',"Database\ProductController@edit_product");
@@ -176,12 +169,12 @@ Route::prefix('/admin')->group(function(){
             return redirect()->route('view_blog');
         });
         Route::get('view', 'Database\BlogController@view_blog')->name('view_blog');
-        
+        // Route::get('view/{id}', 'Database\BlogController@view_blog_dtl');
         Route::get('add', function () {
             return View::make('admin.pages.add-blog');
         })->name('add_blog');
         Route::post('add', "Database\BlogController@add_blog");
-        Route::get('view/{id}', 'Database\BlogController@view_blog_detail');
+
         Route::get('edit/{id}',"Database\BlogController@edit_blog");
         Route::post('edit', "Database\BlogController@update_blog")->name('edit_blog');
 

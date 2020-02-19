@@ -28,55 +28,94 @@
             <!-- Add or Edit Product Start -->
             <div class="add-edit-product-wrap col-12">
                 @isset($temp_product)
+                
                 <div class="add-edit-product-form">
-                    <form action="{{route ('edit_product')}}" method="post">
+                    <form action="{{route ('edit_product')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         
                         <h4 class="title">About Product</h4>
 
                         <div class="row">
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Name / Title*" name="p_name" value="{{$temp_product['name']}}" required></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Sub-title" name="p_subtitle" value="{{$temp_product['subtitle']}}" required></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" step="any" placeholder="Product Price*" name="p_price" value="{{$temp_product['price']}}" required></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control"  type="number" min="0" placeholder="Product Discount" name="p_discount" value="{{$temp_product['discount']}}"></div>
-                            <div class="col-12 mb-30"><textarea class="form-control" placeholder="Product Description*" name="p_dscrp" required>{{$temp_product['description']}}</textarea></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Name / Title*" name="p_name" value="{{$temp_product['name']}}" required autocomplete="off"></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Category*" name="p_category" value="{{$temp_product['category']}}" required autocomplete="off"></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" step="any" placeholder="Product Price*" name="p_price" value="{{$temp_product['price']}}" required autocomplete="off"></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control"  type="number" min="0" placeholder="Product Discount" name="p_discount" value="{{$temp_product['discount']}}" autocomplete="off"></div>
+                            <div class="col-12 mb-30"><textarea class="form-control" placeholder="Product Description*" name="p_dscrp" required autocomplete="off">{{$temp_product['description']}}</textarea></div>
                             @php
                                 $company_id=$temp_product['company_id'];
                                 $company_name = DB::table('company')->where('id',$company_id)->value('name');
                             @endphp
                             <div class="col-lg-6 col-12 mb-30">
-                                <input list="company" class="form-control" name="p_company_name" value="{{$company_name}}">
+                                <input list="company" class="form-control" name="p_company_name" value="{{$company_name}}" autocomplete="off">
+                                 @isset($company)
                                 <datalist id="company">
-                                   @php
-                                    $company_name = DB::table('company')->pluck('name');
-                                    foreach ($company_name as $cn) {
+                                   
+                                    @foreach ($company as $cn) {
                                         
-                                    @endphp
-                                    <option value='{{ $cn }}'></option>
-                                    @php                                    
-                                    }
-                                    @endphp 
+                                    
+                                    <option value="{{ $cn['name'] }}"></option>
+                                    
+                                    @endforeach
                                 </datalist>
+                                @endisset
                                 
                                     <!-- <datalist id="company">
                                     
                                     </datalist> -->
                             </div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Meta Title" name="p_meta_title" value="{{$temp_product['meta_title']}}" required></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" placeholder="Instock" value="{{$temp_product['instock']}}" name="p_instock" required></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Code" value="{{$temp_product['product_code']}}" name="p_code" required></div>
-
+                            <div class="col-lg-6 col-12 mb-30">
+                                <input class="form-control" type="text" placeholder="Jewellery" name="p_jewellery" list="jewellery" required value="{{$temp_product['jewellery']}}" autocomplete="off">
+                                <datalist id="jewellery">
+                                    <option value="Diamond"></option>
+                                    <option value="Ruby"></option>
+                                    <option value="Pearl"></option>
+                                    <option value="Jade"></option>
+                                    <option value="Sapphires"></option>
+                                    <option value="Loose Stone"></option>
+                                </datalist>
+                            </div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" placeholder="Instock" value="{{$temp_product['instock']}}" name="p_instock" required autocomplete="off"></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Code" value="{{$temp_product['product_code']}}" name="p_code" required autocomplete="off"></div>
+                            <div class="col-lg-6 col-12 mb-30">
+                                <select class="form-control" name="p_highlight">
+                                    <option value="{{$temp_product['highlight']}}" selected="selected">{{$temp_product['highlight']}}</option>
+                                    <option value="Design">Design</option>
+                                    <option value="Gems">Gems</option>
+                                    <option value="Value">Value</option>
+                                    <option value="Limited">Limited</option>
+                                    <option value="Small Value">Small Value</option>
+                                </select>
+                              </div>
                         </div>
 
                         <h4 class="title">Product Gallery</h4>
-
+                        @isset($gallery1)
                         <div class="product-upload-gallery row flex-wrap">
                             <div class="col-12 mb-30">
+                                <img src="{{asset($gallery1->url)}}" alt="">
                                 <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
-                                <input class="file-pond" type="file" multiple name="p_thumbnail" accept="image/*" value="{{$temp_product['thumbnail']}}">
+                                <input class="file-pond" type="file" multiple name="p_image_typemain" accept="image/*">
                             </div>
                         </div>
-
+                        @endisset
+                        @isset($gallery2)
+                        <div class="product-upload-gallery row flex-wrap">
+                            <div class="col-12 mb-30">
+                                <img src="{{asset($gallery2->url)}}" alt="">
+                                <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
+                                <input class="file-pond" type="file" multiple name="p_image_type1" accept="image/*">
+                            </div>
+                        </div>
+                        @endisset
+                        @isset($gallery3)
+                        <div class="product-upload-gallery row flex-wrap">
+                            <div class="col-12 mb-30">
+                                <img src="{{asset($gallery3->url)}}" alt="">
+                                <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
+                                <input class="file-pond" type="file" multiple name="p_image_type2" accept="image/*">
+                            </div>
+                        </div>
+                        @endisset
                         <h4 class="title">Additional Information</h4>
 
                         <!-- <div class="row">
@@ -102,8 +141,8 @@
 
                     </form>
                 </div>
+               
                 @endisset
-
             </div><!-- Add or Edit Product End -->
 
         </div><!-- Content Body End -->

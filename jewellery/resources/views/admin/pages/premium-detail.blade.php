@@ -10,7 +10,7 @@
                 <!-- Page Heading Start -->
                 <div class="col-12 col-lg-auto mb-20">
                     <div class="page-heading">
-                        <h3>Jewelery Site <span>/ Premium Show Lists</span></h3>
+                        <h3>Jewelery Site <span>/ Premium Item Detail</span></h3>
                     </div>
                 </div><!-- Page Heading End -->
 
@@ -30,6 +30,7 @@
                                 <div class="col-lg-5 col-md-6 col-12 mb-20">
                                     <h4 class="mb-25">{{$premi->name}}</h4>
                                     <img src="{{asset($premi->photo)}}" alt="">
+                                    
                                 </div>
                                 <!--Billing Info End-->
                                 <div class="col-lg-1">
@@ -50,7 +51,7 @@
                                         <li> <span>Created Date</span> <span>{{$premi->created_at}}</span> </li>
                                         <li> <span>Last Updated at</span> <span>{{$premi->updated_at}}</span> </li>
                                     </ul> -->
-                                    <table>
+                                    <table class="table">
                                         <tr>
                                             <td style="width: 130px">Product Name</td>
                                             <td style="width: 30px">:</td>
@@ -96,13 +97,27 @@
                                             <td>:</td>
                                             <td>{{$premi->updated_at}}</td>
                                         </tr>
+                                        
                                     </table>
                                 </div>
+                                
                                 <!--Shipping Info End-->
                             </div>
                         </div>
                         <!--Order Details Customer Information Start-->
-                      </div><hr>
+                      </div>
+                      <div class="row">
+                                    <div class="col-lg-6">
+                                        <iframe src="{{asset($premi->certificate)}}" style="width: 450px;height:300px;border:1px solid; "></iframe>
+                                    <!-- <img src="{{asset($premi->certificate)}}" alt="">  -->
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <iframe
+                                        src="{{'https://www.youtube.com/embed/'.$premi->youtube}}" style="width: 450px;height:300px;border:1px solid; ">
+                                        </iframe>
+                                    </div>
+                                </div>
+                      <hr>
                       @endforeach
                                 @endisset
 

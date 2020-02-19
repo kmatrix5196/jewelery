@@ -1,6 +1,6 @@
     @extends('admin.layouts.default')
     @section('content')
-    use Illuminate\Support\Facades\DB;
+    
         <!-- Content Body Start -->
         <div class="content-body">
 
@@ -34,31 +34,30 @@
                         <h4 class="title">About Product</h4>
 
                         <div class="row">
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Name / Title*" name="p_name" required></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Category*" name="p_category" required></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" step="any" placeholder="Product Price*" name="p_price" required></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" placeholder="Product Discount" name="p_discount"></div>
-                            <div class="col-12 mb-30"><textarea class="form-control" placeholder="Product Description*" name="p_dscrp" required></textarea></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Name / Title*" name="p_name" required autocomplete="off"></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Category*" name="p_category" required autocomplete="off"></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" step="any" placeholder="Product Price*" name="p_price" required autocomplete="off"></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" placeholder="Product Discount" name="p_discount" autocomplete="off"></div>
+                            <div class="col-12 mb-30"><textarea class="form-control" placeholder="Product Description*" name="p_dscrp" required autocomplete="off"></textarea></div>
                             <div class="col-lg-6 col-12 mb-30">
-                                <input list="company" class="form-control" name="p_company_name" placeholder="Company*" required="">
+                                <input list="company" class="form-control" name="p_company_name" placeholder="Company*" autocomplete="off" required autocomplete="off">
+                                @isset($company)
                                 <datalist id="company">
-                                   @php
-                                    $company_name = DB::table('company')->pluck('name');
-                                    foreach ($company_name as $cn) {
+                                   
+                                    @foreach ($company as $cn) {
                                         
-                                    @endphp
-                                    <option value='{{ $cn }}'></option>
-                                    @php                                    
-                                    }
-                                    @endphp 
+                                    
+                                    <option value="{{ $cn['name'] }}"></option>
+                                    
+                                    @endforeach
                                 </datalist>
-                                
+                                @endisset
                                     <!-- <datalist id="company">
                                     
                                     </datalist> -->
                             </div>
                             <div class="col-lg-6 col-12 mb-30">
-                                <input class="form-control" type="text" placeholder="Jewellery" name="p_jewellery" list="jewellery" required>
+                                <input class="form-control" type="text" placeholder="Jewellery*" name="p_jewellery" list="jewellery" required autocomplete="off">
                                 <datalist id="jewellery">
                                     <option value="Diamond"></option>
                                     <option value="Ruby"></option>
@@ -68,8 +67,8 @@
                                     <option value="Loose Stone"></option>
                                 </datalist>
                             </div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" placeholder="Instock" name="p_instock" required></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Code"  name="p_code" required></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" placeholder="Instock*" name="p_instock" required autocomplete="off"></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Code*"  name="p_code" required autocomplete="off"></div>
                             <div class="col-lg-6 col-12 mb-30">
                                 <select class="form-control" name="p_highlight">
                                     <option value="Design">Design</option>
@@ -88,7 +87,7 @@
                             <div class="col-6 mb-30">
                                 <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
                                 <p class="form-help-text mt-0" style="font-weight: bold">Main Picture</p>                                
-                                <input class="file-pond" type="file" multiple name="p_image_typemain" accept="image/*">
+                                <input class="file-pond" type="file" multiple name="p_image_typemain" accept="image/*" required>
                             </div>
                             <div class="col-6 mb-30">
                                 <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>

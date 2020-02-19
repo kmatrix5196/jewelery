@@ -1,9 +1,10 @@
 <!-- Header Section Start -->
-@if (Request::is('/admin/*'))
+@auth("admin")
 	@php ($url = 'admin')
-@else
+@endauth
+@auth("writer")
 	@php ($url = 'writer')
-@endif
+@endauth
 
 <div class="header-section">
 	<div class="container-fluid">
@@ -244,7 +245,7 @@
 				</li>
 				<li><a href="/{{$url}}/order_lists"><i class="fa fa-th-list"></i> <span>Order Lists</span></a></li>
 				<li><a href="/{{$url}}/user_lists"><i class="fa fa-users"></i> <span>Users Lists</span></a></li>
-				<li><a href="/{{$url}}/company_lists"><i class="fa fa-building"></i> <span>Company Lists</span></a></li>
+				<li><a href="/admin/company_lists"><i class="fa fa-building"></i> <span>Company Lists</span></a></li>
 				@endauth
 				<li><a href="/{{$url}}/chat"><i class="fa fa-comments-o"></i> <span>ChatBox</span></a></li>
 
