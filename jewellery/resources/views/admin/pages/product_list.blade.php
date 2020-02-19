@@ -30,8 +30,7 @@
                                     <th>Image</th>
                                     <th>Product Name</th>
                                     <th>Company Name</th>
-                                    <th>Price</th>
-                                    
+                                    <th>Price</th>                                    
                                     <th>In Stock</th>
                                     <th>Date</th>                                    
                                     <th>Action</th>
@@ -46,7 +45,7 @@
                                 @endphp
                                 <tr>
                                     <td>{{$temp_product['id']}}</td>
-                                    <td><img src="{{asset($temp_product['thumbnail'])}}" alt="" class="product-image rounded-circle"></td>
+                                    <td><img src="{{asset($temp_product['url'])}}" alt="" class="product-image rounded-circle" style="width: 50px;height: 50px;"></td>
                                     <td><a href="#">{{$temp_product['name']}}</a></td>
                                     <td><a href="#">{{$company_name}}</a></td>
                                     <td>${{number_format($temp_product['price'],2)}}</td>

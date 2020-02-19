@@ -34,7 +34,7 @@ class ProductController extends Controller
 		{
 			
 
-			$temp_products = Product::orderBy('id','ASC')->paginate(12);
+			$temp_products = Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')->where('gallery.type','=','typemain')->get();
 			return view('admin.pages.product_list',['temp_products' => $temp_products]);
 		}
 		else { 
