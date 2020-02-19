@@ -26,7 +26,8 @@
                             <thead>
                                 <tr>
                                    
-                                    <th>Product Code</th> 
+                                    <th>Product Code</th>
+                                    <th>Image</th> 
                                     <th>Name</th>
                                     <th>Price</th>
                                     <th>Description</th>
@@ -42,6 +43,7 @@
                                 <tr>
                                    
                                   <td>{{$premi->product_code}}</td>
+                                  <td><img src="{{asset($premi->photo)}}" alt="" class="product-image rounded-circle" style="width: 50px;height: 50px;"></td>
                                     <td>{{$premi->name}}</td>
                                     <td>{{$premi->price}}</td>
                                     <td>{{substr($premi->description,0,50)}}.....</td>
