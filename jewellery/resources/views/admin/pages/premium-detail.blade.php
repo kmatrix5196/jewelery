@@ -10,7 +10,7 @@
                 <!-- Page Heading Start -->
                 <div class="col-12 col-lg-auto mb-20">
                     <div class="page-heading">
-                        <h3>Jewelery Site <span>/ Premium Show Lists</span></h3>
+                        <h3>Jewelery Site <span>/ Premium Item Detail</span></h3>
                     </div>
                 </div><!-- Page Heading End -->
 
@@ -30,6 +30,7 @@
                                 <div class="col-lg-5 col-md-6 col-12 mb-20">
                                     <h4 class="mb-25">{{$premi->name}}</h4>
                                     <img src="{{asset($premi->photo)}}" alt="">
+                                    <img src="{{asset($premi->certificate)}}" alt="" >
                                 </div>
                                 <!--Billing Info End-->
                                 <div class="col-lg-1">
@@ -95,6 +96,13 @@
                                             <td>Last Updated at</td>
                                             <td>:</td>
                                             <td>{{$premi->updated_at}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="3">
+                                                <iframe
+src="{{'https://www.youtube.com/embed/'.$premi->youtube}}">
+</iframe>
+                                            </td>
                                         </tr>
                                     </table>
                                 </div>

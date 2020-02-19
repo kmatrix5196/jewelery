@@ -21,6 +21,8 @@ class CreatePremiumTable extends Migration
             $table->longText('additional_information')->nullable();
             $table->integer('instock')->nullable();
             $table->string('photo')->nullable();
+            $table->string('certificate')->nullable();
+            $table->string('youtube')->nullable();
             $table->integer('company_id')->nullable();
             $table->string('product_code')->nullable();
             $table->timestamps();

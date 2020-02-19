@@ -48,7 +48,7 @@
                             </div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" placeholder="Instock" name="instock" required></div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Code"  name="code" required></div>
-
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Youtube Link"  name="youtube" required></div>
                         </div>
 
                          <h4 class="title">Premium Show Image</h4>
@@ -60,6 +60,14 @@
                             </div>
                         </div>
                        
+                       <h4 class="title">Cerficate</h4>
+
+                        <div class="product-upload-gallery row flex-wrap">
+                            <div class="col-12 mb-30">
+                                <p class="form-help-text mt-0">Upload Maximum 800 x 800 px & Max size 2mb.</p>
+                                <input class="file-pond" type="file" multiple name="b_img1" accept="image/*">
+                            </div>
+                        </div>
 
                         <h4 class="title">Additional Information</h4>
 

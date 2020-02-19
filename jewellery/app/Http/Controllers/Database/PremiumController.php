@@ -24,6 +24,7 @@ class PremiumController extends Controller
 		$premium->instock=$request->instock;
 		$premium->company_id=$company_id;
 		$premium->product_code=$request->code;
+		$premium->youtube=$request->youtube;
 		$premium->save();
 		if ($premium->save()) {
 			if ($request->file('b_img') == null) {
@@ -36,6 +37,18 @@ class PremiumController extends Controller
 
 				$imageName = strval($premium->id).'.'.$request->file('b_img')->getClientOriginalExtension();
 				$request->file('b_img')->move(public_path('/img/premium'), $imageName);
+				$premium->save();
+			};
+			if ($request->file('b_img1') == null) {
+				$file = "";
+			}
+			else{
+			$premium
+            ->where('id',$premium->max('id'))
+            ->update(['certificate' => "/img/certificate/".strval($premium->id).".".$request->file('b_img1')->getClientOriginalExtension()]);
+
+				$imageName = strval($premium->id).'.'.$request->file('b_img1')->getClientOriginalExtension();
+				$request->file('b_img1')->move(public_path('/img/certificate'), $imageName);
 				$premium->save();
 			};
 		};
@@ -79,7 +92,7 @@ class PremiumController extends Controller
 
 		DB::table('premium')
             ->where('id', $request->id)
-            ->update(['name' => $request->name,'price'=>$request->price,'description'=>$request->dscrp,'additional_information'=>$request->info,'instock'=>$request->instock,'company_id'=>1,'product_code'=>$request->code]);
+            ->update(['name' => $request->name,'price'=>$request->price,'description'=>$request->dscrp,'additional_information'=>$request->info,'instock'=>$request->instock,'company_id'=>1,'youtube'=>$request->youtube,'product_code'=>$request->code]);
          if ($request->file('b_img') == null) {
 				$file = "";
 			}
@@ -90,6 +103,18 @@ class PremiumController extends Controller
 
 				$imageName = strval($request->id).'.'.$request->file('b_img')->getClientOriginalExtension();
 				$request->file('b_img')->move(public_path('/img/premium'), $imageName);
+				
+			};
+			if ($request->file('b_img1') == null) {
+				$file = "";
+			}
+			else{
+			$premium
+            ->where('id',$request->id)
+            ->update(['certificate' => "/img/certificate/".strval($request->id).".".$request->file('b_img1')->getClientOriginalExtension()]);
+
+				$imageName = strval($request->id).'.'.$request->file('b_img1')->getClientOriginalExtension();
+				$request->file('b_img1')->move(public_path('/img/certificate'), $imageName);
 				
 			};
 			
