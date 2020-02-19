@@ -26,7 +26,7 @@
                         <table class="table table-vertical-middle">
                             <thead>
                                 <tr>
-                                    <th>Product ID</th>
+                                    <th>Product Code</th>
                                     <th>Image</th>
                                     <th>Product Name</th>
                                     <th>Company Name</th>
@@ -44,7 +44,7 @@
                                 $company_name = DB::table('company')->where('id',$company_id)->value('name');
                                 @endphp
                                 <tr>
-                                    <td>{{$temp_product['id']}}</td>
+                                    <td>{{$temp_product['product_code']}}</td>
                                     <td><img src="{{asset($temp_product['url'])}}" alt="" class="product-image rounded-circle" style="width: 50px;height: 50px;"></td>
                                     <td><a href="#">{{$temp_product['name']}}</a></td>
                                     <td><a href="#">{{$company_name}}</a></td>
