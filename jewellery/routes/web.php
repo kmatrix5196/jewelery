@@ -88,6 +88,8 @@ Route::prefix('/home')->group(function () {
 	Route::prefix('shop')->group(function () {
 		Route::get('', 'Database\ProductController@view_product');
 		Route::get('/{id}','Database\ProductController@view_product_dtl');
+		Route::get('/category/{category}','Database\ProductController@view_product_by_category');
+		Route::get('/jewellery/{jewellery}','Database\ProductController@view_product_by_jewellery');
 	});
 	Route::prefix('login')->group(function () {
 		

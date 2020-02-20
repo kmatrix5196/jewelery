@@ -87,7 +87,7 @@
                                             </div>
                                             <div class="button-group">
                                                 <a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
+                                                <a href="" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
                                                 <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                             </div>
                                             <div class="cart-hover">
@@ -112,8 +112,8 @@
                                     <div class="product-list-item">
                                         <figure class="product-thumb">
                                             <a href="/home/shop/{{$temp_product['id']}}">
-                                                <img class="pri-img" src="{{asset($temp_product['thumbnail'])}}" alt="product">
-                                                <img class="sec-img" src="{{asset($temp_product['thumbnail'])}}" alt="product">
+                                                <img class="pri-img" src="{{asset($temp_product['url'])}}" alt="product">
+                                                <img class="sec-img" src="{{asset($temp_product['url'])}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                                 <div class="product-label new">
@@ -123,7 +123,7 @@
                                             </div>
                                             <div class="button-group">
                                                 <a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
+                                                <a href="" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
                                                 <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                             </div>
                                             <div class="cart-hover">
@@ -133,8 +133,13 @@
                                         <div class="product-content-list">
                                             <h5 class="product-name"><a href="product-details">{{$temp_product['name']}}</a></h5>
                                             <div class="price-box">
-                                                <span class="price-regular">{{$temp_product['price']}}/span>
-                                                <span class="price-old"><del>${{number_format($temp_product['discount'],2)}}</del></span>
+                                                @if($temp_product['discount']=='')
+                                            <span class="price-regular">${{number_format($temp_product['price'],2)}}</span>
+                                            
+                                            @else
+                                            <span class="price-regular">${{number_format($temp_product['price'],2)}}</span>
+                                            <span class="price-old"><del>${{number_format($temp_product['discount'],2)}}</del></span>
+                                            @endif
                                             </div>
                                             <p>{{$temp_product['description']}}</p>
                                         </div>

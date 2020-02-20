@@ -1,7 +1,7 @@
 @if (Request::is('/user/*'))
     @php ($url = 'user')
 @elseif (Request::is('/company/*'))
-    @php ($url = 'company')s
+    @php ($url = 'company')
 @else
     @php ($url = 'guest')
 @endif

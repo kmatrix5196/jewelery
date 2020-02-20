@@ -1,4 +1,5 @@
 <!-- Quick view modal start -->
+@isset($temp_product)
 
 <div class="modal" id="quick_view">
         <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -12,8 +13,9 @@
                         <div class="row">
                             <div class="col-lg-5">
                                 <div class="product-large-slider">
+
                                     <div class="pro-large-img img-zoom">
-                                        <img src="{{asset('img/sample/product-sample.jpg" alt="product-details')}}" />
+                                        <img src="{{asset($temp_product['url'])}}" alt="product" />
                                     </div>
                                     <div class="pro-large-img img-zoom">
                                         <img src="{{asset('img/sample/product-sample.jpg" alt="product-details')}}" />
@@ -52,23 +54,21 @@
                             <div class="col-lg-7">
                                 <div class="product-details-des">
                                     <div class="manufacturer-name">
-                                        <a href="product-details">Company</a>
+                                        <a href="">{{$temp_product['c_name']}}</a>
                                     </div>
-                                    <h3 class="product-name">Caption</h3>
-                                    <div class="ratings d-flex">
-                                       
-                                        <div class="rateit" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
-                                        <div class="pro-review">
-                                            <span>1 Reviews</span>
-                                        </div>
-                                    </div>
+                                    <h3 class="product-name">{{$temp_product['name']}}</h3>
+                                    
                                     <div class="price-box">
-                                        <span class="price-regular">$70.00</span>
-                                        <span class="price-old"><del>$90.00</del></span>
+                                        @if($temp_product['discount']=='')
+                                            <span class="price-regular">${{number_format($temp_product['price'],2)}}</span>
+                                            
+                                            @else
+                                            <span class="price-regular">${{number_format($temp_product['price'],2)}}</span>
+                                            <span class="price-old"><del>${{number_format($temp_product['discount'],2)}}</del></span>
+                                            @endif
                                     </div>
                                     
-                                    <p class="pro-desc">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                                        eirmod tempor invidunt ut labore et dolore magna.</p>
+                                    <p class="pro-desc">{{$temp_product['description']}}</p>
                                     <div class="quantity-cart-box d-flex align-items-center">
                                         <h6 class="option-title">qty:</h6>
                                         <div class="quantity">
@@ -87,6 +87,7 @@
             </div>
         </div>
     </div>
+    @endisset
     <!-- Quick view modal end -->
 
     

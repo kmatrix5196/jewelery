@@ -38,7 +38,7 @@ class ProductController extends Controller
 			return view('admin.pages.product_list',['temp_products' => $temp_products]);
 		}
 		else { 
-			$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')->where('gallery.type','=','typemain')->orderBy('product.created_at','DESC')->paginate(12);
+			$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')->where('gallery.type','=','typemain')->leftJoin('company','product.company_id','=','company.id')->select('product.*','gallery.url','company.name as c_name')->orderBy('product.created_at','DESC')->paginate(12);
 			return view('client.pages.shop',['temp_products' => $temp_products]);
 		}
 		
@@ -48,30 +48,77 @@ class ProductController extends Controller
 	{
 
 		
-		$product_rst = Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
-		->leftJoin('company','product.company_id','=','company.id')
+		$product_rst = Product::leftJoin('company','product.company_id','=','company.id')
 		->where('product.id','=', $id)
 		->select('product.*','company.name as c_name')->first();
-
 		
+		
+		/*$gallery1=Gallery::where('product_id',$id)->where('type','type1')->orderBy('id')->get();
+		$gallery2=Gallery::where('product_id',$id)->where('type','type2')->orderBy('id')->get();*/
 		$temp_products = Product::orderBy('created_at','DESC')->limit(6)->get();
 		
 		if (\Request::is('admin/*'))
 		{
-			return view('admin.pages.edit_product',['temp_product' => $product_rst]);
+			$product = DB::table('product')->where('id',$id)->get();
+			foreach($product as $pro)
+			$id1=$pro->id;
+			$gallery=DB::table('gallery')->where('product_id',$id1)->orderBy('id')->get();
+			return view('admin.pages.product-detail',['product' => $product,'gallery'=>$gallery]);
 		}
 		else { 
-			return view('client.pages.product-details',['temp_product' => $product_rst,'temp_products' => $temp_products]);
+			$gallerymain=Gallery::where('product_id','=',$id)->where('type','typemain')->first();
+			return view('client.pages.product-details',['temp_product' => $product_rst,'temp_products' => $temp_products,'gallerymain' => $gallerymain]);
 		}
 
-		$product = DB::table('product')->where('id',$id)->get();
-		foreach($product as $pro)
-			$id1=$pro->id;
-		$gallery=DB::table('gallery')->where('product_id',$id1)->orderBy('id')->get();
-			return view('admin.pages.product-detail',['product' => $product,'gallery'=>$gallery]);
+		
 
 	}
-	
+	public function view_product_by_category($category)
+	{
+		if($category=='Others')
+		{
+		$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
+		->whereNotIn('product.category', ['Necklaces', 'Rings', 'Pendants','Barcelets','Earrings'])
+		->where('gallery.type','=','typemain')
+		->leftJoin('company','product.company_id','=','company.id')->select('product.*','gallery.url','company.name as c_name')
+		->orderBy('product.created_at','DESC')
+		->paginate(12);
+			
+		}
+		else{
+		$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
+		->where('product.category','=', $category)
+		->where('gallery.type','=','typemain')
+		->leftJoin('company','product.company_id','=','company.id')->select('product.*','gallery.url','company.name as c_name')
+		->orderBy('product.created_at','DESC')
+		->paginate(12);
+		}
+		
+			return view('client.pages.shop',['temp_products' => $temp_products]);
+	}
+	public function view_product_by_jewellery($jewellery)
+	{
+		if($jewellery=='Others')
+		{
+		$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
+		->whereNotIn('product.jewellery', ['Diamond', 'Ruby', 'Pearl','Jade','Sapphires','Loose Stone'])
+		->where('gallery.type','=','typemain')
+		->leftJoin('company','product.company_id','=','company.id')->select('product.*','gallery.url','company.name as c_name')
+		->orderBy('product.created_at','DESC')
+		->paginate(12);
+			
+		}
+		else{
+		$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
+		->where('product.jewellery','=', $jewellery)
+		->where('gallery.type','=','typemain')
+		->leftJoin('company','product.company_id','=','company.id')->select('product.*','gallery.url','company.name as c_name')
+		->orderBy('product.created_at','DESC')
+		->paginate(12);
+		}
+		
+			return view('client.pages.shop',['temp_products' => $temp_products]);
+	}
 	public function add_product(Request $request)
 	{
 		$company_name = $request->p_company_name;

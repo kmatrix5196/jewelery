@@ -35,7 +35,17 @@
 
                         <div class="row">
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Product Name / Title*" name="p_name" required autocomplete="off"></div>
-                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="text" placeholder="Category*" name="p_category" required autocomplete="off"></div>
+                            <div class="col-lg-6 col-12 mb-30">
+                                <input class="form-control" type="text" placeholder="Category*" name="p_category" list="category" required autocomplete="off">
+                                <datalist id="category">
+                                    <option value="Necklaces"></option>
+                                    <option value="Pendants"></option>
+                                    <option value="Barcelets"></option>
+                                    <option value="Earrings"></option>
+                                    <option value="Rings"></option>
+                                    
+                                </datalist>
+                            </div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" step="any" placeholder="Product Price*" name="p_price" required autocomplete="off"></div>
                             <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" placeholder="Product Discount" name="p_discount" autocomplete="off"></div>
                             <div class="col-12 mb-30"><textarea class="form-control" placeholder="Product Description*" name="p_dscrp" required autocomplete="off"></textarea></div>
