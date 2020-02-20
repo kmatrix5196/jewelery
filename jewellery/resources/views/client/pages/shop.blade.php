@@ -80,8 +80,8 @@
                                     <div class="product-item">
                                         <figure class="product-thumb">
                                             <a href="/home/shop/{{$temp_product['id']}}">
-                                                <img class="pri-img" src="{{asset($temp_product['thumbnail'])}}" alt="product">
-                                                <img class="sec-img" src="{{asset($temp_product['thumbnail'])}}" alt="product">
+                                                <img class="pri-img" src="{{asset($temp_product['url'])}}" alt="product">
+                                                <img class="sec-img" src="{{asset($temp_product['url'])}}" alt="product">
                                             </a>
                                             <div class="product-badge">
                                             </div>

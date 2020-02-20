@@ -38,7 +38,7 @@ class ProductController extends Controller
 			return view('admin.pages.product_list',['temp_products' => $temp_products]);
 		}
 		else { 
-			$temp_products = Product::orderBy('created_at','DESC')->paginate(12);
+			$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')->where('gallery.type','=','typemain')->orderBy('product.created_at','DESC')->paginate(12);
 			return view('client.pages.shop',['temp_products' => $temp_products]);
 		}
 		
@@ -46,8 +46,13 @@ class ProductController extends Controller
 
 	public function view_product_dtl($id)
 	{
-		// Validate the request...
-		$product_rst = Product::where('id','=', $id)->first();
+		
+		$product_rst = Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
+		->leftJoin('company','product.company_id','=','company.id')
+		->where('product.id','=', $id)
+		->select('product.*','company.name as c_name')->first();
+
+		
 		$temp_products = Product::orderBy('created_at','DESC')->limit(6)->get();
 		
 		if (\Request::is('admin/*'))

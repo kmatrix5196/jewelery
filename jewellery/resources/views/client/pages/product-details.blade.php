@@ -20,43 +20,43 @@
                                 <div class="col-lg-5">
                                     <div class="product-large-slider">
                                         <div class="pro-large-img img-zoom">
-                                            <img src="{{asset($temp_product['thumbnail'])}}" alt="product-details" />
+                                            <img src="{{asset($temp_product['url'])}}" alt="product-details" />
                                         </div>
                                         <div class="pro-large-img img-zoom">
-                                            <img src="{{asset($temp_product['thumbnail'])}}" alt="product-details" />
+                                            <img src="{{asset($temp_product['url'])}}" alt="product-details" />
                                         </div>
                                         <div class="pro-large-img img-zoom">
-                                            <img src="{{asset($temp_product['thumbnail'])}}" alt="product-details" />
+                                            <img src="{{asset($temp_product['url'])}}" alt="product-details" />
                                         </div>
                                         <div class="pro-large-img img-zoom">
-                                            <img src="{{asset($temp_product['thumbnail'])}}" alt="product-details" />
+                                            <img src="{{asset($temp_product['url'])}}" alt="product-details" />
                                         </div>
                                         <div class="pro-large-img img-zoom">
-                                            <img src="{{asset($temp_product['thumbnail'])}}" alt="product-details" />
+                                            <img src="{{asset($temp_product['url'])}}" alt="product-details" />
                                         </div>
                                     </div>
                                     <div class="pro-nav slick-row-10 slick-arrow-style">
                                         <div class="pro-nav-thumb">
-                                            <img src="{{asset($temp_product['thumbnail'])}}" alt="product-details" />
+                                            <img src="{{asset($temp_product['url'])}}" alt="product-details" />
                                         </div>
                                         <div class="pro-nav-thumb">
-                                            <img src="{{asset($temp_product['thumbnail'])}}" alt="product-details" />
+                                            <img src="{{asset($temp_product['url'])}}" alt="product-details" />
                                         </div>
                                         <div class="pro-nav-thumb">
-                                            <img src="{{asset($temp_product['thumbnail'])}}" alt="product-details" />
+                                            <img src="{{asset($temp_product['url'])}}" alt="product-details" />
                                         </div>
                                         <div class="pro-nav-thumb">
-                                            <img src="{{asset($temp_product['thumbnail'])}}" alt="product-details" />
+                                            <img src="{{asset($temp_product['url'])}}" alt="product-details" />
                                         </div>
                                         <div class="pro-nav-thumb">
-                                            <img src="{{asset($temp_product['thumbnail'])}}" alt="product-details" />
+                                            <img src="{{asset($temp_product['url'])}}" alt="product-details" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-7">
                                     <div class="product-details-des">
                                         <div class="manufacturer-name">
-                                            <a href="product-details">Compay Name</a>
+                                            <a href="">{{$temp_product['c_name']}}</a>
                                         </div>
                                         <h3 class="product-name">{{$temp_product['name']}}</h3>
                                         <div class="ratings d-flex">
