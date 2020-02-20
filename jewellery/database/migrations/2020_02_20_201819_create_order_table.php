@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWriterTable extends Migration
+class CreateOrderTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateWriterTable extends Migration
      */
     public function up()
     {
-        Schema::create('writer', function (Blueprint $table) {
+        Schema::create('order', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->nullable();
-            $table->string('email')->unique()->nullable();
-            $table->string('password')->nullable();
-            $table->rememberToken();
+            $table->bigInteger('user_id')->unsigned()->nullable();;
+            $table->bigInteger('total')->unsigned()->nullable();;
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
         });
     }
 
@@ -30,6 +29,6 @@ class CreateWriterTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('writer');
+        Schema::dropIfExists('order');
     }
 }
