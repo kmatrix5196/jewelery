@@ -176,12 +176,12 @@ Route::prefix('/admin')->group(function(){
             return redirect()->route('view_blog');
         });
         Route::get('view', 'Database\BlogController@view_blog')->name('view_blog');
-        // Route::get('view/{id}', 'Database\BlogController@view_blog_dtl');
+        
         Route::get('add', function () {
             return View::make('admin.pages.add-blog');
         })->name('add_blog');
         Route::post('add', "Database\BlogController@add_blog");
-
+        Route::get('view/{id}', 'Database\BlogController@view_blog_detail');
         Route::get('edit/{id}',"Database\BlogController@edit_blog");
         Route::post('edit', "Database\BlogController@update_blog")->name('edit_blog');
 
