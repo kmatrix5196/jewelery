@@ -46,17 +46,11 @@ class ProductController extends Controller
 
 	public function view_product_dtl($id)
 	{
-		// Validate the request...
-		$product_rst = Product::where('id','=', $id)->first();
-		$temp_products = Product::orderBy('created_at','DESC')->limit(6)->get();
-		
-		if (\Request::is('admin/*'))
-		{
-			return view('admin.pages.edit_product',['temp_product' => $product_rst]);
-		}
-		else { 
-			return view('client.pages.product-details',['temp_product' => $product_rst,'temp_products' => $temp_products]);
-		}
+		$product = DB::table('product')->where('id',$id)->get();
+		foreach($product as $pro)
+			$id1=$pro->id;
+		$gallery=DB::table('gallery')->where('product_id',$id1)->orderBy('id')->get();
+			return view('admin.pages.product-detail',['product' => $product,'gallery'=>$gallery]);
 	}
 	
 	public function add_product(Request $request)
