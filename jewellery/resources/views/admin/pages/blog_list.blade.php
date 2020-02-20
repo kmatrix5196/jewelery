@@ -47,7 +47,7 @@
                                     <td>{{$temp_blog['date']}}</td>
                                     <td>
                                         <div class="table-action-buttons">
-                                            <a class="view button button-box button-xs button-primary" href="invoice-details.php"><i class="zmdi zmdi-more"></i></a>
+                                            <a class="view button button-box button-xs button-primary" href="/admin/blog/view/{{$temp_blog['blog_id']}}"><i class="zmdi zmdi-more"></i></a>
                                             <a class="edit button button-box button-xs button-info" href="/admin/blog/edit/{{$temp_blog['blog_id']}}"><i class="zmdi zmdi-edit"></i></a>
                                             <a class="delete button button-box button-xs button-danger" href="{{route('delete_blog', $temp_blog['date'])}}"><i class="zmdi zmdi-delete"></i></a>
                                         </div>

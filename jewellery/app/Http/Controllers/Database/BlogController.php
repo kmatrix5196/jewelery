@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Blog_Image;
 use Illuminate\Http\Request;
+use DB;
 
 class BlogController extends Controller
 {
@@ -31,19 +32,11 @@ class BlogController extends Controller
 			return view('client.pages.trade_show',['temp_blogs' => $temp_blogs]);
 		}
 	}
-	public function view_blog_dtl($id)
+	public function view_blog_detail($id)
 	{
-		// Validate the request...
-		$blog_rst = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->where('blog.blog_id','=', $id)->first();
-		$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.blog_id','ASC')->paginate(5);
-		
-		if (\Request::is('admin/*'))
-		{
-			return view('admin.pages.edit_blog',['temp_blog' => $blog_rst]);
-		}
-		else { 
-			return view('client.pages.blog-details',['temp_blog' => $blog_rst,'temp_blogs' => $temp_blogs]);
-		}
+		$blog = DB::table('blog')->where('blog_id',$id)->get();
+		$blog_images=DB::table('blog_image')->where('blog_id',$id)->get();
+			return view('admin.pages.blog_detail',['blog' => $blog,'blog_images'=>$blog_images]);
 	}
     public function add_blog(Request $request)
 	{
