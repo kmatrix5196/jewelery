@@ -86,8 +86,11 @@ Route::prefix('/home')->group(function () {
 		Route::get('/blog_detail/{id}', "Database\BlogController@view_blog_dtl")->name('blog_detail');
 	});
 	Route::prefix('shop')->group(function () {
+
 		Route::get('', 'Database\ProductController@view_product');
+		Route::get('view', 'Database\ProductController@view_product')->name('view_product_user');
 		Route::get('/{id}','Database\ProductController@view_product_dtl');
+		Route::post('add','Database\ProductController@add_to_cart')->name('add_to_cart');
 		Route::get('/category/{category}','Database\ProductController@view_product_by_category');
 		Route::get('/jewellery/{jewellery}','Database\ProductController@view_product_by_jewellery');
 	});
