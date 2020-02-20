@@ -42,7 +42,10 @@
                                         <div class="col-12">
                                             <div class="row justify-content-between">
                                                 <div class="col-auto mb-15"><a href="#">Forgot Password?</a></div>
+                                                @auth("admin")
                                                 <div class="col-auto mb-15">Dont have account? <a href="/{{$url}}/register">Create Now.</a></div>
+                                            @endauth
+
                                             </div>
                                         </div>
                                         <div class="col-12 mt-10"><button class="button button-primary button-outline">sign in</button></div>

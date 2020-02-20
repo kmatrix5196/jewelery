@@ -46,6 +46,7 @@ class ProductController extends Controller
 
 	public function view_product_dtl($id)
 	{
+
 		
 		$product_rst = Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
 		->leftJoin('company','product.company_id','=','company.id')
@@ -62,6 +63,13 @@ class ProductController extends Controller
 		else { 
 			return view('client.pages.product-details',['temp_product' => $product_rst,'temp_products' => $temp_products]);
 		}
+
+		$product = DB::table('product')->where('id',$id)->get();
+		foreach($product as $pro)
+			$id1=$pro->id;
+		$gallery=DB::table('gallery')->where('product_id',$id1)->orderBy('id')->get();
+			return view('admin.pages.product-detail',['product' => $product,'gallery'=>$gallery]);
+
 	}
 	
 	public function add_product(Request $request)

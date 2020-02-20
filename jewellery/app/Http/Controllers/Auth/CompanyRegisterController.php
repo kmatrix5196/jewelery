@@ -57,7 +57,7 @@ class CompanyRegisterController extends Controller
     }
     public function showCompanyRegisterForm()
     {
-        return view('client.pages.register', ['url' => 'company']);
+        return view('client.pages.company_login-register', ['url' => 'company']);
     }
 
     // /**
