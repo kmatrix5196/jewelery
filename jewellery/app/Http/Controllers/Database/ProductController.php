@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Gallery;
 use App\Models\Company;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
@@ -27,6 +28,16 @@ class ProductController extends Controller
 		
 		
 		
+	}
+	public function add_to_cart(Request $request)
+	{
+		
+		$cart=new Cart;
+		
+		$cart->product_id=$request->product_id;
+		$cart->quantity=$request->qty;
+		$cart->save();
+		return redirect()->route('view_product_user');
 	}
 	public function view_product()
 	{		
@@ -73,6 +84,7 @@ class ProductController extends Controller
 		
 
 	}
+
 	public function view_product_by_category($category)
 	{
 		if($category=='Others')

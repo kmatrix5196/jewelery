@@ -72,18 +72,22 @@
                                         </div>
 
                                         <p class="pro-desc">{{$temp_product['description']}}</p>
-                                            
+                                        <form action="{{route ('add_to_cart')}}" method="post">
+                                                @csrf
+                                                
+                                                <input type="hidden" name="product_id" value="{{$temp_product['id']}}">
                                         <div class="quantity-cart-box d-flex align-items-center">
                                             <h6 class="option-title">qty:</h6>
                                             <div class="quantity">
-                                                <div class="pro-qty"><input type="text" value="1" min="0"></div>
+                                                <div class="pro-qty"><input type="text" name="qty" value="1" min="0"></div>
                                             </div>
                                             <div class="action_link">
-                                                <a class="btn btn-cart2" href="#">Add to cart</a>
+                                                <input type="submit" name="addcart" value="Add to cart" class="btn btn-cart2" >
+                                                
                                             </div>
                                         </div>
 
-                                        
+                                        </form>
                                         <div class="useful-links">
 
                                             <a href="#" data-toggle="tooltip" title="Wishlist"><i class="pe-7s-like"></i>wishlist</a>
