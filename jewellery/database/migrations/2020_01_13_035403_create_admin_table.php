@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use App\Models\Admin;
 class CreateAdminTable extends Migration
 {
     /**
@@ -22,6 +22,16 @@ class CreateAdminTable extends Migration
             $table->string('password')->nullable();
             $table->timestamps();
         });
+        $this->addAdmin();
+    }
+    public function addAdmin()
+    {
+        $admin=new Admin;
+        $admin->name='admin';
+        $admin->user_name='admin';
+        $admin->email='admin@admin.com';
+        $admin->password=Hash::make('admin');
+        $admin->save();
     }
 
     /**

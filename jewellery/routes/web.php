@@ -17,7 +17,7 @@ Route::prefix('/company')->group(function () {
 	Route::get('/login', 'Auth\CompanyLoginController@showCompanyLoginForm')->name('company.login');
 	Route::post('/login', 'Auth\CompanyLoginController@companyLogin')->name('company.login.submit');
 	Route::get('/register', 'Auth\CompanyRegisterController@showCompanyRegisterForm')->name('company.register');
-	Route::post('/register', 'Auth\CompanyRegisterController@createCompany')->name('company.register');
+	Route::post('/register', 'Auth\CompanyRegisterController@add_company')->name('add_company');
 	Route::get('/logout','Auth\CompanyLoginController@logout')->name('company.logout');
 
 	Route::get('/company_profile', 'CompanyController@profile')->name('company.profile');
