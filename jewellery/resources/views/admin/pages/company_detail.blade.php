@@ -30,6 +30,10 @@
                                 <div class="col-lg-5 col-md-6 col-12 mb-20">
                                     <h4 class="mb-25">{{$company->name}}</h4>
                                     <img src="{{asset($company->profile_pic)}}" alt="">
+                                    <br>
+                                    <img src="{{asset($company->side_pic1)}}" alt="">
+                                    <br>
+                                    <img src="{{asset($company->side_pic2)}}" alt="">
                                 </div>
                                 <!--Billing Info End-->
                                 <div class="col-lg-1">

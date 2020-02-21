@@ -18,6 +18,8 @@ class CreateCompanyTable extends Migration
             $table->string('name')->nullable();
             $table->string('business_type')->nullable();
             $table->string('profile_pic')->nullable();
+            $table->string('side_pic1')->nullable();
+            $table->string('side_pic2')->nullable();
             $table->string('main_product')->nullable();
             $table->string('location')->nullable();
             $table->date('year_established')->nullable();

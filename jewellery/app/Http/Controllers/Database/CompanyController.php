@@ -40,6 +40,30 @@ class CompanyController extends Controller
 				$request->file('b_img')->move(public_path('/img/company_profile'), $imageName);
 				$company->save();
 			};
+			if ($request->file('b_img1') == null) {
+				$file = "";
+			}
+			else{
+			$company
+            ->where('id',$company->max('id'))
+            ->update(['side_pic1' => "/img/company_profile/s1".strval($company->id).".".$request->file('b_img1')->getClientOriginalExtension()]);
+
+				$imageName = 's1'.strval($company->id).'.'.$request->file('b_img1')->getClientOriginalExtension();
+				$request->file('b_img1')->move(public_path('/img/company_profile'), $imageName);
+				$company->save();
+			};
+			if ($request->file('b_img2') == null) {
+				$file = "";
+			}
+			else{
+			$company
+            ->where('id',$company->max('id'))
+            ->update(['profile_pic' => "/img/company_profile/s2".strval($company->id).".".$request->file('b_img2')->getClientOriginalExtension()]);
+
+				$imageName = 's2'.strval($company->id).'.'.$request->file('b_img2')->getClientOriginalExtension();
+				$request->file('b_img2')->move(public_path('/img/company_profile'), $imageName);
+				$company->save();
+			};
 		};
 		
 		 return redirect('/home');
