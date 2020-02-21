@@ -92,6 +92,18 @@
                                 <input class="file-pond" type="file" multiple name="b_img" accept="image/*">
                             </div>
                         </div> 
+                        <div class="product-upload-gallery row flex-wrap">
+                            <div class="col-12 mb-30">
+                                <p class="form-help-text mt-0">Upload another photo for your company.</p>
+                                <input class="file-pond" type="file" multiple name="b_img1" accept="image/*">
+                            </div>
+                        </div> 
+                        <div class="product-upload-gallery row flex-wrap">
+                            <div class="col-12 mb-30">
+                                <p class="form-help-text mt-0">Upload another photo for your company.</p>
+                                <input class="file-pond" type="file" multiple name="b_img2" accept="image/*">
+                            </div>
+                        </div> 
                                     <div class="single-input-item">
                                         <input type="text" placeholder="Main Product" name="product" required />
                                     </div>

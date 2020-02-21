@@ -57,7 +57,7 @@ class CompanyRegisterController extends Controller
     }
     public function showCompanyRegisterForm()
     {
-        return view('client.pages.company_login-register', ['url' => 'company']);
+        return view('company.pages.company_login-register', ['url' => 'company']);
     }
 
     // /**
@@ -74,6 +74,63 @@ class CompanyRegisterController extends Controller
     //         'password' => Hash::make($data['password']),
     //     ]);
     // }
+    public function add_company(Request $request)
+    {
+        // Validate the request...
+
+        $company = new Company;
+        $company->name=$request->name;
+        $company->business_type=$request->business;
+        $company->year_established=$request->date;
+        $company->main_product=$request->product;
+        $company->phone=$request->tel;
+        $company->email=$request->email;
+        $company->location=$request->address;
+        $company->lat=$request->lat;
+        $company->lng=$request->lng;
+        $company->password=Hash::make($request->password);
+        $company->save();
+        if ($company->save()) {
+            if ($request->file('b_img') == null) {
+                $file = "";
+            }
+            else{
+            $company
+            ->where('id',$company->max('id'))
+            ->update(['profile_pic' => "/img/company_profile/".strval($company->id).".".$request->file('b_img')->getClientOriginalExtension()]);
+
+                $imageName = strval($company->id).'.'.$request->file('b_img')->getClientOriginalExtension();
+                $request->file('b_img')->move(public_path('/img/company_profile'), $imageName);
+                $company->save();
+            };
+            if ($request->file('b_img1') == null) {
+                $file = "";
+            }
+            else{
+            $company
+            ->where('id',$company->max('id'))
+            ->update(['side_pic1' => "/img/company_profile/s1".strval($company->id).".".$request->file('b_img1')->getClientOriginalExtension()]);
+
+                $imageName = 's1'.strval($company->id).'.'.$request->file('b_img1')->getClientOriginalExtension();
+                $request->file('b_img1')->move(public_path('/img/company_profile'), $imageName);
+                $company->save();
+            };
+            if ($request->file('b_img2') == null) {
+                $file = "";
+            }
+            else{
+            $company
+            ->where('id',$company->max('id'))
+            ->update(['side_pic2' => "/img/company_profile/s2".strval($company->id).".".$request->file('b_img2')->getClientOriginalExtension()]);
+
+                $imageName = 's2'.strval($company->id).'.'.$request->file('b_img2')->getClientOriginalExtension();
+                $request->file('b_img2')->move(public_path('/img/company_profile'), $imageName);
+                $company->save();
+            };
+        };
+        
+         return redirect('/home');
+    }
     protected function createCompany(Request $request)
     {
         // echo $request->all();
