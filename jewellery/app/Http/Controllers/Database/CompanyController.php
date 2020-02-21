@@ -73,8 +73,12 @@ class CompanyController extends Controller
 		
 			$companies = DB::table('company')->get();
 			return view('admin.pages.company_lists',['companies' => $companies]);
-		
-	
+	}
+
+	  public function view_company_c()
+	{		
+			$companies = DB::table('company')->get();
+			return view('client.pages.supplier',['companies' => $companies]);
 	}
 	public function company_detail($id)
 	{		

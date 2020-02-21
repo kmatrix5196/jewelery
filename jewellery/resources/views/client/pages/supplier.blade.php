@@ -66,6 +66,11 @@
                     <br>
                     <br>
                     
+                    @isset($companies)
+                    @foreach($companies as $company)
+                    <img src="{{asset($company->profile_pic)}}" alt="">
+                    @endforeach
+                    @endisset
                     <!-- start company row -->
                     <div class="row align-items-center">
                         <div class="col-lg-6">

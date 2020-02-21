@@ -75,9 +75,8 @@ Route::prefix('/home')->group(function () {
 		return View::make('client.pages.recover_account');
 	});
 
-	Route::get('supplier', function () {
-		return View::make('client.pages.supplier');
-	});
+	Route::get('supplier',"Database\CompanyController@view_company_c");
+
 	Route::get('supplier_company', function () {
 		return View::make('client.pages.supplier_company');
 	});
