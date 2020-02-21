@@ -7,7 +7,7 @@
 			<div class="hero-slider-active slick-arrow-style slick-arrow-style_hero slick-dot-style">
 				<!-- single slider item start -->
 				<div class="hero-single-slide hero-overlay">
-					<div class="hero-slider-item bg-img" data-bg="{{asset('img/sample/slider-sample.jpg')}}">
+					<div class="hero-slider-item bg-img" data-bg="{{asset('img/sample/slider1.jpg')}}">
 						<div class="container">
 							<div class="row">
 								<div class="col-md-12">
@@ -25,14 +25,14 @@
 
 				<!-- single slider item start -->
 				<div class="hero-single-slide hero-overlay">
-					<div class="hero-slider-item bg-img" data-bg="{{asset('img/sample/slider-sample.jpg')}}">
+					<div class="hero-slider-item bg-img" data-bg="{{asset('img/sample/slider2.jpg')}}">
 						<div class="container">
 							<div class="row">
 								<div class="col-md-12">
 									<div class="hero-slider-content slide-2 float-md-right float-none">
-										<h2 class="slide-title">Caption<span>Collection</span></h2>
-										<h4 class="slide-desc">Description</h4>
-										<a href="shop" class="btn btn-hero">Shop Now</a>
+										<h2 class="slide-title" ><p style="color:black">Caption</p><span style="color:black">Collection</span></h2>
+										<h4 class="slide-desc" style="color:black">Description</h4>
+										<a href="shop" class="btn btn-hero" >Shop Now</a>
 									</div>
 								</div>
 							</div>
@@ -43,7 +43,7 @@
 
 				<!-- single slider item start -->
 				<div class="hero-single-slide hero-overlay">
-					<div class="hero-slider-item bg-img" data-bg="{{asset('img/sample/slider-sample.jpg')}}">
+					<div class="hero-slider-item bg-img" data-bg="{{asset('img/sample/slider3.jpg')}}">
 						<div class="container">
 							<div class="row">
 								<div class="col-md-12">
@@ -84,7 +84,19 @@
 					<div class="col-sm-6">
 						<figure class="banner-statistics mt-20">
 							<a href="shop">
-								<img src="{{asset('img/sample/banner-top.jpg')}}" alt="product banner">
+								<img src="{{asset('img/sample/necklace.jpg')}}" alt="product banner">
+							</a>
+							<div class="banner-content text-right">
+								<h5 class="banner-text1">Category</h5>
+								<h2 class="banner-text2">Caption<span>Title</span></h2>
+								<a href="shop" class="btn btn-text">Shop Now</a>
+							</div>
+						</figure>
+					</div>
+					<div class="col-sm-6">
+						<figure class="banner-statistics mt-20">
+							<a href="shop">
+								<img src="{{asset('img/sample/ring.jpg')}}" alt="product banner">
 							</a>
 							<div class="banner-content text-right">
 								<h5 class="banner-text1">Category</h5>
@@ -108,19 +120,7 @@
 					<div class="col-sm-6">
 						<figure class="banner-statistics mt-20">
 							<a href="shop">
-								<img src="{{asset('img/sample/banner-top.jpg')}}" alt="product banner">
-							</a>
-							<div class="banner-content text-right">
-								<h5 class="banner-text1">Category</h5>
-								<h2 class="banner-text2">Caption<span>Title</span></h2>
-								<a href="shop" class="btn btn-text">Shop Now</a>
-							</div>
-						</figure>
-					</div>
-					<div class="col-sm-6">
-						<figure class="banner-statistics mt-20">
-							<a href="shop">
-								<img src="{{asset('img/sample/banner-top.jpg')}}" alt="product banner">
+								<img src="{{asset('img/sample/earrings.jpg')}}" alt="product banner">
 							</a>
 							<div class="banner-content text-right">
 								<h5 class="banner-text1">Category</h5>
