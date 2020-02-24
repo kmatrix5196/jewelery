@@ -1,7 +1,7 @@
 <!-- Quick view modal start -->
-@isset($temp_product)
-
-<div class="modal" id="quick_view">
+@isset($temp_products)
+@foreach ($temp_products as $temp_product)
+<div class="modal" id="quick_view_{{$temp_product['id']}}">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -63,21 +63,28 @@
                                             <span class="price-regular">${{number_format($temp_product['price'],2)}}</span>
                                             
                                             @else
-                                            <span class="price-regular">${{number_format($temp_product['price'],2)}}</span>
-                                            <span class="price-old"><del>${{number_format($temp_product['discount'],2)}}</del></span>
+                                            <span class="price-regular">${{number_format($temp_product['discount'],2)}}</span>
+                                            <span class="price-old"><del>${{number_format($temp_product['price'],2)}}</del></span>
                                             @endif
                                     </div>
                                     
                                     <p class="pro-desc">{{$temp_product['description']}}</p>
-                                    <div class="quantity-cart-box d-flex align-items-center">
-                                        <h6 class="option-title">qty:</h6>
-                                        <div class="quantity">
-                                            <div class="pro-qty"><input type="text" value="1"></div>
+                                    <form action="{{route ('add_to_cart')}}" method="post">
+                                                @csrf
+                                                
+                                                <input type="hidden" name="product_id" value="{{$temp_product['id']}}">
+                                        <div class="quantity-cart-box d-flex align-items-center">
+                                            <h6 class="option-title">qty:</h6>
+                                            <div class="quantity">
+                                                <div class="pro-qty"><input type="text" name="qty" value="1" min="0"></div>
+                                            </div>
+                                            <div class="action_link">
+                                                <input type="submit" name="addcart" value="Add to cart" class="btn btn-cart2" >
+                                                
+                                            </div>
                                         </div>
-                                        <div class="action_link">
-                                            <a class="btn btn-cart2" href="#">Add to cart</a>
-                                        </div>
-                                    </div>
+
+                                        </form>
                                   
                                 </div>
                             </div>
@@ -87,7 +94,8 @@
             </div>
         </div>
     </div>
-    @endisset
+@endforeach
+@endisset
     <!-- Quick view modal end -->
 
     

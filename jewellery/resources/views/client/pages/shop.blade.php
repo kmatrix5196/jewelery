@@ -87,7 +87,7 @@
                                             </div>
                                             <div class="button-group">
                                                 <a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-                                                <a href="" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
+                                                <a href="quick_view" data-toggle="modal" data-target="#quick_view_{{$temp_product['id']}}" span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
                                                 <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                             </div>
                                             <div class="cart-hover">
@@ -101,8 +101,13 @@
                                                 <a href="product-details">{{$temp_product['name']}}</a>
                                             </h6>
                                             <div class="price-box">
-                                                <span class="price-regular">${{number_format($temp_product['price'],2)}}</span>
-                                                <span class="price-old"><del>${{number_format($temp_product['discount'],2)}}</del></span>
+                                                @if($temp_product['discount']=='')
+                                            <span class="price-regular">${{number_format($temp_product['price'],2)}}</span>
+                                            
+                                            @else
+                                            <span class="price-regular">${{number_format($temp_product['discount'],2)}}</span>
+                                            <span class="price-old"><del>${{number_format($temp_product['price'],2)}}</del></span>
+                                            @endif
                                             </div>
                                         </div>
                                     </div>
@@ -137,8 +142,8 @@
                                             <span class="price-regular">${{number_format($temp_product['price'],2)}}</span>
                                             
                                             @else
-                                            <span class="price-regular">${{number_format($temp_product['price'],2)}}</span>
-                                            <span class="price-old"><del>${{number_format($temp_product['discount'],2)}}</del></span>
+                                            <span class="price-regular">${{number_format($temp_product['discount'],2)}}</span>
+                                            <span class="price-old"><del>${{number_format($temp_product['price'],2)}}</del></span>
                                             @endif
                                             </div>
                                             <p>{{$temp_product['description']}}</p>

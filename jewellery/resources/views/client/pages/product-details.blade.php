@@ -66,8 +66,8 @@
                                             <span class="price-regular">${{number_format($temp_product['price'],2)}}</span>
                                             
                                             @else
-                                            <span class="price-regular">${{number_format($temp_product['price'],2)}}</span>
-                                            <span class="price-old"><del>${{number_format($temp_product['discount'],2)}}</del></span>
+                                            <span class="price-regular">${{number_format($temp_product['discount'],2)}}</span>
+                                            <span class="price-old"><del>${{number_format($temp_product['price'],2)}}</del></span>
                                             @endif
                                         </div>
 
