@@ -45,7 +45,9 @@ class ProductController extends Controller
 		{
 			
 
-			$temp_products = Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')->where('gallery.type','=','typemain')->get();
+			$temp_products = Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')->where('gallery.type','=','typemain')
+			->select('product.*','gallery.id as gid','gallery.url','gallery.type')
+			->get();
 			return view('admin.pages.product_list',['temp_products' => $temp_products]);
 		}
 		else { 
