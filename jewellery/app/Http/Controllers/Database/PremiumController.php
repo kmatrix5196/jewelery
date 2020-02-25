@@ -68,6 +68,11 @@ class PremiumController extends Controller
 		
 	
 	}
+	public function view_premium_c_dtl($id)
+	{
+		$premium = DB::table('premium')->where('id',$id)->get();
+		return view('client.pages.premium-detail',['premium' => $premium]);
+	}
 	
 	public function premium_detail($id)
 	{		

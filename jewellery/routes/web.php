@@ -73,7 +73,11 @@ Route::prefix('/home')->group(function () {
 	Route::get('my_account', function () {
 		return View::make('client.pages.my_account');
 	});
-	Route::get('premium_show',"Database\PremiumController@view_premium_c");
+	
+	Route::prefix('premium_show')->group(function(){
+		Route::get('/',"Database\PremiumController@view_premium_c");
+		Route::get('/detail/{id}',"Database\PremiumController@view_premium_c_dtl");
+	});
 	Route::get('recover_account', function () {
 		return View::make('client.pages.recover_account');
 	});

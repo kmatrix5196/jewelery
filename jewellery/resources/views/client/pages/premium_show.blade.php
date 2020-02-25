@@ -24,7 +24,7 @@
                     @foreach ($premium as $premi)
                           <div class="product-item">
                               <figure class="product-thumb">
-                                  <a href="">
+                                  <a href="\home\premium_show\detail\{{$premi->id}}">
                                       <img class="pri-img" src="{{$premi->photo}}" alt="product">
                                       
                                   </a>

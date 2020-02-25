@@ -14,7 +14,7 @@
 									<div class="hero-slider-content slide-1">
 										<h2 class="slide-title">Caption<span>Collection</span></h2>
 										<h4 class="slide-desc">Description</h4>
-										<a href="shop" class="btn btn-hero">Shop Now</a>
+										<a href="/home/shop" class="btn btn-hero">Shop Now</a>
 									</div>
 								</div>
 							</div>
@@ -32,7 +32,7 @@
 									<div class="hero-slider-content slide-2 float-md-right float-none">
 										<h2 class="slide-title" ><p style="color:black">Caption</p><span style="color:black">Collection</span></h2>
 										<h4 class="slide-desc" style="color:black">Description</h4>
-										<a href="shop" class="btn btn-hero" >Shop Now</a>
+										<a href="/home/shop" class="btn btn-hero" >Shop Now</a>
 									</div>
 								</div>
 							</div>
@@ -50,7 +50,7 @@
 									<div class="hero-slider-content slide-3">
 										<h2 class="slide-title">Caption<span>Collection</span></h2>
 										<h4 class="slide-desc">Description</h4>
-										<a href="shop" class="btn btn-hero">Shop Now</a>
+										<a href="/home/shop" class="btn btn-hero">Shop Now</a>
 									</div>
 								</div>
 							</div>
@@ -83,49 +83,49 @@
 				<div class="row row-20 mtn-20">
 					<div class="col-sm-6">
 						<figure class="banner-statistics mt-20">
-							<a href="shop">
+							<a href="/home/shop/category/Necklaces">
 								<img src="{{asset('img/sample/necklace.jpg')}}" alt="product banner">
 							</a>
 							<div class="banner-content text-right">
-								<h5 class="banner-text1">Category</h5>
+								<h5 class="banner-text1">Necklaces</h5>
 								<h2 class="banner-text2">Caption<span>Title</span></h2>
-								<a href="shop" class="btn btn-text">Shop Now</a>
+								<a href="/home/shop/category/Necklaces" class="btn btn-text">Shop Now</a>
 							</div>
 						</figure>
 					</div>
 					<div class="col-sm-6">
 						<figure class="banner-statistics mt-20">
-							<a href="shop">
+							<a href="/home/shop/category/Barcelets">
 								<img src="{{asset('img/sample/ring.jpg')}}" alt="product banner">
 							</a>
 							<div class="banner-content text-right">
-								<h5 class="banner-text1">Category</h5>
+								<h5 class="banner-text1">Barcelets</h5>
 								<h2 class="banner-text2">Caption<span>Title</span></h2>
-								<a href="shop" class="btn btn-text">Shop Now</a>
+								<a href="/home/shop/category/Barcelets" class="btn btn-text">Shop Now</a>
 							</div>
 						</figure>
 					</div>
 					<div class="col-sm-6">
 						<figure class="banner-statistics mt-20">
-							<a href="shop">
+							<a href="/home/shop/category/Rings">
 								<img src="{{asset('img/sample/banner-top.jpg')}}" alt="product banner">
 							</a>
 							<div class="banner-content text-right">
-								<h5 class="banner-text1">Category</h5>
+								<h5 class="banner-text1">Rings</h5>
 								<h2 class="banner-text2">Caption<span>Title</span></h2>
-								<a href="shop" class="btn btn-text">Shop Now</a>
+								<a href="/home/shop/category/Rings" class="btn btn-text">Shop Now</a>
 							</div>
 						</figure>
 					</div>
 					<div class="col-sm-6">
 						<figure class="banner-statistics mt-20">
-							<a href="shop">
+							<a href="/home/shop/category/Earrings">
 								<img src="{{asset('img/sample/earrings.jpg')}}" alt="product banner">
 							</a>
 							<div class="banner-content text-right">
-								<h5 class="banner-text1">Category</h5>
+								<h5 class="banner-text1">Earrings</h5>
 								<h2 class="banner-text2">Caption<span>Title</span></h2>
-								<a href="shop" class="btn btn-text">Shop Now</a>
+								<a href="/home/shop/category/Earrings" class="btn btn-text">Shop Now</a>
 							</div>
 						</figure>
 					</div>
