@@ -72,6 +72,17 @@
                             </div>
                             <div class="header-configure-area">
                                 <ul class="nav justify-content-end">
+                                    @auth("company")
+                                    <li>
+                                        <form action="{{route('company.chat')}}" method="post">
+                                            @csrf
+                                            <input type="text" value="{{Auth::guard('company')->user()->id}}" name="u_id" hidden="true">
+                                            <a href="#"><button><img src="https://img.icons8.com/ios/30/000000/speech-bubble-with-dots.png">
+                                            <div class="notification">3</div></button></a>
+                                        </form>
+                                    </li>
+                                    @endauth
+                                    @auth("user")
                                     <li>
                                         <a href="/home/wishlist">
                                         <img src="https://img.icons8.com/dotty/30/000000/like.png">
@@ -79,17 +90,23 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/home/chat">
-                                        <img src="https://img.icons8.com/ios/30/000000/speech-bubble-with-dots.png">
-                                            <div class="notification">3</div>
-                                        </a>
+                                        <form action="{{route('user.chat')}}" method="post">
+                                            @csrf
+                                            <input type="text" value="{{Auth::guard('user')->user()->id}}" name="u_id" hidden="true">
+                                            <a href="#"><button><img src="https://img.icons8.com/ios/30/000000/speech-bubble-with-dots.png">
+                                            <div class="notification">3</div></button></a>
+                                        </form>
                                     </li>
+
                                     <li>
                                         <a href="#" class="minicart-btn">
                                         <img src="https://img.icons8.com/ios/30/000000/shopping-mall.png">
                                             <div class="notification">2</div>
                                         </a>
                                     </li>
+                                    @endauth
+                                    
+                                    
                                     <li class="user-hover">
                                         <a href="#">
                                         <img src="https://img.icons8.com/ios/32/000000/user-male-circle.png">
@@ -114,10 +131,7 @@
                                             <li><a href="/user/my_account">My Account</a></li>
                                             @endauth
                                             @auth
-                                            <li><a href="@auth('user'){{ route('user.logout') }}@endauth
-                @auth('company'){{ route('company.logout') }}@endauth">logout</a></li>
-                                            @endauth
-
+                                            <li><a href="@auth('user'){{ route('user.logout') }}@endauth @auth('company'){{ route('company.logout') }}@endauth">logout</a></li>@endauth
                                         </ul>
                                     </li>
                                 </ul>

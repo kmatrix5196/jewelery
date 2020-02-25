@@ -21,6 +21,7 @@ Route::prefix('/company')->group(function () {
 	Route::get('/logout','Auth\CompanyLoginController@logout')->name('company.logout');
 
 	Route::get('/company_profile', 'CompanyController@profile')->name('company.profile');
+	Route::post('/chat', 'CompanyController@chat')->name('company.chat');
 	Route::get('/', function () {
 		return redirect()->route('company.profile');
 	});	
@@ -31,7 +32,8 @@ Route::prefix('/user')->group(function () {
 	Route::get('/register', 'Auth\UserRegisterController@showUserRegisterForm')->name('user.register');
 	Route::post('/register', 'Auth\UserRegisterController@createUser')->name('user.register');
 	Route::get('/logout','Auth\UserLoginController@logout')->name('user.logout');
-
+	Route::post('/chat', 'UserController@chat')->name('user.chat');
+	Route::post('/createCon', 'UserController@createcon')->name('user.createcon');
 	Route::get('/my_account', 'UserController@profile')->name('user.profile');
 	Route::get('/', function () {
 		return redirect()->route('user.profile');
@@ -51,9 +53,10 @@ Route::prefix('/home')->group(function () {
 	Route::get('/', function () {
 		return View::make('client.pages.index');
 	});
-	Route::get('chat', function () {
-		return View::make('client.pages.chat');
-	});
+	
+	// Route::get('chat', function () {
+	// 	return View::make('client.pages.chat');
+	// });
 	// Route::get('blog-details', function () {
 	//     return View::make('client.pages.blog-details');
 	// });
@@ -85,7 +88,6 @@ Route::prefix('/home')->group(function () {
 		Route::get('/blog_detail/{id}', "Database\BlogController@view_blog_dtl")->name('blog_detail');
 	});
 	Route::prefix('shop')->group(function () {
-
 		Route::get('', 'Database\ProductController@view_product');
 		Route::get('view', 'Database\ProductController@view_product')->name('view_product_user');
 		Route::get('/{id}','Database\ProductController@view_product_dtl');
@@ -94,7 +96,6 @@ Route::prefix('/home')->group(function () {
 		Route::get('/jewellery/{jewellery}','Database\ProductController@view_product_by_jewellery');
 	});
 	Route::prefix('login')->group(function () {
-		
 		Route::get('', function () {
 			return View::make('client.pages.login');
 		})->name('add_user');
@@ -104,7 +105,6 @@ Route::prefix('/home')->group(function () {
 });
 
 Route::prefix('/admin')->group(function(){
-
 	Route::get('/register', 'Auth\AdminRegisterController@showAdminRegisterForm')->name('admin.register');
 	Route::post('/register', 'Auth\AdminRegisterController@createAdmin')->name('admin.register');
 	Route::get('/login','Auth\AdminLoginController@showAdminLoginForm')->name('admin.login');
@@ -117,9 +117,10 @@ Route::prefix('/admin')->group(function(){
 		return redirect()->route('admin.home');
 	})->name('admin.index');
 	Route::get('/home','AdminController@index')->name('admin.home');
-	Route::get('chat', function () {
-		return View::make('admin.pages.chat');
-	});
+	Route::post('/chat', 'AdminController@chat')->name('admin.chat');
+	// Route::get('chat', function () {
+	// 	return View::make('admin.pages.chat');
+	// });
 	
 	Route::get('company_lists', function () {
         return View::make('admin.pages.company_lists');

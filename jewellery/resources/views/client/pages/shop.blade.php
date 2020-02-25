@@ -88,7 +88,7 @@
                                             <div class="button-group">
                                                 <a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                                 <a href="quick_view" data-toggle="modal" data-target="#quick_view_{{$temp_product['id']}}" span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Message" onclick="createCon({{$temp_product['id']}},{{$temp_product['company_id']}})"><i class="pe-7s-chat"></i></a>
                                             </div>
                                             <div class="cart-hover">
                                                 <button class="btn btn-cart">add to cart</button>
@@ -129,7 +129,7 @@
                                             <div class="button-group">
                                                 <a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                                 <a href="" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                                @auth('user')<a href="#" data-toggle="tooltip" data-placement="left" title="Message" onclick="createCon({{$temp_product['id']}},{{$temp_product['company_id']}})"><i class="pe-7s-chat"></i></a>@endauth
                                             </div>
                                             <div class="cart-hover">
                                                 <button class="btn btn-cart">add to cart</button>
@@ -174,6 +174,36 @@
                 </div>
             </div>
         </div>
+        @auth('user')
+        <form action="{{route('user.createcon')}}" id="createcon" method="post">
+            @csrf
+            <input type="" name="u_id" id="u_id">
+            <input type="" name="c_id" id="c_id">
+            <input type="" name="p_id" id="p_id">
+        </form>
+        @endauth
         <!-- page main wrapper end -->
     </main>
+    @auth('user')
+    <script type="text/javascript">
+        document.getElementById('createcon').style.display = "None";
+        function createCon(p_id,c_id) {
+
+            document.getElementById('p_id').value = p_id;
+            document.getElementById('c_id').value = c_id;
+            document.getElementById('u_id').value = {{Auth::guard('user')->user()->id}};
+            document.getElementById('createcon').submit();
+
+            // var xhr = new XMLHttpRequest();
+            // xhr.open("POST", "{{route('user.createcon')}}", true);
+            // xhr.setRequestHeader('Content-Type', 'application/json');
+            // xhr.send(JSON.stringify({
+            //     u_id: {{Auth::guard('user')->user()->id}},
+            //     p_id: p_id,
+            //     c_id: c_id
+            // }));
+            console.log("{{route('user.createcon')}}");
+        }
+    </script>
+    @endauth
     @endsection

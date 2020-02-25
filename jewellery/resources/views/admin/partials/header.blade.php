@@ -247,7 +247,17 @@
 				<li><a href="/{{$url}}/user_lists"><i class="fa fa-users"></i> <span>Users Lists</span></a></li>
 				<li><a href="/admin/company_lists"><i class="fa fa-building"></i> <span>Company Lists</span></a></li>
 				@endauth
-				<li><a href="/{{$url}}/chat"><i class="fa fa-comments-o"></i> <span>ChatBox</span></a></li>
+				@auth("admin")
+				<li>
+					
+					<form action="{{route('admin.chat')}}" id="chat" method="post">
+                        @csrf
+                        <input type="text" value="{{Auth::guard('admin')->user()->id}}" name="u_id" hidden="true">
+                        
+                    </form>
+                    <a href="#" onclick="document.getElementById('chat').submit();"><i class="fa fa-comments-o"></i> <span>ChatBox</span></a>
+                <li>
+                @endauth
 
 				<li><a href="/{{$url}}/table-data-table"><i class="ti-layout"></i> <span>Data Table</span></a></li>
 				<li><a href="/{{$url}}/profile"><i class="fa fa-user-circle"></i> <span>My Profile</span></a></li>

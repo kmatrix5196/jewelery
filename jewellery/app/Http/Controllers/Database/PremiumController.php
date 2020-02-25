@@ -57,11 +57,8 @@ class PremiumController extends Controller
 	}
 	  public function view_premium()
 	{		
-		
-			$premium = DB::table('premium')->get();
-			return view('admin.pages.premium_lists',['premium' => $premium]);
-		
-	
+		$premium = DB::table('premium')->get();
+		return view('admin.pages.premium_lists',['premium' => $premium]);	
 	}
 	 public function view_premium_c()
 	{		

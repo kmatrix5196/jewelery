@@ -34,7 +34,7 @@
                 <div class="member-area-from-wrap">
                     <div class="row">
                         <!-- Login Content Start -->
-                        <div class="col-lg-6">
+                        <!-- <div class="col-lg-6">
                             <div class="login-reg-form-wrap">
                                 <h5 class="Royal_Crescent_Bold">Log In</h5>
                                 <form action="#" method="post">
@@ -60,15 +60,17 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- Login Content End -->
-
+                        <div class="col-lg-3">
+                            
+                        </div>
                         <!-- Register Content Start -->
                         <div class="col-lg-6">
                             <div class="login-reg-form-wrap sign-up-form">
                                 <h5 class="Royal_Crescent_Bold">Regristation Form</h5>
                                 <br>
-                                <form action="{{route ('add_company')}}" enctype="multipart/form-data" method="post">
+                                <form action="{{url('/company/register')}}" enctype="multipart/form-data" method="post">
                         @csrf
                                   <div class="row">
                                       <div class="col-lg-6">

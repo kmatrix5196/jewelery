@@ -10228,7 +10228,7 @@ body.side-header-green .side-header .side-header-close {
   margin-bottom: 25px;
 }
 
-.chat-list li:nth-child(2n) .chat .head, .widget-chat-list li:nth-child(2n) .chat .head, .chat-list li:nth-child(2n) .widget-chat .head, .widget-chat-list li:nth-child(2n) .widget-chat .head {
+.chat-list .sender .chat .head, .widget-chat-list .sender .chat .head, .chat-list .sender .widget-chat .head, .widget-chat-list .sender .widget-chat .head {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
   -webkit-flex-direction: row-reverse;
@@ -10236,16 +10236,16 @@ body.side-header-green .side-header .side-header-close {
           flex-direction: row-reverse;
 }
 
-.chat-list li:nth-child(2n) .chat .head h5, .widget-chat-list li:nth-child(2n) .chat .head h5, .chat-list li:nth-child(2n) .widget-chat .head h5, .widget-chat-list li:nth-child(2n) .widget-chat .head h5 {
+.chat-list .sender .chat .head h5, .widget-chat-list .sender .chat .head h5, .chat-list .sender .widget-chat .head h5, .widget-chat-list .sender .widget-chat .head h5 {
   text-align: right;
 }
 
-.chat-list li:nth-child(2n) .chat .head span, .widget-chat-list li:nth-child(2n) .chat .head span, .chat-list li:nth-child(2n) .widget-chat .head span, .widget-chat-list li:nth-child(2n) .widget-chat .head span {
+.chat-list .sender .chat .head span, .widget-chat-list .sender .chat .head span, .chat-list .sender .widget-chat .head span, .widget-chat-list .sender .widget-chat .head span {
   margin-left: 15px;
   margin-right: 0;
 }
 
-.chat-list li:nth-child(2n) .chat .body, .widget-chat-list li:nth-child(2n) .chat .body, .chat-list li:nth-child(2n) .widget-chat .body, .widget-chat-list li:nth-child(2n) .widget-chat .body {
+.chat-list .sender .chat .body, .widget-chat-list .sender .chat .body, .chat-list .sender .widget-chat .body, .widget-chat-list .sender .widget-chat .body {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
   -webkit-flex-direction: row-reverse;
@@ -10253,12 +10253,12 @@ body.side-header-green .side-header .side-header-close {
           flex-direction: row-reverse;
 }
 
-.chat-list li:nth-child(2n) .chat .body .content, .widget-chat-list li:nth-child(2n) .chat .body .content, .chat-list li:nth-child(2n) .widget-chat .body .content, .widget-chat-list li:nth-child(2n) .widget-chat .body .content {
+.chat-list .sender .chat .body .content, .widget-chat-list .sender .chat .body .content, .chat-list .sender .widget-chat .body .content, .widget-chat-list .sender .widget-chat .body .content {
   margin-right: 15px;
   margin-left: 0;
 }
 
-.chat-list li:nth-child(2n) .chat .body .content::before, .widget-chat-list li:nth-child(2n) .chat .body .content::before, .chat-list li:nth-child(2n) .widget-chat .body .content::before, .widget-chat-list li:nth-child(2n) .widget-chat .body .content::before {
+.chat-list .sender .chat .body .content::before, .widget-chat-list .sender .chat .body .content::before, .chat-list .sender .widget-chat .body .content::before, .widget-chat-list .sender .widget-chat .body .content::before {
   right: -10px;
   left: auto;
   border-width: 6px 0px 6px 10px;
@@ -15020,7 +15020,7 @@ body.skin-dark .cus-radio.light .icon::before {
   margin-right: 0;
 }
 
-[dir="rtl"] .chat-list li:nth-child(2n) .chat .head, [dir="rtl"] .widget-chat-list li:nth-child(2n) .chat .head, [dir="rtl"] .chat-list li:nth-child(2n) .widget-chat .head, [dir="rtl"] .widget-chat-list li:nth-child(2n) .widget-chat .head {
+[dir="rtl"] .chat-list .sender .chat .head, [dir="rtl"] .widget-chat-list .sender .chat .head, [dir="rtl"] .chat-list .sender .widget-chat .head, [dir="rtl"] .widget-chat-list .sender .widget-chat .head {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
   -webkit-flex-direction: row-reverse;
@@ -15028,16 +15028,16 @@ body.skin-dark .cus-radio.light .icon::before {
           flex-direction: row-reverse;
 }
 
-[dir="rtl"] .chat-list li:nth-child(2n) .chat .head h5, [dir="rtl"] .widget-chat-list li:nth-child(2n) .chat .head h5, [dir="rtl"] .chat-list li:nth-child(2n) .widget-chat .head h5, [dir="rtl"] .widget-chat-list li:nth-child(2n) .widget-chat .head h5 {
+[dir="rtl"] .chat-list .sender .chat .head h5, [dir="rtl"] .widget-chat-list .sender .chat .head h5, [dir="rtl"] .chat-list .sender .widget-chat .head h5, [dir="rtl"] .widget-chat-list .sender .widget-chat .head h5 {
   text-align: left;
 }
 
-[dir="rtl"] .chat-list li:nth-child(2n) .chat .head span, [dir="rtl"] .widget-chat-list li:nth-child(2n) .chat .head span, [dir="rtl"] .chat-list li:nth-child(2n) .widget-chat .head span, [dir="rtl"] .widget-chat-list li:nth-child(2n) .widget-chat .head span {
+[dir="rtl"] .chat-list .sender .chat .head span, [dir="rtl"] .widget-chat-list .sender .chat .head span, [dir="rtl"] .chat-list .sender .widget-chat .head span, [dir="rtl"] .widget-chat-list .sender .widget-chat .head span {
   margin-left: 0;
   margin-right: 15px;
 }
 
-[dir="rtl"] .chat-list li:nth-child(2n) .chat .body .content, [dir="rtl"] .widget-chat-list li:nth-child(2n) .chat .body .content, [dir="rtl"] .chat-list li:nth-child(2n) .widget-chat .body .content, [dir="rtl"] .widget-chat-list li:nth-child(2n) .widget-chat .body .content {
+[dir="rtl"] .chat-list .sender .chat .body .content, [dir="rtl"] .widget-chat-list .sender .chat .body .content, [dir="rtl"] .chat-list .sender .widget-chat .body .content, [dir="rtl"] .widget-chat-list .sender .widget-chat .body .content {
   margin-left: 15px;
   margin-right: 0;
 }
