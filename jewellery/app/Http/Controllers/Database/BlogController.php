@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Blog_Image;
 use Illuminate\Http\Request;
 use DB;
+use Carbon\Carbon;
 
 class BlogController extends Controller
 {
@@ -21,15 +22,18 @@ class BlogController extends Controller
 	{		
 		if (\Request::is('admin/*'))
 		{
-			$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.blog_id','ASC')->paginate(12);
+			$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.date','ASC')->paginate(12);
+			$cur_time =Carbon::now();
+			$near_blog = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->whereDate('date', '>=', $cur_time)->limit(1)->orderBy('blog.date','ASC')->paginate(12);
+			
 			return view('admin.pages.blog_list',['temp_blogs' => $temp_blogs]);
+
 		}
 		else {
-			$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.blog_id','ASC')->paginate(12);
-						// $temp_blogs = Blog::leftJoin('blog_image', function($join) {
-      // $join->on('blog.id', '=', 'blog_image.blog_id')->orderBy('created_at','DESC')->paginate(12);
-			// $temp_blogs = Blog_Image::orderBy('blog_id','DESC')->get();
-			return view('client.pages.trade_show',['temp_blogs' => $temp_blogs]);
+			$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.date','ASC')->paginate(12);
+			$cur_time = Carbon::now();
+			$near_blog = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->whereDate('date', '>=', $cur_time)->limit(1)->orderBy('blog.date','ASC')->paginate(12);
+			return view('client.pages.trade_show',['temp_blogs' => $temp_blogs,'near_blog'=>$near_blog]);
 		}
 	}
 	public function view_blog_detail($id)

@@ -46,42 +46,33 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @isset($wishlist)
+                                        @foreach($wishlist as $wl)
                                         <tr>
-                                            <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="{{asset('img/sample/product-sample.jpg')}}" alt="Product" /></a></td>
-                                            <td class="pro-title"><a href="#">Diamond Exclusive Ornament</a></td>
-                                            <td class="pro-price"><span>$295.00</span></td>
-                                            <td class="pro-quantity"><span class="text-success">In Stock</span></td>
-                                            <td class="pro-subtotal"><a href="cart" class="btn btn-sqr">Add to
+                                            <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="{{asset($wl['url'])}}" alt="Product" /></a></td>
+                                            <td class="pro-title"><a href="#">{{$wl['name']}}</a></td>
+                                            <td class="pro-price">
+                                                @if($wl['discount']=='')
+                                            <span class="price-regular">${{number_format($wl['price'],2)}}</span>
+                                            
+                                            @else
+                                            <span class="price-regular">${{number_format($wl['discount'],2)}}</span>
+                                            <span class="price-old"><del>${{number_format($wl['price'],2)}}</del></span>
+                                            @endif</td>
+                                            <td class="pro-quantity">
+                                                @if($wl['instock']>0)
+                                                <span class="text-success">In Stock</span>
+                                                @else
+                                                <span class="text-danger">Out of Stock</span>
+                                                @endif
+                                            </td>
+                                            <td class="pro-subtotal"><a href="/home/shop/{{$wl['p_id']}}" class="btn btn-sqr">Add to
                                                     Cart</a></td>
-                                            <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                                            <td class="pro-remove"><a href="{{route('delete_wishlist', $wl['id'])}}"><i class="fa fa-trash-o"></i></a></td>
                                         </tr>
-                                        <tr>
-                                            <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="assets/img/sample/product-sample.jpg" alt="Product" /></a></td>
-                                            <td class="pro-title"><a href="#">Perfect Diamond Jewellery</a></td>
-                                            <td class="pro-price"><span>$275.00</span></td>
-                                            <td class="pro-quantity"><span class="text-success">In Stock</span></td>
-                                            <td class="pro-subtotal"><a href="cart" class="btn btn-sqr">Add to
-                                                    Cart</a></td>
-                                            <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="assets/img/sample/product-sample.jpg" alt="Product" /></a></td>
-                                            <td class="pro-title"><a href="#">Handmade Golden Necklace</a></td>
-                                            <td class="pro-price"><span>$295.00</span></td>
-                                            <td class="pro-quantity"><span class="text-danger">Stock Out</span></td>
-                                            <td class="pro-subtotal"><a href="cart" class="btn btn-sqr disabled">Add
-                                                    to Cart</a></td>
-                                            <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="assets/img/sample/product-sample.jpg" alt="Product" /></a></td>
-                                            <td class="pro-title"><a href="#">Diamond Exclusive Ornament</a></td>
-                                            <td class="pro-price"><span>$110.00</span></td>
-                                            <td class="pro-quantity"><span class="text-success">In Stock</span></td>
-                                            <td class="pro-subtotal"><a href="cart" class="btn btn-sqr">Add to
-                                                    Cart</a></td>
-                                            <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                        </tr>
+                                        @endforeach
+                                        @endisset
+
                                     </tbody>
                                 </table>
                             </div>
