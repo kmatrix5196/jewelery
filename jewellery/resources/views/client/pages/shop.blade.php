@@ -86,12 +86,12 @@
                                             <div class="product-badge">
                                             </div>
                                             <div class="button-group">
-                                                <a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
+                                                <a href="add_to_wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                                 <a href="quick_view" data-toggle="modal" data-target="#quick_view_{{$temp_product['id']}}" span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Message" onclick="createCon({{$temp_product['id']}},{{$temp_product['company_id']}})"><i class="pe-7s-chat"></i></a>
+                                                 @auth('user')<a href="#" data-toggle="tooltip" data-placement="left" title="Message" onclick="createCon({{$temp_product['id']}},{{$temp_product['company_id']}})"><i class="pe-7s-chat"></i></a>@endauth
                                             </div>
                                             <div class="cart-hover">
-                                                <button class="btn btn-cart">add to cart</button>
+                                                <a href="/home/shop/{{$temp_product['id']}}"><button class="btn btn-cart">add to cart</button></a>
                                             </div>
                                         </figure>
                                         <div class="product-caption text-center">

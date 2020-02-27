@@ -159,287 +159,46 @@
 					<div class="col-12">
 						<div class="product-carousel-4_2 slick-row-10 slick-arrow-style">
 						   
-
+							@isset($temp_products)
+							@foreach ($temp_products as $temp_product)
 							<!-- product item start -->
 							<div class="product-item">
 								<figure class="product-thumb">
-									<a href="product-details">
-										<img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-										<img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
+									<a href="/home/shop/{{$temp_product['id']}}">
+										<img class="pri-img" src="{{asset($temp_product['url'])}}" alt="product">
+										<img class="sec-img" src="{{asset($temp_product['url'])}}" alt="product">
 									</a>
 									<div class="product-badge">
 									</div>
 									<div class="button-group">
 										<a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										<a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										<a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                                <a href="quick_view" data-toggle="modal" data-target="#quick_view_{{$temp_product['id']}}" span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
+                                                 @auth('user')<a href="#" data-toggle="tooltip" data-placement="left" title="Message" onclick="createCon({{$temp_product['id']}},{{$temp_product['company_id']}})"><i class="pe-7s-chat"></i></a>@endauth
 									</div>
 									<div class="cart-hover">
-										<button class="btn btn-cart">add to cart</button>
+										<a href="/home/shop/{{$temp_product['id']}}"><button class="btn btn-cart">add to cart</button></a>
 									</div>
 								</figure>
 								<div class="product-caption text-center">
 
 
 									<h6 class="product-name">
-										<a href="product-details">Title</a>
+										<a href="/home/shop/{{$temp_product['id']}}">{{$temp_product['name']}}</a>
 									</h6>
 									<div class="price-box">
-										<span class="price-regular">$60.00</span>
-										<span class="price-old"><del>$70.00</del></span>
+										 @if($temp_product['discount']=='')
+                                            <span class="price-regular">${{number_format($temp_product['price'],2)}}</span>
+                                            
+                                            @else
+                                            <span class="price-regular">${{number_format($temp_product['discount'],2)}}</span>
+                                            <span class="price-old"><del>${{number_format($temp_product['price'],2)}}</del></span>
+                                            @endif
 									</div>
 								</div>
 							</div>
 							<!-- product item end -->
-							<!-- product item start -->
-							<div class="product-item">
-								<figure class="product-thumb">
-									<a href="product-details">
-										<img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-										<img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-									</a>
-									<div class="product-badge">
-									</div>
-									<div class="button-group">
-										<a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										<a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										<a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
-									</div>
-									<div class="cart-hover">
-										<button class="btn btn-cart">add to cart</button>
-									</div>
-								</figure>
-								<div class="product-caption text-center">
-
-
-									<h6 class="product-name">
-										<a href="product-details">Title</a>
-									</h6>
-									<div class="price-box">
-										<span class="price-regular">$60.00</span>
-										<span class="price-old"><del>$70.00</del></span>
-									</div>
-								</div>
-							</div>
-							<!-- product item end -->
-							<!-- product item start -->
-							<div class="product-item">
-								<figure class="product-thumb">
-									<a href="product-details">
-										<img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-										<img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-									</a>
-									<div class="product-badge">
-									</div>
-									<div class="button-group">
-										<a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										<a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										<a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
-									</div>
-									<div class="cart-hover">
-										<button class="btn btn-cart">add to cart</button>
-									</div>
-								</figure>
-								<div class="product-caption text-center">
-
-
-									<h6 class="product-name">
-										<a href="product-details">Title</a>
-									</h6>
-									<div class="price-box">
-										<span class="price-regular">$60.00</span>
-										<span class="price-old"><del>$70.00</del></span>
-									</div>
-								</div>
-							</div>
-							<!-- product item end -->
-							<!-- product item start -->
-							<div class="product-item">
-								<figure class="product-thumb">
-									<a href="product-details">
-										<img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-										<img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-									</a>
-									<div class="product-badge">
-									</div>
-									<div class="button-group">
-										<a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										<a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										<a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
-									</div>
-									<div class="cart-hover">
-										<button class="btn btn-cart">add to cart</button>
-									</div>
-								</figure>
-								<div class="product-caption text-center">
-
-
-									<h6 class="product-name">
-										<a href="product-details">Title</a>
-									</h6>
-									<div class="price-box">
-										<span class="price-regular">$60.00</span>
-										<span class="price-old"><del>$70.00</del></span>
-									</div>
-								</div>
-							</div>
-							<!-- product item end -->
-							<!-- product item start -->
-							<div class="product-item">
-								<figure class="product-thumb">
-									<a href="product-details">
-										<img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-										<img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-									</a>
-									<div class="product-badge">
-									</div>
-									<div class="button-group">
-										<a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										<a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										<a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
-									</div>
-									<div class="cart-hover">
-										<button class="btn btn-cart">add to cart</button>
-									</div>
-								</figure>
-								<div class="product-caption text-center">
-
-
-									<h6 class="product-name">
-										<a href="product-details">Title</a>
-									</h6>
-									<div class="price-box">
-										<span class="price-regular">$60.00</span>
-										<span class="price-old"><del>$70.00</del></span>
-									</div>
-								</div>
-							</div>
-							<!-- product item end -->
-							<!-- product item start -->
-							<div class="product-item">
-								<figure class="product-thumb">
-									<a href="product-details">
-										<img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-										<img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-									</a>
-									<div class="product-badge">
-									</div>
-									<div class="button-group">
-										<a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										<a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										<a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
-									</div>
-									<div class="cart-hover">
-										<button class="btn btn-cart">add to cart</button>
-									</div>
-								</figure>
-								<div class="product-caption text-center">
-
-
-									<h6 class="product-name">
-										<a href="product-details">Title</a>
-									</h6>
-									<div class="price-box">
-										<span class="price-regular">$60.00</span>
-										<span class="price-old"><del>$70.00</del></span>
-									</div>
-								</div>
-							</div>
-							<!-- product item end -->
-							<!-- product item start -->
-							<div class="product-item">
-								<figure class="product-thumb">
-									<a href="product-details">
-										<img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-										<img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-									</a>
-									<div class="product-badge">
-									</div>
-									<div class="button-group">
-										<a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										<a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										<a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
-									</div>
-									<div class="cart-hover">
-										<button class="btn btn-cart">add to cart</button>
-									</div>
-								</figure>
-								<div class="product-caption text-center">
-
-
-									<h6 class="product-name">
-										<a href="product-details">Title</a>
-									</h6>
-									<div class="price-box">
-										<span class="price-regular">$60.00</span>
-										<span class="price-old"><del>$70.00</del></span>
-									</div>
-								</div>
-							</div>
-							<!-- product item end -->
-
-							<!-- product item start -->
-							<div class="product-item">
-								<figure class="product-thumb">
-									<a href="product-details">
-										<img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-										<img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-									</a>
-									<div class="product-badge">
-									</div>
-									<div class="button-group">
-										<a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										<a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										<a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
-									</div>
-									<div class="cart-hover">
-										<button class="btn btn-cart">add to cart</button>
-									</div>
-								</figure>
-								<div class="product-caption text-center">
-
-
-									<h6 class="product-name">
-										<a href="product-details">Title</a>
-									</h6>
-									<div class="price-box">
-										<span class="price-regular">$60.00</span>
-										<span class="price-old"><del>$70.00</del></span>
-									</div>
-								</div>
-							</div>
-							<!-- product item end -->  <!-- product item start -->
-							  <div class="product-item">
-								  <figure class="product-thumb">
-									  <a href="product-details">
-										  <img class="pri-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-										  <img class="sec-img" src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
-									  </a>
-									  <div class="product-badge">
-									  </div>
-									  <div class="button-group">
-										  <a href="wishlist" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
-										  <a href="shop" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" data-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
-										  <a href="chat" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
-									  </div>
-									  <div class="cart-hover">
-										  <button class="btn btn-cart">add to cart</button>
-									  </div>
-								  </figure>
-								  <div class="product-caption text-center">
-
-
-									  <h6 class="product-name">
-										  <a href="product-details">Title</a>
-									  </h6>
-									  <div class="price-box">
-										  <span class="price-regular">$60.00</span>
-										  <span class="price-old"><del>$70.00</del></span>
-									  </div>
-								  </div>
-							  </div>
-							  <!-- product item end -->
-
+							@endforeach
+							@endisset
 						</div>
 					</div>
 				</div>
@@ -452,10 +211,11 @@
 		<!-- testimonial area end -->
 
 		<!-- group product start -->
+
 		<section class="group-product-area section-padding">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-6">
+					<!-- <div class="col-lg-6">
 						<div class="group-product-banner">
 							<figure class="banner-statistics">
 								<a href="shop">
@@ -467,188 +227,61 @@
 								</div>
 							</figure>
 						</div>
-					</div>
-					<div class="col-lg-3">
+					</div> -->
+					
+					<div class="col-lg-4">
 						<div class="categories-group-wrapper">
 							<!-- section title start -->
 							<div class="section-title-append">
-								<h4>New Arrival product</h4>
+								<h4>New Arrival products</h4>
 								<div class="slick-append"></div>
 							</div>
 							<!-- section title start -->
 
 							<!-- group list carousel start -->
+							
 							<div class="group-list-item-wrapper">
 								<div class="group-list-carousel">
+									@isset($temp_products)
+									@foreach ($temp_products as $temp_product)
 									<!-- group list item start -->
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details">
-													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
+												<a href="/home/shop/{{$temp_product['id']}}">
+													<img src="{{asset($temp_product['url'])}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details">
-														Title</a></h5>
+												<h5 class="group-product-name">
+													<a href="/home/shop/{{$temp_product['id']}}">{{$temp_product['name']}}</a>
+												</h5>
 												<div class="price-box">
-													<span class="price-regular">$50.00</span>
-													<span class="price-old"><del>$29.99</del></span>
+													@if($temp_product['discount']=='')
+                                            <span class="price-regular">${{number_format($temp_product['price'],2)}}</span>
+                                            
+                                            @else
+                                            <span class="price-regular">${{number_format($temp_product['discount'],2)}}</span>
+                                            <span class="price-old"><del>${{number_format($temp_product['price'],2)}}</del></span>
+                                            @endif
 												</div>
 											</div>
 										</div>
 									</div>
 									<!-- group list item end -->
-
-									<!-- group list item start -->
-									<div class="group-slide-item">
-										<div class="group-item">
-											<div class="group-item-thumb">
-												<a href="product-details">
-													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
-												</a>
-											</div>
-											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details">
-													Title</a></h5>
-												<div class="price-box">
-													<span class="price-regular">$55.00</span>
-													<span class="price-old"><del>$30.00</del></span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- group list item end -->
-
-									<!-- group list item start -->
-									<div class="group-slide-item">
-										<div class="group-item">
-											<div class="group-item-thumb">
-												<a href="product-details">
-													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
-												</a>
-											</div>
-											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details">
-													Title</a></h5>
-												<div class="price-box">
-													<span class="price-regular">$45.00</span>
-													<span class="price-old"><del>$25.00</del></span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- group list item end -->
-
-									<!-- group list item start -->
-									<div class="group-slide-item">
-										<div class="group-item">
-											<div class="group-item-thumb">
-												<a href="product-details">
-													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
-												</a>
-											</div>
-											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details">
-														Title</a></h5>
-												<div class="price-box">
-													<span class="price-regular">$50.00</span>
-													<span class="price-old"><del>$29.99</del></span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- group list item end -->
-
-									<!-- group list item start -->
-									<div class="group-slide-item">
-										<div class="group-item">
-											<div class="group-item-thumb">
-												<a href="product-details">
-													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
-												</a>
-											</div>
-											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details">
-														Title</a></h5>
-												<div class="price-box">
-													<span class="price-regular">$90.00</span>
-													<span class="price-old"><del>$100.</del></span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- group list item end -->
-
-									<!-- group list item start -->
-									<div class="group-slide-item">
-										<div class="group-item">
-											<div class="group-item-thumb">
-												<a href="product-details">
-													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
-												</a>
-											</div>
-											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details">
-													Title</a></h5>
-												<div class="price-box">
-													<span class="price-regular">$20.00</span>
-													<span class="price-old"><del>$30.00</del></span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- group list item end -->
-
-									<!-- group list item start -->
-									<div class="group-slide-item">
-										<div class="group-item">
-											<div class="group-item-thumb">
-												<a href="product-details">
-													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
-												</a>
-											</div>
-											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details">
-													Title</a></h5>
-												<div class="price-box">
-													<span class="price-regular">$55.00</span>
-													<span class="price-old"><del>$30.00</del></span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- group list item end -->
-
-									<!-- group list item start -->
-									<div class="group-slide-item">
-										<div class="group-item">
-											<div class="group-item-thumb">
-												<a href="product-details">
-													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
-												</a>
-											</div>
-											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details">
-														Title</a></h5>
-												<div class="price-box">
-													<span class="price-regular">$45.00</span>
-													<span class="price-old"><del>$25.00</del></span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- group list item end -->
+									@endforeach
+									@endisset
 								</div>
 							</div>
 							<!-- group list carousel start -->
 						</div>
 					</div>
-					<div class="col-lg-3">
+					
+					<div class="col-lg-4">
 						<div class="categories-group-wrapper">
 							<!-- section title start -->
 							<div class="section-title-append">
-								<h4>Best Seller product</h4>
+								<h4>Best Design Products</h4>
 								<div class="slick-append"></div>
 							</div>
 							<!-- section title start -->
@@ -656,165 +289,83 @@
 							<!-- group list carousel start -->
 							<div class="group-list-item-wrapper">
 								<div class="group-list-carousel">
+									@isset($design_products)
+									@foreach($design_products as $design_product)
 									<!-- group list item start -->
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details">
-													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
+												<a href="/home/shop/{{$design_product['id']}}">
+													<img src="{{asset($design_product['url'])}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details">
-													Title</a></h5>
+												<h5 class="group-product-name"><a href="/home/shop/{{$design_product['id']}}">
+													{{$design_product['name']}}</a></h5>
 												<div class="price-box">
-													<span class="price-regular">$50.00</span>
-													<span class="price-old"><del>$29.99</del></span>
+													 @if($design_product['discount']=='')
+                                            <span class="price-regular">${{number_format($design_product['price'],2)}}</span>
+                                            
+                                            @else
+                                            <span class="price-regular">${{number_format($design_product['discount'],2)}}</span>
+                                            <span class="price-old"><del>${{number_format($design_product['price'],2)}}</del></span>
+                                            @endif
 												</div>
 											</div>
 										</div>
 									</div>
+									@endforeach
+									@endisset
 									<!-- group list item end -->
 
+									
+								</div>
+							</div>
+							<!-- group list carousel start -->
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="categories-group-wrapper">
+							<!-- section title start -->
+							<div class="section-title-append">
+								<h4>Value Products</h4>
+								<div class="slick-append"></div>
+							</div>
+							<!-- section title start -->
+
+							<!-- group list carousel start -->
+							<div class="group-list-item-wrapper">
+								<div class="group-list-carousel">
+									@isset($value_products)
+									@foreach($value_products as $value_product)
 									<!-- group list item start -->
 									<div class="group-slide-item">
 										<div class="group-item">
 											<div class="group-item-thumb">
-												<a href="product-details">
-													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
+												<a href="/home/shop/{{$value_product['id']}}">
+													<img src="{{asset($value_product['url'])}}" alt="">
 												</a>
 											</div>
 											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details">
-														Title</a></h5>
+												<h5 class="group-product-name"><a href="/home/shop/{{$value_product['id']}}">
+													{{$value_product['name']}}</a></h5>
 												<div class="price-box">
-													<span class="price-regular">$55.00</span>
-													<span class="price-old"><del>$30.00</del></span>
+													@if($value_product['discount']=='')
+                                            <span class="price-regular">${{number_format($value_product['price'],2)}}</span>
+                                            
+                                            @else
+                                            <span class="price-regular">${{number_format($value_product['discount'],2)}}</span>
+                                            <span class="price-old"><del>${{number_format($value_product['price'],2)}}</del></span>
+                                            @endif
 												</div>
 											</div>
 										</div>
 									</div>
+									@endforeach
+									@endisset
 									<!-- group list item end -->
 
-									<!-- group list item start -->
-									<div class="group-slide-item">
-										<div class="group-item">
-											<div class="group-item-thumb">
-												<a href="product-details">
-													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
-												</a>
-											</div>
-											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details">
-														Title</a></h5>
-												<div class="price-box">
-													<span class="price-regular">$45.00</span>
-													<span class="price-old"><del>$25.00</del></span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- group list item end -->
-
-									<!-- group list item start -->
-									<div class="group-slide-item">
-										<div class="group-item">
-											<div class="group-item-thumb">
-												<a href="product-details">
-													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
-												</a>
-											</div>
-											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details">
-													Title</a></h5>
-												<div class="price-box">
-													<span class="price-regular">$50.00</span>
-													<span class="price-old"><del>$29.99</del></span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- group list item end -->
-
-									<!-- group list item start -->
-									<div class="group-slide-item">
-										<div class="group-item">
-											<div class="group-item-thumb">
-												<a href="product-details">
-													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
-												</a>
-											</div>
-											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details">
-													Title</a></h5>
-												<div class="price-box">
-													<span class="price-regular">$90.00</span>
-													<span class="price-old"><del>$100.</del></span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- group list item end -->
-
-									<!-- group list item start -->
-									<div class="group-slide-item">
-										<div class="group-item">
-											<div class="group-item-thumb">
-												<a href="product-details">
-													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
-												</a>
-											</div>
-											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details">
-													Title</a></h5>
-												<div class="price-box">
-													<span class="price-regular">$20.00</span>
-													<span class="price-old"><del>$30.00</del></span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- group list item end -->
-
-									<!-- group list item start -->
-									<div class="group-slide-item">
-										<div class="group-item">
-											<div class="group-item-thumb">
-												<a href="product-details">
-													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
-												</a>
-											</div>
-											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details">
-													Title</a></h5>
-												<div class="price-box">
-													<span class="price-regular">$55.00</span>
-													<span class="price-old"><del>$30.00</del></span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- group list item end -->
-
-									<!-- group list item start -->
-									<div class="group-slide-item">
-										<div class="group-item">
-											<div class="group-item-thumb">
-												<a href="product-details">
-													<img src="{{asset('img/sample/product-sample.jpg')}}" alt="">
-												</a>
-											</div>
-											<div class="group-item-desc">
-												<h5 class="group-product-name"><a href="product-details">
-													Title</a></h5>
-												<div class="price-box">
-													<span class="price-regular">$45.00</span>
-													<span class="price-old"><del>$25.00</del></span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- group list item end -->
+									
 								</div>
 							</div>
 							<!-- group list carousel start -->

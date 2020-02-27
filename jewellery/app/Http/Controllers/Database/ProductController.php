@@ -20,6 +20,27 @@ class ProductController extends Controller
 	 * @param  Request  $request
 	 * @return Response
 	 */
+	public function view_index(){
+		$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
+		->where('gallery.type','=','typemain')
+		->leftJoin('company','product.company_id','=','company.id')
+		->select('product.*','gallery.url','company.name as c_name')
+		->orderBy('product.created_at','DESC')
+		->get();
+		$design_products=Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
+		->where('gallery.type','=','typemain')
+		->where('product.highlight','=','design')
+		->select('product.*','gallery.url')
+		->orderBy('product.created_at','DESC')
+		->get();
+		$value_products=Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
+		->where('gallery.type','=','typemain')
+		->where('product.highlight','=','value')
+		->select('product.*','gallery.url')
+		->orderBy('product.created_at','DESC')
+		->get();
+		return view('client.pages.index',['temp_products' => $temp_products,'design_products'=>$design_products,'value_products'=>$value_products]);
+	}
 	public function add()
 	{	
 
@@ -29,16 +50,7 @@ class ProductController extends Controller
 		
 		
 	}
-	public function add_to_cart(Request $request)
-	{
-		
-		$cart=new Cart;
-		
-		$cart->product_id=$request->product_id;
-		$cart->quantity=$request->qty;
-		$cart->save();
-		return redirect()->route('view_product_user');
-	}
+	
 	public function view_product()
 	{		
 		if (\Request::is('admin/*'))

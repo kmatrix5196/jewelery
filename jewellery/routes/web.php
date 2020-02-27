@@ -39,6 +39,7 @@ Route::prefix('/user')->group(function () {
 		return redirect()->route('user.profile');
 	});
    //
+	Route::post('/add','UserController@add_to_cart')->name('add_to_cart');
 
 });
 
@@ -50,10 +51,10 @@ Route::get('/', function () {
 })->name('home');
 
 Route::prefix('/home')->group(function () {
-	Route::get('/', function () {
+	/*Route::get('/', function () {
 		return View::make('client.pages.index');
-	});
-	
+	});*/
+	Route::get('/', 'Database\ProductController@view_index');
 	// Route::get('chat', function () {
 	// 	return View::make('client.pages.chat');
 	// });
@@ -95,7 +96,7 @@ Route::prefix('/home')->group(function () {
 		Route::get('', 'Database\ProductController@view_product');
 		Route::get('view', 'Database\ProductController@view_product')->name('view_product_user');
 		Route::get('/{id}','Database\ProductController@view_product_dtl');
-		Route::post('add','Database\ProductController@add_to_cart')->name('add_to_cart');
+		
 		Route::get('/category/{category}','Database\ProductController@view_product_by_category');
 		Route::get('/jewellery/{jewellery}','Database\ProductController@view_product_by_jewellery');
 	});

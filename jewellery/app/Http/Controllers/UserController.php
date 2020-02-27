@@ -22,6 +22,17 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    public function add_to_cart(Request $request)
+    {
+        
+        $cart=new Cart;
+        
+        $cart->product_id=$request->product_id;
+        $cart->quantity=$request->qty;
+        $cart->save();
+        return redirect()->route('view_product_user');
+    }
     public function profile()
     {
         return view('client.pages.my_account');
