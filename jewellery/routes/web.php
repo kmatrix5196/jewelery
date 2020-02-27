@@ -11,6 +11,11 @@
 |
 */
 Auth::routes();
+Route::get('/login', function () {
+	return redirect('/home');
+})->name('home');
+
+
 
 // Routes for client
 Route::prefix('/company')->group(function () {
