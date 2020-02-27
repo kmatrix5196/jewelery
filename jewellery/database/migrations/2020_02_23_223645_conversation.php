@@ -18,6 +18,7 @@ class Conversation extends Migration
             $table->bigInteger('sender_id')->unsigned()->nullable();;
             $table->bigInteger('reciever_id')->unsigned()->nullable();;
             $table->string('type')->nullable();
+            $table->timestamps();
         });
     }
 

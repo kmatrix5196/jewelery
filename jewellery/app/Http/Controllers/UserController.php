@@ -55,8 +55,8 @@ class UserController extends Controller
         ])->first();
         if (! $temp_conv_rst) {
             $con = new Conversation;
-            $con->sender_id=$request->$request->u_id;
-            $con->reciever_id=$request->$request->c_id;
+            $con->sender_id=$request->u_id;
+            $con->reciever_id=$request->c_id;
             $con->type="company";
             $con->save();
         }
