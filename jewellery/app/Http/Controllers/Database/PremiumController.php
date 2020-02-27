@@ -63,7 +63,7 @@ class PremiumController extends Controller
 	 public function view_premium_c()
 	{		
 		
-			$premium = DB::table('premium')->select('id','photo')->get();
+			$premium = DB::table('premium')->select('id','photo','company_id')->get();
 			return view('client.pages.premium_show',['premium' => $premium]);
 		
 	

@@ -64,4 +64,22 @@ class UserController extends Controller
         return view('client.pages.chat',['temp_convs' => $conv_rst],['temp_con'=>$temp_conv_rst['conv_id']]);
 
     }
+    public function createconpre(Request $request)
+    {
+        $temp_conv_rst = Conversation::where([
+            ['sender_id', '=', $request->u_id],
+            ['reciever_id', '=', $request->c_id],
+            ['type', '=', 'admin']
+        ])->first();
+        if (! $temp_conv_rst) {
+            $con = new Conversation;
+            $con->sender_id=$request->u_id;
+            $con->reciever_id=$request->c_id;
+            $con->type="admin";
+            $con->save();
+        }
+        $conv_rst = Conversation::where('sender_id', '=',  $request->u_id)->get();
+        return view('client.pages.chat',['temp_convs' => $conv_rst],['temp_con'=>$temp_conv_rst['conv_id']]);
+
+    }
 }

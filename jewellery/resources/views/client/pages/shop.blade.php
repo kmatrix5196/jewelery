@@ -193,16 +193,6 @@
             document.getElementById('c_id').value = c_id;
             document.getElementById('u_id').value = {{Auth::guard('user')->user()->id}};
             document.getElementById('createcon').submit();
-
-            // var xhr = new XMLHttpRequest();
-            // xhr.open("POST", "{{route('user.createcon')}}", true);
-            // xhr.setRequestHeader('Content-Type', 'application/json');
-            // xhr.send(JSON.stringify({
-            //     u_id: {{Auth::guard('user')->user()->id}},
-            //     p_id: p_id,
-            //     c_id: c_id
-            // }));
-            console.log("{{route('user.createcon')}}");
         }
     </script>
     @endauth

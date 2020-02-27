@@ -32,16 +32,19 @@
 
 
                                   </div>
+                                  @auth('user')
                                   <div class="button-group">
-                                    <a href="chat\{{$premi->id}}" data-toggle="tooltip" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Message" onclick="createCon({{$premi->id}},{{$premi->company_id}})"><i class="pe-7s-chat"></i></a>
                                   </div>
+                                  @endauth
+                                  
 
                               </figure>
                           </div>
                           @endforeach
-                                @endisset
+                          @endisset
                           <!-- product item end -->
-
+                          
                           
                           
                       </div>
@@ -50,5 +53,25 @@
           </div>
       </section>
       <!-- featured product area end -->
+      @auth('user')
+        <form action="{{route('user.createconpre')}}" id="createconpre" method="post">
+            @csrf
+            <input type="" name="u_id" id="u_id">
+            <input type="" name="c_id" id="c_id">
+            <input type="" name="p_id" id="p_id">
+        </form>
+        @endauth
     </main>
+    @auth('user')
+    <script type="text/javascript">
+        document.getElementById('createconpre').style.display = "None";
+      
+        function createCon(p_id,c_id) {
+            document.getElementById('p_id').value = p_id;
+            document.getElementById('c_id').value = c_id;
+            document.getElementById('u_id').value = {{Auth::guard('user')->user()->id}};
+            document.getElementById('createconpre').submit();
+        }
+    </script>
+    @endauth
     @endsection

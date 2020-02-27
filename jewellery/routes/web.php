@@ -34,6 +34,7 @@ Route::prefix('/user')->group(function () {
 	Route::get('/logout','Auth\UserLoginController@logout')->name('user.logout');
 	Route::post('/chat', 'UserController@chat')->name('user.chat');
 	Route::post('/createCon', 'UserController@createcon')->name('user.createcon');
+	Route::post('/createConPre', 'UserController@createconpre')->name('user.createconpre');
 	Route::get('/my_account', 'UserController@profile')->name('user.profile');
 	Route::get('/', function () {
 		return redirect()->route('user.profile');

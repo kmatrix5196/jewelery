@@ -177,9 +177,9 @@
             var message = document.getElementById('message').value;
             if (message) {
                 var id = document.getElementById('send_msg').value;
-                firebase.database().ref('message_dtl').push().set(
+                firebase.database().ref('message_dtl/'+id).push().set(
                     {
-                        "conv_id": id,
+                        "status": 0,
                         "content": message,
                         "type": "msg",
                         "s_o_r": 1,
@@ -196,18 +196,15 @@
             var conv_id = id;
             document.getElementById('send_msg').value = id;
             document.getElementById("chat-list").innerHTML = "";
-            firebase.database().ref("message_dtl").on("child_added", function (snapshot){
+            firebase.database().ref("message_dtl/"+id).on("child_added", function (snapshot){
                 var html = "";
-                if (snapshot.val().conv_id == conv_id) 
-                {
                     if (snapshot.val().s_o_r==1) {
                         html+='<li class="sender"><div class="chat"><div class="head"><span>'+snapshot.val().sent_date+'</span></div><div class="body"><div class="content"><p>'+snapshot.val().content+'</p></div></div></div></li>';
                     }
                     else if(snapshot.val().s_o_r==0)
                     {
                          html+='<li><div class="chat"><div class="head"><span>'+snapshot.val().sent_date+'</span></div><div class="body"><div class="content"><p>'+snapshot.val().content+'</p></div></div></div></li>';
-                    }
-                }
+                    }   
                 document.getElementById("chat-list").innerHTML += html;
                 var objDiv = $(".chat-wrap");
                 objDiv.animate({scrollTop: objDiv.get(0).scrollHeight},1, 'linear');
@@ -220,9 +217,9 @@
             var message = document.getElementById('message').value;
             if (message) {
                 var id = document.getElementById('send_msg').value;
-                firebase.database().ref('message_dtl').push().set(
+                firebase.database().ref('message_dtl/'+id).push().set(
                     {
-                        "conv_id": id,
+                        "status": 0,
                         "content": message,
                         "type": "msg",
                         "s_o_r": 0,
@@ -239,7 +236,7 @@
             var conv_id = id;
             document.getElementById('send_msg').value = id;
             document.getElementById("chat-list").innerHTML = "";
-            firebase.database().ref("message_dtl").on("child_added", function (snapshot){
+            firebase.database().ref("message_dtl/"+id).on("child_added", function (snapshot){
                 var html = "";
                 if (snapshot.val().conv_id == conv_id) 
                 {

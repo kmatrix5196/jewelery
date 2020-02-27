@@ -5,6 +5,13 @@
 @else
     @php ($url = 'guest')
 @endif
+@php ($a=0)
+@auth('user')
+@php ($a=1)
+@endauth
+@auth('company')
+@php ($a=1)
+@endauth
 <!-- Start Header Area -->
 <header class="header-area header-wide">
     <!-- main header start -->
@@ -114,7 +121,16 @@
                                         </a>
 
                                         <ul class="dropdown-list">
-                                            @guest
+                                            @auth("company")
+                                            <li><a href="/company/company_profile">Company Profile</a></li>
+                                            <li><a href="/company/logout">Logout</a></li>
+
+                                            @endauth
+                                            @auth("user")
+                                            <li><a href="/user/my_account">My Account</a></li>
+                                            <li><a href="/user/logout">Logout</a></li>
+                                            @endauth
+                                            @if($a!=1)
                                             <li>
                                                 <a href="/user/login">User Login /</a>
                                                 <a href="/user/register">Register</a>
@@ -123,15 +139,8 @@
                                                 <a href="/company/login">Company Login /</a>
                                                 <a href="company/register">Register</a>
                                             </li>
-                                            @endguest
-                                            @auth("company")
-                                            <li><a href="/company/company_profile">Company Profile</a></li>
-                                            @endauth
-                                            @auth("user")
-                                            <li><a href="/user/my_account">My Account</a></li>
-                                            @endauth
-                                            @auth
-                                            <li><a href="@auth('user'){{ route('user.logout') }}@endauth @auth('company'){{ route('company.logout') }}@endauth">logout</a></li>@endauth
+                                            @endif
+
                                         </ul>
                                     </li>
                                 </ul>
@@ -245,24 +254,39 @@
                         </li>
                         <li>
                             <div class="dropdown mobile-top-dropdown">
-                                
                                 @auth("user")
                                 <a href="/user/my_account" class="dropdown-toggle" id="myaccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     My Account
                                     <i class="fa fa-angle-down"></i>
                                 </a>
-                                @endauth
-                                
                                 <div class="dropdown-menu" aria-labelledby="myaccount">
-                                    <a class="dropdown-item" href="/user/login">Login User</a>
-                                    <a class="dropdown-item" href="/company/login">Login Company</a>
-                                    <a class="dropdown-item" href="/user/register">Register User</a>
-                                    <a class="dropdown-item" href="/company/register">Register Company</a>
-                                    @auth("company")
                                     <a class="dropdo
-                                    wn-item" href="/company/company_profile">Company Profile</a>
-                                    @endauth
+                                    wn-item" href="/user/my_account">My Profile</a><br>
+                                    <a class="dropdo
+                                    wn-item" href="/user/logout">Logout</a>
                                 </div>
+                                @endauth                                
+                                @auth("company")
+                                    <a href="/company/company_profile" class="dropdown-toggle" id="myaccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Company Profile
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="myaccount">
+                                    <a class="dropdo
+                                    wn-item" href="/company/company_profile">Company Profile</a><br>
+                                    <a class="dropdo
+                                    wn-item" href="/company/logout">Logout</a>
+                                    
+                                </div>
+                                @endauth
+                                @if($a!=1)
+                                <a class="dropdown-item" href="/user/login">Login User</a>
+                                <a class="dropdown-item" href="/user/register">Register User</a>
+                                
+                                <a class="dropdown-item" href="/company/login">Login Company</a>
+                                <a class="dropdown-item" href="/company/register">Register Company</a>
+                                @endif
+                                
                             </div>
                         </li>
                     </ul>
