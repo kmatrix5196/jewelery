@@ -90,7 +90,7 @@
                                         </form>
                                         <div class="useful-links">
 
-                                            <a href="#" data-toggle="tooltip" title="Wishlist"><i class="pe-7s-like"></i>wishlist</a>
+                                            <a href="/home/shop/add_to_wishlist/{{$temp_product['id']}}" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a></i>wishlist</a>
                                         </div>
 
                                     </div>
