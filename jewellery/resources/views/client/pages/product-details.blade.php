@@ -89,8 +89,9 @@
 
                                         </form>
                                         <div class="useful-links">
-
+                                            @auth('user')
                                             <a href="/home/shop/add_to_wishlist/{{$temp_product['id']}}" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a></i>wishlist</a>
+                                            @endauth
                                         </div>
 
                                     </div>

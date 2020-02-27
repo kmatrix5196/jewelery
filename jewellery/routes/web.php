@@ -13,7 +13,7 @@
 Auth::routes();
 Route::get('/login', function () {
 	return redirect('/home');
-})->name('home');
+})->name('login');
 
 
 
