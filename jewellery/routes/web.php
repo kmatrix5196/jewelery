@@ -61,7 +61,8 @@ Route::prefix('/home')->group(function () {
 	/*Route::get('/', function () {
 		return View::make('client.pages.index');
 	});*/
-
+	Route::get('/cart','UserController@view_cart');
+	Route::get('/minicart','UserController@minicart');
 	Route::get('wishlist','UserController@view_wishlist')->name('wishlist');
 
 	Route::get('/', 'Database\ProductController@view_index');
