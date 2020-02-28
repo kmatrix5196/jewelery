@@ -50,10 +50,14 @@ Route::get('/', function () {
 	return redirect('/home');
 })->name('home');
 
+
 Route::prefix('/home')->group(function () {
 	/*Route::get('/', function () {
 		return View::make('client.pages.index');
 	});*/
+	
+	Route::get('wishlist','UserController@view_wishlist')->name('wishlist');
+
 	Route::get('/', 'Database\ProductController@view_index');
 	// Route::get('chat', function () {
 	// 	return View::make('client.pages.chat');
@@ -99,6 +103,8 @@ Route::prefix('/home')->group(function () {
 		
 		Route::get('/category/{category}','Database\ProductController@view_product_by_category');
 		Route::get('/jewellery/{jewellery}','Database\ProductController@view_product_by_jewellery');
+		Route::get('/add_to_wishlist/{id}','UserController@add_to_wishlist')->name('add_to_wish');
+		Route::get('delete/{id}', "UserController@delete_wishlist")->name('delete_wishlist');
 	});
 	Route::prefix('login')->group(function () {
 		Route::get('', function () {
