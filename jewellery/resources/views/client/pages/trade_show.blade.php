@@ -32,32 +32,30 @@
             
     
 @isset($near_blog)
-@foreach($near_blog as $nb)
             <div class="container">
 
                 <div class="row align-items-center">
                     <div class="col-lg-5">
                         <div class="about-thumb"><br><br><br>
-                            <img src="{{asset($nb['url'])}}" 
+                            <img src="{{asset($near_blog['url'])}}" 
                             alt="blog image" >
                         </div>
                     </div>
                     <div class="col-lg-7">
                         <div class="about-content">
-                            <h3 class="about-title bowly-font" style="color:#c29958;">{{$nb['title']}}</h3>
+                            <h3 class="about-title bowly-font" style="color:#c29958;">{{$near_blog['title']}}</h3>
                             <h5 class="about-sub-title">
-                               {{$nb['subtitle']}}
+                               {{$near_blog['subtitle']}}
                             </h5>
                             <div class="blog-meta">
-                                        <p>{{$nb['date']}} |</a></p>
+                                        <p>{{$near_blog['date']}} |</a></p>
                                     </div>
-                            <p>{{$nb['description']}}</p>
-                            <p>{{$nb['paragraph']}}</p>
+                            <p>{{$near_blog['description']}}</p>
+                            <p>{{$near_blog['paragraph']}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            @endforeach
 @endisset
         </section>
         <br><br><br><br><br><br>
