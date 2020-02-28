@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-	
+
 	/**
 	 * Create a new product instance.
 	 *
@@ -42,46 +42,46 @@ class ProductController extends Controller
 		return view('client.pages.index',['temp_products' => $temp_products,'design_products'=>$design_products,'value_products'=>$value_products]);
 	}
 	public function add()
-	{	
+	{
 
 			$company = Company::orderBy('name','ASC')->get();
 			return view('admin.pages.add-product',['company' => $company]);
-		
-		
-		
+
+
+
 	}
-	
+
 	public function view_product()
-	{		
+	{
 		if (\Request::is('admin/*'))
 		{
-			
+
 
 			$temp_products = Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')->where('gallery.type','=','typemain')
 			->select('product.*','gallery.id as gid','gallery.url','gallery.type')
 			->get();
 			return view('admin.pages.product_list',['temp_products' => $temp_products]);
 		}
-		else { 
+		else {
 			$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')->where('gallery.type','=','typemain')->leftJoin('company','product.company_id','=','company.id')->select('product.*','gallery.url','company.name as c_name')->orderBy('product.created_at','DESC')->paginate(12);
 			return view('client.pages.shop',['temp_products' => $temp_products]);
 		}
-		
+
 	}
 
 	public function view_product_dtl($id)
 	{
 
-		
+
 		$product_rst = Product::leftJoin('company','product.company_id','=','company.id')
 		->where('product.id','=', $id)
 		->select('product.*','company.name as c_name')->first();
-		
-		
+
+
 		/*$gallery1=Gallery::where('product_id',$id)->where('type','type1')->orderBy('id')->get();
 		$gallery2=Gallery::where('product_id',$id)->where('type','type2')->orderBy('id')->get();*/
 		$temp_products = Product::orderBy('created_at','DESC')->limit(6)->get();
-		
+
 		if (\Request::is('admin/*'))
 		{
 			$product = DB::table('product')->where('id',$id)->get();
@@ -90,12 +90,12 @@ class ProductController extends Controller
 			$gallery=DB::table('gallery')->where('product_id',$id1)->orderBy('id')->get();
 			return view('admin.pages.product-detail',['product' => $product,'gallery'=>$gallery]);
 		}
-		else { 
+		else {
 			$gallerymain=Gallery::where('product_id','=',$id)->where('type','typemain')->first();
 			return view('client.pages.product-details',['temp_product' => $product_rst,'temp_products' => $temp_products,'gallerymain' => $gallerymain]);
 		}
 
-		
+
 
 	}
 
@@ -109,7 +109,7 @@ class ProductController extends Controller
 		->leftJoin('company','product.company_id','=','company.id')->select('product.*','gallery.url','company.name as c_name')
 		->orderBy('product.created_at','DESC')
 		->paginate(12);
-			
+
 		}
 		else{
 		$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
@@ -119,7 +119,7 @@ class ProductController extends Controller
 		->orderBy('product.created_at','DESC')
 		->paginate(12);
 		}
-		
+
 			return view('client.pages.shop',['temp_products' => $temp_products]);
 	}
 	public function view_product_by_jewellery($jewellery)
@@ -132,7 +132,7 @@ class ProductController extends Controller
 		->leftJoin('company','product.company_id','=','company.id')->select('product.*','gallery.url','company.name as c_name')
 		->orderBy('product.created_at','DESC')
 		->paginate(12);
-			
+
 		}
 		else{
 		$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
@@ -142,14 +142,14 @@ class ProductController extends Controller
 		->orderBy('product.created_at','DESC')
 		->paginate(12);
 		}
-		
+
 			return view('client.pages.shop',['temp_products' => $temp_products]);
 	}
 	public function add_product(Request $request)
 	{
 		$company_name = $request->p_company_name;
 		$company_id = DB::table('company')->where('name',$company_name)->value('id');
-		
+
 		// Validate the request...
 
 		$product = new Product;
@@ -190,12 +190,12 @@ class ProductController extends Controller
 			}
 			else{
 			$product_id=$product->max('id');
-			
+
 			$gallery1->product_id=$product_id;
 			$gallery1->url="/img/product/".strval($product_id)."type1.".$request->file('p_image_type1')->getClientOriginalExtension();
 			$gallery1->type='type1';
 			$gallery1->save();
-						
+
 			$imageName = strval($product_id).'type1.'.$request->file('p_image_type1')->getClientOriginalExtension();
 			$request->file('p_image_type1')->move(public_path('/img/product'), $imageName);
 			};
@@ -209,12 +209,12 @@ class ProductController extends Controller
 			$gallery2->url="/img/product/".strval($product_id)."type2.".$request->file('p_image_type2')->getClientOriginalExtension();
 			$gallery2->type='type2';
 			$gallery2->save();
-			
+
 			$imageName = strval($product_id).'type2.'.$request->file('p_image_type2')->getClientOriginalExtension();
 			$request->file('p_image_type2')->move(public_path('/img/product'), $imageName);
 			};
 		};
-		
+
 		// if ($product->save()) {
 		// 	return redirect('/admin/product/view/'.$product->id);
 		// }
@@ -252,7 +252,7 @@ class ProductController extends Controller
 		$product->company_id = $company_id;
 		$product->product_code = $request->p_code;
 		$product->save();
-		
+
 			$product_id=$request->p_id;
 			if ($request->file('p_image_typemain') == null) {
 				$file = "";
@@ -273,12 +273,12 @@ class ProductController extends Controller
 			}
 			else{
 			$product_id=$product->max('id');
-			
+
 			$gallery1->product_id=$product_id;
 			$gallery1->url="/img/product/".strval($product_id)."type1.".$request->file('p_image_type1')->getClientOriginalExtension();
 			$gallery1->type='type1';
 			$gallery1->save();
-						
+
 			$imageName = strval($product_id).'type1.'.$request->file('p_image_type1')->getClientOriginalExtension();
 			$request->file('p_image_type1')->move(public_path('/img/product'), $imageName);
 			};
@@ -292,12 +292,12 @@ class ProductController extends Controller
 			$gallery2->url="/img/product/".strval($product_id)."type2.".$request->file('p_image_type2')->getClientOriginalExtension();
 			$gallery2->type='type2';
 			$gallery2->save();
-			
+
 			$imageName = strval($product_id).'type2.'.$request->file('p_image_type2')->getClientOriginalExtension();
 			$request->file('p_image_type2')->move(public_path('/img/product'), $imageName);
 			};
-		
-		
+
+
 		return redirect()->route('view_product');
 	}
 
@@ -308,5 +308,5 @@ class ProductController extends Controller
 		Product::where('id', '=', $id)->delete();
 		return redirect()->route('view_product');
 	}
-	
+
 }

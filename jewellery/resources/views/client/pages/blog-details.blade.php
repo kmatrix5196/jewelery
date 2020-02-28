@@ -28,210 +28,72 @@
         <!-- blog main wrapper start -->
         <div class="blog-main-wrapper section-padding">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 order-2">
-                        <aside class="blog-sidebar-wrapper">
-                            <div class="blog-sidebar">
-                                <h5 class="title">search</h5>
-                                <div class="sidebar-serch-form">
-                                    <form action="#">
-                                        <input type="text" class="search-field" placeholder="search here">
-                                        <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
-                                    </form>
-                                </div>
-                            </div> <!-- single sidebar end -->
-                            <div class="blog-sidebar">
-                                <h5 class="title">categories</h5>
-                                <ul class="blog-archive blog-category">
-                                    <li><a href="#">Category 1 (10)</a></li>
-                                    <li><a href="#">Category 1 (10)</a></li>
-                                    <li><a href="#">Category 1 (10)</a></li>
-                                    <li><a href="#">Category 1 (10)</a></li>
-                                    <li><a href="#">Category 1 (10)</a></li>
-                                  
-                                </ul>
-                            </div> <!-- single sidebar end -->
-                            <div class="blog-sidebar">
-                                <h5 class="title">Blog Archives</h5>
-                                <ul class="blog-archive">
-                                    <li><a href="#">January (10)</a></li>
-                                    <li><a href="#">February (08)</a></li>
-                                    <li><a href="#">March (07)</a></li>
-                                    <li><a href="#">April (14)</a></li>
-                                    <li><a href="#">May (10)</a></li>
-                                </ul>
-                            </div> <!-- single sidebar end -->
-                            <div class="blog-sidebar">
-                                <h5 class="title">recent post</h5>
-                                <div class="recent-post">
-                                    @isset($temp_blogs)
-                                    @foreach ($temp_blogs as $temp_blog)
-                                    <div class="recent-post-item">
-                                        <figure class="product-thumb">
-                                            <a href="blog-details">
-                                                <img src="{{asset($temp_blog['url'])}}" alt="blog image">
-                                            </a>
-                                        </figure>
-                                        <div class="recent-post-description">
-                                            <div class="product-name">
-                                                <h6><a href="blog-details">{{$temp_blog['decription']}}</a></h6>
-                                                <p>{{$temp_blog['date']}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                @isset($blog)
+                                @foreach ($blog as $bg)
+                    <div class="row mt-40">
+                        <!--Order Details Customer Information Start-->
+                        <div class="col-12 mb-30">
+                            <div class="order-details-customer-info row mbn-20">
+
+                                <!--Billing Info Start-->
+                               
+                                <div class="col-lg-5 col-md-6 col-12 mb-20">
+                                    <h4 class="mb-25">{{$bg->title}}</h4>
+                                    @isset($blog_images)
+                                    @foreach($blog_images as $blog_image)
+                                    <img src="{{asset($blog_image->url)}}" alt="">
                                     @endforeach
                                     @endisset
                                 </div>
-                            </div> <!-- single sidebar end -->
-                            <div class="blog-sidebar">
-                                <h5 class="title">Tags</h5>
-                                <ul class="blog-tags">
-                                    <li><a href="#">tag1</a></li>
-                                    <li><a href="#">tag1</a></li>
-                                    <li><a href="#">tag1</a></li>
-                                    <li><a href="#">tag1</a></li>
-                                    <li><a href="#">tag1</a></li>   
-                                    
-                                </ul>
-                            </div> <!-- single sidebar end -->
-                        </aside>
-                    </div>
-                    <div class="col-lg-9 order-1">
-                        <div class="blog-item-wrapper">
-                            @isset($temp_blog)
-                            @section('title',$temp_blog['title'])
-                            <!-- blog post item start -->
-                            <div class="blog-post-item blog-details-post">
-                                <figure class="blog-thumb">
-                                    <div class="blog-carousel-2 slick-row-15 slick-arrow-style slick-dot-style">
-                                        <div class="blog-single-slide">
-                                            <img src="{{asset($temp_blog['url'])}}" alt="blog image">
-                                        </div>
-                                        <div class="blog-single-slide">
-                                            <img src="{{asset($temp_blog['url'])}}" alt="blog image">
-                                        </div>
-                                        <div class="blog-single-slide">
-                                            <img src="{{asset($temp_blog['url'])}}" alt="blog image">
-                                        </div>
-                                    </div>
-                                </figure>
-                                <div class="blog-content">
-                                    <h3 class="blog-title">
-                                        {{$temp_blog['title']}}
-                                    </h3>
-                                    <div class="blog-meta">
-                                        <p>{{$temp_blog['date']}} | <a href="#">Corano</a></p>
-                                    </div>
-                                    <div class="entry-summary">
-                                        <p> 
-                                            {{$temp_blog['description']}}
-                                        </p>
-                                        <div class="tag-line">
-                                            <h6>Tag :</h6>
-                                            <a href="#">Necklaces</a>,
-                                            <a href="#">Earrings</a>,
-                                            <a href="#">Jewellery</a>,
-                                        </div>
-                                        <div class="blog-share-link">
-                                            <h6>Share :</h6>
-                                            <div class="blog-social-icon">
-                                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                                <a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a>
-                                                <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- blog post item end -->
-                            @endisset
-                            <!-- comment area start -->
-                            <div class="comment-section section-padding">
-                                <h5>03 Comment</h5>
-                                <ul>
-                                    <li>
-                                        <div class="author-avatar">
-                                            <img src="assets/img/blog/comment-icon.png" alt="">
-                                        </div>
-                                        <div class="comment-body">
-                                            <span class="reply-btn"><a href="#">Reply</a></span>
-                                            <h5 class="comment-author">Admin</h5>
-                                            <div class="comment-post-date">
-                                                15 Dec, 2019 at 9:30pm
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim maiores
-                                                adipisci optio ex, laboriosam facilis non pariatur itaque illo sunt?</p>
-                                        </div>
-                                    </li>
-                                    <li class="comment-children">
-                                        <div class="author-avatar">
-                                            <img src="assets/img/blog/comment-icon.png" alt="">
-                                        </div>
-                                        <div class="comment-body">
-                                            <span class="reply-btn"><a href="#">Reply</a></span>
-                                            <h5 class="comment-author">Admin</h5>
-                                            <div class="comment-post-date">
-                                                20 Nov, 2019 at 9:30pm
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim maiores
-                                                adipisci optio ex, laboriosam facilis non pariatur itaque illo sunt?</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="author-avatar">
-                                            <img src="assets/img/blog/comment-icon.png" alt="">
-                                        </div>
-                                        <div class="comment-body">
-                                            <span class="reply-btn"><a href="#">Reply</a></span>
-                                            <h5 class="comment-author">Admin</h5>
-                                            <div class="comment-post-date">
-                                                25 Jan, 2019 at 9:30pm
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim maiores
-                                                adipisci optio ex, laboriosam facilis non pariatur itaque illo sunt?</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- comment area end -->
+                                <!--Billing Info End-->
+                                <div class="col-lg-1">
 
-                            <!-- start blog comment box -->
-                            <div class="blog-comment-wrapper">
-                                <h5>Leave a reply</h5>
-                                <p>Your email address will not be published. Required fields are marked *</p>
-                                <form action="#">
-                                    <div class="comment-post-box">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <label>Comment</label>
-                                                <textarea name="commnet" placeholder="Write a comment"></textarea>
-                                            </div>
-                                            <div class="col-lg-4 col-md-4">
-                                                <label>Name</label>
-                                                <input type="text" class="coment-field" placeholder="Name">
-                                            </div>
-                                            <div class="col-lg-4 col-md-4">
-                                                <label>Email</label>
-                                                <input type="text" class="coment-field" placeholder="Email">
-                                            </div>
-                                            <div class="col-lg-4 col-md-4">
-                                                <label>Website</label>
-                                                <input type="text" class="coment-field" placeholder="Website">
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="coment-btn">
-                                                    <input class="btn btn-sqr" type="submit" name="submit" value="Post Comment">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                </div>
+                                <!--Shipping Info Start-->
+                                <div class="col-lg-6 col-md-6 col-12 mb-20">
+                                    <h4 class="mb-25">Blog Detail</h4>
+                                   
+                                    <table class="table">
+                                        <tr>
+                                            <td style="width: 130px">Title</td>
+                                            <td style="width: 30px">:</td>
+                                            <td>{{$bg->title}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Subtitle</td>
+                                            <td>:</td>
+                                            <td>{{$bg->subtitle}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Description</td>
+                                            <td>:</td>
+                                            <td>{{$bg->description}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="vertical-align: top">Date</td>
+                                            <td style="vertical-align: top">:</td>
+                                            <td>{{$bg->date}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="vertical-align: top">Paragraph</td>
+                                            <td style="vertical-align: top">:</td>
+                                            <td>{{$bg->paragraph}}</td>
+                                        </tr>
+                                        
+                                        
+                                    </table>
+                                </div>
+                                
+                                <!--Shipping Info End-->
                             </div>
-                            <!-- start blog comment box -->
                         </div>
-                    </div>
-                </div>
+                        <!--Order Details Customer Information Start-->
+                      </div>
+                     
+                      <hr>
+                      @endforeach
+                                @endisset
+
             </div>
         </div>
         <!-- blog main wrapper end -->

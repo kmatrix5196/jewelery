@@ -8,7 +8,7 @@ use App\Models\Conversation;
 use App\Models\Admin;
 use App\Models\Company;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     /**
@@ -39,6 +39,19 @@ class UserController extends Controller
         return redirect()->route('view_product_user');
 
     }
+
+    public function view_cart(){
+        $userid=auth()->user()->id;
+        //DB::enableQueryLog();
+        $cart=Cart::leftJoin('product','product.id','=','cart.product_id')
+        ->where('cart.user_id','=',$userid)
+        ->leftJoin('gallery','gallery.product_id','=','cart.product_id')
+        ->where('gallery.type','=','typemain')
+        ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
+        ->get();
+        //dd(DB::getQueryLog());
+        return view('client.pages.cart',['cart'=>$cart]);
+    }
     public function add_to_wishlist($id)
     {
         $wishlist=new Wishlist;
@@ -67,6 +80,9 @@ class UserController extends Controller
         Wishlist::where('id', '=', $id)->delete();
         return redirect()->route('wishlist');
     }
+
+
+
     public function profile()
     {
         return view('client.pages.my_account');

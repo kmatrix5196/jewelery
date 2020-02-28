@@ -29,7 +29,7 @@ Route::prefix('/company')->group(function () {
 	Route::post('/chat', 'CompanyController@chat')->name('company.chat');
 	Route::get('/', function () {
 		return redirect()->route('company.profile');
-	});	
+	});
 });
 Route::prefix('/user')->group(function () {
 	Route::get('/login', 'Auth\UserLoginController@showUserLoginForm')->name('user.login');
@@ -62,7 +62,8 @@ Route::prefix('/home')->group(function () {
 	/*Route::get('/', function () {
 		return View::make('client.pages.index');
 	});*/
-	
+	Route::get('/cart','UserController@view_cart');
+	Route::get('/minicart','UserController@minicart');
 	Route::get('wishlist','UserController@view_wishlist')->name('wishlist');
 
 	Route::get('/', 'Database\ProductController@view_index');
@@ -85,7 +86,7 @@ Route::prefix('/home')->group(function () {
 	Route::get('my_account', function () {
 		return View::make('client.pages.my_account');
 	});
-	
+
 	Route::prefix('premium_show')->group(function(){
 		Route::get('/',"Database\PremiumController@view_premium_c");
 		Route::get('/detail/{id}',"Database\PremiumController@view_premium_c_dtl");
@@ -95,19 +96,20 @@ Route::prefix('/home')->group(function () {
 	});
 
 	Route::get('supplier',"Database\CompanyController@view_company_c");
+	Route::get('company_profile/{id}', "Database\CompanyController@company_detail_c");
 
 	Route::get('supplier_company', function () {
 		return View::make('client.pages.supplier_company');
 	});
 	Route::prefix('trade_show')->group(function () {
 		Route::get('/', "Database\BlogController@view_blog");
-		Route::get('/blog_detail/{id}', "Database\BlogController@view_blog_dtl")->name('blog_detail');
+		Route::get('view/{id}', 'Database\BlogController@view_blog_detail')->name('blog_detail');
 	});
 	Route::prefix('shop')->group(function () {
 		Route::get('', 'Database\ProductController@view_product');
 		Route::get('view', 'Database\ProductController@view_product')->name('view_product_user');
 		Route::get('/{id}','Database\ProductController@view_product_dtl');
-		
+
 		Route::get('/category/{category}','Database\ProductController@view_product_by_category');
 		Route::get('/jewellery/{jewellery}','Database\ProductController@view_product_by_jewellery');
 		Route::get('/add_to_wishlist/{id}','UserController@add_to_wishlist')->name('add_to_wish');
@@ -117,7 +119,7 @@ Route::prefix('/home')->group(function () {
 		Route::get('', function () {
 			return View::make('client.pages.login');
 		})->name('add_user');
-	 
+
 		Route::post('', "Database\UserController@add_user");
 	});
 });
@@ -139,18 +141,18 @@ Route::prefix('/admin')->group(function(){
 	// Route::get('chat', function () {
 	// 	return View::make('admin.pages.chat');
 	// });
-	
+
 	Route::get('company_lists', function () {
         return View::make('admin.pages.company_lists');
     });
     Route::get('company_lists',"Database\CompanyController@view_company");
     Route::get('delete/{id}', "Database\CompanyController@delete_company")->name('delete_company');
     Route::get('company_detail/{id}',"Database\CompanyController@company_detail");
-    
+
 	Route::get('edit_products', function () {
 		return View::make('admin.pages.edit_products');
 	});
-	
+
 	Route::get('my_account', function () {
 		return View::make('admin.pages.my_account');
 	});
@@ -166,7 +168,7 @@ Route::prefix('/admin')->group(function(){
 	Route::get('table-data-table', function () {
 		return View::make('admin.pages.table-data-table');
 	});
-	
+
        Route::prefix('user_lists')->group(function () {
         Route::get('', function () {
             return redirect()->route('view_users');
@@ -199,7 +201,7 @@ Route::prefix('/admin')->group(function(){
             return redirect()->route('view_blog');
         });
         Route::get('view', 'Database\BlogController@view_blog')->name('view_blog');
-        
+
         Route::get('add', function () {
             return View::make('admin.pages.add-blog');
         })->name('add_blog');
@@ -254,7 +256,11 @@ Route::prefix('writer')->group(function () {
 	});
 });
 
-
+Route::post('/check_out', 'PaymentController@check_out');
+Route::get('/check_out', 'PaymentController@check_out');
+Route::get('/check_out', function() {
+    return view('payment.check_out');
+});
 
 // Route::prefix('/home')->group(function () {
 //     Route::get('', function () {
@@ -299,11 +305,11 @@ Route::prefix('writer')->group(function () {
 //         Route::get('/{id}','Database\ProductController@view_product_dtl');
 //     });
 //     Route::prefix('login-register')->group(function () {
-        
+
 //         Route::get('', function () {
 //             return View::make('client.pages.login-register');
 //         })->name('add_user');
-     
+
 //         Route::post('', "Database\UserController@add_user");
 //     });
 // });
@@ -313,7 +319,7 @@ Route::prefix('writer')->group(function () {
 // Route::prefix('admin')->group(function () {
 //     Route::get('/', function () {
 //         return View::make('admin.pages.index');
-//     });    
+//     });
 //     Route::get('login', 'Auth\LoginController@showAdminLoginForm')->name('admin_login');
 //     Route::post('login', 'Auth\LoginController@adminLogin');
 //     Route::get('register', 'Auth\RegisterController@showAdminRegisterForm');
@@ -334,7 +340,7 @@ Route::prefix('writer')->group(function () {
 //     Route::get('edit_products', function () {
 //         return View::make('admin.pages.edit_products');
 //     });
-    
+
 //     Route::get('my_account', function () {
 //         return View::make('admin.pages.my_account');
 //     });
@@ -353,14 +359,14 @@ Route::prefix('writer')->group(function () {
 //     Route::get('table-data-table', function () {
 //         return View::make('admin.pages.table-data-table');
 //     });
-  
+
 //        Route::prefix('user_lists')->group(function () {
 //         Route::get('', function () {
 //             return redirect()->route('view_users');
 //         });
 //         Route::get('view', 'Database\UserController@view_users')->name('view_users');
 //         Route::get('view/{id}', 'Database\UserController@view_user');
-       
+
 
 //         Route::get('delete/{id}', "Database\UserController@delete_user")->name('delete_user');
 //     });
