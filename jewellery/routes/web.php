@@ -100,7 +100,7 @@ Route::prefix('/home')->group(function () {
 	});
 	Route::prefix('trade_show')->group(function () {
 		Route::get('/', "Database\BlogController@view_blog");
-		Route::get('/blog_detail/{id}', "Database\BlogController@view_blog_dtl")->name('blog_detail');
+		Route::get('view/{id}', 'Database\BlogController@view_blog_detail')->name('blog_detail');
 	});
 	Route::prefix('shop')->group(function () {
 		Route::get('', 'Database\ProductController@view_product');
