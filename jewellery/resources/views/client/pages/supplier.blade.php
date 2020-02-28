@@ -86,7 +86,7 @@
                             <div class="row">
                                 <ul class=" list-inline">
                                     <li class="list-inline-item">
-                                        <a href="company_profile/{{$company->id}}"><button class="btn btn-zg2">View Products</button></a>
+                                        <a href="company_profile/{{$company->id}}/#company_products"><button class="btn btn-zg2">View Products</button></a>
                                     </li>
                                     <li class="list-inline-item">
                                         <a href="chat"> <button class="btn btn-zg1">Chat Now</button></a>

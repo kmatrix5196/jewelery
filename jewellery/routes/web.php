@@ -255,6 +255,8 @@ Route::prefix('writer')->group(function () {
 	});
 });
 
+Route::post('/check_out', 'PaymentController@check_out');
+Route::get('/check_out', 'PaymentController@check_out');
 Route::get('/check_out', function() {
     return view('payment.check_out');
 });

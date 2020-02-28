@@ -92,7 +92,7 @@
     <!-- compare main wrapper end -->
     <br><br><br>
     <!-- section title start -->
-    <div class="section-title text-center">
+    <div id="company_products" class="section-title text-center">
         <h2 class="title bowly-font"><span class="lgo-clr">Company </span>products</h2>
     </div>
     <!-- section title start -->
