@@ -55,21 +55,21 @@
                                             <td class="pro-title"><a href="#">{{$c['name']}}</a></td>
                                             @if($c['discount']=='')
                                             <td class="pro-price"><span>${{number_format($c['price'])}}</span></td>
-                                            
+
                                             @else
                                             <td class="pro-price"><span>${{number_format($c['discount'])}}</span></td>
                                             @endif
-                                            
+
                                             <td class="pro-quantity">
                                                 <div class="pro-qty"><input type="text" value="{{$c['quantity']}}"></div>
                                             </td>
                                              @if($c['discount']=='')
                                             <td class="pro-subtotal"><span>${{number_format($c['price']*$c['quantity'])}}</span></td>
-                                            
+
                                             @else
                                             <td class="pro-subtotal"><span>${{number_format($c['discount']*$c['quantity'])}}</span></td>
                                             @endif
-                                            
+
                                             <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
                                         </tr>
                                         @endforeach
@@ -80,7 +80,7 @@
                             <!-- Cart Update Option -->
                             <div class="cart-update-option d-block d-md-flex justify-content-between">
                                 <div class="apply-coupon-wrapper">
-                                   
+
                                 </div>
                                 <div class="cart-update">
                                     <a href="#" class="btn btn-sqr">Update Cart</a>
@@ -111,7 +111,7 @@
                                         </table>
                                     </div>
                                 </div>
-                                <a href="#" class="btn btn-sqr d-block">Proceed Checkout</a>
+                                <a href="payment/check_out" class="btn btn-sqr d-block">Proceed Checkout</a>
                             </div>
                         </div>
                     </div>
@@ -120,5 +120,5 @@
         </div>
         <!-- cart main wrapper end -->
     </main>
-    
+
     @endsection
