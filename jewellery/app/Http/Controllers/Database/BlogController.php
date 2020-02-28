@@ -30,7 +30,7 @@ class BlogController extends Controller
 
 		}
 		else {
-				$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.date','ASC')->offset(1)->paginate(12);
+				$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.date','ASC')->paginate(1);
 			$cur_time = Carbon::now();
 			$near_blog = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->whereDate('date', '>=', $cur_time)->orderBy('blog.date','ASC')->offset(0)->limit(1)->paginate(12);
 			return view('client.pages.trade_show',['temp_blogs' => $temp_blogs,'near_blog'=>$near_blog]);

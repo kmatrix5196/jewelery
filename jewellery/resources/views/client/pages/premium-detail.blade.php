@@ -95,6 +95,7 @@
                       </div>
                       <div class="row">
                                     <div class="col-lg-6">
+                                    
                                         <iframe src="{{asset($premi->certificate)}}" style="width: 450px;height:300px;border:1px solid; "></iframe>
                                     <!-- <img src="{{asset($premi->certificate)}}" alt="">  -->
                                     </div>
