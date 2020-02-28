@@ -1,4 +1,8 @@
 <!-- Quick view modal start -->
+@php ($a=0)
+@auth('company')
+@php ($a=1)
+@endauth
 @isset($temp_products)
 @foreach ($temp_products as $temp_product)
 <div class="modal" id="quick_view_{{$temp_product['id']}}">
@@ -69,6 +73,8 @@
                                     </div>
                                     
                                     <p class="pro-desc">{{$temp_product['description']}}</p>
+                                        @if($a==0)
+                                    
                                     <form action="{{route ('add_to_cart')}}" method="post">
                                                 @csrf
                                                 
@@ -78,14 +84,16 @@
                                             <div class="quantity">
                                                 <div class="pro-qty"><input type="text" name="qty" value="1" min="0"></div>
                                             </div>
+                                            
                                             <div class="action_link">
                                                 <input type="submit" name="addcart" value="Add to cart" class="btn btn-cart2" >
                                                 
                                             </div>
                                         </div>
 
+
                                         </form>
-                                  
+                                  @endif
                                 </div>
                             </div>
                         </div>

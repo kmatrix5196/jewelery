@@ -31,6 +31,7 @@ Route::prefix('/user')->group(function () {
 	Route::get('/register', 'Auth\UserRegisterController@showUserRegisterForm')->name('user.register');
 	Route::post('/register', 'Auth\UserRegisterController@createUser')->name('user.register');
 	Route::get('/logout','Auth\UserLoginController@logout')->name('user.logout');
+	Route::post('/fileUpload', 'Auth\UserController@fileupload')->name('file_upload');
 
 	Route::get('/my_account', 'UserController@profile')->name('user.profile');
 	Route::get('/', function () {

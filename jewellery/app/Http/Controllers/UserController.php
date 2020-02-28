@@ -5,6 +5,8 @@ use App\Models\Cart;
 use App\Models\Wishlist;
 use App\Models\Product;
 use App\Models\Conversation;
+use App\Models\Admin;
+use App\Models\Company;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -69,13 +71,35 @@ class UserController extends Controller
     {
         return view('client.pages.my_account');
     }
-    // public function chat()
-    // {
-    //     return view('client.pages.chat');
-    // }
+    public function fileupload(Request $request)
+    {
+        $ldate = date('Y-m-d-H-i-s');
+        $imageName = strval('C'.$request->conv_id.'_'.$ldate).'.'.$request->file('chat-file-upload')->getClientOriginalExtension();
+        $request->file('chat-file-upload')->move(public_path('/img/chat'), $imageName);
+        return response()->json([
+       'name'   => '/img/chat/'.$imageName,
+       'id' => $request->conv_id
+      ]);
+    }
     public function chat(Request $request)
     {
         $conv_rst = Conversation::where('sender_id', '=',  $request->u_id)->get();
+        if ($conv_rst) {
+            foreach ($conv_rst as $value) {
+                if ($value['type'] == 'company')
+                {
+                     $info_rst = Company::select('name','profile_pic')->where('id', '=', $value['reciever_id'])->first();
+                     $value['name'] = ucfirst($info_rst['name']);
+                     $value['profile_pic'] = $info_rst['profile_pic'];
+                }
+                if ($value['type'] == 'admin')
+                {
+                     $info_rst = Admin::select('name')->where('id', '=', $value['reciever_id'])->first();
+                     $value['name'] = ucfirst($info_rst['name']);
+                     $value['profile_pic'] = '/img/admin.png';
+                }
+            }
+        }
         return view('client.pages.chat',['temp_convs' => $conv_rst]);
     }
     public function createcon(Request $request)
@@ -93,7 +117,7 @@ class UserController extends Controller
             $con->save();
         }
         $conv_rst = Conversation::where('sender_id', '=',  $request->u_id)->get();
-        return view('client.pages.chat',['temp_convs' => $conv_rst],['temp_con'=>$temp_conv_rst['conv_id']]);
+        return view('client.pages.chat',['temp_convs' => $conv_rst],['rst_con'=>$temp_conv_rst['conv_id']]);
 
     }
     public function createconpre(Request $request)
@@ -111,7 +135,7 @@ class UserController extends Controller
             $con->save();
         }
         $conv_rst = Conversation::where('sender_id', '=',  $request->u_id)->get();
-        return view('client.pages.chat',['temp_convs' => $conv_rst],['temp_con'=>$temp_conv_rst['conv_id']]);
+        return view('client.pages.chat',['temp_convs' => $conv_rst],['rst_con'=>$temp_conv_rst['conv_id']]);
 
     }
 }

@@ -46,6 +46,7 @@ Route::prefix('/user')->group(function () {
 	});
    //
 	Route::post('/add','UserController@add_to_cart')->name('add_to_cart');
+	Route::post('/fileupload','UserController@fileupload')->name('file_upload');
 
 });
 
