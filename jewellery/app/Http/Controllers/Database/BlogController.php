@@ -22,25 +22,35 @@ class BlogController extends Controller
 	{		
 		if (\Request::is('admin/*'))
 		{
-			$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.date','ASC')->paginate(12);
-			$cur_time =Carbon::now();
-			$near_blog = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->whereDate('date', '>=', $cur_time)->limit(1)->orderBy('blog.date','ASC')->paginate(12);
+				$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.date','ASC')->offset(1)->paginate(12);
+			$cur_time = Carbon::now();
+			$near_blog = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->whereDate('date', '>=', $cur_time)->orderBy('blog.date','ASC')->offset(0)->limit(1)->paginate(12);
 			
 			return view('admin.pages.blog_list',['temp_blogs' => $temp_blogs]);
 
 		}
 		else {
-			$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.date','ASC')->paginate(12);
+				$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.date','ASC')->offset(1)->paginate(12);
 			$cur_time = Carbon::now();
-			$near_blog = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->whereDate('date', '>=', $cur_time)->limit(1)->orderBy('blog.date','ASC')->paginate(12);
+			$near_blog = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->whereDate('date', '>=', $cur_time)->orderBy('blog.date','ASC')->offset(0)->limit(1)->paginate(12);
 			return view('client.pages.trade_show',['temp_blogs' => $temp_blogs,'near_blog'=>$near_blog]);
 		}
 	}
 	public function view_blog_detail($id)
 	{
+		if (\Request::is('admin/*'))
+		{
 		$blog = DB::table('blog')->where('blog_id',$id)->get();
 		$blog_images=DB::table('blog_image')->where('blog_id',$id)->get();
 			return view('admin.pages.blog_detail',['blog' => $blog,'blog_images'=>$blog_images]);
+		}
+		else
+		{
+			$blog = DB::table('blog')->where('blog_id',$id)->get();
+		$blog_images=DB::table('blog_image')->where('blog_id',$id)->get();
+			return view('client.pages.blog-details',['blog' => $blog,'blog_images'=>$blog_images]);
+		}
+
 	}
     public function add_blog(Request $request)
 	{

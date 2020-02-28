@@ -91,7 +91,7 @@
                             <!-- blog post item start -->
                             <div class="blog-post-item">
                                 <figure class="blog-thumb">
-                                    <a href="blog-details">
+                                    <a href="\home\trade_show\view\{{$temp_blog['blog_id']}}">
                                         <img src="{{asset($temp_blog['url'])}}" alt="blog image')}}">
                                     </a>
                                 </figure>
