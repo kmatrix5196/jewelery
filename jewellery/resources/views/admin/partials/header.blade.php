@@ -1,9 +1,9 @@
 <!-- Header Section Start -->
 @auth("admin")
-	@php ($url = 'admin')
+	@php ($user = 'admin')
 @endauth
 @auth("writer")
-	@php ($url = 'writer')
+	@php ($user = 'writer')
 @endauth
 
 <div class="header-section">
@@ -209,7 +209,7 @@
 		<nav class="side-header-menu" id="side-header-menu">
 			<ul>
 				<li><a href="/
-					{{$url}}/index"><i class="ti-home"></i> <span>
+					{{$user}}/index"><i class="ti-home"></i> <span>
 
 					@auth("writer"){{ __('Writer Dashboard') }}@endauth
 				@auth("admin"){{ __('Admin Dashboard') }}@endauth</span></a>
@@ -217,34 +217,34 @@
 				</li>
 				<li class="has-sub-menu"><a href="#"><i class="ti-home"></i> <span>Manage Products</span><span class="menu-expand"><i class="zmdi zmdi-chevron-down"></i></span></a>
 					<ul class="side-header-sub-menu" style="display: none;">
-						<li><a href="/{{$url}}/product/view"><i class=" ti-list"></i> <span>Product Lists</span></a></li>
-						<li><a href="/{{$url}}/product/add"><i class="fa fa-plus"></i><span>Add Product</span></a></li>
-					  <!--   <li><a href="/{{$url}}/products/edit"><i class="fa fa-edit"></i> <span>Edit Product</span></a></li> -->
+						<li><a href="/{{$user}}/product/view"><i class=" ti-list"></i> <span>Product Lists</span></a></li>
+						<li><a href="/{{$user}}/product/add"><i class="fa fa-plus"></i><span>Add Product</span></a></li>
+					  <!--   <li><a href="/{{$user}}/products/edit"><i class="fa fa-edit"></i> <span>Edit Product</span></a></li> -->
 					</ul>
 				</li>
 				<li class="has-sub-menu"><a href="#"><i class="ti-home"></i> <span>Manage Blogs</span><span class="menu-expand"><i class="zmdi zmdi-chevron-down"></i></span></a>
 					<ul class="side-header-sub-menu" style="display: none;">
-						<li><a href="/{{$url}}/blog/view"><i class=" ti-list"></i> <span>Blog Lists</span></a></li>
-						<li><a href="/{{$url}}/blog/add"><i class="fa fa-plus"></i><span>Add Blog</span></a></li>
-					  <!--   <li><a href="/{{$url}}/products/edit"><i class="fa fa-edit"></i> <span>Edit Product</span></a></li> -->
+						<li><a href="/{{$user}}/blog/view"><i class=" ti-list"></i> <span>Blog Lists</span></a></li>
+						<li><a href="/{{$user}}/blog/add"><i class="fa fa-plus"></i><span>Add Blog</span></a></li>
+					  <!--   <li><a href="/{{$user}}/products/edit"><i class="fa fa-edit"></i> <span>Edit Product</span></a></li> -->
 					</ul>
 				</li>
 				@auth("admin")
 				<li class="has-sub-menu"><a href="#"><i class="ti-home"></i> <span>Manage Premium Show</span><span class="menu-expand"><i class="zmdi zmdi-chevron-down"></i></span></a>
 					<ul class="side-header-sub-menu" style="display: none;">
-						<li><a href="/{{$url}}/premium/view"><i class=" ti-list"></i> <span>Premium Show Lists</span></a></li>
-						<li><a href="/{{$url}}/premium/add"><i class="fa fa-plus"></i><span>Add Premium Show</span></a></li>
-						<!--   <li><a href="/{{$url}}/products/edit"><i class="fa fa-edit"></i> <span>Edit Product</span></a></li> -->
+						<li><a href="/{{$user}}/premium/view"><i class=" ti-list"></i> <span>Premium Show Lists</span></a></li>
+						<li><a href="/{{$user}}/premium/add"><i class="fa fa-plus"></i><span>Add Premium Show</span></a></li>
+						<!--   <li><a href="/{{$user}}/products/edit"><i class="fa fa-edit"></i> <span>Edit Product</span></a></li> -->
 					</ul>
 				</li>
 				 <li class="has-sub-menu"><a href="#"><i class="ti-home"></i> <span>Manage Writer</span><span class="menu-expand"><i class="zmdi zmdi-chevron-down"></i></span></a>
 					<ul class="side-header-sub-menu" style="display: none;">
-						<li><a href="/{{$url}}/writer/view"><i class=" ti-list"></i> <span>Writer Lists</span></a></li>
-						<li><a href="/{{$url}}/writer/add"><i class="fa fa-plus"></i><span>Add Writer</span></a></li>
+						<li><a href="/{{$user}}/writer/view"><i class=" ti-list"></i> <span>Writer Lists</span></a></li>
+						<li><a href="/{{$user}}/writer/add"><i class="fa fa-plus"></i><span>Add Writer</span></a></li>
 					</ul>
 				</li>
-				<li><a href="/{{$url}}/order_lists"><i class="fa fa-th-list"></i> <span>Order Lists</span></a></li>
-				<li><a href="/{{$url}}/user_lists"><i class="fa fa-users"></i> <span>Users Lists</span></a></li>
+				<li><a href="/{{$user}}/order_lists"><i class="fa fa-th-list"></i> <span>Order Lists</span></a></li>
+				<li><a href="/{{$user}}/user_lists"><i class="fa fa-users"></i> <span>Users Lists</span></a></li>
 				<li><a href="/admin/company_lists"><i class="fa fa-building"></i> <span>Company Lists</span></a></li>
 				@endauth
 				@auth("admin")
@@ -259,8 +259,8 @@
                 <li>
                 @endauth
 
-				<li><a href="/{{$url}}/table-data-table"><i class="ti-layout"></i> <span>Data Table</span></a></li>
-				<li><a href="/{{$url}}/profile"><i class="fa fa-user-circle"></i> <span>My Profile</span></a></li>
+				<li><a href="/{{$user}}/table-data-table"><i class="ti-layout"></i> <span>Data Table</span></a></li>
+				<li><a href="/{{$user}}/profile"><i class="fa fa-user-circle"></i> <span>My Profile</span></a></li>
 			</ul>
 		</nav>
 
