@@ -80,9 +80,6 @@ class UserController extends Controller
         Wishlist::where('id', '=', $id)->delete();
         return redirect()->route('wishlist');
     }
-
-
-
     public function profile()
     {
         return view('client.pages.my_account');

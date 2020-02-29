@@ -148,10 +148,10 @@
 										</span>
 										<span class="name">
 											@auth("writer")
-											{{Auth::guard('writer')->user()->name}}
+											{{ucfirst(Auth::guard('writer')->user()->name)}}
 											@endauth
 											@auth("admin")
-											{{Auth::guard('admin')->user()->name}}
+											{{ucfirst(Auth::guard('admin')->user()->name)}}
 											@endauth
 										</span>
 									</span>

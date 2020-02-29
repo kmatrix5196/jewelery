@@ -24,6 +24,7 @@ Route::prefix('/company')->group(function () {
 	Route::get('/', function () {
 		return redirect()->route('company.profile');
 	});	
+	
 });
 Route::prefix('/user')->group(function () {
 	Route::get('/login', 'Auth\UserLoginController@showUserLoginForm')->name('user.login');
@@ -31,7 +32,7 @@ Route::prefix('/user')->group(function () {
 	Route::get('/register', 'Auth\UserRegisterController@showUserRegisterForm')->name('user.register');
 	Route::post('/register', 'Auth\UserRegisterController@createUser')->name('user.register');
 	Route::get('/logout','Auth\UserLoginController@logout')->name('user.logout');
-	Route::post('/fileUpload', 'Auth\UserController@fileupload')->name('file_upload');
+	Route::post('/fileUpload', 'Auth\UserController@fileupload')->name('user.file_upload');
 
 	Route::get('/my_account', 'UserController@profile')->name('user.profile');
 	Route::get('/', function () {
@@ -98,6 +99,7 @@ Route::prefix('/home')->group(function () {
 	 
 		Route::post('', "Database\UserController@add_user");
 	});
+
 });
 
 Route::prefix('/admin')->group(function(){

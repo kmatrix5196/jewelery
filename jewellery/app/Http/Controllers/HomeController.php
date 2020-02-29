@@ -25,4 +25,14 @@ class HomeController extends Controller
     {
         return view('client.pages.my_account');
     }
+    public function fileupload(Request $request)
+    {
+        $ldate = date('Y-m-d-H-i-s');
+        $imageName = strval('C'.$request->conv_id.'_'.$ldate).'.'.$request->file('chat-file-upload')->getClientOriginalExtension();
+        $request->file('chat-file-upload')->move(public_path('/img/chat'), $imageName);
+        return response()->json([
+       'name'   => '/img/chat/'.$imageName,
+       'id' => $request->conv_id
+      ]);
+    }
 }

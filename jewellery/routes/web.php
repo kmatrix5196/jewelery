@@ -73,19 +73,13 @@ Route::prefix('/home')->group(function () {
 	// Route::get('blog-details', function () {
 	//     return View::make('client.pages.blog-details');
 	// });
-
-	Route::get('company_profile', function () {
-		return View::make('client.pages.company_profile');
-	});
+	Route::post('/fileUpload', 'HomeController@fileupload')->name('file_upload');
 	Route::get('contact-us', function () {
 		return View::make('client.pages.contact-us');
 	});
    /* Route::get('login-register', function () {
 		return View::make('client.pages.login-register');
 	});*/
-	Route::get('my_account', function () {
-		return View::make('client.pages.my_account');
-	});
 
 	Route::prefix('premium_show')->group(function(){
 		Route::get('/',"Database\PremiumController@view_premium_c");

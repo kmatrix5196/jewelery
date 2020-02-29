@@ -31,3 +31,5 @@
     <script src="{{asset('administrator/js/plugins/vmap/maps/samples/jquery.vmap.sampledata.js')}}"></script>
     <script src="{{asset('administrator/js/plugins/vmap/vmap.active.js')}}"></script>
     <script src="{{asset('administrator/js/preloader.js')}}"></script>
+
+    
