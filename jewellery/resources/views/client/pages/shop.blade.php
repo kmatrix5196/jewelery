@@ -1,6 +1,10 @@
     @extends('client.layouts.default')
     @section('title','Shop')
     @section('content')
+    @php ($a=0)
+    @auth('company')
+    @php ($a=1)
+    @endauth
     <main>
         <!-- breadcrumb area start -->
         <div class="breadcrumb-area">
@@ -94,9 +98,11 @@
                                                 <a href="#" data-toggle="tooltip" data-placement="left" title="Message" onclick="createCon({{$temp_product['id']}},{{$temp_product['company_id']}})"><i class="pe-7s-chat"></i></a>
                                                 @endauth
                                             </div>
+                                            @if($a==0)
                                             <div class="cart-hover">
                                                 <a href="/home/shop/{{$temp_product['id']}}"><button class="btn btn-cart">add to cart</button></a>
                                             </div>
+                                            @endif
                                         </figure>
                                         <div class="product-caption text-center">
 
@@ -144,7 +150,6 @@
                                             <div class="price-box">
                                                 @if($temp_product['discount']=='')
                                             <span class="price-regular">${{number_format($temp_product['price'],2)}}</span>
-                                            
                                             @else
                                             <span class="price-regular">${{number_format($temp_product['discount'],2)}}</span>
                                             <span class="price-old"><del>${{number_format($temp_product['price'],2)}}</del></span>

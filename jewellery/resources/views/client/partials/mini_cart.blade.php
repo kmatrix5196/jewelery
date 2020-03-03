@@ -5,7 +5,6 @@
             <div class="minicart-close">
                 <i class="pe-7s-close"></i>
             </div>
-            @isset($cart)
             <div class="minicart-content-box">
                 <div class="minicart-item-wrapper">
                     <ul>
@@ -56,7 +55,6 @@
                     <a href="cart"><i class="fa fa-share"></i> Checkout</a>
                 </div>
             </div>
-            @endisset
         </div>
     </div>
 </div>
