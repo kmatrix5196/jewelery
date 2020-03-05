@@ -18,7 +18,7 @@
                 <div class="col-12 col-lg-auto mb-20">
                     <div class="buttons-group">
                         <button class="button button-outline button-primary">Save</button>
-                        
+
                         <button class="button button-outline button-danger">Cancel</button>
                     </div>
                 </div><!-- Page Button Group End -->
@@ -28,11 +28,11 @@
             <!-- Add or Edit Product Start -->
             <div class="add-edit-product-wrap col-12">
                 @isset($temp_product)
-                
+
                 <div class="add-edit-product-form">
                     <form action="{{route ('edit_product')}}" method="post" enctype="multipart/form-data">
                         @csrf
-                        
+
                         <h4 class="title">About Product</h4>
 
                         <div class="row">
@@ -49,18 +49,18 @@
                                 <input list="company" class="form-control" name="p_company_name" value="{{$company_name}}" autocomplete="off">
                                  @isset($company)
                                 <datalist id="company">
-                                   
+
                                     @foreach ($company as $cn) {
-                                        
-                                    
+
+
                                     <option value="{{ $cn['name'] }}"></option>
-                                    
+
                                     @endforeach
                                 </datalist>
                                 @endisset
-                                
+
                                     <!-- <datalist id="company">
-                                    
+
                                     </datalist> -->
                             </div>
                             <div class="col-lg-6 col-12 mb-30">
@@ -134,14 +134,14 @@
                         <div class="row">
                             <div class="d-flex flex-wrap justify-content-end col mbn-10">
                                 <button class="button button-outline button-primary mb-10 ml-10 mr-0" value="{{$temp_product['id']}}" name="p_id" type="submit">Save</button>
-                                
+
                                 <button class="button button-outline button-danger mb-10 ml-10 mr-0">Cancel</button>
                             </div>
                         </div><!-- Button Group End -->
 
                     </form>
                 </div>
-               
+
                 @endisset
             </div><!-- Add or Edit Product End -->
 

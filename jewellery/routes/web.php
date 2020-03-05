@@ -26,6 +26,9 @@ Route::prefix('/company')->group(function () {
 	Route::get('/logout','Auth\CompanyLoginController@logout')->name('company.logout');
 
 	Route::get('/company_profile', 'CompanyController@profile')->name('company.profile');
+	Route::get('/company_profile/{id}', 'Database\CompanyController@edit');
+	Route::post('/company_profile/{id}', 'Database\CompanyController@update')->name('update_company');
+
 	Route::post('/chat', 'CompanyController@chat')->name('company.chat');
 	Route::get('/', function () {
 		return redirect()->route('company.profile');

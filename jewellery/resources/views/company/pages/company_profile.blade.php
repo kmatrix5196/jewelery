@@ -39,10 +39,10 @@
                             <img src="{{asset($company->profile_pic)}}" alt="about thumb">
                         </div>
                     </div>
-
                     <div class="col-lg-6">
                         <div class="about-content">
                             <h3 class="about-title bowly-font" style="color:#c29958;">{{$company->name}}</h3>
+                            <a href="/company/company_profile/{{$company->id}}"><button class="btn btn-zg2">Edit Profile</button></a>
                             <button class="btn btn-zg2">Chat Now</button>
                             <br>
                         </div>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Conversation;
 use App\Models\User;
+use App\Models\Company;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
