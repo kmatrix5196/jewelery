@@ -48,11 +48,11 @@ class CompanyLoginController extends Controller
 
     public function companyLogin(Request $request)
     {
-        $this->validate($request, [
+     /*   $this->validate($request, [
             'email'   => 'required|email',
             'password' => 'required|min:6'
         ]);
-
+*/
         if (Auth::guard('company')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
             return redirect()->intended('/home');
