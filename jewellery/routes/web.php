@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -118,6 +117,39 @@ Route::prefix('/home')->group(function () {
 		})->name('add_user');
 
 		Route::post('', "Database\UserController@add_user");
+	});
+});
+
+Route::prefix('/writer')->group(function(){
+	  Route::prefix('blog')->group(function () {
+        Route::get('', function () {
+            return redirect()->route('view_blog');
+        });
+        Route::get('view', 'Database\BlogController@view_blog')->name('view_blog');
+
+        Route::get('add', function () {
+            return View::make('admin.pages.add-blog');
+        })->name('add_blog');
+        Route::post('add', "Database\BlogController@add_blog");
+        Route::get('view/{id}', 'Database\BlogController@view_blog_detail');
+        Route::get('edit/{id}',"Database\BlogController@edit_blog");
+        Route::post('edit', "Database\BlogController@update_blog")->name('edit_blog');
+
+        Route::get('delete/{id}', "Database\BlogController@delete_blog")->name('delete_blog');
+    });
+	Route::prefix('/product')->group(function(){
+		Route::get('', function () {
+            return redirect()->route('view_product');
+        });
+        Route::get('view', 'Database\ProductController@view_product')->name('view_product');
+        Route::get('view/{id}', 'Database\ProductController@view_product_dtl');
+        Route::get('add', "Database\ProductController@add")->name('add_product');
+        Route::post('add', "Database\ProductController@add_product");
+
+        Route::get('edit/{id}',"Database\ProductController@edit_product");
+        Route::post('edit', "Database\ProductController@update_product")->name('edit_product');
+
+        Route::get('delete/{id}', "Database\ProductController@delete_product")->name('delete_product');
 	});
 });
 

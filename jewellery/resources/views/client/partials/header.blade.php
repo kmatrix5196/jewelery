@@ -137,7 +137,7 @@
                                             </li>
                                             <li>
                                                 <a href="/company/login">Company Login /</a>
-                                                <a href="company/register">Register</a>
+                                                <a href="/company/register">Register</a>
                                             </li>
                                             @endif
 

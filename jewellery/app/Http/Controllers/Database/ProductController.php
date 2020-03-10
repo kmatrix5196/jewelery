@@ -53,7 +53,7 @@ class ProductController extends Controller
 
 	public function view_product()
 	{
-		if (\Request::is('admin/*'))
+		if (\Request::is('admin/*')||\Request::is('writer/*'))
 		{
 
 
@@ -62,6 +62,7 @@ class ProductController extends Controller
 			->get();
 			return view('admin.pages.product_list',['temp_products' => $temp_products]);
 		}
+	
 		else {
 			$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')->where('gallery.type','=','typemain')->leftJoin('company','product.company_id','=','company.id')->select('product.*','gallery.url','company.name as c_name')->orderBy('product.created_at','DESC')->paginate(12);
 			return view('client.pages.shop',['temp_products' => $temp_products]);

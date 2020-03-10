@@ -20,7 +20,7 @@ class BlogController extends Controller
 
     public function view_blog()
 	{		
-		if (\Request::is('admin/*'))
+		if (\Request::is('admin/*')||\Request::is('writer/*'))
 		{
 				$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.date','ASC')->offset(1)->paginate(12);
 			$cur_time = Carbon::now();
@@ -43,7 +43,7 @@ class BlogController extends Controller
 	}
 	public function view_blog_detail($id)
 	{
-		if (\Request::is('admin/*'))
+		if (\Request::is('admin/*')||\Request::is('writer/*'))
 		{
 		$blog = DB::table('blog')->where('blog_id',$id)->get();
 		$blog_images=DB::table('blog_image')->where('blog_id',$id)->get();
@@ -113,7 +113,6 @@ class BlogController extends Controller
 		$blog->save();
 		return redirect()->route('view_blog');
 	}
-
 	public function delete_blog($id)
 	{
 		// Validate the request...

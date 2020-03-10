@@ -46,11 +46,11 @@ class WriterLoginController extends Controller
 
     public function writerLogin(Request $request)
     {
-        $this->validate($request, [
+      /*  $this->validate($request, [
             'email'   => 'required|email',
             'password' => 'required|min:6'
         ]);
-
+*/
         if (Auth::guard('writer')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
             Auth::guard('admin')->logout();
             return redirect()->intended('/writer');

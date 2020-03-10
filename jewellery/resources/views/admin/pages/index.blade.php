@@ -33,7 +33,7 @@
 
                         <!-- Head -->
                         <div class="head">
-                            <h4>Total Visitor</h4>
+                            <h4>Fuck You</h4>
                             <a href="#" class="view"><i class="zmdi zmdi-eye"></i></a>
                         </div>
 

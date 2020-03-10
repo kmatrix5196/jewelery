@@ -46,10 +46,11 @@ class AdminLoginController extends Controller
 
     public function adminLogin(Request $request)
     {
-        $this->validate($request, [
+      /*  $this->validate($request, [
             'email'   => 'required|email',
             'password' => 'required|min:5'
         ]);
+        */
 
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
             Auth::guard('writer')->logout();
