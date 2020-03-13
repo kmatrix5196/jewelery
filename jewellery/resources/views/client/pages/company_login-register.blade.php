@@ -5,7 +5,7 @@
          <style type="text/css">
               #map{ width:460px; height: 300px; }
             </style>
-        
+
         <!-- breadcrumb area start -->
         <div class="breadcrumb-area">
             <div class="container">
@@ -33,44 +33,12 @@
             <div class="container">
                 <div class="member-area-from-wrap">
                     <div class="row">
-                        <!-- Login Content Start -->
-                        <!-- <div class="col-lg-6">
-                            <div class="login-reg-form-wrap">
-                                <h5 class="Royal_Crescent_Bold">Log In</h5>
-                                <form action="#" method="post">
-                                    <div class="single-input-item">
-                                        <input type="email" placeholder="Email Address or UserID" required />
-                                    </div>
-                                    <div class="single-input-item">
-                                        <input type="password" placeholder="Enter your Password" required />
-                                    </div>
-                                    <div class="single-input-item">
-                                        <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
-                                            <div class="remember-meta">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="rememberMe">
-                                                    <label class="custom-control-label" for="rememberMe">I Agree To Free Membership Aggrement</label>
-                                                </div>
-                                            </div>
-                                            <a href="#" class="forget-pwd">Forget Password?</a>
-                                        </div>
-                                    </div>
-                                    <div class="single-input-item">
-                                        <button class="btn btn-sqr">Sign In</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div> -->
-                        <!-- Login Content End -->
-                        <div class="col-lg-3">
-                            
-                        </div>
                         <!-- Register Content Start -->
                         <div class="col-lg-6">
                             <div class="login-reg-form-wrap sign-up-form">
                                 <h5 class="Royal_Crescent_Bold">Regristation Form</h5>
                                 <br>
-                                <form action="{{url('/company/register')}}" enctype="multipart/form-data" method="post">
+                                <form action="{{route ('add_company')}}" enctype="multipart/form-data" method="post">
                         @csrf
                                   <div class="row">
                                       <div class="col-lg-6">
@@ -93,7 +61,19 @@
                                 <p class="form-help-text mt-0">Upload your company profile picture.</p>
                                 <input class="file-pond" type="file" multiple name="b_img" accept="image/*">
                             </div>
-                        </div> 
+                        </div>
+                        <div class="product-upload-gallery row flex-wrap">
+                            <div class="col-12 mb-30">
+                                <p class="form-help-text mt-0">Upload another photo for your company.</p>
+                                <input class="file-pond" type="file" multiple name="b_img1" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="product-upload-gallery row flex-wrap">
+                            <div class="col-12 mb-30">
+                                <p class="form-help-text mt-0">Upload another photo for your company.</p>
+                                <input class="file-pond" type="file" multiple name="b_img2" accept="image/*">
+                            </div>
+                        </div>
                                     <div class="single-input-item">
                                         <input type="text" placeholder="Main Product" name="product" required />
                                     </div>
@@ -110,7 +90,7 @@
                                         <input type="text" placeholder="Address : " name="address" required />
                                     </div>
                                     <div class="single-input-item">
-                                        
+
                                         <div id="map"></div>
                                     </div>
                                     <input type="hidden" id="lat" name="lat">
@@ -127,7 +107,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                   
+
                                     <div class="single-input-item">
                                         <button class="btn btn-sqr" id="Register" disabled="disabled">Register</button>
                                     </div>
@@ -142,22 +122,22 @@
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
         <script type="text/javascript">
             //map.js
- 
+
 //Set up some of our variables.
 var map; //Will contain map object.
-var marker = false; ////Has the user plotted their location marker? 
-        
+var marker = false; ////Has the user plotted their location marker?
+
 //Function called to initialize / create the map.
 //This is called when the page has loaded.
 function initMap() {
-    
+
     if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
+  } else {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
   function showPosition(position) {
-  /*x.innerHTML = "Latitude: " + position.coords.latitude + 
+  /*x.innerHTML = "Latitude: " + position.coords.latitude +
   "<br>Longitude: " + position.coords.longitude;*/
     var uluru = {lat: position.coords.latitude, lng: position.coords.longitude};
     //The center location of our map.
@@ -169,12 +149,12 @@ function initMap() {
       center: centerOfMap, //Set center.
       zoom: 18 //The zoom value.
     };
- 
+
     //Create the map object.
     map = new google.maps.Map(document.getElementById('map'), options);
     var marker = new google.maps.Marker({position: uluru, map: map});
     //Listen for any clicks on the map.
-    google.maps.event.addListener(map, 'click', function(event) {                
+    google.maps.event.addListener(map, 'click', function(event) {
         //Get the location that the user clicked.
         var clickedLocation = event.latLng;
         //If the marker hasn't been added.
@@ -197,7 +177,7 @@ function initMap() {
         markerLocation();
     });
 
-        
+
 //This function will get the marker's current location and then add the lat/long
 //values to our textfields so that we can save the location.
 function markerLocation(){
@@ -208,8 +188,8 @@ function markerLocation(){
     document.getElementById('lng').value = currentLocation.lng(); //longitude
 }
    }
-}     
-        
+}
+
 //Load the map when the page has finished loading.
 google.maps.event.addDomListener(window, 'load', initMap);
         </script>
@@ -226,14 +206,14 @@ google.maps.event.addDomListener(window, 'load', initMap);
             document.getElementById("Register").disabled=false;
           }
           else{
-           
+
             y.style.color="red";
             //document.getElementById("check").style.display="none";
             document.getElementById("Register").disabled=true;
           }
         }
 
-        
-    </script>  
+
+    </script>
     </main>
     @endsection
