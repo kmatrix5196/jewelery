@@ -9,7 +9,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+Auth::routes(['verify' => true]);
 Route::get('/login', function () {
 	return redirect('/home');
 })->name('login');
@@ -191,9 +191,7 @@ Route::prefix('/admin')->group(function(){
 	Route::get('product_payment', function () {
 		return View::make('admin.pages.product_payment');
 	});
-	Route::get('profile', function () {
-		return View::make('admin.pages.profile');
-	});
+	Route::get('profile', 'Database\AdminController@view_admin');
 	Route::get('table-data-table', function () {
 		return View::make('admin.pages.table-data-table');
 	});
