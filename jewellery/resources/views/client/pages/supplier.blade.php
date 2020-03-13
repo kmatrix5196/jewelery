@@ -29,24 +29,21 @@
 
     <!-- compare main wrapper start -->
     @isset($companies)
-    @foreach($companies as $company)
+
     <div class="compare-page-wrapper section-padding">
         <div class="container">
             <div class="section-bg-color">
-
                 <!-- start company row -->
-                <div class="row align-items-center">
+                <div class="row">
+                  @foreach($companies as $company)
                     <div class="col-lg-6">
-                        <div class="about-thumb"><br>
+                        <div class="about-thumb" align="center"><br>
                             <a href="company_profile/{{$company->id}}">
                                 <img src="{{asset($company->profile_pic)}}" alt="about thumb" style="width: 50%">
                             </a>
                         </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6">
+                        <br>
+                        <br>
                         <!-- Compare Page Content Start -->
                         <div class="compare-page-content-wrap">
                             <div class="compare-table table-responsive">
@@ -83,7 +80,7 @@
                             </div>
 
                             <br><br>
-                            <div class="row">
+                            <div align="center">
                                 <ul class=" list-inline">
                                     <li class="list-inline-item">
                                         <a href="company_profile/{{$company->id}}/#company_products"><button class="btn btn-zg2">View Products</button></a>
@@ -96,13 +93,13 @@
                         </div>
                         <!-- Compare Page Content End -->
                     </div>
-                        <!-- Compare Page Content End -->
-                    </div>
+                    @endforeach
                 </div>
-                <!-- end row -->
             </div>
+                <!-- end row -->
         </div>
-    @endforeach
+    </div>
+
     @endisset
     <!-- compare main wrapper end -->
 </main>
