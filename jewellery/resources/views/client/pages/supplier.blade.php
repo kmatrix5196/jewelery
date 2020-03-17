@@ -39,7 +39,7 @@
                     <div class="col-lg-6">
                         <div class="about-thumb" align="center"><br>
                             <a href="company_profile/{{$company->id}}">
-                                <img src="{{asset($company->profile_pic)}}" alt="about thumb" style="width: 50%">
+                                <img src="{{asset($company->profile_pic)}}" alt="about thumb" style="width: 80%">
                             </a>
                         </div>
                         <br>
