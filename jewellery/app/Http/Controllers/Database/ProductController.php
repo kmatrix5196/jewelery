@@ -20,6 +20,8 @@ class ProductController extends Controller
 	 * @param  Request  $request
 	 * @return Response
 	 */
+
+
 	public function view_index(){
 		$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
 		->where('gallery.type','=','typemain')

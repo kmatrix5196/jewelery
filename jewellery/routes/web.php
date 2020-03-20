@@ -9,11 +9,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Auth::routes(['verify' => true]);
 Route::get('/login', function () {
 	return redirect('/home');
 })->name('login');
 
+Route::get('/debug-sentry', function () {
+    throw new Exception('My first Sentry error!');
+});
 
 
 // Routes for client
@@ -123,9 +127,9 @@ Route::prefix('/home')->group(function () {
 Route::prefix('/writer')->group(function(){
 	  Route::prefix('blog')->group(function () {
         Route::get('', function () {
-            return redirect()->route('view_blog');
+            return redirect()->route('view_blog_w');
         });
-        Route::get('view', 'Database\BlogController@view_blog')->name('view_blog');
+        Route::get('view', 'WriterController@view_blog')->name('view_blog_w');
 
         Route::get('add', function () {
             return View::make('admin.pages.add-blog');
@@ -154,6 +158,7 @@ Route::prefix('/writer')->group(function(){
 });
 
 Route::prefix('/admin')->group(function(){
+
 	Route::get('/register', 'Auth\AdminRegisterController@showAdminRegisterForm')->name('admin.register');
 	Route::post('/register', 'Auth\AdminRegisterController@createAdmin')->name('admin.register');
 	Route::get('/login','Auth\AdminLoginController@showAdminLoginForm')->name('admin.login');
@@ -170,7 +175,7 @@ Route::prefix('/admin')->group(function(){
 	// Route::get('chat', function () {
 	// 	return View::make('admin.pages.chat');
 	// });
-
+	
 	Route::get('company_lists', function () {
         return View::make('admin.pages.company_lists');
     });
@@ -459,3 +464,16 @@ Route::get('/check_out', function() {
 
 //         Route::get('delete/{id}', "Database\WriterController@delete_writer")->name('delete_writer');
 //     });
+Route::get('get-all-route', function () {
+
+    $getRouteCollection = Route::getRoutes(); //get and returns all returns route collection
+
+
+
+	foreach ($getRouteCollection as $route) {
+
+	    echo $route->getName().'<br />';
+
+	}
+
+});

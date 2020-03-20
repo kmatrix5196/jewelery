@@ -10,6 +10,18 @@ use Illuminate\Http\Request;
 class PremiumController extends Controller
 {
     //
+        public function __construct()
+    {
+    	if (\Request::is('admin/*')) { 
+  $this->middleware('auth:admin');
+//  dd(url()->current());
+}
+else if (\Request::is('writer/*')) { 
+  $this->middleware('auth:writer');
+ // dd("hh1");
+}
+      	
+    }
         public function add_premium(Request $request)
 	{
 		// Validate the request...

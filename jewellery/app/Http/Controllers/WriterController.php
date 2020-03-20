@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 class WriterController extends Controller
 {
     /**
@@ -25,4 +24,7 @@ class WriterController extends Controller
     {
         return view('admin.pages.index');
     }
+    
+
+
 }

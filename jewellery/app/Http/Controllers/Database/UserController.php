@@ -12,7 +12,18 @@ class UserController extends Controller
 {
     public function add_user(Request $request)
 	{
-		
+		    public function __construct()
+    {
+    	if (\Request::is('admin/*')) { 
+  $this->middleware('auth:admin');
+//  dd(url()->current());
+}
+else if (\Request::is('writer/*')) { 
+  $this->middleware('auth:writer');
+ // dd("hh1");
+}
+      	
+    }
 		// Validate the request...
 
 		$user = new User;

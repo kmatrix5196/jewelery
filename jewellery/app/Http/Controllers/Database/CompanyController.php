@@ -12,6 +12,18 @@ use Illuminate\Http\Request;
 class CompanyController extends Controller
 {
     //
+        public function __construct()
+    {
+    	if (\Request::is('admin/*')) { 
+  $this->middleware('auth:admin');
+//  dd(url()->current());
+}
+else if (\Request::is('writer/*')) { 
+  $this->middleware('auth:writer');
+ // dd("hh1");
+}
+      	
+    }
     public function add_company(Request $request)
 	{
 		// Validate the request...

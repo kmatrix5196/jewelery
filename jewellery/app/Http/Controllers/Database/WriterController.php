@@ -10,7 +10,19 @@ use App\Models\Writer;
 
 class WriterController extends Controller
 {
-    
+ 
+     public function __construct()
+    {
+    	if (\Request::is('admin/*')) { 
+  $this->middleware('auth:admin');
+//  dd(url()->current());
+}
+else if (\Request::is('writer/*')) { 
+  $this->middleware('auth:writer');
+ // dd("hh1");
+}
+      	
+    }   
     public function add_writer(Request $request)
 	{
 		// Validate the request...

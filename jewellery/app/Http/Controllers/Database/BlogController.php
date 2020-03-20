@@ -18,10 +18,24 @@ class BlogController extends Controller
 	 * @return Response
 	 */
 
+    public function __construct()
+    {
+    	if (\Request::is('admin/*')) { 
+  $this->middleware('auth:admin');
+//  dd(url()->current());
+}
+else if (\Request::is('writer/*')) { 
+  $this->middleware('auth:writer');
+ // dd("hh1");
+}
+      	
+    }
+
     public function view_blog()
 	{		
 		if (\Request::is('admin/*')||\Request::is('writer/*'))
 		{
+
 				$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.date','ASC')->offset(1)->paginate(12);
 			$cur_time = Carbon::now();
 			$near_blog = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->whereDate('date', '>=', $cur_time)->orderBy('blog.date','ASC')->offset(0)->limit(1)->paginate(12);

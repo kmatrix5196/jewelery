@@ -1,11 +1,15 @@
 <!-- Header Section Start -->
+
+@if(Auth::check())
 @auth("admin")
 	@php ($user = 'admin')
 @endauth
 @auth("writer")
 	@php ($user = 'writer')
 @endauth
-
+@else
+	return redirect()->route('admin.login');
+@endif
 <div class="header-section">
 	<div class="container-fluid">
 		<div class="row justify-content-between align-items-center">
