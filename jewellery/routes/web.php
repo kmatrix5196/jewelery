@@ -15,14 +15,11 @@ Route::get('/login', function () {
 	return redirect('/home');
 })->name('login');
 
-Route::get('/debug-sentry', function () {
-    throw new Exception('My first Sentry error!');
-});
 
 
 // Routes for client
 Route::prefix('/company')->group(function () {
-	Route::get('/login', 'Auth\CompanyLoginController@showCompanyLoginForm')->name('company.login');
+	Route::get('/login','Auth\CompanyLoginController@showCompanyLoginForm')->name('company.login');
 	Route::post('/login', 'Auth\CompanyLoginController@companyLogin')->name('company.login.submit');
 	Route::get('/register', 'Auth\CompanyRegisterController@showCompanyRegisterForm')->name('company.register');
 	Route::post('/register', 'Auth\CompanyRegisterController@add_company')->name('add_company');
@@ -73,19 +70,10 @@ Route::prefix('/home')->group(function () {
 	Route::get('wishlist','UserController@view_wishlist')->name('wishlist');
 
 	Route::get('/', 'Database\ProductController@view_index');
-	// Route::get('chat', function () {
-	// 	return View::make('client.pages.chat');
-	// });
-	// Route::get('blog-details', function () {
-	//     return View::make('client.pages.blog-details');
-	// });
 	Route::post('/fileUpload', 'HomeController@fileupload')->name('file_upload');
 	Route::get('contact-us', function () {
 		return View::make('client.pages.contact-us');
 	});
-   /* Route::get('login-register', function () {
-		return View::make('client.pages.login-register');
-	});*/
 
 	Route::prefix('premium_show')->group(function(){
 		Route::get('/',"Database\PremiumController@view_premium_c");
@@ -124,7 +112,36 @@ Route::prefix('/home')->group(function () {
 	});
 });
 
+
+/*
+Route::prefix('writer')->group(function () {
+	Route::get('/', function () {
+		return redirect()->route('writer.home');
+	});
+	Route::get('/login','Auth\WriterLoginController@showWriterLoginForm')->name('writer.login');
+	Route::post('/login','Auth\WriterLoginController@writerLogin')->name('writer.login.submit');
+	Route::post('/logout','Auth\WriterLoginController@logout')->name('writers.logout');
+	Route::get('/logout','Auth\WriterLoginController@logout')->name('writer.logout');
+	Route::get('/home','WriterController@index')->name('writer.home');
+	
+	Route::get('/index', function () {
+		return redirect()->route('writer.home');
+	});
+});
+*/
 Route::prefix('/writer')->group(function(){
+		Route::get('/', function () {
+		return redirect()->route('writer.home');
+	});
+	Route::get('/login','Auth\WriterLoginController@showWriterLoginForm')->name('writer.login');
+	Route::post('/login','Auth\WriterLoginController@writerLogin')->name('writer.login.submit');
+	Route::post('/logout','Auth\WriterLoginController@logout')->name('writers.logout');
+	Route::get('/logout','Auth\WriterLoginController@logout')->name('writer.logout');
+	Route::get('/home','WriterController@index')->name('writer.home');
+	
+	Route::get('/index', function () {
+		return redirect()->route('writer.home');
+	});
 	  Route::prefix('blog')->group(function () {
         Route::get('', function () {
             return redirect()->route('view_blog_w');
@@ -158,15 +175,15 @@ Route::prefix('/writer')->group(function(){
 });
 
 Route::prefix('/admin')->group(function(){
-
+	Route::get('/', function () {
+		return redirect()->route('admin.home');
+	});
 	Route::get('/register', 'Auth\AdminRegisterController@showAdminRegisterForm')->name('admin.register');
 	Route::post('/register', 'Auth\AdminRegisterController@createAdmin')->name('admin.register');
 	Route::get('/login','Auth\AdminLoginController@showAdminLoginForm')->name('admin.login');
 	Route::post('/login','Auth\AdminLoginController@adminLogin')->name('admin.login.submit');
 	Route::get('/logout','Auth\AdminLoginController@logout')->name('admin.logout');
-	Route::get('/', function () {
-		return redirect()->route('admin.home');
-	});
+	
 	Route::get('index', function () {
 		return redirect()->route('admin.home');
 	})->name('admin.index');
@@ -215,10 +232,6 @@ Route::prefix('/admin')->group(function(){
         });
         Route::get('view', 'Database\ProductController@view_product')->name('view_product');
         Route::get('view/{id}', 'Database\ProductController@view_product_dtl');
-        /*Route::get('add', function () {
-            //return View::make('admin.pages.add-product');
-            return view('admin.pages.add-product');
-        })->name('add_product');*/
         Route::get('add', "Database\ProductController@add")->name('add_product');
         Route::post('add', "Database\ProductController@add_product");
 
@@ -274,19 +287,7 @@ Route::prefix('/admin')->group(function(){
         Route::get('delete/{id}', "Database\WriterController@delete_writer")->name('delete_writer');
     });
 });
-Route::prefix('writer')->group(function () {
-	Route::get('/login','Auth\WriterLoginController@showWriterLoginForm')->name('writer.login');
-	Route::post('/login','Auth\WriterLoginController@writerLogin')->name('writer.login.submit');
-	Route::post('/logout','Auth\WriterLoginController@logout')->name('writers.logout');
-	Route::get('/logout','Auth\WriterLoginController@logout')->name('writer.logout');
-	Route::get('/home','WriterController@index')->name('writer.home');
-	Route::get('/', function () {
-		return redirect()->route('writer.home');
-	});
-	Route::get('/index', function () {
-		return redirect()->route('writer.home');
-	});
-});
+
 
 Route::post('/check_out', 'PaymentController@check_out');
 Route::get('/check_out', 'PaymentController@check_out');

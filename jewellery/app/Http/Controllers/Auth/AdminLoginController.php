@@ -53,7 +53,9 @@ class AdminLoginController extends Controller
         */
 
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+           // dd("true");
             Auth::guard('writer')->logout();
+          //  dd(Route::getCurrentRoute()->getPath());
             return redirect()->intended('/admin');
         }
         return back()->withInput($request->only('email', 'remember'));

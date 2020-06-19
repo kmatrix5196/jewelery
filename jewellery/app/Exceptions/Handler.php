@@ -69,18 +69,11 @@ class Handler extends ExceptionHandler
            $login='writer.login';
            break;
          default:
-           $login='writer.login';
+           $login='admin.login';
            break;
        }
 
         return redirect()->guest(route($login));
     }
-    public function report(Exception $exception)
-{
-    if (app()->bound('sentry') && $this->shouldReport($exception)) {
-        app('sentry')->captureException($exception);
-    }
 
-    parent::report($exception);
-}
 }

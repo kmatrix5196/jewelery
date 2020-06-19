@@ -19,18 +19,25 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         
-        if ($guard === 'admin' && Auth::guard($guard)->check()) {
-            return redirect('/admin');
+
+       if (Auth::guard('admin')->check()) {
+       dd('r1');
+            return redirect()->intended('/admin/product');
         }
-        if ($guard === 'writer' && Auth::guard($guard)->check()) {
-            return redirect('/writer');
+        if (Auth::guard('writer')->check()) {
+           dd('r2');
+            return redirect()->intended('/writer/product');
         }
-        if ($guard === 'company' && Auth::guard($guard)->check()) {
-            return redirect('/company');
+        if (Auth::guard('company')->check()) {
+          //  dd('r3');
+            return redirect()->intended('/company');
         }
-        if ($guard === 'user' && Auth::guard($guard)->check()) {
-            return redirect('/user');
+        if (Auth::guard('user')->check()) {
+            //dd('r4');
+            return redirect()->intended('/user');
         }
-        return $next($request);
+        //dd('r5');
+        return $next($request); 
+       
     }
 }

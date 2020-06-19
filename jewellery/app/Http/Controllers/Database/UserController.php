@@ -10,9 +10,9 @@ use DB;
 
 class UserController extends Controller
 {
-    public function add_user(Request $request)
-	{
-		    public function __construct()
+
+
+			    public function __construct()
     {
     	if (\Request::is('admin/*')) { 
   $this->middleware('auth:admin');
@@ -24,6 +24,9 @@ else if (\Request::is('writer/*')) {
 }
       	
     }
+    public function add_user(Request $request)
+	{
+
 		// Validate the request...
 
 		$user = new User;

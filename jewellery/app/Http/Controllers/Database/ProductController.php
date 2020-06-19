@@ -20,7 +20,18 @@ class ProductController extends Controller
 	 * @param  Request  $request
 	 * @return Response
 	 */
-
+		    public function __construct()
+    {
+    	if (\Request::is('admin/*')) { 
+  $this->middleware('auth:admin');
+//  dd(url()->current());
+}
+else if (\Request::is('writer/*')) { 
+  $this->middleware('auth:writer');
+ // dd("hh1");
+}
+      	
+    }
 
 	public function view_index(){
 		$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')

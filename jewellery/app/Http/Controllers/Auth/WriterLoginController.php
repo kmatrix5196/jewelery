@@ -52,8 +52,9 @@ class WriterLoginController extends Controller
         ]);
 */
         if (Auth::guard('writer')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-            Auth::guard('admin')->logout();
-            return redirect()->intended('/writer');
+           Auth::guard('admin')->logout();
+       // dd('true');
+            return redirect()->intended('/writer/');
         }
         return back()->withInput($request->only('email', 'remember'));
     }
