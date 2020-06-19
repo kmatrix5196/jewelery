@@ -161,11 +161,10 @@
 				</div>
 				<div class="row">
 					<div class="col-12">
-						
+						<div class="product-carousel-4_2 slick-row-10 slick-arrow-style">
 						   
 							@isset($temp_products)
 							@foreach ($temp_products as $temp_product)
-							<div class="col-4">
 							<!-- product item start -->
 							<div class="product-item">
 								<figure class="product-thumb">
@@ -206,10 +205,10 @@
 								</div>
 							</div>
 							<!-- product item end -->
-							</div>
+							
 							@endforeach
 							@endisset
-						
+						</div>
 					</div>
 				</div>
 			</div>
