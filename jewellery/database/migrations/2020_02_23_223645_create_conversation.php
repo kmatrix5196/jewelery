@@ -15,8 +15,8 @@ class Conversation extends Migration
     {
         Schema::create('conversation', function (Blueprint $table) {
             $table->bigIncrements('conv_id');
-            $table->bigInteger('sender_id')->unsigned()->nullable();;
-            $table->bigInteger('reciever_id')->unsigned()->nullable();;
+            $table->bigInteger('sender_id')->unsigned()->nullable();
+            $table->bigInteger('reciever_id')->unsigned()->nullable();
             $table->string('type')->nullable();
             $table->timestamps();
         });

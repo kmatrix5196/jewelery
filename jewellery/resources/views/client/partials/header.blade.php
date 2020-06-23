@@ -1,16 +1,28 @@
 @if (Request::is('/user/*'))
     @php ($url = 'user')
+    
 @elseif (Request::is('/company/*'))
     @php ($url = 'company')
+    
 @else
     @php ($url = 'guest')
+    
 @endif
 @php ($a=0)
+<script type="text/javascript">
+    var route = "guest";
+</script>
 @auth('user')
+<script type="text/javascript">
+    var route = "/user"
+</script>
 @php ($a=1)
 @endauth
 @auth('company')
 @php ($a=1)
+<script type="text/javascript">
+    var route = "/company"
+</script>
 @endauth
 <!-- Start Header Area -->
 <header class="header-area header-wide">
@@ -85,7 +97,7 @@
                                             @csrf
                                             <input type="text" value="{{Auth::guard('company')->user()->id}}" name="u_id" hidden="true">
                                             <a href="#"><button><img src="https://img.icons8.com/ios/30/000000/speech-bubble-with-dots.png">
-                                            <div class="notification">3</div></button></a>
+                                            <div class="notification" id="chat_notification"></div></button></a>
                                         </form>
                                     </li>
                                     @endauth
@@ -101,7 +113,7 @@
                                             @csrf
                                             <input type="text" value="{{Auth::guard('user')->user()->id}}" name="u_id" hidden="true">
                                             <a href="#"><button><img src="https://img.icons8.com/ios/30/000000/speech-bubble-with-dots.png">
-                                            <div class="notification">3</div></button></a>
+                                            <div class="notification" id="chat_notification"></div></button></a>
                                         </form>
                                     </li>
 

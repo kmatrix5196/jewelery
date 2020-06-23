@@ -376,3 +376,234 @@ $('.custom-scroll').each( function() {
     
 })(jQuery);
 
+// Chat
+var current_conv = 0;
+
+$( document ).ready(function() {
+    $('#chat_notification').css('display','none');
+    $('.chatlist_notification').css('display','none');
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    setInterval(function () {getNotification()}, 5000);
+    $(".chat-contact-list li a:first").click();
+    $('#sendMessage').on('submit', function(event){
+        event.preventDefault();
+        $('#conv_id').val(current_conv);
+        console.log($('#conv_id').val());
+
+        var form = document.forms.namedItem("sendMessage");
+        var formData = new FormData(form);
+
+        console.log(formData);
+        $.ajax({
+                url:'sendMessage',
+                method:"POST",
+                data:formData,
+                processData: false,
+                contentType: false,
+                success:function(data){
+                    var send_o_recieve = '';
+                    var html = "";
+                    if (data['status'] == 1) {
+                        if (data['send_o_recieve'] == 1) {
+                            send_o_recieve = '';
+                        } else {
+                            send_o_recieve = 'receive';
+                        }
+                        if (data['type'] == 1) {
+                            html+='<li><div class="chat"><div class="chat_body'+send_o_recieve+'"><span>Yesterday 05.30 am</span><div class="chat_content'+send_o_recieve+'"><p>'+data['content']+'</p><img height="200px" width="200px" src="'+data['src']+'" alt="image" /></div></div></div></li>';
+                        } else {
+                            html+='<li><div class="chat"><div class="chat_body'+send_o_recieve+'"><span>Yesterday 05.30 am</span><div class="chat_content'+send_o_recieve+'"><p>'+data['content']+'</p></div></div></div></li>';
+                        }
+                        $("#chat-list").append(html);
+                        var objDiv = $(".chat-wrap");
+                        objDiv.animate({scrollTop: objDiv.get(0).scrollHeight},1, 'linear');
+                    }
+                    else {
+                        if (data['send_o_recieve'] == 0) {
+                            send_o_recieve = '';
+                        } else {
+                            send_o_recieve = 'receive';
+                        }
+                        if (data['type'] == 1) {
+                            html+='<li><div class="chat"><div class="chat_body'+send_o_recieve+'"><span>Yesterday 05.30 am</span><div class="chat_content'+send_o_recieve+'"><p>'+data['content']+'</p><img height="200px" width="200px" src="'+data['src']+'" alt="image" /></div></div></div></li>';
+                        } else {
+                            html+='<li><div class="chat"><div class="chat_body'+send_o_recieve+'"><span>Yesterday 05.30 am</span><div class="chat_content'+send_o_recieve+'"><p>'+data['content']+'</p></div></div></div></li>';
+                        }
+                        $("#chat-list").append(html);
+                        var objDiv = $(".chat-wrap");
+                        objDiv.animate({scrollTop: objDiv.get(0).scrollHeight},1, 'linear');
+                    }
+                    
+
+                    
+                }
+            });
+        // if (img !== "") {
+            
+        // }
+        // if (message) {
+            
+        // }
+        // prevent from submitting
+        document.getElementById('message').value = "";
+        document.getElementById('img').innerHTML = "";
+        document.getElementById('chat-file-upload').value = "";
+    });
+    // Filter chat list
+    $("#search_chat_list").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $(".chat-contact-list a").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+    
+});
+function viewChat(conv_id) {
+        console.log(current_conv)
+        current_conv = conv_id;
+        
+        $('#conv_id').val(current_conv);
+        $.ajax({
+            url: "viewConversation",
+            type: "POST",
+            data: {
+                conv_id: current_conv,
+                message: 1,
+            },
+            success: function (data) {
+                // console.log(data['content']);
+                $("#chat_detail_wrapper").html(data);
+                var objDiv = $(".chat-wrap");
+                objDiv.animate({scrollTop: objDiv.get(0).scrollHeight},1, 'linear');
+                setInterval(function () {getMessage()}, 5000);
+            }
+         })
+
+    }
+    function getNotification () {
+        $('.chatlist_notification').css('display','none');
+        $.ajax({
+            url: "/admin/getMessage",
+            type: "POST",
+            data: {
+                conv_id: current_conv,
+                message: 0
+            },
+            success: function (data) {
+                if (data) {
+                    if (data['notification']>0) {
+                        $('#chat_notification').css('display','block');
+                        $('#chat_notification').text(data['notification']);
+                        if ($('.chatlist_notification'))
+                        {
+                            $.each(data['alert'], function(index, element) {
+                                if (current_conv != element['conv_id'] ) {
+                                    $('#chatlist_notification_'+element['conv_id']).css('display','block');
+                                    $('#chatlist_notification_'+element['conv_id']).text(element['pending']);
+                                }                       
+                            })
+                        }
+                    }
+                    else {
+                        $('#chat_notification').css('display','none');
+                        if ($('.chatlist_notification'))
+                        {
+                            $('.chatlist_notification').css('display','none');
+                        }
+                    }
+                }
+                else {
+                    console.log(0000);
+                }
+            }
+        });
+
+    }
+    function uploadFile()
+    {
+        var x = document.getElementById("chat-file-upload");
+        if ('files' in x) {
+            if (x.files && x.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('img').innerHTML = '<img height="200px" width="200px" src="'+e.target.result+'" alt="image" />'
+                }
+                reader.readAsDataURL(x.files[0]);
+            }
+        }
+
+    }
+    function getMessage(){
+    var html = "";
+    var chat_body = '';
+    var chat_content = '';
+    $.ajax({
+        url: "getMessage",
+        type: "POST",
+        data: {
+            conv_id: current_conv,
+            message: 1
+        },
+        success: function (data) {
+            if (data) {
+                if (data['status'] == 1) {
+                    $.each(data['data'], function(index, element) {
+                        if (element['send_o_recieve'] == 1) {
+                            chat_body = 'chat_body';
+                            chat_content = 'chat_content';
+                        } else {
+                            chat_body = 'chat_body_recieve';
+                            chat_content = 'chat_content_recieve';
+                        }
+                        if (element['type'] == 1) {
+                            html+='<li><div class="chat"><div class="'+chat_body+'"><span>Yesterday 05.30 am</span><div class="'+chat_content+'"><p>'+element['content']+'</p><img height="200px" width="200px" src="'+data['src']+'" alt="image" /></div></div></div></li>';
+                        } else {
+                            html+='<li><div class="chat"><div class="'+chat_body+'"><span>Yesterday 05.30 am</span><div class="'+chat_content+'"><p>'+element['content']+'</p></div></div></div></li>';
+                        }
+                        $("#chat-list").append(html);
+                        var objDiv = $(".chat-wrap");
+                        objDiv.animate({scrollTop: objDiv.get(0).scrollHeight},1, 'linear');
+                    })
+                } else {
+                    $.each(data['data'], function(index, element) {
+                        if (element['send_o_recieve'] == 0) {
+                            chat_body = 'chat_body';
+                            chat_content = 'chat_content';
+                        } else {
+                            chat_body = 'chat_body_recieve';
+                            chat_content = 'chat_content_recieve';
+                        }
+                        if (element['type'] == 1) {
+                            html+='<li><div class="chat"><div class="'+chat_body+'"><span>Yesterday 05.30 am</span><div class="'+chat_content+'"><p>'+element['content']+'</p><img height="200px" width="200px" src="'+element['src']+'" alt="image" /></div></div></div></li>';
+                         } else {
+                            html+='<li><div class="chat"><div class="'+chat_body+'"><span>Yesterday 05.30 am</span><div class="'+chat_content+'"><p>'+element['content']+'</p></div></div></div></li>';
+                        }
+                        $("#chat-list").append(html);
+                        var objDiv = $(".chat-wrap");
+                        objDiv.animate({scrollTop: objDiv.get(0).scrollHeight},1, 'linear');
+                    })
+                }
+                
+            }
+            else {
+                console.log(0000);
+            }
+        }
+    });
+    }
+    function resetMsg() {
+        document.getElementById('img').innerHTML = "";
+        document.getElementById("chat-file-upload").value = "";
+    }
+    function show_date(id) {
+        if ($(id).hasClass('d-none')) {
+            $(id).removeClass('d-none');    
+        }
+        else {
+            $(id).addClass('d-none');   
+        }
+    }

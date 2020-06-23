@@ -30,6 +30,10 @@ Route::prefix('/company')->group(function () {
 	Route::post('/company_profile/{id}', 'Database\CompanyController@update')->name('update_company');
 
 	Route::post('/chat', 'CompanyController@chat')->name('company.chat');
+
+	Route::post('/viewConversation', 'CompanyController@viewConversation')->name('company.conversation');
+	Route::post('/sendMessage', 'CompanyController@sendMessage')->name('company.send_message');
+	Route::post('/getMessage', 'CompanyController@getMessage')->name('company.message');
 	Route::get('/', function () {
 		return redirect()->route('company.profile');
 	});
@@ -41,6 +45,9 @@ Route::prefix('/user')->group(function () {
 	Route::post('/register', 'Auth\UserRegisterController@createUser')->name('user.register');
 	Route::get('/logout','Auth\UserLoginController@logout')->name('user.logout');
 	Route::post('/chat', 'UserController@chat')->name('user.chat');
+	Route::post('/viewConversation', 'UserController@viewConversation')->name('user.conversation');
+	Route::post('/sendMessage', 'UserController@sendMessage')->name('user.send_message');
+	Route::post('/getMessage', 'UserController@getMessage')->name('user.message');
 	Route::post('/createCon', 'UserController@createcon')->name('user.createcon');
 	Route::post('/createConPre', 'UserController@createconpre')->name('user.createconpre');
 	Route::get('/my_account', 'UserController@profile')->name('user.profile');
@@ -189,6 +196,11 @@ Route::prefix('/admin')->group(function(){
 	})->name('admin.index');
 	Route::get('/home','AdminController@index')->name('admin.home');
 	Route::post('/chat', 'AdminController@chat')->name('admin.chat');
+
+
+	Route::post('/viewConversation', 'AdminController@viewConversation')->name('admin.conversation');
+	Route::post('/sendMessage', 'AdminController@sendMessage')->name('admin.send_message');
+	Route::post('/getMessage', 'AdminController@getMessage')->name('admin.message');
 	// Route::get('chat', function () {
 	// 	return View::make('admin.pages.chat');
 	// });
