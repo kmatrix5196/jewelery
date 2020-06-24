@@ -15,10 +15,10 @@ class CreateCartHistoryTable extends Migration
     {
          Schema::create('cart_history', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned()->nullable();;
-            $table->bigInteger('product_id')->unsigned()->nullable();;
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->bigInteger('product_id')->unsigned()->nullable();
             $table->integer('quantity')->nullable();
-            $table->bigInteger('order_id')->unsigned()->nullable();;
+            $table->bigInteger('order_id')->unsigned()->nullable();
             $table->boolean('checkout')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');

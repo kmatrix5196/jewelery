@@ -98,7 +98,7 @@ class UserController extends Controller
     }
     public function chat(Request $request)
     {
-        $conv_rst = Conversation::where('sender_id', '=',  $request->u_id)->get();
+        $conv_rst = Conversation::where('sender_id', '=',  $request->u_id)->orderBy('updated_at', 'desc')->get();
         if ($conv_rst) {
             foreach ($conv_rst as $value) {
                 if ($value['type'] == 'company')
@@ -120,37 +120,84 @@ class UserController extends Controller
     public function createcon(Request $request)
     {
         $temp_conv_rst = Conversation::where([
-            ['sender_id', '=', $request->u_id],
+            ['sender_id', '=', Auth::id()],
             ['reciever_id', '=', $request->c_id],
             ['type', '=', 'company']
         ])->first();
+        $conv_id = null;
         if (! $temp_conv_rst) {
             $con = new Conversation;
-            $con->sender_id=$request->u_id;
+            $con->sender_id=Auth::id();
             $con->reciever_id=$request->c_id;
             $con->type="company";
             $con->save();
+            $conv_id=$con->id;
         }
-        $conv_rst = Conversation::where('sender_id', '=',  $request->u_id)->get();
-        return view('client.pages.chat',['temp_convs' => $conv_rst],['rst_con'=>$temp_conv_rst['conv_id']]);
+        else {
+            $conv_id=$temp_conv_rst->conv_id;
+        }
+
+        $conv_dtl = new Conversation_Detail;
+        if ($request->file('chat-file-upload')) {
+            $ldate = date('Y-m-d-H-i-s');
+            $imageName = strval('C'.$request->conv_id.'_'.$ldate).'.'.$request->file('chat-file-upload')->getClientOriginalExtension();
+            $request->file('chat-file-upload')->move(public_path('/img/chat'), $imageName);
+            $conv_dtl->src = '/img/chat/'.$imageName;
+            $conv_dtl->type = 1;
+        } else {
+            $conv_dtl->src = null;
+            $conv_dtl->type = 0;
+        }
+        $conv_dtl->content = $request->message;
+        $conv_dtl->r_status = 0;
+        $conv_dtl->s_status = 1;
+        $conv_dtl->send_o_recieve = 0;
+        $conv_dtl->conv_id = $conv_id;
+        $conv_dtl->save();
+        $conv_dtl['status'] = 0;
+        return $conv_dtl;
 
     }
     public function createconpre(Request $request)
     {
         $temp_conv_rst = Conversation::where([
-            ['sender_id', '=', $request->u_id],
+            ['sender_id', '=', Auth::id()],
             ['reciever_id', '=', $request->c_id],
             ['type', '=', 'admin']
         ])->first();
+        $conv_id = null;
         if (! $temp_conv_rst) {
             $con = new Conversation;
-            $con->sender_id=$request->u_id;
+            $con->sender_id=Auth::id();
             $con->reciever_id=$request->c_id;
-            $con->type="admin";
+            $con->type="admim";
             $con->save();
+            $conv_id=$con->id;
         }
-        $conv_rst = Conversation::where('sender_id', '=',  $request->u_id)->get();
-        return view('client.pages.chat',['temp_convs' => $conv_rst],['rst_con'=>$temp_conv_rst['conv_id']]);
+        else {
+            $conv_id=$temp_conv_rst->conv_id;
+        }
+
+        $conv_dtl = new Conversation_Detail;
+        if ($request->file('chat-file-upload')) {
+            $ldate = date('Y-m-d-H-i-s');
+            $imageName = strval('C'.$request->conv_id.'_'.$ldate).'.'.$request->file('chat-file-upload')->getClientOriginalExtension();
+            $request->file('chat-file-upload')->move(public_path('/img/chat'), $imageName);
+            $conv_dtl->src = '/img/chat/'.$imageName;
+          
+        } else {
+            $conv_dtl->src = null;
+            $conv_dtl->type = 0;
+        }
+        $conv_dtl->content = $request->message;
+        $conv_dtl->r_status = 0;
+        $conv_dtl->s_status = 1;
+        $conv_dtl->send_o_recieve = 0;
+        $conv_dtl->conv_id = $conv_id;
+        $conv_dtl->save();
+        $conv_dtl['status'] = 0;
+    
+        return $conv_dtl;
 
     }
     public function sendMessage(Request $request)
@@ -177,6 +224,7 @@ class UserController extends Controller
         $conv_dtl->send_o_recieve = 0;
         $conv_dtl->conv_id = $request->conv_id;
         $conv_dtl->save();
+        Conversation::find($request->conv_id)->touch();
         $conv_dtl['status'] = 0;
         return $conv_dtl;
     }

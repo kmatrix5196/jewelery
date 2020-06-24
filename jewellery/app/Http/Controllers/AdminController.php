@@ -38,7 +38,7 @@ class AdminController extends Controller
     }
     public function chat(Request $request)
     {
-        $conv_rst = Conversation::leftJoin('user', 'user.id', '=', 'conversation.sender_id')->where([['reciever_id', $request->u_id],['type', 'admin']])->get();
+        $conv_rst = Conversation::leftJoin('user', 'user.id', '=', 'conversation.sender_id')->where([['reciever_id', $request->u_id],['type', 'admin']])->orderBy('updated_at', 'desc')->get();
         if ($conv_rst) {
             foreach ($conv_rst as $key=>$value) {
                  // $info_rst = User::select('first_name', 'last_name', 'profile_pic')->where('id', '=', $value['reciever_id'])->first();
@@ -72,6 +72,7 @@ class AdminController extends Controller
         $conv_dtl->send_o_recieve = 1;
         $conv_dtl->conv_id = $request->conv_id;
         $conv_dtl->save();
+        Conversation::find($request->conv_id)->touch();
         $conv_dtl['status'] = 1;
         return $conv_dtl;
     }

@@ -17,7 +17,7 @@ class Conversation extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'conv_id';
     /**
      * Indicates if the IDs are auto-incrementing.
      *

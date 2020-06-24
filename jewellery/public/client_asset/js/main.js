@@ -568,6 +568,8 @@ var current_conv = 0;
 $( document ).ready(function() {
     $('#chat_notification').css('display','none');
     $('.chatlist_notification').css('display','none');
+    $(".alert").css('display','none');
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -577,6 +579,52 @@ $( document ).ready(function() {
         setInterval(function () {getNotification()}, 5000);
     }
     $(".chat-contact-list li a:first").click();
+    $('.create_con').click(function(event){
+        event.preventDefault();
+        $(".alert").css('display','none');
+        var form = document.forms.namedItem($(this).closest(".createCon").attr('id'));
+        var form = new FormData(form);
+        $.ajax({
+                url:'/user/createCon',
+                method:"POST",
+                data:form,
+                processData: false,
+                contentType: false,
+                success:function(data){
+                    if (data['status'] == 0) {
+                        $(".alert").css('display','block');
+                        $(".alert strong").text('Message sent successfully!!!');
+                    }
+                }
+            });
+        // prevent from submitting
+        $('.message').val("");
+        $('.img').html("");
+        $('.chat-file-upload').val("");
+    });
+    $('.create_conpre').click(function(event){
+        event.preventDefault();
+        $(".alert").css('display','none');
+        var form = document.forms.namedItem($(this).closest(".createConPre").attr('id'));
+        var form = new FormData(form);
+        $.ajax({
+                url:'/user/createConPre',
+                method:"POST",
+                data:form,
+                processData: false,
+                contentType: false,
+                success:function(data){
+                    if (data['status'] == 0) {
+                        $(".alert").css('display','block');
+                        $(".alert strong").text('Message sent successfully!!!');
+                    }
+                }
+            });
+        // prevent from submitting
+        $('.message').val("");
+        $('.img').html("");
+        $('.chat-file-upload').val("");
+    });
     $('#sendMessage').on('submit', function(event){
         event.preventDefault();
         $('#conv_id').val(current_conv);

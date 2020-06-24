@@ -44,7 +44,7 @@
                        
                           <!-- product item start -->
                           @isset($premium)
-                    @foreach ($premium as $premi)
+                          @foreach ($premium as $premi)
                           <div class="product-item">
                               <figure class="product-thumb">
                                   <a href="\home\premium_show\detail\{{$premi->id}}">
@@ -57,7 +57,7 @@
                                   </div>
                                   @auth('user')
                                   <div class="button-group">
-                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Message" onclick="createCon({{$premi->id}},{{$premi->company_id}})"><i class="pe-7s-chat"></i></a>
+                                    <a href="#" ref="#" data-toggle="modal"  data-target="#chat_{{$premi->id}}" data-placement="left" title="Message"><i class="pe-7s-chat"></i></a>
                                   </div>
                                   @endauth
                                   

@@ -19,10 +19,12 @@ class CreateConversationDetail extends Migration
             $table->string('src')->nullable();
             $table->smallInteger('r_status')->unsigned()->nullable();
             $table->smallInteger('s_status')->unsigned()->nullable();
-            $table->smallInteger('type')->unsigned()->->nullable();
+            $table->smallInteger('type')->unsigned()->nullable();
             $table->smallInteger('send_o_recieve')->unsigned()->nullable();
-            $table->foreign('conv_id')->references('id')->on('conversation')->onDelete('cascade');
+            $table->bigInteger('conv_id')->unsigned()->nullable();
             $table->timestamps();
+            $table->foreign('conv_id')->references('conv_id')->on('conversation')->onDelete('cascade');
+
         });
     }
 

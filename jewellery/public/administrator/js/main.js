@@ -389,6 +389,7 @@ $( document ).ready(function() {
     });
     setInterval(function () {getNotification()}, 5000);
     $(".chat-contact-list li a:first").click();
+    
     $('#sendMessage').on('submit', function(event){
         event.preventDefault();
         $('#conv_id').val(current_conv);
