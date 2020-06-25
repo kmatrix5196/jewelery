@@ -61,7 +61,11 @@
                                             @endif
 
                                             <td class="pro-quantity">
-                                                <div class="pro-qty"><input type="text" value="{{$c['quantity']}}"></div>
+                                                <div class="pro-qty">
+                                                    <span class="dec qtybtn" onclick="dec_updateQty({{$c['c_id']}})">-</span>
+                                                    <input type="text" value="{{$c['quantity']}}" id="{{$c['c_id']}}" >
+                                                    <span class="inc qtybtn" onclick="inc_updateQty({{$c['c_id']}})">+</span>
+                                                </div>
                                             </td>
                                              @if($c['discount']=='')
                                             <td class="pro-subtotal"><span>${{number_format($c['price']*$c['quantity'])}}</span></td>
@@ -70,7 +74,7 @@
                                             <td class="pro-subtotal"><span>${{number_format($c['discount']*$c['quantity'])}}</span></td>
                                             @endif
 
-                                            <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                                            <td class="pro-remove"><a href="/home/delete-cart/{{$c['c_id']}}"><i class="fa fa-trash-o"></i></a></td>
                                         </tr>
                                         @endforeach
                                         @endisset

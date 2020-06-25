@@ -106,4 +106,83 @@
 @endisset
     <!-- Quick view modal end -->
 
+
+    <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            
+                            <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </a>
+                        </div>
+                        <div class="modal-body text-center">
+                            <div class="row" style="margin-bottom: 1rem;">
+                                <div class="col-12" style="margin-bottom: 1rem;">
+                                    <h4>KBZ Pay ဖြင့်ငွေပေးသွင်းရန်</h3>
+                                    <br>
+                                </div>
+                                <div class="col-4">
+                                    <img src="{{asset('images/kbzpay.png')}}" width="100px" height="100px">
+                                </div>
+                                <div class="col-4"><h6>Account  No : 111111</h6></div>
+                                <div class="col-4">
+                                    <img src="{{asset('images/kbzpayqr.png')}} " width="100px" height="100px">
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="modal-body text-center">
+                            <div class="row" style="margin-bottom: 1rem;">
+                                <div class="col-12" style="margin-bottom: 1rem;">
+                                    <h4>Wave Money ဖြင့်ငွေပေးသွင်းရန်</h4>
+                                    <br>
+                                </div>
+                                <div class="col-4">
+                                    <img src="{{asset('images/wavemoney.png')}}" width="100px" height="100px">
+                                </div>
+                                <div class="col-4"><h6>Account  No : 111111</h6></div>
+                                <div class="col-4">
+                                    <img src="{{asset('images/kbzpayqr.png')}} " width="100px" height="100px">
+                                </div>
+                            </div>
+                        </div>
+                      
+                        <div class="modal-body text-center">
+                            <h4 class="text-center">Mobile Banking မှာတစ်ဆင့်ငွေလွှဲရန်</h4>
+                            <br>
+                            <div class="row">
+                                <div class="col-4 text-dark">
+                                    <p><strong>KBZ Account </strong> </p>
+                                </div>
+                                <div class="col-1">|</div>
+                                <div class="col-2">Name</div>
+                                <div class="col-1">|</div>
+                                <div class="col-4">123 223 332 222 1111</div>
+
+                                <div class="col-4 text-dark">
+                                    <p><strong>AYA Account </strong> </p>
+                                </div>
+                                <div class="col-1">|</div>
+                                <div class="col-2">Name</div>
+                                <div class="col-1">|</div>
+                                <div class="col-4">123 223 332 222 1111</div>
+
+                                <div class="col-4 text-dark">
+                                    <p><strong>CB Account </strong> </p>
+                                </div>
+                                <div class="col-1">|</div>
+                                <div class="col-2">Name</div>
+                                <div class="col-1">|</div>
+                                <div class="col-4">123 223 332 222 1111</div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
     

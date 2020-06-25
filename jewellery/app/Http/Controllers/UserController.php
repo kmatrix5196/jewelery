@@ -52,6 +52,18 @@ class UserController extends Controller
         //dd(DB::getQueryLog());
         return view('client.pages.cart',['cart'=>$cart]);
     }
+    public function delete_cart($id){
+        $userid=auth()->user()->id;
+        Cart::where('id','=',$id)->delete();
+        return redirect()->route('view_cart');
+    }
+    public function update_cart(Request $request){
+       $cart= Cart::where('id','=',$request->cart_id)->first();
+       $cart->quantity=$request->quantity;
+       $cart->save();
+       return response()->json(['success'=>'Ajax request submitted successfully']);
+       
+    }
     public function add_to_wishlist($id)
     {
         $wishlist=new Wishlist;

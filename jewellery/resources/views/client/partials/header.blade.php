@@ -26,7 +26,7 @@
                 <div class="row align-items-center position-relative">
 
                     <!-- start logo area -->
-                    <div class="col-lg-1">
+                    <div class="col-lg-2">
                         <div class="logo">
                             <a href="index">                                
                                 <img src="{{asset('img/logo/logo.png')}}" alt="Brand Logo">                             
@@ -36,7 +36,7 @@
                     <!-- start logo area -->
 
                     <!-- main menu area start -->
-                    <div class="col-lg-7">
+                    <div class="col-lg-8">
                         <div class="main-menu-area Royal_Crescent_Bold">
                             <div class="main-menu">
                                 <!-- main menu navbar start -->
@@ -59,6 +59,7 @@
                                         </li>
 
                                         <li><a href="/home/contact-us">Contact us</a></li>
+                                        <li><a href="" data-toggle="modal" data-target="#paymentModal">Payment</a></li>
                                     </ul>
                                 </nav>
                                 <!-- main menu navbar end -->
@@ -68,15 +69,15 @@
                     <!-- main menu area end -->
 
                     <!-- right bar start -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-2">
                         <div class="header-right d-flex align-items-center justify-content-xl-between justify-content-lg-end">
-                            <div class="header-search-container">
+                            <!-- <div class="header-search-container">
                                 <button class="search-trigger d-xl-none d-lg-block"><i class="pe-7s-search"></i></button>
                                 <form class="header-search-box d-lg-none d-xl-block animated jackInTheBox">
                                     <input type="text" placeholder="Search entire store hire" class="header-search-field">
                                     <button class="header-search-btn"><i class="pe-7s-search"></i></button>
                                 </form>
-                            </div>
+                            </div> -->
                             <div class="header-configure-area">
                                 <ul class="nav justify-content-end">
                                     @auth("company")

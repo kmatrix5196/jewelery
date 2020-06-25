@@ -41,4 +41,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.rateit/1.1.2/jquery.rateit.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.rateit/1.1.2/jquery.rateit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.rateit/1.1.2/jquery.rateit.min.js.map"></script> -->
+
+    <script type="text/javascript">
+       function inc_updateQty(c_id) {
+
+        var oldValue = document.getElementById(c_id).value;
+        var newVal = parseFloat(oldValue) + 1;
+        
+        document.getElementById(c_id).value=newVal;
+        $.ajax({
+            url: "/home/update-cart/",
+            type: "POST",
+            data:{ 
+                cart_id:c_id,
+                quantity:newVal,
+                _token:'{{ csrf_token() }}'
+            },
+            cache: false,
+            dataType: 'json',
+             success:function(response){
+                console.log(response);
+                  location.reload(); 
+            },
+                
+            });
+    }
+    function dec_updateQty(c_id) {
+
+        var oldValue = document.getElementById(c_id).value;
+        if (oldValue > 0) {
+                var newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 0;
+            }
+        document.getElementById(c_id).value=newVal;
+        $.ajax({
+            url: "/home/update-cart/",
+            type: "POST",
+            data:{ 
+                cart_id:c_id,
+                quantity:newVal,
+                _token:'{{ csrf_token() }}'
+            },
+            cache: false,
+            dataType: 'json',
+             success:function(response){
+                console.log(response);
+                  location.reload(); 
+            },
+                
+            });
+    }
+    </script>
     
