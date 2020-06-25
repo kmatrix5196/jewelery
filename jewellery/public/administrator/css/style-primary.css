@@ -10010,6 +10010,9 @@ body.side-header-green .side-header .side-header-close {
   top: 0;
   width: 100%;
   border-bottom: 1px solid #f1f1f1;
+    border-bottom-color: rgb(241, 241, 241);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
 }
 
 .chat-app-wrap .contact-search-form form {
@@ -10027,7 +10030,7 @@ body.side-header-green .side-header .side-header-close {
 
 .chat-app-wrap .contact-search-form form input {
   padding: 10px 25px;
-  line-height: 30px;
+  /*line-height: 30px;*/
   width: 100%;
   background-color: transparent;
   border: none;
@@ -10040,9 +10043,11 @@ body.side-header-green .side-header .side-header-close {
   list-style: none;
   padding: 0;
   margin: 0;
+  background-color: #FFFFFF;
 }
 
 .chat-app-wrap .chat-contact-list li a {
+  background-color: #FAFAFA;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10055,6 +10060,10 @@ body.side-header-green .side-header .side-header-close {
       -ms-flex-pack: start;
           justify-content: flex-start;
   padding: 21px 25px;
+  border-bottom: 1px solid #f1f1f1;
+    border-bottom-color: rgb(241, 241, 241);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
 }
 
 .chat-app-wrap .chat-contact-list li a .image {
@@ -10215,6 +10224,7 @@ body.side-header-green .side-header .side-header-close {
 .chat-wrap {
   max-height: 650px;
   padding: 30px;
+  background: #FFFFFF;
 }
 
 /*Chat List*/
@@ -10259,7 +10269,7 @@ body.side-header-green .side-header .side-header-close {
 }
 
 .chat-list .sender .chat .body .content::before, .widget-chat-list .sender .chat .body .content::before, .chat-list .sender .widget-chat .body .content::before, .widget-chat-list .sender .widget-chat .body .content::before {
-  right: -10px;
+  right: -10px; 
   left: auto;
   border-width: 6px 0px 6px 10px;
   border-color: transparent transparent transparent #ffffff;
@@ -10267,6 +10277,7 @@ body.side-header-green .side-header .side-header-close {
 
 /*Chat*/
 .chat .head, .widget-chat .head, body.skin-dark .widget-chat .head {
+
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10290,11 +10301,15 @@ body.side-header-green .side-header .side-header-close {
 }
 
 .chat .head span, .widget-chat .head span {
+  
   font-size: 12px;
   line-height: 18px;
   color: #999999;
   margin-right: 15px;
   margin-bottom: 3px;
+}
+.chat .head .recieve span, .widget-chat .head span {
+  float: right;
 }
 
 .chat .head a, .widget-chat .head a {
@@ -10309,6 +10324,9 @@ body.side-header-green .side-header .side-header-close {
 }
 
 .chat .body, .widget-chat .body, body.skin-dark .widget-chat .body {
+  float: left;
+  margin: 10px 0px;  
+  background-color: #FFFFFF;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10318,6 +10336,8 @@ body.side-header-green .side-header .side-header-close {
       -ms-flex: 1 0 100%;
           flex: 1 0 100%;
 }
+
+
 
 .chat .body .image, .widget-chat .body .image {
   -webkit-box-flex: 1;
@@ -10334,17 +10354,26 @@ body.side-header-green .side-header .side-header-close {
   height: auto;
 }
 
-.chat .body .content, .widget-chat .body .content {
+.chat .body .content_recieve, .widget-chat .body .content_recieve {
   padding: 10px 15px;
-  background-color: #ffffff;
-  margin-left: 15px;
   border-radius: 4px;
+  background-color: #FAFAFA;
   position: relative;
   -webkit-box-shadow: 0 0 5px rgba(24, 24, 24, 0.05);
           box-shadow: 0 0 5px rgba(24, 24, 24, 0.05);
-}
 
-.chat .body .content::before, .widget-chat .body .content::before {
+}
+.chat .body .content, .widget-chat .body .content {
+  padding: 10px 15px;
+  margin-left: 15px;
+  border-radius: 4px;
+  background-color: #C29958;
+  position: relative;
+  -webkit-box-shadow: 0 0 5px rgba(24, 24, 24, 0.05);
+          box-shadow: 0 0 5px rgba(24, 24, 24, 0.05);
+
+}
+/*.chat .body .content::before, .widget-chat .body .content::before {
   display: none;
   content: "";
   position: absolute;
@@ -10353,11 +10382,16 @@ body.side-header-green .side-header .side-header-close {
   border-width: 6px 10px 6px 0;
   border-style: solid;
   border-color: transparent #ffffff transparent transparent;
-}
+}*/
 
-.chat .body .content p, .widget-chat .body .content p {
+.chat .chat_content_recieve p, .widget-chat .chat_content_recieve p {
   font-size: 13px;
-  color: #999999;
+  color: #C29958;
+  line-height: 22px;
+}
+.chat .chat_content p, .widget-chat .chat_content p {
+  font-size: 13px;
+  color: #FFFFFF;
   line-height: 22px;
 }
 
@@ -10396,6 +10430,67 @@ body.side-header-green .side-header .side-header-close {
   }
 }
 
+.chat span {
+    width: 100%;
+    margin: 5px 0px;
+
+}
+.chat_body_recieve {
+  float: left;
+  width: 100%;
+  margin: 0;
+  float: left;
+  margin: 10px 0px;  
+  background-color: #FFFFFF;
+}
+.chat_content_recieve { 
+  float: left;
+  max-width: 90%;
+  padding: 10px 15px;
+  border-radius: 4px;
+  background-color: #FAFAFA;
+  -webkit-box-shadow: 0 0 5px rgba(24, 24, 24, 0.05);
+          box-shadow: 0 0 5px rgba(24, 24, 24, 0.05);
+}
+.chat_body_recieve span {
+  float: left;
+}
+
+.chat_body {
+  width: 100%;
+  margin: 0;
+  float: right;
+  text-align: right;
+  max-width: 90%;
+  margin: 10px 0px;  
+  background-color: #FFFFFF;
+}
+.chat_body span {
+  float: right;
+}
+.chat_content {
+  float: right;
+  max-width: 90%;
+  padding: 10px 15px;
+  border-radius: 4px;
+  background-color: #C29958;
+  -webkit-box-shadow: 0 0 5px rgba(24, 24, 24, 0.05);
+          box-shadow: 0 0 5px rgba(24, 24, 24, 0.05);
+}
+
+.chatlist_notification {
+    margin-top: 8px;
+    right: 15px;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #c29958;
+}
 /*Chat Submission*/
 .chat-submission, .widget-chat-submission, body.skin-dark .widget-chat-submission, [dir="rtl"] .widget-chat-submission {
   border-top: 1px solid #f1f1f1;
@@ -10467,6 +10562,16 @@ body.side-header-green .side-header .side-header-close {
 
 .widget-chat-submission form .buttons {
   right: 10px;
+
+}
+.chat-submission form .buttons .button{
+  background: #C29958;
+  color: #FFFFFF;
+  border: none;
+}
+
+.widget-chat-submission input {
+  background: #FFFFFF;
 }
 
 /*----------------------------------------*/

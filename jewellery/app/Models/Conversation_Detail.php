@@ -4,20 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Conversation extends Model
+class Conversation_Detail extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'conversation';
+    protected $table = 'conversation_detail';
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'conv_id';
+    protected $primaryKey = 'id';
     /**
      * Indicates if the IDs are auto-incrementing.
      *

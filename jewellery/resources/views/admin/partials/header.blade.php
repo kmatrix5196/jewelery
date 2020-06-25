@@ -1,4 +1,4 @@
-<!-- Header Section Start -->
+Header Section Start -->
 
 @if(Auth::check())
 @auth("admin")
@@ -61,6 +61,7 @@
 							<!--Notification-->
 							<li class="adomx-dropdown col-auto">
 								<a class="toggle" href="#"><i class="zmdi zmdi-notifications"></i><span class="badge"></span></a>
+								<!-- <div class="notification" id="chat_notification"></div></button></a> -->
 
 								<!-- Dropdown -->
 								<div class="adomx-dropdown-menu dropdown-menu-notifications">
@@ -269,4 +270,4 @@
 		</nav>
 
 	</div><!-- Side Header Inner End -->
-</div><!-- Side Header End -->
+</div><!-- Side Header End

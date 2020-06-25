@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Conversation extends Migration
+class CreateConversation extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,8 @@ class Conversation extends Migration
     {
         Schema::create('conversation', function (Blueprint $table) {
             $table->bigIncrements('conv_id');
-            $table->bigInteger('sender_id')->unsigned()->nullable();;
-            $table->bigInteger('reciever_id')->unsigned()->nullable();;
+            $table->bigInteger('sender_id')->unsigned()->nullable();
+            $table->bigInteger('reciever_id')->unsigned()->nullable();
             $table->string('type')->nullable();
             $table->timestamps();
         });
