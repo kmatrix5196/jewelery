@@ -1,11 +1,3 @@
-@isset($cart)
-@php
-                                        {{$total=0;
-                                            $tax=1;
-
-                                            $shipping=5000;
-                                        }}
-                                        @endphp
 <div class="offcanvas-minicart-wrapper">
     <div class="minicart-inner">
         <div class="offcanvas-overlay"></div>
@@ -16,35 +8,24 @@
             <div class="minicart-content-box">
                 <div class="minicart-item-wrapper">
                     <ul>
-                        @foreach($cart as $c)
                         <li class="minicart-item">
                             <div class="minicart-thumb">
                                 <a href="product-details">
-                                    <img src="{{asset($c['url'])}}" alt="product">
+                                    <img src="{{asset('img/sample/product-sample.jpg')}}" alt="product">
                                 </a>
                             </div>
                             <div class="minicart-content">
                                 <h3 class="product-name">
-                                    <a href="product-details">{{$c['name']}}</a>
+                                    <a href="product-details">Dozen White Botanical Linen Dinner Napkins</a>
                                 </h3>
                                 <p>
-                                    <span class="cart-quantity">{{$c['quantity']}} <strong>&times;</strong></span>
-                                    @if($c['discount']=='')
-                                    @php
-                                            {{$total +=$c['price']*$c['quantity'];}}
-                                            @endphp
-                                    <span class="cart-price">{{number_format($c['price'])}} MMK</span>
-                                    @else
-                                    @php
-                                            {{$total +=$c['discount']*$c['quantity'];}}
-                                            @endphp
-                                      <span class="cart-price">{{number_format($c['discount'])}} MMK</span>      
-                                    @endif
+                                    <span class="cart-quantity">1 <strong>&times;</strong></span>
+                                    <span class="cart-price">$100.00</span>
                                 </p>
                             </div>
-                            <a href="/home/delete-cart/{{$c['c_id']}}"><button class="minicart-remove"><i class="pe-7s-close"></i></button></a>
+                            <button class="minicart-remove"><i class="pe-7s-close"></i></button>
                         </li>
-                        @endforeach
+                        
                     </ul>
                 </div>
 
@@ -52,19 +33,19 @@
                     <ul>
                         <li>
                             <span>sub-total</span>
-                            <span><strong>{{number_format($total) }} MMK</strong></span>
+                            <span><strong>$300.00</strong></span>
                         </li>
                         <li>
-                            <span>Shipping</span>
-                            <span><strong>{{number_format($shipping) }} MMK</strong></span>
+                            <span>Eco Tax (-2.00)</span>
+                            <span><strong>$10.00</strong></span>
                         </li>
                         <li>
-                            <span>Tax</span>
-                            <span><strong>{{number_format($tax)}} %</strong></span>
+                            <span>VAT (20%)</span>
+                            <span><strong>$60.00</strong></span>
                         </li>
                         <li class="total">
                             <span>total</span>
-                            <span><strong>{{number_format(($total*$tax/100)+$shipping+$total)}}</strong></span>
+                            <span><strong>$370.00</strong></span>
                         </li>
                     </ul>
                 </div>
@@ -77,4 +58,3 @@
         </div>
     </div>
 </div>
-@endisset
