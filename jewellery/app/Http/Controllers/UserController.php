@@ -51,6 +51,7 @@ class UserController extends Controller
         ->where('gallery.type','=','typemain')
         ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
         ->get();
+        
         //dd(DB::getQueryLog());
         return view('client.pages.cart',['cart'=>$cart]);
     }
