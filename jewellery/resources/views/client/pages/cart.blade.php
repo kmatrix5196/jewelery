@@ -125,7 +125,7 @@
                                         </table>
                                     </div>
                                 </div>
-                                <a href="payment/check_out" class="btn btn-sqr d-block">Proceed Checkout</a>
+                                <a href="#" data-toggle="modal" data-target="#checkout" class="btn btn-sqr d-block">Proceed Checkout</a>
                             </div>
                         </div>
                     </div>

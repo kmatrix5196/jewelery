@@ -302,7 +302,7 @@ Route::prefix('/admin')->group(function(){
 });
 
 
-Route::post('/check_out', 'PaymentController@check_out');
+Route::post('/check_out', 'PaymentController@check_out')->name('check_out');
 Route::get('/check_out', 'PaymentController@check_out');
 Route::get('/check_out', function() {
     return view('payment.check_out');

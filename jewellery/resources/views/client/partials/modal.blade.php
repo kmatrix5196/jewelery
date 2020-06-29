@@ -82,7 +82,9 @@
                                         <div class="quantity-cart-box d-flex align-items-center">
                                             <h6 class="option-title">qty:</h6>
                                             <div class="quantity">
-                                                <div class="pro-qty"><input type="text" name="qty" value="1" min="0"></div>
+                                                <div class="pro-qty zzzpro" >
+                                                    <input type="text" name="qty" value="1" min="0">
+                                                </div>
                                             </div>
                                             
                                             <div class="action_link">
@@ -338,4 +340,46 @@
 
             </div>
 
+
+<div class="modal fade" id="checkout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                        </a>
+            </div>
+            <form action="{{route('check_out')}}" method="post" enctype="multipart/form-data">
+            @csrf                                                           
+                <div class="modal-body">
+                    <br>
+                    
+                    <h4 >Please submit your payment information.</h4>
+                    <br>
+                    <p>Please select your payment method.</p>
+                    <select class="form-control"  name="payment_method">
+                        <option class="text-primary" value="KBZ Pay">KBZ Pay</option>
+                        <option class="text-primary" value="Wavemoney">Wavemoney</option>
+                        <option class="text-secondary" value="KBZ Account">KBZ Account</option>
+                        <option class="text-secondary" value="AYA Account">AYA Account</option>
+                        <option class="text-secondary" value="CB Account">CB Account</option>
+                    </select>
+                    <br>
+                    <br>
+                    <p>Please enter your completed payment script.</p>
+                    <div>
+                        <input type="file" name="payment_photo" class="form-control">
+                    </div>
+                    <br>
+                   
+                </div>
+            
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-cart " data-dismiss="modal">Close</a>
+                    <button type="submit" class="btn btn-cart2">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
     

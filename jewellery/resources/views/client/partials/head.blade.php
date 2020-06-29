@@ -57,3 +57,5 @@
 	<link rel="“image/gif" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.rateit/1.1.2/rateit.min.css.map">
 	<link rel="“image/gif" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.rateit/1.1.2/star.gif">
 	<link rel="“image/gif" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.rateit/1.1.2/delete.gif">
+
+	

@@ -4,9 +4,11 @@
 
 <head>
 	@include('client.partials.head')
+
 </head>
 
 <body>
+	@include('sweetalert::alert')
 	<!-- preloader area start -->
 	@include('client.partials.preloader')
 	<!-- preloader area end -->
