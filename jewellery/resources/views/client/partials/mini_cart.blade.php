@@ -1,4 +1,4 @@
-@isset($cart)
+<!-- @isset($cart)
 @php
                                         {{$total=0;
                                             $tax=1;
@@ -77,4 +77,4 @@
         </div>
     </div>
 </div>
-@endisset
+@endisset -->
