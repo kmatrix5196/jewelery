@@ -30,6 +30,9 @@ else if (\Request::is('writer/*')) {
   $this->middleware('auth:writer');
  // dd("hh1");
 }
+else{
+	$this->middleware('auth:user');
+}
       	
     }
 
@@ -52,7 +55,15 @@ else if (\Request::is('writer/*')) {
 		->select('product.*','gallery.url')
 		->orderBy('product.created_at','DESC')
 		->get();
-		return view('client.pages.index',['temp_products' => $temp_products,'design_products'=>$design_products,'value_products'=>$value_products]);
+
+		$userid=auth()->user()->id;
+		$cart=Cart::leftJoin('product','product.id','=','cart.product_id')
+        ->where('cart.user_id','=',$userid)
+        ->leftJoin('gallery','gallery.product_id','=','cart.product_id')
+        ->where('gallery.type','=','typemain')
+        ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
+        ->get();
+		return view('client.pages.index',['temp_products' => $temp_products,'design_products'=>$design_products,'value_products'=>$value_products,'cart'=>$cart]);
 	}
 	public function add()
 	{

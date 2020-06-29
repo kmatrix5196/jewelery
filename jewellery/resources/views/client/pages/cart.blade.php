@@ -36,7 +36,7 @@
                         <div class="col-lg-12">
                             <!-- Cart Table Area -->
                             <div class="cart-table table-responsive">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered" id="cart_table">
                                     <thead>
                                         <tr>
                                             <th class="pro-thumbnail">Thumbnail</th>
@@ -48,32 +48,46 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @php
+                                        {{$total=0;
+                                            $tax=1;
+
+                                            $shipping=5000;
+                                        }}
+                                        @endphp
                                             @isset($cart)
                                             @foreach($cart as $c)
                                         <tr>
                                             <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="{{asset($c['url'])}}" alt="Product" /></a></td>
                                             <td class="pro-title"><a href="#">{{$c['name']}}</a></td>
                                             @if($c['discount']=='')
-                                            <td class="pro-price"><span>${{number_format($c['price'])}}</span></td>
+                                            <td class="pro-price"><span>{{number_format($c['price'])}} MMK</span></td>
 
                                             @else
-                                            <td class="pro-price"><span>${{number_format($c['discount'])}}</span></td>
+                                            <td class="pro-price"><span>{{number_format($c['discount'])}} MMK</span></td>
                                             @endif
 
-                                            <td class="pro-quantity">
+                                            <td class="pro-quantity" >
                                                 <div class="pro-qty">
                                                     <span class="dec qtybtn" onclick="dec_updateQty({{$c['c_id']}})">-</span>
                                                     <input type="text" value="{{$c['quantity']}}" id="{{$c['c_id']}}" >
                                                     <span class="inc qtybtn" onclick="inc_updateQty({{$c['c_id']}})">+</span>
                                                 </div>
                                             </td>
-                                             @if($c['discount']=='')
-                                            <td class="pro-subtotal"><span>${{number_format($c['price']*$c['quantity'])}}</span></td>
-
+                                            @if($c['discount']=='')
+                                            <td class="pro-subtotal" id="zzz"><span>{{number_format($c['price']*$c['quantity'])}} MMK</span></td>
+                                            @php
+                                            {{$total +=$c['price']*$c['quantity'];}}
+                                            @endphp
+    
                                             @else
-                                            <td class="pro-subtotal"><span>${{number_format($c['discount']*$c['quantity'])}}</span></td>
+                                            <td class="pro-subtotal" id="zzz"><span>
+                                            {{number_format($c['discount']*$c['quantity'])}} MMK</span></td>
+                                            @php
+                                            {{$total +=$c['discount']*$c['quantity'];}}
+                                            @endphp
                                             @endif
-
+                    
                                             <td class="pro-remove"><a href="/home/delete-cart/{{$c['c_id']}}"><i class="fa fa-trash-o"></i></a></td>
                                         </tr>
                                         @endforeach
@@ -81,15 +95,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- Cart Update Option -->
-                            <div class="cart-update-option d-block d-md-flex justify-content-between">
-                                <div class="apply-coupon-wrapper">
-
-                                </div>
-                                <div class="cart-update">
-                                    <a href="#" class="btn btn-sqr">Update Cart</a>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                     <div class="row">
@@ -102,15 +108,19 @@
                                         <table class="table">
                                             <tr>
                                                 <td>Sub Total</td>
-                                                <td>$230</td>
+                                                <td>{{number_format($total) }} MMK</td>
                                             </tr>
                                             <tr>
                                                 <td>Shipping</td>
-                                                <td>$70</td>
+                                                <td>{{number_format($shipping)}} MMK</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tax</td>
+                                                <td>{{number_format($tax)}} %</td>
                                             </tr>
                                             <tr class="total">
                                                 <td>Total</td>
-                                                <td class="total-amount">$300</td>
+                                                <td class="total-amount">{{number_format(($total*$tax/100)+$shipping+$total)}}</td>
                                             </tr>
                                         </table>
                                     </div>
