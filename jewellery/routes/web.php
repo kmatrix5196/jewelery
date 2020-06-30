@@ -10,7 +10,7 @@
 |
 */
 
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
 Route::get('/login', function () {
 	return redirect('/home');
 })->name('login');
@@ -35,7 +35,7 @@ Route::prefix('/company')->group(function () {
 	Route::post('/sendMessage', 'CompanyController@sendMessage')->name('company.send_message');
 	Route::post('/getMessage', 'CompanyController@getMessage')->name('company.message');
 	Route::get('/', function () {
-		return redirect()->route('company.profile');
+		return redirect('/home');
 	});
 });
 Route::prefix('/user')->group(function () {
@@ -54,6 +54,9 @@ Route::prefix('/user')->group(function () {
 	Route::get('/', function () {
 		return redirect()->route('user.profile');
 	});
+	Route::get('/home', function () {
+		return redirect()->route('user.login');
+	});
    //
 	Route::post('/add','UserController@add_to_cart')->name('add_to_cart');
 	Route::post('/fileupload','UserController@fileupload')->name('file_upload');
@@ -69,9 +72,9 @@ Route::get('/', function () {
 
 
 Route::prefix('/home')->group(function () {
-	/*Route::get('/', function () {
+	Route::get('/', function () {
 		return View::make('client.pages.index');
-	});*/
+	});
 	Route::get('/cart','UserController@view_cart')->name('view_cart');
 	Route::get('/delete-cart/{id}','UserController@delete_cart');
 	Route::post('/update-cart','UserController@update_cart');
@@ -138,9 +141,10 @@ Route::prefix('writer')->group(function () {
 });
 */
 Route::prefix('/writer')->group(function(){
-		Route::get('/', function () {
+	Route::get('/', function () {
 		return redirect()->route('writer.home');
 	});
+
 	Route::get('/login','Auth\WriterLoginController@showWriterLoginForm')->name('writer.login');
 	Route::post('/login','Auth\WriterLoginController@writerLogin')->name('writer.login.submit');
 	Route::post('/logout','Auth\WriterLoginController@logout')->name('writers.logout');
@@ -216,10 +220,8 @@ Route::prefix('/admin')->group(function(){
 	Route::get('edit_products', function () {
 		return View::make('admin.pages.edit_products');
 	});
+	Route::get('my_account', 'AdminController@my_profile');
 
-	Route::get('my_account', function () {
-		return View::make('admin.pages.my_account');
-	});
 	Route::get('order_lists', function () {
 		return View::make('admin.pages.order_lists');
 	});

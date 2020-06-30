@@ -36,6 +36,10 @@ class AdminController extends Controller
     {
         return view('admin.pages.index');
     }
+    public function my_account()
+    {
+        return view('admin.pages.my_account');
+    }
     public function chat(Request $request)
     {
         $conv_rst = Conversation::leftJoin('user', 'user.id', '=', 'conversation.sender_id')->where([['reciever_id', $request->u_id],['type', 'admin']])->orderBy('updated_at', 'desc')->get();

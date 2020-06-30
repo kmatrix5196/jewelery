@@ -27,7 +27,7 @@ class CompanyLoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/company';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -54,7 +54,7 @@ class CompanyLoginController extends Controller
         ]);
 */
         if (Auth::guard('company')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
+            Auth::guard('user')->logout();
             return redirect()->intended('/home');
         }
         return back()->withInput($request->only('email', 'remember'));
