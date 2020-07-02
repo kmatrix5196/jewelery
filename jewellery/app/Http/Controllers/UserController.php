@@ -29,6 +29,34 @@ class UserController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
+    public function view_index(){
+        $userid = Auth::id();
+        $temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
+        ->where('gallery.type','=','typemain')
+        ->leftJoin('company','product.company_id','=','company.id')
+        ->select('product.*','gallery.url','company.name as c_name')
+        ->orderBy('product.created_at','DESC')
+        ->get();
+        $design_products=Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
+        ->where('gallery.type','=','typemain')
+        ->where('product.highlight','=','design')
+        ->select('product.*','gallery.url')
+        ->orderBy('product.created_at','DESC')
+        ->get();
+        $value_products=Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
+        ->where('gallery.type','=','typemain')
+        ->where('product.highlight','=','value')
+        ->select('product.*','gallery.url')
+        ->orderBy('product.created_at','DESC')
+        ->get();
+        $cart=Cart::leftJoin('product','product.id','=','cart.product_id')
+        ->where('cart.user_id','=',$userid)
+        ->leftJoin('gallery','gallery.product_id','=','cart.product_id')
+        ->where('gallery.type','=','typemain')
+        ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
+        ->get();
+        return view('client.pages.index',['temp_products' => $temp_products,'design_products'=>$design_products,'value_products'=>$value_products,'cart'=>$cart]);
+    }
     public function add_to_cart(Request $request)
     {
         

@@ -575,7 +575,7 @@ $( document ).ready(function() {
         }
     });
     if (route) {
-        setInterval(function () {getNotification()}, 5000);
+        setInterval(function () {getNotification()}, 180000);
     }
     $(".chat-contact-list li a:first").click();
     $('.create_con').click(function(event){
@@ -699,6 +699,7 @@ $( document ).ready(function() {
 });
 function viewChat(conv_id) {
         console.log(current_conv)
+        getNotification();
         current_conv = conv_id;
         
         $('#conv_id').val(current_conv);

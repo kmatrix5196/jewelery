@@ -7,9 +7,10 @@ use App\Models\Product;
 use App\Models\Gallery;
 use App\Models\Company;
 use App\Models\Cart;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -30,44 +31,49 @@ class ProductController extends Controller
 else if (\Request::is('writer/*')) { 
   $this->middleware('auth:writer');
  // dd("hh1");
-}/*
-else {
-	$this->middleware('auth:user');
-}*/
+}
+// else {
+	// $this->middleware('auth:user');
+// }
       	
     }
+    
 
 	public function view_index(){
-		$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
-		->where('gallery.type','=','typemain')
-		->leftJoin('company','product.company_id','=','company.id')
-		->select('product.*','gallery.url','company.name as c_name')
-		->orderBy('product.created_at','DESC')
-		->get();
-		$design_products=Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
-		->where('gallery.type','=','typemain')
-		->where('product.highlight','=','design')
-		->select('product.*','gallery.url')
-		->orderBy('product.created_at','DESC')
-		->get();
-		$value_products=Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
-		->where('gallery.type','=','typemain')
-		->where('product.highlight','=','value')
-		->select('product.*','gallery.url')
-		->orderBy('product.created_at','DESC')
-		->get();
-		if (Auth::id()) {
-			$userid = Auth::id();
-			$cart=Cart::leftJoin('product','product.id','=','cart.product_id')
-	        ->where('cart.user_id','=',$userid)
-	        ->leftJoin('gallery','gallery.product_id','=','cart.product_id')
-	        ->where('gallery.type','=','typemain')
-	        ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
-	        ->get();
-	        return view('client.pages.index',['temp_products' => $temp_products,'design_products'=>$design_products,'value_products'=>$value_products,'cart'=>$cart]);
+		if (Auth::guard('user')->check() == 1) {
+	// // $this->middleware('auth:user');
+
+			// $userid = Auth::id();
+			// $cart=Cart::leftJoin('product','product.id','=','cart.product_id')
+	  //       ->where('cart.user_id','=',$userid)
+	  //       ->leftJoin('gallery','gallery.product_id','=','cart.product_id')
+	  //       ->where('gallery.type','=','typemain')
+	  //       ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
+	  //       ->get();
+	  //       echo auth()->id();
+	  //       return view('client.pages.index',['temp_products' => $temp_products,'design_products'=>$design_products,'value_products'=>$value_products,'cart'=>$cart]);
+        return app('App\Http\Controllers\UserController')->view_index();
+
 		}
         else{
-
+        	$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
+        ->where('gallery.type','=','typemain')
+        ->leftJoin('company','product.company_id','=','company.id')
+        ->select('product.*','gallery.url','company.name as c_name')
+        ->orderBy('product.created_at','DESC')
+        ->get();
+        $design_products=Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
+        ->where('gallery.type','=','typemain')
+        ->where('product.highlight','=','design')
+        ->select('product.*','gallery.url')
+        ->orderBy('product.created_at','DESC')
+        ->get();
+        $value_products=Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
+        ->where('gallery.type','=','typemain')
+        ->where('product.highlight','=','value')
+        ->select('product.*','gallery.url')
+        ->orderBy('product.created_at','DESC')
+        ->get();
         	return view('client.pages.index',['temp_products' => $temp_products,'design_products'=>$design_products,'value_products'=>$value_products]);	
         }
 		

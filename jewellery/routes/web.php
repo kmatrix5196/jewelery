@@ -72,9 +72,10 @@ Route::get('/', function () {
 
 
 Route::prefix('/home')->group(function () {
-	Route::get('/', function () {
-		return View::make('client.pages.index');
-	});
+	// Route::get('/', function () {
+	// 	return View::make('client.pages.index');
+	// });
+	
 	Route::get('/cart','UserController@view_cart')->name('view_cart');
 	Route::get('/delete-cart/{id}','UserController@delete_cart');
 	Route::post('/update-cart','UserController@update_cart');
