@@ -98,6 +98,6 @@ class UserRegisterController extends Controller
                 $user->save();
             };
         };
-        return redirect()->intended('user/login');
+        return redirect('user/login');
     }
 }

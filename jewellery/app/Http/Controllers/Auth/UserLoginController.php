@@ -27,7 +27,7 @@ class UserLoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/user';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -54,6 +54,8 @@ class UserLoginController extends Controller
         ]);
 
         if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+            Auth::guard('company')->logout();
+
             return redirect()->intended('/home');
         }
         return back()->withInput($request->only('email', 'remember'));

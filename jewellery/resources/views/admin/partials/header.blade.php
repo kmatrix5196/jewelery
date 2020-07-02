@@ -8,7 +8,7 @@ Header Section Start -->
 	@php ($user = 'writer')
 @endauth
 @else
-	return redirect()->route('admin.login');
+	@php redirect()->route('admin.login');
 @endif
 <div class="header-section">
 	<div class="container-fluid">
@@ -213,11 +213,17 @@ Header Section Start -->
 
 		<nav class="side-header-menu" id="side-header-menu">
 			<ul>
-				<li><a href="/
-					{{$user}}/index"><i class="ti-home"></i> <span>
+				<li>
 
-					@auth("writer"){{ __('Writer Dashboard') }}@endauth
-				@auth("admin"){{ __('Admin Dashboard') }}@endauth</span></a>
+					@auth("writer")
+					<a href="/
+					writer/index"><i class="ti-home"></i> <span>
+					{{ __('Writer Dashboard') }}
+					@endauth
+				@auth("admin")
+				<a href="/
+					admin/index"><i class="ti-home"></i> <span>
+					{{ __('Admin Dashboard') }}@endauth</span></a>
 
 				</li>
 				<li class="has-sub-menu"><a href="#"><i class="ti-home"></i> <span>Manage Products</span><span class="menu-expand"><i class="zmdi zmdi-chevron-down"></i></span></a>
