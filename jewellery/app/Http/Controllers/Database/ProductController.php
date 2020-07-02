@@ -8,6 +8,7 @@ use App\Models\Gallery;
 use App\Models\Company;
 use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\DB;
 
@@ -55,15 +56,21 @@ else {
 		->select('product.*','gallery.url')
 		->orderBy('product.created_at','DESC')
 		->get();
+		if (Auth::id()) {
+			$userid = Auth::id();
+			$cart=Cart::leftJoin('product','product.id','=','cart.product_id')
+	        ->where('cart.user_id','=',$userid)
+	        ->leftJoin('gallery','gallery.product_id','=','cart.product_id')
+	        ->where('gallery.type','=','typemain')
+	        ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
+	        ->get();
+	        return view('client.pages.index',['temp_products' => $temp_products,'design_products'=>$design_products,'value_products'=>$value_products,'cart'=>$cart]);
+		}
+        else{
 
-		/*$userid=auth()->user()->id;
-		$cart=Cart::leftJoin('product','product.id','=','cart.product_id')
-        ->where('cart.user_id','=',$userid)
-        ->leftJoin('gallery','gallery.product_id','=','cart.product_id')
-        ->where('gallery.type','=','typemain')
-        ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
-        ->get();*/
-		return view('client.pages.index',['temp_products' => $temp_products,'design_products'=>$design_products,'value_products'=>$value_products]);
+        	return view('client.pages.index',['temp_products' => $temp_products,'design_products'=>$design_products,'value_products'=>$value_products]);	
+        }
+		
 	}
 	public function add()
 	{
