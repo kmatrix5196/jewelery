@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\UserController;
 
 class ProductController extends Controller
 {
@@ -22,7 +23,7 @@ class ProductController extends Controller
 	 * @param  Request  $request
 	 * @return Response
 	 */
-		    public function __construct()
+	public function __construct()
     {
     	if (\Request::is('admin/*')) { 
   $this->middleware('auth:admin');
@@ -52,7 +53,8 @@ else if (\Request::is('writer/*')) {
 	  //       ->get();
 	  //       echo auth()->id();
 	  //       return view('client.pages.index',['temp_products' => $temp_products,'design_products'=>$design_products,'value_products'=>$value_products,'cart'=>$cart]);
-        return app('App\Http\Controllers\UserController')->view_index();
+			// $this->userController = new UserController();
+	return redirect('/user/');
 
 		}
         else{

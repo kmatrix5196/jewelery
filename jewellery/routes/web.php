@@ -54,6 +54,8 @@ Route::prefix('/user')->group(function () {
 	Route::get('/', function () {
 		return redirect()->route('user.profile');
 	});
+	Route::get('/', 'UserController@view_index')->name('user.home');
+
 	Route::get('/home', function () {
 		return redirect()->route('user.login');
 	});

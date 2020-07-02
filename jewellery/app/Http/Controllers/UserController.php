@@ -30,7 +30,11 @@ class UserController extends Controller
      */
 
     public function view_index(){
+       // $this->middleware('auth:user');
+        // parent::__construct();
         $userid = Auth::id();
+
+        // echo $userid;
         $temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')
         ->where('gallery.type','=','typemain')
         ->leftJoin('company','product.company_id','=','company.id')
