@@ -350,10 +350,9 @@ else if (\Request::is('writer/*')) {
 	}
 	public function order_lists()
 	{
-		$orders = Order::leftJoin('user', 'order.user_id', '=', 'user.id')->select('user.name as user_name','order.payment_method as payment_method','order.payment_photo as payment_photo',)
+		$orders = Order::leftJoin('user', 'order.user_id', '=', 'user.id')->select('user.first_name as first_name','user.last_name as last_name','order.payment_method as payment_method','order.payment_photo as payment_photo','order.id as order_id','order.created_at as order_date')
 			->get();
-			return view('admin.pages.product_list',['temp_products' => $temp_products]);
-		return view('admin.pages.order_lists');
+			return view('admin.pages.order_lists',['orders' => $orders]);
 	}
 
 }

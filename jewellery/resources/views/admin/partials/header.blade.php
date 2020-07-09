@@ -270,7 +270,7 @@ Header Section Start -->
                 <li>
                 @endauth
 
-				<li><a href="/{{$user}}/table-data-table"><i class="ti-layout"></i> <span>Data Table</span></a></li>
+				
 				<li><a href="/{{$user}}/profile"><i class="fa fa-user-circle"></i> <span>My Profile</span></a></li>
 			</ul>
 		</nav>
