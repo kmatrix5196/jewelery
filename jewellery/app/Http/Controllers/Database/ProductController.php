@@ -7,7 +7,7 @@ use App\Models\Product;
 use App\Models\Gallery;
 use App\Models\Company;
 use App\Models\Cart;
-
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -347,6 +347,13 @@ else if (\Request::is('writer/*')) {
 
 		Product::where('id', '=', $id)->delete();
 		return redirect()->route('view_product');
+	}
+	public function order_lists()
+	{
+		$orders = Order::leftJoin('user', 'order.user_id', '=', 'user.id')->select('user.name as user_name','order.payment_method as payment_method','order.payment_photo as payment_photo',)
+			->get();
+			return view('admin.pages.product_list',['temp_products' => $temp_products]);
+		return view('admin.pages.order_lists');
 	}
 
 }

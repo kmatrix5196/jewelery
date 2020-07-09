@@ -225,9 +225,7 @@ Route::prefix('/admin')->group(function(){
 	});
 	Route::get('my_account', 'AdminController@my_profile');
 
-	Route::get('order_lists', function () {
-		return View::make('admin.pages.order_lists');
-	});
+	Route::get('order_lists',"Database\ProductController@order_lists");
 	Route::get('product_payment', function () {
 		return View::make('admin.pages.product_payment');
 	});

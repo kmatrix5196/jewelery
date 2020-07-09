@@ -15,8 +15,9 @@ class CreateOrderTable extends Migration
     {
         Schema::create('order', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned()->nullable();;
-            $table->bigInteger('total')->unsigned()->nullable();;
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->string('payment_method')->nullable();
+            $table->string('payment_photo')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
         });
