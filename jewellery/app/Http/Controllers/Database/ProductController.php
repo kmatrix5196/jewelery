@@ -207,6 +207,7 @@ else if (\Request::is('writer/*')) {
 		$product->instock = $request->p_instock;
 		$product->company_id = $company_id;
 		$product->product_code = $request->p_code;
+		$product->deli_fee = $request->deli_fee;
 		$product->save();
 
 		if ($product->save()) {
@@ -291,6 +292,7 @@ else if (\Request::is('writer/*')) {
 		$product->instock = $request->p_instock;
 		$product->company_id = $company_id;
 		$product->product_code = $request->p_code;
+		$product->deli_fee = $request->deli_fee;
 		$product->save();
 
 			$product_id=$request->p_id;

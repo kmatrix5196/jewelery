@@ -8,6 +8,7 @@ use App\Models\Conversation;
 use App\Models\Admin;
 use App\Models\Company;
 use App\Models\Conversation_Detail;
+use App\Models\Cart_history;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -88,7 +89,19 @@ class UserController extends Controller
         return view('client.pages.cart',['cart'=>$cart]);
     }
     public function delete_cart($id){
-        $userid=auth()->user()->id;
+        $cart=Cart::leftJoin('product','product.id','=','cart.product_id')
+        ->where('cart.id','=',$id)
+        ->leftJoin('gallery','gallery.product_id','=','cart.product_id')
+        ->where('gallery.type','=','typemain')
+        ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
+        ->first();
+        $cart_history=new Cart_history;
+        $cart_history->user_id=auth()->user()->id;
+        $cart_history->product_id=$cart->p_id;
+        $cart_history->checkout=0;
+        $cart_history->quantity=$cart->quantity;
+        $cart_history->save();  
+
         Cart::where('id','=',$id)->delete();
         return redirect()->route('view_cart');
     }

@@ -108,8 +108,7 @@ Route::prefix('/home')->group(function () {
 		Route::get('view/{id}', 'Database\BlogController@view_blog_detail')->name('blog_detail');
 	});
 	Route::prefix('shop')->group(function () {
-		Route::get('', 'Database\ProductController@view_product');
-		Route::get('view', 'Database\ProductController@view_product')->name('view_product_user');
+		Route::get('', 'Database\ProductController@view_product')->name('view_product_user');
 		Route::get('/{id}','Database\ProductController@view_product_dtl');
 
 		Route::get('/category/{category}','Database\ProductController@view_product_by_category');

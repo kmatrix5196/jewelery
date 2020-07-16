@@ -51,10 +51,10 @@
                                         
                                        
                                         <li> <span>Hightlight</span> <span>{{$product_->highlight}}</span> </li>
-                                        <li> <span>Price</span> <span>{{$product_->price}}</span> </li>
-                                        <li> <span>Discount </span> <span>{{$product_->discount}}</span> </li>
+                                        <li> <span>Price</span> <span>{{$product_->price}}  MMK </span> </li>
+                                        <li> <span>Discount </span> <span>{{$product_->discount}} MMK </span> </li>
                                         <li> <span>Instock</span> <span>{{$product_->instock}}</span> </li>
-                                        
+                                        <li> <span>Delivery Fee</span> <span>{{$product_->deli_fee}} MMK </span> </li>
                                         <li> <span>Description</span> <span>{{$product_->description}}</span> </li>
 
                                         <li> <span>Company</span> <span>{{$product_->company_id}}</span> </li>

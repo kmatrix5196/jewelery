@@ -50,9 +50,9 @@
                                     <tbody>
                                         @php
                                         {{$total=0;
-                                            $tax=1;
+                                            $tax=11;
 
-                                            $shipping=5000;
+                                            $shipping=0;
                                         }}
                                         @endphp
                                             @isset($cart)
@@ -84,10 +84,14 @@
                                             <td class="pro-subtotal" id="zzz"><span>
                                             {{number_format($c['discount']*$c['quantity'])}} MMK</span></td>
                                             @php
-                                            {{$total +=$c['discount']*$c['quantity'];}}
+                                            {{$total +=$c['discount']*$c['quantity'];
+                                            }}
                                             @endphp
+
                                             @endif
-                    
+                                            @php
+                                            {{$shipping =$shipping+$c['deli_fee'];}}
+                                            @endphp
                                             <td class="pro-remove"><a href="/home/delete-cart/{{$c['c_id']}}"><i class="fa fa-trash-o"></i></a></td>
                                         </tr>
                                         @endforeach

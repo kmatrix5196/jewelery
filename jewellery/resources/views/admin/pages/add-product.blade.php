@@ -87,7 +87,8 @@
                                     <option value="Limited">Limited</option>
                                     <option value="Small Value">Small Value</option>
                                 </select>
-                              </div>
+                            </div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" step="any" placeholder="Delivery Fee*" name="deli_fee" required autocomplete="off"></div>
 
                         </div>
 

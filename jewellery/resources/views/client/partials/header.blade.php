@@ -104,12 +104,6 @@
                                     @endauth
                                     @auth("user")
                                     <li>
-                                        <a href="/home/wishlist">
-                                        <img src="https://img.icons8.com/dotty/30/000000/like.png">
-                                            <div class="notification">0</div>
-                                        </a>
-                                    </li>
-                                    <li>
                                         <form action="{{route('user.chat')}}" method="post">
                                             @csrf
                                             <input type="text" value="{{Auth::guard('user')->user()->id}}" name="u_id" hidden="true">
@@ -117,6 +111,13 @@
                                             <div class="notification" id="chat_notification"></div></button></a>
                                         </form>
                                     </li>
+                                    <li>
+                                        <a href="/home/wishlist">
+                                        <img src="https://img.icons8.com/dotty/30/000000/like.png">
+                                            <div class="notification">0</div>
+                                        </a>
+                                    </li>
+                                    
 
                                     <li>
                                         <a href="#" class="minicart-btn">
@@ -130,7 +131,6 @@
                                     <li class="user-hover">
                                         <a href="#">
                                         <img src="https://img.icons8.com/ios/32/000000/user-male-circle.png">
-                                          <div class="notification">4</div>
                                         </a>
 
                                         <ul class="dropdown-list">

@@ -86,6 +86,8 @@
                                     <option value="Small Value">Small Value</option>
                                 </select>
                               </div>
+                               <div class="col-lg-6 col-12 mb-30"><input class="form-control" type="number" min="0" step="any" placeholder="Delivery Fee*"
+                               value="{{$temp_product['deli_fee']}}" name="deli_fee" required autocomplete="off"></div>
                         </div>
 
                         <h4 class="title">Product Gallery</h4>

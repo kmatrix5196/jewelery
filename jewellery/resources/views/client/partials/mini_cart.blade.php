@@ -1,9 +1,9 @@
 @isset($cart)
 @php
                                         {{$total=0;
-                                            $tax=1;
+                                            $tax=11;
 
-                                            $shipping=5000;
+                                            $shipping=0;
                                         }}
                                         @endphp
 <div class="offcanvas-minicart-wrapper">
@@ -40,6 +40,9 @@
                                             @endphp
                                       <span class="cart-price">{{number_format($c['discount'])}} MMK</span>      
                                     @endif
+                                    @php
+                                            {{$shipping =$shipping+$c['deli_fee'];}}
+                                            @endphp
                                 </p>
                             </div>
                             <a href="/home/delete-cart/{{$c['c_id']}}"><button class="minicart-remove"><i class="pe-7s-close"></i></button></a>
