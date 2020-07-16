@@ -11,7 +11,7 @@
                 <!-- Page Heading Start -->
                 <div class="col-12 col-lg-auto mb-20">
                     <div class="page-heading">
-                        <h3>eCommerce <span>/ Order Lists </span></h3>
+                        <h3>Jewelery Site <span>/ Order Lists </span></h3>
                     </div>
                 </div><!-- Page Heading End -->
 
@@ -25,37 +25,44 @@
                         <table class="table table-vertical-middle">
                             <thead>
                                 <tr>
-                                    <th>Image</th>
+                                    
                                     <th>Order ID</th>
-                                    <th>Customer</th>
-
-                                    <th>Product Name</th>
-                                    <th>Price</th>
-                                    <th>Quentity</th>
-                                    <th>Date</th>
-                                    <th>Status</th>
+                                    <th>Payment Method</th>
+                                    <th>Payment Photo</th>
+                                    <th>Total</th>
+                                    <th>Shipping Address</th>
+                                    <th>Ordered Date</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @isset($orders)
+                                @foreach($orders as $order)
                                 <tr>
-                                    <td><img src="{{asset('/img/images/sample/product-sample-60.jpg')}}" alt="" class="product-image rounded-circle"></td>
-                                    <td>#MSP40022</td>
-                                    <td>Sean Oliver</td>
-
-                                    <td><a href="#">Jewelry Title 1</a></td>
-                                    <td>$600.00</td>
-                                    <td>03 pyc</td>
-                                    <td>13 Feb 2018</td>
-                                    <td><span class="badge badge-danger">Due</span></td>
-                                    <td class="action h4">
+                                   <td>
+                                       {{$order->order_id}}
+                                   </td>
+                                   <td>
+                                       {{$order->payment_method}}
+                                   </td>
+                                   <td>
+                                       <img src="{{asset($order->payment_photo)}}" alt="" class="product-image rounded-circle" style="width: 50px;height: 50px;">
+                                   </td>
+                                   <td>1000 Kyats</td>
+                                   <td>Hlaing,Yangon</td>
+                                   <td>
+                                       {{$order->order_date}}
+                                   </td>
+                                   <td>
                                         <div class="table-action-buttons">
-                                            <a class="view button button-box button-xs button-primary" href="product-details.php"><i class="zmdi zmdi-more"></i></a>
-                                            <a class="edit button button-box button-xs button-info" href="#"><i class="zmdi zmdi-edit"></i></a>
-                                            <a class="delete button button-box button-xs button-danger" href="#"><i class="zmdi zmdi-delete"></i></a>
+                                            <a class="view button button-box button-xs button-primary" href="/admin/product/view/{{$order['order_id']}}"><i class="zmdi zmdi-more"></i></a>
+                                        
+                                            <a class="delete button button-box button-xs button-danger" href="{{route('delete_product', $order['order_id'])}}"><i class="zmdi zmdi-delete"></i></a>
                                         </div>
                                     </td>
                                 </tr>
+                                @endforeach
+                                @endisset
                             </tbody>
                         </table>
                     </div>
