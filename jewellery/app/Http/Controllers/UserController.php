@@ -9,6 +9,10 @@ use App\Models\Admin;
 use App\Models\Company;
 use App\Models\Conversation_Detail;
 use App\Models\Cart_history;
+use App\Models\Gallery;
+use App\Models\Premium;
+use App\Models\Blog;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -62,6 +66,108 @@ class UserController extends Controller
         ->get();
         return view('client.pages.index',['temp_products' => $temp_products,'design_products'=>$design_products,'value_products'=>$value_products,'cart'=>$cart]);
     }
+    public function view_shop(){
+        $userid = Auth::id();
+         $cart=Cart::leftJoin('product','product.id','=','cart.product_id')
+        ->where('cart.user_id','=',$userid)
+        ->leftJoin('gallery','gallery.product_id','=','cart.product_id')
+        ->where('gallery.type','=','typemain')
+        ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
+        ->get();
+        $temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')->where('gallery.type','=','typemain')->leftJoin('company','product.company_id','=','company.id')->select('product.*','gallery.url','company.name as c_name')->orderBy('product.created_at','DESC')->paginate(12);
+    return view('client.pages.shop',['temp_products' => $temp_products,'cart'=>$cart]);
+    }
+    public function view_shop_detail($id){
+        $userid = Auth::id();
+         $cart=Cart::leftJoin('product','product.id','=','cart.product_id')
+        ->where('cart.user_id','=',$userid)
+        ->leftJoin('gallery','gallery.product_id','=','cart.product_id')
+        ->where('gallery.type','=','typemain')
+        ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
+        ->get();
+        $product_rst = Product::leftJoin('company','product.company_id','=','company.id')
+        ->where('product.id','=', $id)
+        ->select('product.*','company.name as c_name')->first();
+
+        $temp_products = Product::orderBy('created_at','DESC')->limit(6)->get();
+        $gallerymain=Gallery::where('product_id','=',$id)->where('type','typemain')->first();
+        return view('client.pages.product-details',['temp_product' => $product_rst,'temp_products' => $temp_products,'gallerymain' => $gallerymain,'cart'=>$cart]);
+    
+    }
+    public function view_premium(){
+        $userid = Auth::id();
+         $cart=Cart::leftJoin('product','product.id','=','cart.product_id')
+        ->where('cart.user_id','=',$userid)
+        ->leftJoin('gallery','gallery.product_id','=','cart.product_id')
+        ->where('gallery.type','=','typemain')
+        ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
+        ->get();
+        $premium = DB::table('premium')->select('id','photo','company_id')->get();
+            return view('client.pages.premium_show',['premium' => $premium,'cart'=>$cart]);
+    }
+    public function view_premium_detail($id){
+        $userid = Auth::id();
+         $cart=Cart::leftJoin('product','product.id','=','cart.product_id')
+        ->where('cart.user_id','=',$userid)
+        ->leftJoin('gallery','gallery.product_id','=','cart.product_id')
+        ->where('gallery.type','=','typemain')
+        ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
+        ->get();
+        $premium = DB::table('premium')->where('id',$id)->get();
+            return view('client.pages.premium-detail',['premium' => $premium,'cart'=>$cart]);
+    }
+    public function view_blog(){
+        $userid = Auth::id();
+         $cart=Cart::leftJoin('product','product.id','=','cart.product_id')
+        ->where('cart.user_id','=',$userid)
+        ->leftJoin('gallery','gallery.product_id','=','cart.product_id')
+        ->where('gallery.type','=','typemain')
+        ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
+        ->get();
+        $temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.date','ASC')->get();
+                
+            $cur_time = Carbon::now();
+            //DB::enableQueryLog();
+
+            $near_blog = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->whereDate('date', '>=', $cur_time)->orderBy('blog.date','ASC')->first();
+//dd(DB::getQueryLog());
+            return view('client.pages.trade_show',['temp_blogs' => $temp_blogs,'near_blog'=>$near_blog,'cart'=>$cart]);
+    }
+    public function view_blog_detail($id){
+        $userid = Auth::id();
+         $cart=Cart::leftJoin('product','product.id','=','cart.product_id')
+        ->where('cart.user_id','=',$userid)
+        ->leftJoin('gallery','gallery.product_id','=','cart.product_id')
+        ->where('gallery.type','=','typemain')
+        ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
+        ->get();
+        $blog = DB::table('blog')->where('blog_id',$id)->get();
+            $blog_images=DB::table('blog_image')->where('blog_id',$id)->get();
+            return view('client.pages.blog-details',['blog' => $blog,'blog_images'=>$blog_images,'cart'=>$cart]);
+    }
+    public function view_supplier(){
+        $userid = Auth::id();
+         $cart=Cart::leftJoin('product','product.id','=','cart.product_id')
+        ->where('cart.user_id','=',$userid)
+        ->leftJoin('gallery','gallery.product_id','=','cart.product_id')
+        ->where('gallery.type','=','typemain')
+        ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
+        ->get();
+        $companies = DB::table('company')->get();
+      return view('client.pages.supplier',['companies' => $companies,'cart'=>$cart]);
+    }
+    public function view_supplier_detail($id){
+        $userid = Auth::id();
+         $cart=Cart::leftJoin('product','product.id','=','cart.product_id')
+        ->where('cart.user_id','=',$userid)
+        ->leftJoin('gallery','gallery.product_id','=','cart.product_id')
+        ->where('gallery.type','=','typemain')
+        ->select('cart.*','cart.id as c_id','product.*','product.id as p_id','gallery.url')
+        ->get();
+        $company = DB::table('company')->where('id',$id)->get();
+            return view('admin.pages.company_detail',['company' => $company,'cart'=>$cart]);
+    }
+
     public function add_to_cart(Request $request)
     {
         

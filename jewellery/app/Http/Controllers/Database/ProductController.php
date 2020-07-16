@@ -101,8 +101,12 @@ else if (\Request::is('writer/*')) {
 			->get();
 			return view('admin.pages.product_list',['temp_products' => $temp_products]);
 		}
-	
+		else if (Auth::guard('user')->check() == 1) {
+
+			return redirect('/user/shop');
+		}
 		else {
+
 			$temp_products =  Product::leftJoin('gallery', 'product.id', '=', 'gallery.product_id')->where('gallery.type','=','typemain')->leftJoin('company','product.company_id','=','company.id')->select('product.*','gallery.url','company.name as c_name')->orderBy('product.created_at','DESC')->paginate(12);
 			return view('client.pages.shop',['temp_products' => $temp_products]);
 		}
@@ -129,6 +133,10 @@ else if (\Request::is('writer/*')) {
 			$id1=$pro->id;
 			$gallery=DB::table('gallery')->where('product_id',$id1)->orderBy('id')->get();
 			return view('admin.pages.product-detail',['product' => $product,'gallery'=>$gallery]);
+		}
+		else if (Auth::guard('user')->check() == 1) {
+
+			return redirect('/user/shop/'.$id);
 		}
 		else {
 			$gallerymain=Gallery::where('product_id','=',$id)->where('type','typemain')->first();

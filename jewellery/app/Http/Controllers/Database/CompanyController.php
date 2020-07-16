@@ -8,6 +8,7 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Hash;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CompanyController extends Controller
 {
@@ -90,8 +91,15 @@ else if (\Request::is('writer/*')) {
 
 	  public function view_company_c()
 	{
-			$companies = DB::table('company')->get();
-			return view('client.pages.supplier',['companies' => $companies]);
+    if (Auth::guard('user')->check() == 1) {
+
+        return redirect('/user/supplier');
+      }
+      else{
+        $companies = DB::table('company')->get();
+      return view('client.pages.supplier',['companies' => $companies]);
+      }
+			
 	}
 	public function company_detail($id)
 	{

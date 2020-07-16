@@ -55,6 +55,14 @@ Route::prefix('/user')->group(function () {
 		return redirect()->route('user.profile');
 	});
 	Route::get('/', 'UserController@view_index')->name('user.home');
+	Route::get('/shop', 'UserController@view_shop')->name('user.shop');
+	Route::get('/shop/{id}', 'UserController@view_shop_detail')->name('user.pdetail');
+	Route::get('/premium', 'UserController@view_premium')->name('user.premium');
+	Route::get('/premium/{id}', 'UserController@view_premium_detail')->name('user.premiumdetail');
+	Route::get('/trade_show', 'UserController@view_blog')->name('user.blog');
+	Route::get('/trade_show/{id}', 'UserController@view_blog_detail')->name('user.blog-detail');
+	Route::get('/supplier', 'UserController@view_supplier')->name('user.supplier');
+	Route::get('/supplier/{id}', 'UserController@view_supplier_detail')->name('user.supplier-detail');
 
 	Route::get('/home', function () {
 		return redirect()->route('user.login');

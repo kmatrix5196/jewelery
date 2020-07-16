@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Premium;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PremiumController extends Controller
 {
@@ -74,16 +75,29 @@ else if (\Request::is('writer/*')) {
 	}
 	 public function view_premium_c()
 	{		
-		
-			$premium = DB::table('premium')->select('id','photo','company_id')->get();
+			if (Auth::guard('user')->check() == 1) {
+
+				return redirect('/user/premium');
+			}
+			else{
+				$premium = DB::table('premium')->select('id','photo','company_id')->get();
 			return view('client.pages.premium_show',['premium' => $premium]);
+			}
+			
 		
 	
 	}
 	public function view_premium_c_dtl($id)
 	{
-		$premium = DB::table('premium')->where('id',$id)->get();
-		return view('client.pages.premium-detail',['premium' => $premium]);
+		if (Auth::guard('user')->check() == 1) {
+
+				return redirect('/user/premium/'.$id);
+			}
+			else{
+				$premium = DB::table('premium')->where('id',$id)->get();
+			return view('client.pages.premium-detail',['premium' => $premium]);
+			}
+		
 	}
 	
 	public function premium_detail($id)

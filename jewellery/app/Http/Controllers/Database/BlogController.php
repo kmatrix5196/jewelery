@@ -8,6 +8,7 @@ use App\Models\Blog_Image;
 use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
@@ -43,6 +44,10 @@ else if (\Request::is('writer/*')) {
 			return view('admin.pages.blog_list',['temp_blogs' => $temp_blogs]);
 
 		}
+		else if (Auth::guard('user')->check() == 1) {
+
+				return redirect('/user/trade_show');
+			}
 		else {
 			
 				$temp_blogs = Blog::leftJoin('blog_image','blog_image.blog_id', '=', 'blog.blog_id')->orderBy('blog.date','ASC')->get();
@@ -63,10 +68,14 @@ else if (\Request::is('writer/*')) {
 		$blog_images=DB::table('blog_image')->where('blog_id',$id)->get();
 			return view('admin.pages.blog_detail',['blog' => $blog,'blog_images'=>$blog_images]);
 		}
+		else if (Auth::guard('user')->check() == 1) {
+
+				return redirect('/user/trade_show/'.$id);
+			}
 		else
 		{
 			$blog = DB::table('blog')->where('blog_id',$id)->get();
-		$blog_images=DB::table('blog_image')->where('blog_id',$id)->get();
+			$blog_images=DB::table('blog_image')->where('blog_id',$id)->get();
 			return view('client.pages.blog-details',['blog' => $blog,'blog_images'=>$blog_images]);
 		}
 
